@@ -11,14 +11,14 @@ public class MainPantalles extends PApplet {
 
     public void settings(){
         //fullScreen();                       // Pantalla completa
-        size(1920, 1080);        // Pantalla HD
+        size(1336, 768);        // Pantalla HD
         smooth(10);
     }
 
     public void setup(){
         noStroke();                         // Sense bordes
         textAlign(CENTER); textSize(18);   // Alineació i mida del text
-        gui = new GUI();                   // Constructor de la GUI
+        gui = new GUI(this);           // Constructor de la GUI
     }
 
     public void draw(){

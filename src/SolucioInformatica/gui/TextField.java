@@ -52,9 +52,9 @@ public class TextField {
     public void keyPressed(char key, int keyCode) {
         if (selected) {
             if (keyCode == (int)BACKSPACE) {
-                removeText();
+                borrarTexto();
             } else if (keyCode == 32) {
-                addText(' '); // SPACE
+                añadeTexto(' '); // SPACE
             } else {
 
                 boolean isKeyCapitalLetter = (key >= 'A' && key <= 'Z');
@@ -62,21 +62,21 @@ public class TextField {
                 boolean isKeyNumber = (key >= '0' && key <= '9');
 
                 if (isKeyCapitalLetter || isKeySmallLetter || isKeyNumber) {
-                    addText(key);
+                    añadeTexto(key);
                 }
             }
         }
     }
 
     // Afegeix la lletra c al final del text
-    public void addText(char c) {
+    public void añadeTexto(char c) {
         if (this.text.length() + 1 < w) {
             this.text += c;
         }
     }
 
     // Lleva la darrera lletra del text
-    public void removeText() {
+    public void borrarTexto() {
         if (text.length() > 0) {
             text = text.substring(0, text.length() - 1);
         }
@@ -86,7 +86,6 @@ public class TextField {
     public boolean mouseOverTextField(PApplet p5) {
         return (p5.mouseX >= this.x && p5.mouseX <= this.x + this.w && p5.mouseY >= this.y && p5.mouseY <= this.y + this.h);
     }
-
     // Selecciona el camp de text si pitjam a sobre
     // Deselecciona el camp de text si pitjam a fora
     public void isPressed(PApplet p5) {

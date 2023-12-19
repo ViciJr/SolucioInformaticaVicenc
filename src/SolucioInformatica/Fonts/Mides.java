@@ -1,4 +1,4 @@
-package SolucioInformatica.Font;
+package SolucioInformatica.Fonts;
 
 public class Mides {
 

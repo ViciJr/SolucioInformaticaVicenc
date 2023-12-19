@@ -1,6 +1,12 @@
 package SolucioInformatica.Pantalles;
 
+;
+import SolucioInformatica.gui.Button;
+import SolucioInformatica.gui.TextField;
 import processing.core.PApplet;
+
+
+
 
 import static SolucioInformatica.Pantalles.LayoutNMides.*;
 
@@ -13,9 +19,35 @@ public class GUI {
     // Pantalla Actual
     public PANTALLA pantallaActual;
 
+    //Colors i tipografia
+    Fonts Fonts;
+    Colors Colors;
+
+    // PANTALLA INICIAL Y LOGIN
+    Button BlogIn;
+    TextField TUsuario;
+    TextField TContraseña;
+
+
+
     // Constructor de la GUI
-    public GUI(){
+    public GUI(PApplet p5){
+
         pantallaActual = PANTALLA.INICIO;
+
+        Colors = new Colors(p5);   // Constructor dels colors de l'App
+        Fonts = new Fonts(p5);     // Constructor de les fonts de l'App
+
+        TUsuario = new TextField (p5, XUsuari+marginH, heightPrimeraPantalla+YUsuari, widthPrimeraPantalla, heightPrimeraPantalla /*, "Usuario"*/);
+        TContraseña = new TextField (p5, XContra+marginH, YContra, widthPrimeraPantalla, heightPrimeraPantalla/*, "Contraseña"*/);
+        p5.textFont(Fonts.getFontAt(2));
+        BlogIn = new Button (p5, "HECHO", XHecho+marginH, YHecho, widthPrimeraPantalla, heightPrimeraPantalla);
+        BlogIn.setColors(Colors.getColorAt(0), Colors.getColorAt(1), Colors.getColorAt(2), Colors.getColorAt(3));
+
+
+
+
+
     }
 
 
@@ -23,84 +55,95 @@ public class GUI {
 
     public void dibuixaPantallaInicio(PApplet p5){
 
-        p5.background(55);
-        dibuixaLogo(p5);
-        dibuixaSideBar(p5);
+        p5.background(255);
+        p5.textFont(Fonts.getFontAt(0));
         dibuixaBanner(p5);
-        dibuixaColumnes123(p5);
+        dibuixaLogo(p5);
+        p5.textFont(Fonts.getFontAt(1));
+        dibuixaImatgeMapa(p5);
+       // dibuixaColumnes123(p5);
+
+        BlogIn.display(p5);
+        TUsuario.display(p5);
+        TContraseña.display(p5);
+
+        p5.textFont(Fonts.getFontAt(2));
+        p5.text("   Usuario:", XUsuari+2*marginH, YUsuari*9/7-5);
+        p5.textFont(Fonts.getFontAt(2));
+        p5.text("           Contraseña:", XContra+2*marginH, YContra*8/7-heightPrimeraPantalla-2);
     }
 
     public void dibuixaPantallaAbout(PApplet p5){
-        p5.background(55);
+        p5.background(255);
         dibuixaLogo(p5);
-        dibuixaSideBar(p5);
+        dibuixaImatgeMapa(p5);
         dibuixaBanner(p5);
         dibuixaColumna1(p5);
     }
 
     public void dibuixaPantallaPlano(PApplet p5){
-        p5.background(55);
+        p5.background(255);
         dibuixaLogo(p5);
-        dibuixaSideBar(p5);
+        dibuixaImatgeMapa(p5);
         dibuixaBanner(p5);
         dibuixaColumnes12(p5);
     }
 
     public void dibuixaPantallaSensor(PApplet p5){
 
-        p5.background(55);
+        p5.background(255);
         dibuixaLogo(p5);
-        dibuixaSideBar(p5);
+        dibuixaImatgeMapa(p5);
         dibuixaBanner(p5);
         dibuixaColumnes123(p5);
     }
 
     public void dibuixaPantallaActuador(PApplet p5){
 
-        p5.background(55);
+        p5.background(255);
         dibuixaLogo(p5);
-        dibuixaSideBar(p5);
+        dibuixaImatgeMapa(p5);
         dibuixaBanner(p5);
         dibuixaColumnes123(p5);
     }
 
     public void dibuixaPantallaNuevoSensor(PApplet p5){
 
-        p5.background(55);
+        p5.background(255);
         dibuixaLogo(p5);
-        dibuixaSideBar(p5);
+        dibuixaImatgeMapa(p5);
         dibuixaBanner(p5);
         dibuixaColumnes123(p5);
     }
 
     public void dibuixaPantallaNuevoActuador(PApplet p5){
 
-        p5.background(55);
+        p5.background(255);
         dibuixaLogo(p5);
-        dibuixaSideBar(p5);
+        dibuixaImatgeMapa(p5);
         dibuixaBanner(p5);
         dibuixaColumnes123(p5);
     }
     // ZONES DE LA GUI
 
     public void dibuixaLogo(PApplet p5){
-        p5.fill(200,50,100);
-        p5.rect(marginH, marginV, logoWidth, logoHeight);
+        p5.fill(Colors.getColorAt(0));
+        p5.rect(marginH, marginV, midaLogo, midaLogo);
         p5.fill(0);
-        p5.text("LOGO", marginH + logoWidth/2, marginV + logoHeight/2);
+        p5.text("LOGO", marginH + midaLogo/2, marginV + midaLogo/2);
     }
 
-    public void dibuixaSideBar(PApplet p5){
+    public void dibuixaImatgeMapa(PApplet p5){
         // Zona Sidebar ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-        p5.fill(50,200,100);
-        p5.rect(marginH, 2*marginV + logoHeight, sidebarWidth, sidebarHeight);
+        p5.fill(Colors.getColorAt(2));
+        p5.rect(marginH, 6*marginV + logoHeight, widthImatge, heightImatge);
         p5.fill(0);
-        p5.text("SIDEBAR", marginH + sidebarWidth/2, marginV + logoHeight + sidebarHeight/2);
+        p5.text("IMATGE/MAPA", marginH + widthImatge/2, 3*marginV + logoHeight + heightImatge/2);
     }
 
     public void dibuixaBanner(PApplet p5){
-        p5.fill(240, 100, 50);
-        p5.rect(2*marginH + logoWidth, marginV, bannerWidth, bannerHeight);
+        p5.fill(Colors.getColorAt(1));
+        p5.rect(2*marginH + midaLogo, marginV, bannerWidth, bannerHeight);
         p5.fill(0);
         p5.text("PANTALLA " +  pantallaActual + "("+pantallaActual.ordinal() +")", marginH + logoWidth + bannerWidth/2, marginV + bannerHeight/2);
     }

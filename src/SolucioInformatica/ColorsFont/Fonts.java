@@ -1,6 +1,6 @@
 package SolucioInformatica.ColorsFont;
 
-import SolucioInformatica.Font.Mides;
+import SolucioInformatica.Fonts.Mides;
 import processing.core.PApplet;
 import processing.core.PFont;
 
@@ -18,8 +18,8 @@ public class Fonts {
 
     void setFonts(PApplet p5){
         this.fonts = new PFont[3];
-        this.fonts[0] = p5.createFont("data/TTInterphasesProMonoTrialRegular.ttf", SolucioInformatica.Font.Mides.midaTitol);
-        this.fonts[1] = p5.createFont("data/AltoneTrialRegular.ttf", SolucioInformatica.Font.Mides.midaSubtitol);
+        this.fonts[0] = p5.createFont("data/TTInterphasesProMonoTrialRegular.ttf", SolucioInformatica.Fonts.Mides.midaTitol);
+        this.fonts[1] = p5.createFont("data/AltoneTrialRegular.ttf", SolucioInformatica.Fonts.Mides.midaSubtitol);
         this.fonts[2] = p5.createFont("data/LouisGeorgeCafeBold.ttf", Mides.midaParagraf);
     }
 

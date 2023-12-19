@@ -1,4 +1,4 @@
-package SolucioInformatica.Font;
+package SolucioInformatica.Fonts;
 
 import processing.core.PApplet;
 
@@ -8,7 +8,7 @@ public class Main extends PApplet {
     Fonts fontsApp;
 
     public static void main(String[] args) {
-        PApplet.main("SolucioInformatica.Font.Main", args);
+        PApplet.main("SolucioInformatica.Fonts.Main", args);
     }
 
     public void settings() {

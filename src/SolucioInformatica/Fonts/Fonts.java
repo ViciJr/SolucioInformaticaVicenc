@@ -1,4 +1,4 @@
-package SolucioInformatica.Font;
+package SolucioInformatica.Fonts;
 
 
 import processing.core.PApplet;
@@ -30,7 +30,7 @@ public class Fonts {
         }
 
 
-        PFont getFirstFont(){
+        public PFont getFirstFont(){
             return  this.fonts[0];
         }
 
