@@ -45,7 +45,7 @@ public class Colors{
     }
 
 
-    int getColorAt(int i){
+    public int getColorAt(int i){
         return this.colors[i];
     }
 

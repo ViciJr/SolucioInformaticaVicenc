@@ -24,8 +24,8 @@ public class TextField {
         this.x = x; this.y = y; this.w = w; this.h = h;
         this.bgColor = p5.color(140, 140, 140);
         this.fgColor = p5.color(0, 0, 0);
-        this.selectedColor = p5.color(190, 190, 60);
-        this.borderColor = p5.color(30, 30, 30);
+        this.selectedColor = p5.color(200);
+        this.borderColor = p5.color(0);
         this.borderWeight = 1;
     }
 

@@ -2,6 +2,7 @@ package SolucioInformatica.Pantalles;
 
 ;
 import SolucioInformatica.gui.Button;
+import SolucioInformatica.gui.Table;
 import SolucioInformatica.gui.TextField;
 import processing.core.PApplet;
 
@@ -14,7 +15,7 @@ import static SolucioInformatica.Pantalles.LayoutNMides.*;
 public class GUI {
 
     // Enumerat de les Pantalles de l'App
-    public enum PANTALLA {INICIO, PLANO, ABOUT, SENSOR, ACTUADOR, NUEVOSENSOR, NUEVOACTUADOR};
+    public enum PANTALLA {INICIO, PLANO, SENSORX, ACTUADORX, ESTADISTICASENSORX, ESTADÍSTICAACTUADORX};
 
     // Pantalla Actual
     public PANTALLA pantallaActual;
@@ -28,6 +29,13 @@ public class GUI {
     TextField TUsuario;
     TextField TContraseña;
 
+    // MENÚ I PLÀNOL
+    Button Sensor1, Sensor2, Sensor3, Sensor4, Sensor5, Sensor6, Sensor7;
+    Button Actuador1, Actuador2, Actuador3, Actuador4, Actuador5, Actuador6, Actuador7;
+
+    //SensorX
+    Table ts1, ts2;
+
 
 
     // Constructor de la GUI
@@ -38,15 +46,98 @@ public class GUI {
         Colors = new Colors(p5);   // Constructor dels colors de l'App
         Fonts = new Fonts(p5);     // Constructor de les fonts de l'App
 
-        TUsuario = new TextField (p5, XUsuari+marginH, heightPrimeraPantalla+YUsuari, widthPrimeraPantalla, heightPrimeraPantalla /*, "Usuario"*/);
-        TContraseña = new TextField (p5, XContra+marginH, YContra, widthPrimeraPantalla, heightPrimeraPantalla/*, "Contraseña"*/);
+        //Pantalla inicial
+        TUsuario = new TextField (p5, XUsuari+marginH, heightPrimeraPantalla+YUsuari, widthPrimeraPantalla, heightPrimeraPantalla); /*, "Usuario"*/
+        TContraseña = new TextField (p5, XContra+marginH, YContra, widthPrimeraPantalla, heightPrimeraPantalla); /*, "Contraseña"*/
         p5.textFont(Fonts.getFontAt(2));
         BlogIn = new Button (p5, "HECHO", XHecho+marginH, YHecho, widthPrimeraPantalla, heightPrimeraPantalla);
-        BlogIn.setColors(Colors.getColorAt(0), Colors.getColorAt(1), Colors.getColorAt(2), Colors.getColorAt(3));
+       // BlogIn.setColors(Colors.getColorAt(0), Colors.getColorAt(1), Colors.getColorAt(2), Colors.getColorAt(3));
+
+        //Pantalla Menú i Plànol
+        p5.stroke(0, 2);
+        p5.textFont(Fonts.getFontAt(2));
+        Sensor1 = new Button (p5, "Sensor 1", XSensors, YSensors, widthSensors, heightSensors);
+       // Sensor1.setColors(Colors.getColorAt(0), Colors.getColorAt(1), Colors.getColorAt(2), Colors.getColorAt(3));
+        Sensor2 = new Button (p5, "Sensor 2", XSensors, YSensors+heightSensors, widthSensors, heightSensors);
+       // Sensor2.setColors(Colors.getColorAt(0), Colors.getColorAt(1), Colors.getColorAt(2), Colors.getColorAt(3));
+        Sensor3 = new Button (p5, "Sensor 3", XSensors, YSensors+2*heightSensors, widthSensors, heightSensors);
+       // Sensor3.setColors(Colors.getColorAt(0), Colors.getColorAt(1), Colors.getColorAt(2), Colors.getColorAt(3));
+        Sensor4 = new Button (p5, "Sensor 4", XSensors, YSensors+3*heightSensors, widthSensors, heightSensors);
+       // Sensor4.setColors(Colors.getColorAt(0), Colors.getColorAt(1), Colors.getColorAt(2), Colors.getColorAt(3));
+        Sensor5 = new Button (p5, "Sensor 5", XSensors, YSensors+4*heightSensors, widthSensors, heightSensors);
+       // Sensor5.setColors(Colors.getColorAt(0), Colors.getColorAt(1), Colors.getColorAt(2), Colors.getColorAt(3));
+        Sensor6 = new Button (p5, "Sensor 6", XSensors, YSensors+5*heightSensors, widthSensors, heightSensors);
+       // Sensor6.setColors(Colors.getColorAt(0), Colors.getColorAt(1), Colors.getColorAt(2), Colors.getColorAt(3));
+        Sensor7 = new Button (p5, "Sensor 7", XSensors, YSensors+6*heightSensors, widthSensors, heightSensors);
+       // Sensor7.setColors(Colors.getColorAt(0), Colors.getColorAt(1), Colors.getColorAt(2), Colors.getColorAt(3));
+
+        Actuador1 = new Button (p5, "Actuador 1", XActuadors, YActuadors, widthActuadors, heightActuadors);
+       // Actuador1.setColors(Colors.getColorAt(0), Colors.getColorAt(1), Colors.getColorAt(2),  Colors.getColorAt(3));
+        Actuador2 = new Button (p5, "Actuador 1", XActuadors, YActuadors+heightActuadors, widthActuadors, heightActuadors);
+       // Actuador2.setColors(Colors.getColorAt(0), Colors.getColorAt(1), Colors.getColorAt(2), Colors.getColorAt(3));
+        Actuador3 = new Button (p5, "Actuador 1", XActuadors, YActuadors+2*heightActuadors, widthActuadors, heightActuadors);
+       // Actuador3.setColors(Colors.getColorAt(0), Colors.getColorAt(1), Colors.getColorAt(2), Colors.getColorAt(3));
+        Actuador4 = new Button (p5, "Actuador 1", XActuadors, YActuadors+3*heightActuadors, widthActuadors, heightActuadors);
+       // Actuador4.setColors(Colors.getColorAt(0), Colors.getColorAt(1), Colors.getColorAt(2), Colors.getColorAt(3));
+        Actuador5 = new Button (p5, "Actuador 1", XActuadors, YActuadors+4*heightActuadors, widthActuadors, heightActuadors);
+       // Actuador5.setColors(Colors.getColorAt(0), Colors.getColorAt(1), Colors.getColorAt(2), Colors.getColorAt(3));
+        Actuador6 = new Button (p5, "Actuador 1", XActuadors, YActuadors+5*heightActuadors, widthActuadors, heightActuadors);
+       // Actuador6.setColors(Colors.getColorAt(0), Colors.getColorAt(1), Colors.getColorAt(2), Colors.getColorAt(3));
+        Actuador7 = new Button (p5, "Actuador 1", XActuadors, YActuadors+6*heightActuadors, widthActuadors, heightActuadors);
+       // Actuador7.setColors(Colors.getColorAt(0), Colors.getColorAt(1), Colors.getColorAt(2), Colors.getColorAt(3));
 
 
+        //Pantalla SensorX
+       ts1=new Table(2,5);
+        /*
+        String[][]dades = new String[2][5];
+        dades[0][0]=("Tipo");
+        dades[1][0]=("Ubicación");
+        dades[2][0]=("Puerto Arduino");
+        dades[3][0]=("Actuador/es vinculado/s");
+        dades[4][0]=("Estado actual"); //
 
+        dades[0][1]=("X");
+        dades[1][1]=("X");
+        dades[2][1]=("X");
+        dades[3][1]=("X");
+        dades[4][1]=("X");
 
+       String[]cap = new String[5];
+        cap[0]=dades[0][1];
+        cap[1]=dades[1][1];
+        cap[2]=dades[2][1];
+        cap[3]=dades[3][1];
+        cap[4]=dades[4][1];
+
+        float[]widthCol= new float[5];
+        widthCol[0]=widthTaules/5;
+        widthCol[1]=widthTaules/5;
+        widthCol[2]=widthTaules/5;
+        widthCol[3]=widthTaules/5;
+        widthCol[4]=widthTaules/5;
+
+      //  float widthCol1=widthImatge/5; */
+
+        float tableW = widthTaules, tableH = heightTaules;
+
+        // Número de files (capçalera inclosa) i columnes de la taula
+        int files = 2, columnes = 5;
+
+        // Títols de les columnes
+        String[] headers = {"Tipo", "Ubicación", "Puerto Arduino", "Actuador/es vinculado/s", "Estado actual"};
+
+        // Amplades de les columnes
+        float[] colWidths = {widthTaules/columnes, widthTaules/columnes, widthTaules/columnes, widthTaules/columnes, widthTaules/columnes};
+
+        // Dades de la taula
+        String[][] info = {
+                {"x", "x", "x", "x", "x"},
+        };
+
+        ts1.setData(info);
+        ts1.setHeaders(headers);
+        ts1.setColumnWidths(colWidths);
 
     }
 
@@ -59,9 +150,8 @@ public class GUI {
         p5.textFont(Fonts.getFontAt(0));
         dibuixaBanner(p5);
         dibuixaLogo(p5);
-        p5.textFont(Fonts.getFontAt(1));
-        dibuixaImatgeMapa(p5);
-       // dibuixaColumnes123(p5);
+        p5.textFont(Fonts.getFontAt(2));
+
 
         BlogIn.display(p5);
         TUsuario.display(p5);
@@ -71,58 +161,87 @@ public class GUI {
         p5.text("   Usuario:", XUsuari+2*marginH, YUsuari*9/7-5);
         p5.textFont(Fonts.getFontAt(2));
         p5.text("           Contraseña:", XContra+2*marginH, YContra*8/7-heightPrimeraPantalla-2);
+        p5.textFont(Fonts.getFontAt(1));
+        dibuixaImatgeMapa(p5);
     }
 
-    public void dibuixaPantallaAbout(PApplet p5){
+    public void dibuixaPantallaSensorX(PApplet p5){
         p5.background(255);
-        dibuixaLogo(p5);
-        dibuixaImatgeMapa(p5);
+        p5.textFont(Fonts.getFontAt(0));
         dibuixaBanner(p5);
-        dibuixaColumna1(p5);
+        dibuixaLogo(p5);
+        p5.textFont(Fonts.getFontAt(1));
+        dibuixaImatgeMapa(p5);
+
+        p5.textFont(Fonts.getFontAt(2));
+        ts1.display(p5, XTaules, YTaules, widthTaules, heightTaules);
+
     }
 
     public void dibuixaPantallaPlano(PApplet p5){
-        p5.background(255);
-        dibuixaLogo(p5);
-        dibuixaImatgeMapa(p5);
+        p5.textFont(Fonts.getFontAt(0));
         dibuixaBanner(p5);
-        dibuixaColumnes12(p5);
+        dibuixaLogo(p5);
+        p5.textFont(Fonts.getFontAt(1));
+        dibuixaImatgeMapa(p5);
+        p5.textFont(Fonts.getFontAt(2));
+
+
+        Sensor1.display(p5);
+        Sensor2.display(p5);
+        Sensor3.display(p5);
+        Sensor4.display(p5);
+        Sensor5.display(p5);
+        Sensor6.display(p5);
+        Sensor7.display(p5);
+
+        Actuador1.display(p5);
+        Actuador2.display(p5);
+        Actuador3.display(p5);
+        Actuador4.display(p5);
+        Actuador5.display(p5);
+        Actuador6.display(p5);
+        Actuador7.display(p5);
     }
 
-    public void dibuixaPantallaSensor(PApplet p5){
-
+    public void dibuixaPantallaActuadorX(PApplet p5){
         p5.background(255);
-        dibuixaLogo(p5);
-        dibuixaImatgeMapa(p5);
+        p5.textFont(Fonts.getFontAt(0));
         dibuixaBanner(p5);
-        dibuixaColumnes123(p5);
+        dibuixaLogo(p5);
+        p5.textFont(Fonts.getFontAt(1));
+        dibuixaImatgeMapa(p5);
+
     }
 
-    public void dibuixaPantallaActuador(PApplet p5){
-
+    public void dibuixaPantallaEstadisticaSensorX(PApplet p5){
         p5.background(255);
-        dibuixaLogo(p5);
-        dibuixaImatgeMapa(p5);
+        p5.textFont(Fonts.getFontAt(0));
         dibuixaBanner(p5);
-        dibuixaColumnes123(p5);
+        dibuixaLogo(p5);
+        p5.textFont(Fonts.getFontAt(1));
+        dibuixaImatgeMapa(p5);
+      //  dibuixaColumnes123(p5);
     }
 
-    public void dibuixaPantallaNuevoSensor(PApplet p5){
-
+    public void dibuixaPantallaEstadisticaActuadorX(PApplet p5){
         p5.background(255);
-        dibuixaLogo(p5);
-        dibuixaImatgeMapa(p5);
+        p5.textFont(Fonts.getFontAt(0));
         dibuixaBanner(p5);
-        dibuixaColumnes123(p5);
+        dibuixaLogo(p5);
+        p5.textFont(Fonts.getFontAt(1));
+        dibuixaImatgeMapa(p5);
+      //  dibuixaColumnes123(p5);
     }
 
     public void dibuixaPantallaNuevoActuador(PApplet p5){
-
         p5.background(255);
-        dibuixaLogo(p5);
-        dibuixaImatgeMapa(p5);
+        p5.textFont(Fonts.getFontAt(0));
         dibuixaBanner(p5);
-        dibuixaColumnes123(p5);
+        dibuixaLogo(p5);
+        p5.textFont(Fonts.getFontAt(1));
+        dibuixaImatgeMapa(p5);
+       // dibuixaColumnes123(p5);
     }
     // ZONES DE LA GUI
 
@@ -145,7 +264,7 @@ public class GUI {
         p5.fill(Colors.getColorAt(1));
         p5.rect(2*marginH + midaLogo, marginV, bannerWidth, bannerHeight);
         p5.fill(0);
-        p5.text("PANTALLA " +  pantallaActual + "("+pantallaActual.ordinal() +")", marginH + logoWidth + bannerWidth/2, marginV + bannerHeight/2);
+        p5.text(pantallaActual.name(), marginH + logoWidth + bannerWidth/2, marginV + bannerHeight*2/3);
     }
 
     public void dibuixaColumna1(PApplet p5){

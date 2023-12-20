@@ -30,4 +30,13 @@ public class LayoutNMides {
     public static int XUsuari=668, YUsuari=225;
     public static int XContra=668, YContra=438;
     public static int XHecho=668,  YHecho=574;
+
+    //Botons Segona pantalla
+    public static int XSensors=668, XActuadors=992;
+    public static int YSensors=6*marginV + logoHeight, YActuadors=6*marginV + logoHeight;
+    public static int widthSensors=304, widthActuadors=304;
+    public static float heightSensors=heightImatge/7, heightActuadors=heightImatge/7;
+
+    //Taules
+    public static int widthTaules = 628, heightTaules=heightImatge/2-20, XTaules=668, YTaules=YSensors=6*marginV + logoHeight;
 }

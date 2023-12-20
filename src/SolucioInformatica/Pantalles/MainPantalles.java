@@ -31,20 +31,18 @@ public class MainPantalles extends PApplet {
             case PLANO:          gui.dibuixaPantallaPlano(this);
                 break;
 
-            case ABOUT:          gui.dibuixaPantallaAbout(this);
+            case SENSORX:        gui.dibuixaPantallaSensorX(this);
                 break;
 
-            case SENSOR:         gui.dibuixaPantallaSensor(this);
+            case ACTUADORX:         gui.dibuixaPantallaActuadorX(this);
                 break;
 
-            case ACTUADOR:       gui.dibuixaPantallaActuador(this);
+            case ESTADISTICASENSORX:       gui.dibuixaPantallaEstadisticaSensorX(this);
                 break;
 
-            case NUEVOSENSOR:    gui.dibuixaPantallaNuevoSensor(this);
+            case ESTADÍSTICAACTUADORX:    gui.dibuixaPantallaEstadisticaActuadorX(this);
                 break;
 
-            case NUEVOACTUADOR:  gui.dibuixaPantallaNuevoActuador(this);
-                break;
         }
 
     }
@@ -59,27 +57,32 @@ public class MainPantalles extends PApplet {
             gui.pantallaActual = GUI.PANTALLA.PLANO;
         }
         else if(key=='2'){
-            gui.pantallaActual = GUI.PANTALLA.ABOUT;
+            gui.pantallaActual = GUI.PANTALLA.SENSORX;
         }
         else if(key=='3'){
-            gui.pantallaActual = GUI.PANTALLA.SENSOR;
+            gui.pantallaActual = GUI.PANTALLA.ACTUADORX;
         }
         else if(key=='4'){
-            gui.pantallaActual = GUI.PANTALLA.ACTUADOR;
+            gui.pantallaActual = GUI.PANTALLA.ESTADISTICASENSORX;
         }
         else if(key=='5'){
-            gui.pantallaActual = GUI.PANTALLA.NUEVOSENSOR;
+            gui.pantallaActual = GUI.PANTALLA.ESTADÍSTICAACTUADORX;
         }
-        else if(key=='6'){
-            gui.pantallaActual = GUI.PANTALLA.NUEVOACTUADOR;
+
+        gui.TUsuario.keyPressed(key, keyCode);
+        gui.TContraseña.keyPressed(key, keyCode);
         }
-    }
+
+
 
     // ******************* MOUSE interaction ***************************** //
 
     public void mousePressed(){
         println("X: "+mouseX+", Y:"+mouseY);
+        gui.TUsuario.isPressed(this);
+        gui.TContraseña.isPressed(this);
     }
+
 
     public void mouseDragged(){
         println("MOUSE DRAGGED");
