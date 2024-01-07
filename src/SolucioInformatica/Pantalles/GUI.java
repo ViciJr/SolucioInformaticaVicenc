@@ -35,6 +35,7 @@ public class GUI {
 
     //SensorX
     Table ts1, ts2;
+    Button EditarSensor;
 
 
 
@@ -88,47 +89,18 @@ public class GUI {
 
 
         //Pantalla SensorX
-       ts1=new Table(2,5);
-        /*
-        String[][]dades = new String[2][5];
-        dades[0][0]=("Tipo");
-        dades[1][0]=("Ubicación");
-        dades[2][0]=("Puerto Arduino");
-        dades[3][0]=("Actuador/es vinculado/s");
-        dades[4][0]=("Estado actual"); //
+        int files = 2, columnes = 5;
 
-        dades[0][1]=("X");
-        dades[1][1]=("X");
-        dades[2][1]=("X");
-        dades[3][1]=("X");
-        dades[4][1]=("X");
-
-       String[]cap = new String[5];
-        cap[0]=dades[0][1];
-        cap[1]=dades[1][1];
-        cap[2]=dades[2][1];
-        cap[3]=dades[3][1];
-        cap[4]=dades[4][1];
-
-        float[]widthCol= new float[5];
-        widthCol[0]=widthTaules/5;
-        widthCol[1]=widthTaules/5;
-        widthCol[2]=widthTaules/5;
-        widthCol[3]=widthTaules/5;
-        widthCol[4]=widthTaules/5;
-
-      //  float widthCol1=widthImatge/5; */
-
-        float tableW = widthTaules, tableH = heightTaules;
+        ts1=new Table(files,columnes);
 
         // Número de files (capçalera inclosa) i columnes de la taula
-        int files = 2, columnes = 5;
 
         // Títols de les columnes
         String[] headers = {"Tipo", "Ubicación", "Puerto Arduino", "Actuador/es vinculado/s", "Estado actual"};
 
         // Amplades de les columnes
-        float[] colWidths = {widthTaules/columnes, widthTaules/columnes, widthTaules/columnes, widthTaules/columnes, widthTaules/columnes};
+        //float[] colWidths = {widthTaules/columnes, widthTaules/columnes, widthTaules/columnes, widthTaules/columnes, widthTaules/columnes};
+        float[] colWidths = {20, 20, 20, 20, 20};
 
         // Dades de la taula
         String[][] info = {
@@ -138,6 +110,8 @@ public class GUI {
         ts1.setData(info);
         ts1.setHeaders(headers);
         ts1.setColumnWidths(colWidths);
+
+        EditarSensor = new Button (p5, "Editar", XEditar, YEditar, WidthEditar, HeightEditar);
 
     }
 
@@ -174,7 +148,8 @@ public class GUI {
         dibuixaImatgeMapa(p5);
 
         p5.textFont(Fonts.getFontAt(2));
-        ts1.display(p5, XTaules, YTaules, widthTaules, heightTaules);
+        ts1.display(p5, XTaules, YTaules+(heightImatge/2)-heightTaules/2, widthTaules, heightTaules);
+        EditarSensor.display(p5);
 
     }
 

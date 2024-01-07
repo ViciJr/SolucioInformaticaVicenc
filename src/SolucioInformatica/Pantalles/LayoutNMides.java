@@ -38,5 +38,10 @@ public class LayoutNMides {
     public static float heightSensors=heightImatge/7, heightActuadors=heightImatge/7;
 
     //Taules
-    public static int widthTaules = 628, heightTaules=heightImatge/2-20, XTaules=668, YTaules=YSensors=6*marginV + logoHeight;
+    public static int widthTaules = 648, heightTaules=heightImatge/2-20, XTaules=668, YTaules=YSensors=6*marginV + logoHeight;
+
+    //pantalla sensorX
+
+    public static int XEditar=668, YEditar=574;
+    public static int WidthEditar=628, HeightEditar=63;
 }
