@@ -35,7 +35,8 @@ public class GUI {
 
     //SensorX
     Table ts1, ts2;
-    Button EditarSensor;
+    Button InhabilitarSensor;
+    TextField TNomSensor;
 
 
 
@@ -111,7 +112,8 @@ public class GUI {
         ts1.setHeaders(headers);
         ts1.setColumnWidths(colWidths);
 
-        EditarSensor = new Button (p5, "Editar", XEditar, YEditar, WidthEditar, HeightEditar);
+        InhabilitarSensor = new Button (p5, "Inhabilitar", XinhabilitarSensor, YinhabilitarSensor, WidthInhabilitarSensor, HeightInhabilitarSensor);
+        TNomSensor = new TextField (p5, XNomSensor, YNomSensor, WidthNomSensor, HeightNomSensor);
 
     }
 
@@ -128,13 +130,15 @@ public class GUI {
 
 
         BlogIn.display(p5);
-        TUsuario.display(p5);
-        TContraseña.display(p5);
 
+        TUsuario.display(p5);
         p5.textFont(Fonts.getFontAt(2));
         p5.text("   Usuario:", XUsuari+2*marginH, YUsuari*9/7-5);
+
+        TContraseña.display(p5);
         p5.textFont(Fonts.getFontAt(2));
         p5.text("           Contraseña:", XContra+2*marginH, YContra*8/7-heightPrimeraPantalla-2);
+
         p5.textFont(Fonts.getFontAt(1));
         dibuixaImatgeMapa(p5);
     }
@@ -148,12 +152,16 @@ public class GUI {
         dibuixaImatgeMapa(p5);
 
         p5.textFont(Fonts.getFontAt(2));
-        ts1.display(p5, XTaules, YTaules+(heightImatge/2)-heightTaules/2, widthTaules, heightTaules);
-        EditarSensor.display(p5);
+        ts1.display(p5, XTaules, YTaules+(heightImatge/2)-heightTaules/2+8, widthTaules, heightTaules);
+        InhabilitarSensor.display(p5);
 
+        TNomSensor.display(p5);
+        p5.textFont(Fonts.getFontAt(2));
+        p5.text("          Nombre Sensor:", /*XNomSensor*/ 708, /*YNomSensor*/ 239);
     }
 
     public void dibuixaPantallaPlano(PApplet p5){
+        p5.background(255);
         p5.textFont(Fonts.getFontAt(0));
         dibuixaBanner(p5);
         dibuixaLogo(p5);

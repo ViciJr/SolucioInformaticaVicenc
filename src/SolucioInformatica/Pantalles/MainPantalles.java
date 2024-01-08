@@ -71,6 +71,7 @@ public class MainPantalles extends PApplet {
 
         gui.TUsuario.keyPressed(key, keyCode);
         gui.TContraseña.keyPressed(key, keyCode);
+        gui.TNomSensor.keyPressed(key, keyCode);
         }
 
 
@@ -81,6 +82,7 @@ public class MainPantalles extends PApplet {
         println("X: "+mouseX+", Y:"+mouseY);
         gui.TUsuario.isPressed(this);
         gui.TContraseña.isPressed(this);
+        gui.TNomSensor.isPressed(this);
     }
 
 

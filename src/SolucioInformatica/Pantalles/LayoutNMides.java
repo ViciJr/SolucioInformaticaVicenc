@@ -32,16 +32,20 @@ public class LayoutNMides {
     public static int XHecho=668,  YHecho=574;
 
     //Botons Segona pantalla
-    public static int XSensors=668, XActuadors=992;
+    public static int XSensors=668, XActuadors=1002;
     public static int YSensors=6*marginV + logoHeight, YActuadors=6*marginV + logoHeight;
-    public static int widthSensors=304, widthActuadors=304;
-    public static float heightSensors=heightImatge/7, heightActuadors=heightImatge/7;
+    public static int widthSensors=309, widthActuadors=309;
+    public static float heightSensors=heightImatge/7+1, heightActuadors=heightImatge/7+1;
 
     //Taules
-    public static int widthTaules = 648, heightTaules=heightImatge/2-20, XTaules=668, YTaules=YSensors=6*marginV + logoHeight;
+    public static int widthTaules = 638, heightTaules=heightImatge/2-20, XTaules=668, YTaules=YSensors=6*marginV + logoHeight;
 
     //pantalla sensorX
 
-    public static int XEditar=668, YEditar=574;
-    public static int WidthEditar=628, HeightEditar=63;
+    public static int XinhabilitarSensor =668, YinhabilitarSensor =574;
+    public static int WidthInhabilitarSensor =638, HeightInhabilitarSensor =63;
+
+    public static int XNomSensor=668, YNomSensor=241; //+16
+    public static int WidthNomSensor =638, HeightNomSensor =63;
+
 }
