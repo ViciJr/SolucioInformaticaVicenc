@@ -41,11 +41,17 @@ public class LayoutNMides {
     public static int widthTaules = 638, heightTaules=heightImatge/2-20, XTaules=668, YTaules=YSensors=6*marginV + logoHeight;
 
     //pantalla sensorX
-
     public static int XinhabilitarSensor =668, YinhabilitarSensor =574;
     public static int WidthInhabilitarSensor =638, HeightInhabilitarSensor =63;
 
     public static int XNomSensor=668, YNomSensor=241; //+16
     public static int WidthNomSensor =638, HeightNomSensor =63;
+
+    //pantalla actuadorX
+    public static int XinhabilitarActuador =668, YinhabilitarActuador =574;
+    public static int WidthInhabilitarActuador =638, HeightInhabilitarActuador =63;
+
+    public static int XNomActuador=668, YNomActuador=241; //+16
+    public static int WidthNomActuador =638, HeightNomActuador =63;
 
 }

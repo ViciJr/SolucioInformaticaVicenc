@@ -33,10 +33,15 @@ public class GUI {
     Button Sensor1, Sensor2, Sensor3, Sensor4, Sensor5, Sensor6, Sensor7;
     Button Actuador1, Actuador2, Actuador3, Actuador4, Actuador5, Actuador6, Actuador7;
 
-    //SensorX
-    Table ts1, ts2;
+    //SensorX Afegir botó estadística
+    Table ts1;
     Button InhabilitarSensor;
-    TextField TNomSensor;
+    TextField TNameSensor;
+
+    //ActuadorX Afegir botó estadística
+    Table ts2;
+    Button InhabilitarActuador;
+    TextField TNameActuador;
 
 
 
@@ -90,30 +95,56 @@ public class GUI {
 
 
         //Pantalla SensorX
-        int files = 2, columnes = 5;
+        int filesS = 2, columnesS = 5;
 
-        ts1=new Table(files,columnes);
+        ts1=new Table(filesS,columnesS);
 
         // Número de files (capçalera inclosa) i columnes de la taula
 
         // Títols de les columnes
-        String[] headers = {"Tipo", "Ubicación", "Puerto Arduino", "Actuador/es vinculado/s", "Estado actual"};
+        String[] headersS = {"Tipo", "Ubicación", "Puerto Arduino", "Actuador/es vinculado/s", "Estado actual"};
 
         // Amplades de les columnes
         //float[] colWidths = {widthTaules/columnes, widthTaules/columnes, widthTaules/columnes, widthTaules/columnes, widthTaules/columnes};
-        float[] colWidths = {20, 20, 20, 20, 20};
+        float[] colWidthsS = {20, 20, 20, 20, 20};
 
         // Dades de la taula
-        String[][] info = {
+        String[][] infoS = {
                 {"x", "x", "x", "x", "x"},
         };
 
-        ts1.setData(info);
-        ts1.setHeaders(headers);
-        ts1.setColumnWidths(colWidths);
+        ts1.setData(infoS);
+        ts1.setHeaders(headersS);
+        ts1.setColumnWidths(colWidthsS);
 
         InhabilitarSensor = new Button (p5, "Inhabilitar", XinhabilitarSensor, YinhabilitarSensor, WidthInhabilitarSensor, HeightInhabilitarSensor);
-        TNomSensor = new TextField (p5, XNomSensor, YNomSensor, WidthNomSensor, HeightNomSensor);
+        TNameSensor = new TextField (p5, XNomSensor, YNomSensor, WidthNomSensor, HeightNomSensor);
+
+      //  Pantalla actuador X
+        int filesA = 2, columnesA = 6;
+
+        ts2=new Table(filesA,columnesA);
+
+        // Número de files (capçalera inclosa) i columnes de la taula
+
+        // Títols de les columnes
+        String[] headersA = {"Tipo", "Ubicación", "Puerto Arduino", "Sensor/es vinculado/s","Valor", "Estado actual"};
+
+        // Amplades de les columnes
+        //float[] colWidthsA = {widthTaules/columnesA, widthTaules/columnesA, widthTaules/columnesA, widthTaules/columnesA, widthTaules/columnesA, widthTaules/columnesA};
+        float[] colWidthsA = {100/6f, 100/6f, 100/6f, 100/6f, 100/6f, 100/6f};
+
+        // Dades de la taula
+        String[][] infoA = {
+                {"x", "x", "x", "x", "x", "x"}
+        };
+
+        ts2.setData(infoA);
+        ts2.setHeaders(headersA);
+        ts2.setColumnWidths(colWidthsA);
+
+        InhabilitarActuador = new Button (p5, "Inhabilitar", XinhabilitarActuador, YinhabilitarActuador, WidthInhabilitarActuador, HeightInhabilitarActuador);
+        TNameActuador = new TextField (p5, XNomActuador, YNomActuador, WidthNomActuador, HeightNomActuador);
 
     }
 
@@ -155,9 +186,9 @@ public class GUI {
         ts1.display(p5, XTaules, YTaules+(heightImatge/2)-heightTaules/2+8, widthTaules, heightTaules);
         InhabilitarSensor.display(p5);
 
-        TNomSensor.display(p5);
+        TNameSensor.display(p5);
         p5.textFont(Fonts.getFontAt(2));
-        p5.text("          Nombre Sensor:", /*XNomSensor*/ 708, /*YNomSensor*/ 239);
+        p5.text("          Nombre sensor:", /*XNomSensor*/ 708, /*YNomSensor*/ 239);
     }
 
     public void dibuixaPantallaPlano(PApplet p5){
@@ -194,6 +225,14 @@ public class GUI {
         dibuixaLogo(p5);
         p5.textFont(Fonts.getFontAt(1));
         dibuixaImatgeMapa(p5);
+
+        p5.textFont(Fonts.getFontAt(2));
+        ts2.display(p5, XTaules, YTaules+(heightImatge/2)-heightTaules/2+8, widthTaules, heightTaules);
+        InhabilitarActuador.display(p5);
+
+        TNameActuador.display(p5);
+        p5.textFont(Fonts.getFontAt(2));
+        p5.text("               Nombre actuador:", /*XNomSensor*/ 708, /*YNomSensor*/ 239);
 
     }
 
