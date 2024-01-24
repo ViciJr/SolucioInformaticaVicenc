@@ -28,7 +28,7 @@ public class MainPantalles extends PApplet {
             case INICIO:         gui.dibuixaPantallaInicio(this);
                 break;
 
-            case PLANO:          gui.dibuixaPantallaPlano(this);
+            case MENÚ:          gui.dibuixaPantallaPlano(this);
                 break;
 
             case SENSORX:        gui.dibuixaPantallaSensorX(this);
@@ -37,10 +37,13 @@ public class MainPantalles extends PApplet {
             case ACTUADORX:         gui.dibuixaPantallaActuadorX(this);
                 break;
 
-            case ESTADISTICASENSORX:       gui.dibuixaPantallaEstadisticaSensorX(this);
+            case ESTADÍSTICA_SENSORX:       gui.dibuixaPantallaEstadisticaSensorX(this);
                 break;
 
-            case ESTADÍSTICAACTUADORX:    gui.dibuixaPantallaEstadisticaActuadorX(this);
+            case ESTADÍSTICA_ACTUADORX:    gui.dibuixaPantallaEstadisticaActuadorX(this);
+                break;
+
+            case MAPA:    gui.dibuixaPantallaMapa(this);
                 break;
 
         }
@@ -54,7 +57,7 @@ public class MainPantalles extends PApplet {
             gui.pantallaActual = GUI.PANTALLA.INICIO;
         }
         else if(key=='1'){
-            gui.pantallaActual = GUI.PANTALLA.PLANO;
+            gui.pantallaActual = GUI.PANTALLA.MENÚ;
         }
         else if(key=='2'){
             gui.pantallaActual = GUI.PANTALLA.SENSORX;
@@ -63,16 +66,21 @@ public class MainPantalles extends PApplet {
             gui.pantallaActual = GUI.PANTALLA.ACTUADORX;
         }
         else if(key=='4'){
-            gui.pantallaActual = GUI.PANTALLA.ESTADISTICASENSORX;
+            gui.pantallaActual = GUI.PANTALLA.ESTADÍSTICA_SENSORX;
         }
         else if(key=='5'){
-            gui.pantallaActual = GUI.PANTALLA.ESTADÍSTICAACTUADORX;
+            gui.pantallaActual = GUI.PANTALLA.ESTADÍSTICA_ACTUADORX;
+        }
+        else if(key=='6'){
+            gui.pantallaActual = GUI.PANTALLA.MAPA;
         }
 
         gui.TUsuario.keyPressed(key, keyCode);
         gui.TContraseña.keyPressed(key, keyCode);
         gui.TNameSensor.keyPressed(key, keyCode);
         gui.TNameActuador.keyPressed(key, keyCode);
+
+
         }
 
 

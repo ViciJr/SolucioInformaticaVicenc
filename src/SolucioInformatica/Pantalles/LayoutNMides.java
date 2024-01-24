@@ -35,24 +35,26 @@ public class LayoutNMides {
     public static int XSensors=668, XActuadors=1002;
     public static int YSensors=6*marginV + logoHeight, YActuadors=6*marginV + logoHeight;
     public static int widthSensors=309, widthActuadors=309;
-    public static float heightSensors=heightImatge/12+1, heightActuadors=heightImatge/12+1;
-
+    public static float heightSensors=heightImatge/9+1, heightActuadors=heightImatge/9+1;
+    public static int XMapaInteractivo =668, YMapaInteractivo =574;
+    public static int WidthMapaInteractivo =638, HeightMapaInteractivo =63;
     //Taules
-    public static int widthTaules = 638, heightTaules=heightImatge/2-20, XTaules=668, YTaules=YSensors=6*marginV + logoHeight;
+    public static int widthTaules = 638, heightTaules=heightImatge/4-20, XTaules=668, YTaules=YSensors=6*marginV + logoHeight;
+
 
     //pantalla sensorX
     public static int XinhabilitarSensor =668, YinhabilitarSensor =574;
     public static int WidthInhabilitarSensor =638, HeightInhabilitarSensor =63;
 
-    public static int XNomSensor=668, YNomSensor=241; //+16
-    public static int WidthNomSensor =638, HeightNomSensor =63;
+    public static int XGraficaSensor =668, YGraficaSensor=YTaules+heightTaules+60;
+    public static int WidthGraficaSensor =638, HeightGraficaSensor =63;
 
     //pantalla actuadorX
     public static int XinhabilitarActuador =668, YinhabilitarActuador =574;
     public static int WidthInhabilitarActuador =638, HeightInhabilitarActuador =63;
 
-    public static int XNomActuador=668, YNomActuador=241; //+16
-    public static int WidthNomActuador =638, HeightNomActuador =63;
+    public static int XGraficaActuador =668, YGraficaActuador =YTaules+heightTaules+20;
+    public static int WidthGraficaActuador =638, HeightGraficaActuador =63;
 
     //pantalla estadística sensorX
     public static int XDiagram = marginH, YDiagram = 6*marginV + logoHeight;

@@ -5,8 +5,8 @@ public class DissenyDomotica extends PApplet {
 
     // Variable de classe Habitació i Sensor
     Habitacio[] habitacions;
-    Habitacio h1, h2, hSelected;
-    Sensor llum1a, llum1b, llum2, ac1;
+    Habitacio Habitación1, Habitación2, hSelected;
+    Sensor Sensor1, Sensor2, Sensor4, Sensor3;
 
     public static void main(String[] args) {
         PApplet.main("SolucioInformatica.gui.mapa.DissenyDomotica", args);
@@ -20,25 +20,25 @@ public class DissenyDomotica extends PApplet {
     public void setup(){
 
         // Constructor de Sensors (Llums)
-        llum1a = new Llum("Llum A", true);
-        llum1b = new Llum("Llum B", true);
-        llum2 = new Llum("Llum C");
-        ac1 = new Sensor("Aire Condicionat");
+        Sensor1 = new Llum("Llum A", true);
+        Sensor2 = new Llum("Llum B", true);
+        Sensor4 = new Llum("Llum C");
+        Sensor3 = new Sensor("Aire Condicionat");
 
         // Constructor d'Habitacions
-        h1 = new Habitacio("Quarto 1", 0, 0, 300, 300, color(200, 100, 100, 10));
-        h2 = new Habitacio("Quarto 2", 300, 0, 400, 600, color(100, 200, 100, 10));
+        Habitación1 = new Habitacio("Habitación 1", 0, 0, 300, 300, color(200, 100, 100, 10));
+        Habitación2 = new Habitacio("Habitación 2", 300, 0, 400, 600, color(100, 200, 100, 10));
 
         // Agregam Sensors a les Habitacions
-        h1.addSensor(llum1a);
-        h1.addSensor(llum1b);
-        h1.addSensor(ac1);
-        h2.addSensor(llum2);
+        Habitación1.addSensor(Sensor1);
+        Habitación1.addSensor(Sensor2);
+        Habitación1.addSensor(Sensor3);
+        Habitación2.addSensor(Sensor4);
 
         // Cream array d'habitacions
         habitacions = new Habitacio[2];
-        habitacions[0] = h1;
-        habitacions[1] = h2;
+        habitacions[0] = Habitación1;
+        habitacions[1] = Habitación2;
 
         // Habitació Seleccionada (cap)
         hSelected = null;

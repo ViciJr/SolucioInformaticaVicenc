@@ -67,7 +67,7 @@ public class Table {
             xCol = x;
             for(int c = 0; c< numCols; c++){
                 if(r==0){
-                    p5.text(tableHeaders[c], xCol + 10, y + (r+1)*rowHeight - 60);
+                    p5.text(tableHeaders[c], xCol + 10, y + (r+1)*rowHeight - 10);
                 }
                 else{
                     p5.text(tableData[r-1][c], xCol + 10, y + (r+1)*rowHeight - 20);
