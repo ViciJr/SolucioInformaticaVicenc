@@ -39,6 +39,7 @@ public class BarsDiagram {
         for(int i=0; i<percentages.length; i++){
             this.percentages[i] = (this.values[i] / this.total)*100;
         }
+
     }
 
     public void setColors(int[] c){
@@ -62,17 +63,26 @@ public class BarsDiagram {
 
             float textX = xBar + widthBar/2;
             float textY = this.y + this.h + 50;
-            p5.fill(0); p5.textAlign(p5.CENTER); p5.textSize(24);
-            p5.text(this.texts[i], textX, textY);
 
             float percX = xBar + widthBar/2;
             float percY = this.y + this.h - barValue - 50;
+
+            if(this.values[i]>1){
+                p5.fill(0); p5.textAlign(p5.CENTER); p5.textSize(24);
+                p5.text("ON", percX, percY);
+            } else{ p5.fill(0); p5.textAlign(p5.CENTER); p5.textSize(24);
+                p5.text("OFF", percX, percY);
+            }
+            p5.text(this.texts[i], textX, textY);
+
+
+            /*
             String percentage = p5.nf(this.percentages[i], 2, 2);
             p5.fill(0); p5.textAlign(p5.CENTER); p5.textSize(18);
             p5.text(percentage+"%", percX, percY);
 
             p5.textSize(24);
-            p5.text((int)this.values[i], percX, percY - 30);
+            p5.text((int)this.values[i], percX, percY - 30);*/
 
         }
         p5.popStyle();

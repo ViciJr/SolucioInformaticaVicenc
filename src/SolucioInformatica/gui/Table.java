@@ -60,15 +60,17 @@ public class Table {
         }
 
         // Dibuixa textos
-        p5.fill(0); p5.textSize(24);
+
+        p5.textAlign(p5.LEFT);
+        p5.fill(0); p5.textSize(14);
         for(int r = 0; r< numRows; r++){
             xCol = x;
             for(int c = 0; c< numCols; c++){
                 if(r==0){
-                    p5.text(tableHeaders[c], xCol + 10, y + (r+1)*rowHeight - 10);
+                    p5.text(tableHeaders[c], xCol + 10, y + (r+1)*rowHeight - 60);
                 }
                 else{
-                    p5.text(tableData[r-1][c], xCol + 10, y + (r+1)*rowHeight - 10);
+                    p5.text(tableData[r-1][c], xCol + 10, y + (r+1)*rowHeight - 20);
                 }
                 xCol += w*columnWidths[c]/100.0;
             }

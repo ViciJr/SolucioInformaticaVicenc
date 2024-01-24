@@ -35,7 +35,7 @@ public class LayoutNMides {
     public static int XSensors=668, XActuadors=1002;
     public static int YSensors=6*marginV + logoHeight, YActuadors=6*marginV + logoHeight;
     public static int widthSensors=309, widthActuadors=309;
-    public static float heightSensors=heightImatge/7+1, heightActuadors=heightImatge/7+1;
+    public static float heightSensors=heightImatge/12+1, heightActuadors=heightImatge/12+1;
 
     //Taules
     public static int widthTaules = 638, heightTaules=heightImatge/2-20, XTaules=668, YTaules=YSensors=6*marginV + logoHeight;
@@ -53,5 +53,9 @@ public class LayoutNMides {
 
     public static int XNomActuador=668, YNomActuador=241; //+16
     public static int WidthNomActuador =638, HeightNomActuador =63;
+
+    //pantalla estadística sensorX
+    public static int XDiagram = marginH, YDiagram = 6*marginV + logoHeight;
+    public static int WidthDiagram = 628, HeightDiagram=412-60;
 
 }

@@ -1,9 +1,7 @@
 package SolucioInformatica.Pantalles;
 
 ;
-import SolucioInformatica.gui.Button;
-import SolucioInformatica.gui.Table;
-import SolucioInformatica.gui.TextField;
+import SolucioInformatica.gui.*;
 import processing.core.PApplet;
 
 
@@ -43,7 +41,11 @@ public class GUI {
     Button InhabilitarActuador;
     TextField TNameActuador;
 
+    //Estadística SensorX
+    LinesDiagram ssl;
 
+    //Estadística ActuadorX
+    BarsDiagram sab;
 
     // Constructor de la GUI
     public GUI(PApplet p5){
@@ -80,17 +82,17 @@ public class GUI {
 
         Actuador1 = new Button (p5, "Actuador 1", XActuadors, YActuadors, widthActuadors, heightActuadors);
        // Actuador1.setColors(Colors.getColorAt(0), Colors.getColorAt(1), Colors.getColorAt(2),  Colors.getColorAt(3));
-        Actuador2 = new Button (p5, "Actuador 1", XActuadors, YActuadors+heightActuadors, widthActuadors, heightActuadors);
+        Actuador2 = new Button (p5, "Actuador 2", XActuadors, YActuadors+heightActuadors, widthActuadors, heightActuadors);
        // Actuador2.setColors(Colors.getColorAt(0), Colors.getColorAt(1), Colors.getColorAt(2), Colors.getColorAt(3));
-        Actuador3 = new Button (p5, "Actuador 1", XActuadors, YActuadors+2*heightActuadors, widthActuadors, heightActuadors);
+        Actuador3 = new Button (p5, "Actuador 3", XActuadors, YActuadors+2*heightActuadors, widthActuadors, heightActuadors);
        // Actuador3.setColors(Colors.getColorAt(0), Colors.getColorAt(1), Colors.getColorAt(2), Colors.getColorAt(3));
-        Actuador4 = new Button (p5, "Actuador 1", XActuadors, YActuadors+3*heightActuadors, widthActuadors, heightActuadors);
+        Actuador4 = new Button (p5, "Actuador 4", XActuadors, YActuadors+3*heightActuadors, widthActuadors, heightActuadors);
        // Actuador4.setColors(Colors.getColorAt(0), Colors.getColorAt(1), Colors.getColorAt(2), Colors.getColorAt(3));
-        Actuador5 = new Button (p5, "Actuador 1", XActuadors, YActuadors+4*heightActuadors, widthActuadors, heightActuadors);
+        Actuador5 = new Button (p5, "Actuador 5", XActuadors, YActuadors+4*heightActuadors, widthActuadors, heightActuadors);
        // Actuador5.setColors(Colors.getColorAt(0), Colors.getColorAt(1), Colors.getColorAt(2), Colors.getColorAt(3));
-        Actuador6 = new Button (p5, "Actuador 1", XActuadors, YActuadors+5*heightActuadors, widthActuadors, heightActuadors);
+        Actuador6 = new Button (p5, "Actuador 6", XActuadors, YActuadors+5*heightActuadors, widthActuadors, heightActuadors);
        // Actuador6.setColors(Colors.getColorAt(0), Colors.getColorAt(1), Colors.getColorAt(2), Colors.getColorAt(3));
-        Actuador7 = new Button (p5, "Actuador 1", XActuadors, YActuadors+6*heightActuadors, widthActuadors, heightActuadors);
+        Actuador7 = new Button (p5, "Actuador 7", XActuadors, YActuadors+6*heightActuadors, widthActuadors, heightActuadors);
        // Actuador7.setColors(Colors.getColorAt(0), Colors.getColorAt(1), Colors.getColorAt(2), Colors.getColorAt(3));
 
 
@@ -102,7 +104,7 @@ public class GUI {
         // Número de files (capçalera inclosa) i columnes de la taula
 
         // Títols de les columnes
-        String[] headersS = {"Tipo", "Ubicación", "Puerto Arduino", "Actuador/es vinculado/s", "Estado actual"};
+        String[] headersS = {"Tipo", "Ubicación", "Pto.Arduino", "Act.vinculados", "Valor actual"};
 
         // Amplades de les columnes
         //float[] colWidths = {widthTaules/columnes, widthTaules/columnes, widthTaules/columnes, widthTaules/columnes, widthTaules/columnes};
@@ -128,7 +130,7 @@ public class GUI {
         // Número de files (capçalera inclosa) i columnes de la taula
 
         // Títols de les columnes
-        String[] headersA = {"Tipo", "Ubicación", "Puerto Arduino", "Sensor/es vinculado/s","Valor", "Estado actual"};
+        String[] headersA = {"Tipo", "Ubicación", "Pto.Arduino", "Sns.vinculados","Condición", "Estado actual"};
 
         // Amplades de les columnes
         //float[] colWidthsA = {widthTaules/columnesA, widthTaules/columnesA, widthTaules/columnesA, widthTaules/columnesA, widthTaules/columnesA, widthTaules/columnesA};
@@ -145,6 +147,42 @@ public class GUI {
 
         InhabilitarActuador = new Button (p5, "Inhabilitar", XinhabilitarActuador, YinhabilitarActuador, WidthInhabilitarActuador, HeightInhabilitarActuador);
         TNameActuador = new TextField (p5, XNomActuador, YNomActuador, WidthNomActuador, HeightNomActuador);
+
+        //Pantalla estadística Sensor x
+
+        p5.textFont(Fonts.getFontAt(2));
+        // Dades del Diagrama (etiquetes)
+        String[] textosLS  = {"8am","9am", "10am", "11am", "12am", "1pm", "2pm",
+                "3pm"};
+
+        // Dades del Diagrama (valors)
+        float[] valuesLS  = {6, 8, 11, 13, 18, 20, 22, 22};
+
+        // Color de la línia
+        int colorLineLS = p5.color(0);
+
+        ssl = new LinesDiagram(XDiagram, YDiagram, WidthDiagram, HeightDiagram);
+
+        // Configuració de Dades (textosLS, valors, colors)
+        ssl.setTexts(textosLS);
+        ssl.setValues(valuesLS);
+        ssl.setColors(colorLineLS);
+
+        //Pantalla estadística Actuador x
+
+        sab= new BarsDiagram(XDiagram, YDiagram, WidthDiagram, HeightDiagram);
+
+        // Dades del Diagrama (textosLS, valors i colors)
+        String[] textosBA = {"8am","9am", "10am", "11am", "12am", "1pm", "2pm",
+                "3pm"};
+        float[] valuesBA = {1, 2, 2, 2, 1, 1, 2, 1};
+        int [] colorsBA = {Colors.getColorAt(2), Colors.getColorAt(4), Colors.getColorAt(4), Colors.getColorAt(4), Colors.getColorAt(2), Colors.getColorAt(2), Colors.getColorAt(4), Colors.getColorAt(2)};
+
+// Configuració de Dades (textos, valors, colors)
+        sab.setTexts(textosBA);
+        sab.setValues(valuesBA);
+        sab.setColors(colorsBA);
+
 
     }
 
@@ -241,9 +279,11 @@ public class GUI {
         p5.textFont(Fonts.getFontAt(0));
         dibuixaBanner(p5);
         dibuixaLogo(p5);
-        p5.textFont(Fonts.getFontAt(1));
-        dibuixaImatgeMapa(p5);
+        p5.textFont(Fonts.getFontAt(2));
+   //     dibuixaImatgeMapa(p5);
+        ssl.display(p5);
       //  dibuixaColumnes123(p5);
+
     }
 
     public void dibuixaPantallaEstadisticaActuadorX(PApplet p5){
@@ -251,8 +291,9 @@ public class GUI {
         p5.textFont(Fonts.getFontAt(0));
         dibuixaBanner(p5);
         dibuixaLogo(p5);
-        p5.textFont(Fonts.getFontAt(1));
-        dibuixaImatgeMapa(p5);
+        p5.textFont(Fonts.getFontAt(2));
+        //dibuixaImatgeMapa(p5);
+        sab.display(p5);
       //  dibuixaColumnes123(p5);
     }
 
@@ -264,6 +305,7 @@ public class GUI {
         p5.textFont(Fonts.getFontAt(1));
         dibuixaImatgeMapa(p5);
        // dibuixaColumnes123(p5);
+
     }
     // ZONES DE LA GUI
 

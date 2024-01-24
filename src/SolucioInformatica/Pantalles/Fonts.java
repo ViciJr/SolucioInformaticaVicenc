@@ -18,10 +18,13 @@ public class Fonts {
 
 
     void setFonts(PApplet p5){
-        this.fonts = new PFont[3];
+        this.fonts = new PFont[6];
         this.fonts[0] = p5.createFont("data/TTInterphasesProMonoTrialRegular.ttf", SolucioInformatica.Fonts.Mides.midaTitol);
         this.fonts[1] = p5.createFont("data/AltoneTrialRegular.ttf", SolucioInformatica.Fonts.Mides.midaSubtitol);
         this.fonts[2] = p5.createFont("data/LouisGeorgeCafeBold.ttf", Mides.midaParagraf);
+        this.fonts[3] = p5.createFont("data/TTInterphasesProMonoTrialRegular.ttf", 12);
+        this.fonts[4] = p5.createFont("data/AltoneTrialRegular.ttf",12);
+        this.fonts[5] = p5.createFont("data/LouisGeorgeCafeBold.ttf", 12);
     }
 
 
