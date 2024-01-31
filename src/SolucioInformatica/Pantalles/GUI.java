@@ -56,7 +56,7 @@ public class GUI {
 
     //MAPA
     Habitacio[] habitacions;
-    Habitacio Habitación1, Habitación2, hSelected;
+    Habitacio Dormitorio, Cocina, Salón ,Pasillo, Baño, hSelected;
     Sensor SensorMapa1, SensorMapa2, SensorMapa4, SensorMapa3;
 
     // Constructor de la GUI
@@ -212,22 +212,29 @@ public class GUI {
         SensorMapa1 = new Llum("LED A", true);
         SensorMapa2 = new Llum("LED B", true);
         SensorMapa3 = new Llum("LED C");
-        SensorMapa4 = new Sensor("Aire acondicionado");
+        SensorMapa4 = new Sensor("Sensor 1");
 
         // Constructor d'Habitacions
-        Habitación1 = new Habitacio("Habitación 1", marginV, YSensors, 300, 300, Colors.getColorAt(5));
-        Habitación2 = new Habitacio("Habitación 2", marginV+300, YSensors, 400, 600, Colors.getColorAt(5));
+        p5.strokeWeight(1);
+        Dormitorio = new Habitacio(" Dormitorio", XDormitorio, YDormitorio, WidthDormitorio, HeightDormitorio, Colors.getColorAt(7));
+        Cocina = new Habitacio("Cocina", XCocina, YCocina, WidthCocina, HeightCocina, Colors.getColorAt(8));
+        Baño = new Habitacio(" Baño", XBaño, YBaño, WidthBaño, HeightBaño, Colors.getColorAt(7));
+        Pasillo = new Habitacio(" Pasillo", XPasillo, YPasillo, WidthPasillo, HeightPasillo, Colors.getColorAt(6));
+        Salón = new Habitacio("Salón", XSalón, YSalón, WidthSalón, HeightSalón, Colors.getColorAt(8));
 
         // Agregam Sensors a les Habitacions
-        Habitación1.addSensor(SensorMapa1);
-        Habitación1.addSensor(SensorMapa2);
-        Habitación1.addSensor(SensorMapa3);
-        Habitación2.addSensor(SensorMapa4);
+        Dormitorio.addSensor(SensorMapa1);
+        Dormitorio.addSensor(SensorMapa2);
+        Dormitorio.addSensor(SensorMapa3);
+        Cocina.addSensor(SensorMapa4);
 
         // Cream array d'habitacions
-        habitacions = new Habitacio[2];
-        habitacions[0] = Habitación1;
-        habitacions[1] = Habitación2;
+        habitacions = new Habitacio[5];
+        habitacions[0] = Dormitorio;
+        habitacions[1] = Cocina;
+        habitacions[2] = Pasillo;
+        habitacions[3]= Salón;
+        habitacions[4]= Baño;
 
         // Habitació Seleccionada (cap)
         hSelected = null;
@@ -364,6 +371,10 @@ public class GUI {
         dibuixaLogo(p5);
         p5.textFont(Fonts.getFontAt(2));
         MenuA.display(p5);
+        p5.stroke(0); p5.strokeWeight(1);
+        for(int i=0; i<habitacions.length; i++) {
+            habitacions[i].dibuixa(p5);
+        }
 
 
     }

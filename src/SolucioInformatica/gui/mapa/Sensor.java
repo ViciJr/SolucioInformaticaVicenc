@@ -8,7 +8,7 @@ public class Sensor {
     boolean ences;
 
     float x, y;
-    float radi = 50;
+    float radi = 25;
 
     public Sensor(String n){
         this.nom = n;
@@ -35,9 +35,9 @@ public class Sensor {
         p5.stroke(0);
         p5.fill(this.ences? p5.color(255, 255, 0) : p5.color(0));
         p5.rectMode(p5.CENTER);
-        p5.rect(x, y, 40, 40);
+        p5.rect(x, y, 25, 25);
         p5.fill(0); p5.textAlign(p5.CENTER);
-        p5.text(this.nom, x, y +  60);
+        p5.text(this.nom, x, y +  50);
         p5.popStyle();
     }
 

@@ -1,5 +1,6 @@
 package SolucioInformatica.Pantalles;
 
+
 import processing.core.PApplet;
 
 public class MainPantalles extends PApplet {
@@ -10,8 +11,8 @@ public class MainPantalles extends PApplet {
     }
 
     public void settings(){
-        //fullScreen();                       // Pantalla completa
-        size(1336, 768);        // Pantalla HD
+        fullScreen();                       // Pantalla completa
+        //size(1336, 768);        // Pantalla HD
         smooth(10);
     }
 
@@ -80,6 +81,18 @@ public class MainPantalles extends PApplet {
         gui.TNameSensor.keyPressed(key, keyCode);
         gui.TNameActuador.keyPressed(key, keyCode);
 
+        if(key=='n' || key=='N'){
+            if(gui.hSelected != null) {
+                gui.hSelected.encenLlums();
+            }
+        }
+        // Apaga tots els llums
+        else if(key=='f' || key=='F'){
+            if(gui.hSelected != null) {
+                gui.hSelected.apagaLlums();
+            }
+        }
+
 
         }
 
@@ -93,6 +106,21 @@ public class MainPantalles extends PApplet {
         gui.TContraseña.isPressed(this);
         gui.TNameSensor.isPressed(this);
         gui.TNameActuador.isPressed(this);
+
+        for(int i=0; i<gui.habitacions.length; i++) {
+            gui.habitacions[i].updateSensors(this);
+        }
+
+        // Comprova si clicam sobre una habitació.
+        for(int i=0; i<gui.habitacions.length; i++) {
+            if(gui.habitacions[i].mouseOnHabitacio(this)){
+                gui.hSelected = gui.habitacions[i];
+                gui.habitacions[i].setSelected(true);
+            }
+            else {
+                gui.habitacions[i].setSelected(false);
+            }
+        }
     }
 
 
