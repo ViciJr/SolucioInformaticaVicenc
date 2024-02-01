@@ -52,7 +52,18 @@ public class TextList {
     public TextField getTextField(){
         return  this.textField;
     }
+    void setEnabled(boolean b){
+        this.enabled = b;
+    }
 
+    public void toggle(){
+        this.enabled = !this.enabled;
+    }
+
+    // Getters
+    public boolean isEnabled(){
+        return  this.enabled;
+    }
     public void update(PApplet p5) {
 
         String searchFor = this.textField.text;
