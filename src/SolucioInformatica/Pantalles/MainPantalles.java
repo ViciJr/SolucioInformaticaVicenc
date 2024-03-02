@@ -1,11 +1,22 @@
 package SolucioInformatica.Pantalles;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
 
+import SolucioInformatica.DataBase.DataBase;
 import processing.core.PApplet;
 
 public class MainPantalles extends PApplet {
     GUI gui;
+    Connection con;
 
+    // Dades de connexió (user, password, nom de la base de dades)
+    String user     = "admin";
+    String pass     = "12345";
+    String database = "domotica";
+    boolean connectat = false;
+    DataBase db;
+    int n;
     public static void main(String[] args) {
         PApplet.main("SolucioInformatica.Pantalles.MainPantalles", args);
     }
@@ -17,9 +28,23 @@ public class MainPantalles extends PApplet {
     }
 
     public void setup(){
+        connectBBDD();
         noStroke();                         // Sense bordes
         textAlign(CENTER); textSize(18);   // Alineació i mida del text
         gui = new GUI(this);           // Constructor de la GUI
+
+        db = new DataBase("admin", "12345", "domotica");
+        // Connecta amb la BBDD
+        db.connect();
+
+        // Número de files d'una taula
+        n = db.getNumRowsTaula("usuario");
+        println("\nFiles Usuario:"+n);
+
+        // Dades d'una taula (unitat)
+        String[][] dades1 = db.getInfoTaulaUnitat();
+        println("\nDades Taula Usuario:");
+       // printArray2D(dades1);
     }
 
     public void draw(){
@@ -48,7 +73,21 @@ public class MainPantalles extends PApplet {
                 break;
 
         }
+       /* String info = connectat ? "OK" : "ERROR";
+        fill(0); textSize(48);
+        text("Connexió a la BBDD : "+ info, 100, 100); */
 
+    }
+
+    public void connectBBDD(){
+        try {
+            con= DriverManager.getConnection("jdbc:mysql://localhost:3306/"+database, user, pass);
+            System.out.println("Connectat a la BBDD! :) ");
+            connectat = true;
+        }
+        catch(Exception e) {
+            System.out.println(e);
+        }
     }
 
     // ******************* KEYBOARD interaction ***************************** //
