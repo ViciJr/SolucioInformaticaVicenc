@@ -40,6 +40,7 @@ public class GUI {
     Table ts1;
     Button InhabilitarSensor, GraficaSensor, MenuS;
     TextField TNameSensor;
+    Select Tipos, Ubicacions, Arduino, Actuador;
 
     //ActuadorX Afegir botó estadística
     Table ts2;
@@ -118,7 +119,7 @@ public class GUI {
         // Número de files (capçalera inclosa) i columnes de la taula
 
         // Títols de les columnes
-        String[] headersS = {"Tipo", "Ubicación", "Pto.Arduino", "Act.vinculados", "Valor actual"};
+        String[] headersS = {"Tipo", "Ubicación", "Pto.Arduino", "Act.vinculado", "Valor actual"};
 
         // Amplades de les columnes
         //float[] colWidths = {widthTaules/columnes, widthTaules/columnes, widthTaules/columnes, widthTaules/columnes, widthTaules/columnes};
@@ -128,6 +129,16 @@ public class GUI {
         String[][] infoS = {
                 {"x", "x", "x", "x", "x"},
         };
+
+        String[] selectValuesTs = {"          Térmico", "                 Proximidad", "          Presión"};
+        String[] selectValuesUs = {"        Cocina", "        Pasillo", "               Dormitorio", "     Baño", "     Salón"};
+        String[] selectValuesAr = {"1", "2", "3", "4"};
+        String[] selectValuesAct = {"               Actuador1", "               Actuador2", "               Actuador3", "               Actuador4"};
+
+        Tipos = new Select(selectValuesTs, XGraficaSensor, YTaules+heightTaules/2, widthTaules/5, heightTaules/2);
+        Ubicacions = new Select(selectValuesUs, XGraficaSensor+widthTaules/5, YTaules+heightTaules/2, widthTaules/5, heightTaules/2);
+        Arduino = new Select(selectValuesAr, XGraficaSensor+widthTaules*2/5, YTaules+heightTaules/2, widthTaules/5, heightTaules/2);
+        Actuador = new Select( selectValuesAct, XGraficaSensor+widthTaules*3/5, YTaules+heightTaules/2, widthTaules/5, heightTaules/2);
 
         ts1.setData(infoS);
         ts1.setHeaders(headersS);
@@ -146,16 +157,20 @@ public class GUI {
         // Número de files (capçalera inclosa) i columnes de la taula
 
         // Títols de les columnes
-        String[] headersA = {"Tipo", "Ubicación", "Pto.Arduino", "Sns.vinculados","Condiciones", "Estado actual"};
+        String[] headersA = {"Tipo", "Ubicación", "Pto.Arduino", "Sns.vinculado","Valor min.rgo.", "Valor max.rgo."};
 
         // Amplades de les columnes
         //float[] colWidthsA = {widthTaules/columnesA, widthTaules/columnesA, widthTaules/columnesA, widthTaules/columnesA, widthTaules/columnesA, widthTaules/columnesA};
-        float[] colWidthsA = {100/6f, 100/6f, 100/6f, 100/6f, 100/6f, 100/6f};
+        float[] colWidthsA = {100/6f, 100/6f, 100/6f, 100/6f, 100/6f, 100/6f, 100/6f};
 
         // Dades de la taula
         String[][] infoA = {
                 {"x", "x", "x", "x", "x", "x"}
         };
+
+
+
+
 
         ts2.setData(infoA);
         ts2.setHeaders(headersA);
@@ -279,9 +294,13 @@ public class GUI {
         GraficaSensor.display(p5);
         InhabilitarSensor.display(p5);
         MenuS.display(p5);
+        Tipos.display(p5);
+        Ubicacions.display(p5);
+        Arduino.display(p5);
+        Actuador.display(p5);
 
        // TNameSensor.display(p5);
-       // p5.textFont(Fonts.getFontAt(2));
+        p5.textFont(Fonts.getFontAt(2));
        // p5.text("          Nombre sensor:", /*XGraficaSensor*/ 708, /*YGraficaSensor*/ 239);
     }
 
@@ -329,9 +348,9 @@ public class GUI {
         BloquearA.display(p5);
         MenuA.display(p5);
 
-       // TNameActuador.display(p5);
-       // p5.textFont(Fonts.getFontAt(2));
-       // p5.text("               Nombre actuador:", /*XGraficaSensor*/ 708, /*YGraficaSensor*/ 239);
+     //  TNameActuador.display(p5);
+       p5.textFont(Fonts.getFontAt(2));
+      // p5.text("               Nombre actuador:", /*XGraficaSensor*/ 708, /*YGraficaSensor*/ 239);
 
     }
 

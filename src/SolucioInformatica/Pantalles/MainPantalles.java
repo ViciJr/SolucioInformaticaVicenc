@@ -22,8 +22,8 @@ public class MainPantalles extends PApplet {
     }
 
     public void settings(){
-        fullScreen();                       // Pantalla completa
-        //size(1336, 768);        // Pantalla HD
+        //fullScreen();                       // Pantalla completa
+        size(1336, 768);        // Pantalla HD
         smooth(10);
     }
 
@@ -33,7 +33,7 @@ public class MainPantalles extends PApplet {
         textAlign(CENTER); textSize(18);   // Alineació i mida del text
         gui = new GUI(this);           // Constructor de la GUI
 
-        db = new DataBase("admin", "12345", "domotica");
+        db = new DataBase("admin", "12345", "domotico");
         // Connecta amb la BBDD
         db.connect();
 
@@ -73,7 +73,7 @@ public class MainPantalles extends PApplet {
                 break;
 
         }
-       /* String info = connectat ? "OK" : "ERROR";
+      /*  String info = connectat ? "OK" : "ERROR";
         fill(0); textSize(48);
         text("Connexió a la BBDD : "+ info, 100, 100); */
 
@@ -120,6 +120,7 @@ public class MainPantalles extends PApplet {
         gui.TNameSensor.keyPressed(key, keyCode);
         gui.TNameActuador.keyPressed(key, keyCode);
 
+
         if(key=='n' || key=='N'){
             if(gui.hSelected != null) {
                 gui.hSelected.encenLlums();
@@ -160,7 +161,51 @@ public class MainPantalles extends PApplet {
                 gui.habitacions[i].setSelected(false);
             }
         }
+
+        if(gui.Tipos.mouseOverSelect(this) && gui.Tipos.isEnabled()){
+            if(!gui.Tipos.isCollapsed()){
+                gui.Tipos.update(this);      // Actualitzar valor
+             //   updateColor();    // Fer acció amb valor
+            }
+            gui.Tipos.toggle();        // Plegar o desplegar
+        }
+
+        if(gui.Ubicacions.mouseOverSelect(this) && gui.Ubicacions.isEnabled()){
+            if(!gui.Ubicacions.isCollapsed()){
+                gui.Ubicacions.update(this);      // Actualitzar valor
+                //   updateColor();    // Fer acció amb valor
+            }
+            gui.Ubicacions.toggle();        // Plegar o desplegar
+        }
+
+        if(gui.Arduino.mouseOverSelect(this) && gui.Arduino.isEnabled()){
+            if(!gui.Arduino.isCollapsed()){
+                gui.Arduino.update(this);      // Actualitzar valor
+                //   updateColor();    // Fer acció amb valor
+            }
+            gui.Arduino.toggle();        // Plegar o desplegar
+        }
+        if(gui.Actuador.mouseOverSelect(this) && gui.Actuador.isEnabled()){
+            if(!gui.Actuador.isCollapsed()){
+                gui.Actuador.update(this);      // Actualitzar valor
+                //   updateColor();    // Fer acció amb valor
+            }
+            gui.Actuador.toggle();        // Plegar o desplegar
+        }
+
+       /* // Si pitjam sobre el select 2
+        if(s2.mouseOverSelect(this) && s2.isEnabled()){
+            if(!s2.isCollapsed()){
+                s2.update(this);      // Actualitzar valor
+                updateNumber();   // Fer acció amb valor
+            }
+            s2.toggle();        // Plegar o desplegar
+        }
+    }*/
+
     }
+
+
 
 
     public void mouseDragged(){
