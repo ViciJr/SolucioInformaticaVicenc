@@ -45,7 +45,8 @@ public class GUI {
     //ActuadorX Afegir botó estadística
     Table ts2;
     Button InhabilitarActuador, GraficaActuador, MenuA, BloquearA;
-    TextField TNameActuador;
+    TextField TNameActuador, ValMax, ValMin;
+    Select Tipoa, Ubicaciona, Arduinoa, Sensora;
 
     //Estadística SensorX
     LinesDiagram ssl;
@@ -54,6 +55,7 @@ public class GUI {
     //Estadística ActuadorX
     BarsDiagram sab;
     Button UnidadesA, IntervaloA;
+    Select Unidadest, Rangot;
 
     //MAPA
     Habitacio[] habitacions;
@@ -130,7 +132,8 @@ public class GUI {
                 {"x", "x", "x", "x", "x"},
         };
 
-        String[] selectValuesTs = {"          Térmico", "                 Proximidad", "          Presión"};
+        
+        String[] selectValuesTs = {"                Temperatura", "                 Proximidad", "          Presión"};
         String[] selectValuesUs = {"        Cocina", "        Pasillo", "               Dormitorio", "     Baño", "     Salón"};
         String[] selectValuesAr = {"1", "2", "3", "4"};
         String[] selectValuesAct = {"               Actuador1", "               Actuador2", "               Actuador3", "               Actuador4"};
@@ -168,8 +171,16 @@ public class GUI {
                 {"x", "x", "x", "x", "x", "x"}
         };
 
+        String[] selectValuesTa = {"          LED", "                 Servomotor", "               Zumbador"};
+        String[] selectValuesSns = {"               Sensor1", "               Sensor2", "               Sensor3", "               Sensor4"};
 
+        Tipoa=new Select(selectValuesTa, XGraficaSensor, YTaules+heightTaules/2, widthTaules/6, heightTaules/2);
+        Ubicaciona= new Select(selectValuesUs, XGraficaSensor+widthTaules/6, YTaules+heightTaules/2, widthTaules/6, heightTaules/2);
+        Arduinoa=new Select(selectValuesAr, XGraficaSensor+widthTaules*2/6, YTaules+heightTaules/2, widthTaules/6, heightTaules/2);
+        Sensora=new Select(selectValuesSns, XGraficaSensor+widthTaules*3/6, YTaules+heightTaules/2, widthTaules/6, heightTaules/2);
 
+        ValMin = new TextField(p5, XGraficaSensor+widthTaules*4/6+1,YTaules+heightTaules/2, widthTaules/6-2, heightTaules/2);
+        ValMax = new TextField(p5, XGraficaSensor+widthTaules*5/6+1,YTaules+heightTaules/2, widthTaules/6-1, heightTaules/2);
 
 
         ts2.setData(infoA);
@@ -212,15 +223,21 @@ public class GUI {
         float[] valuesBA = {1, 2, 2, 2, 1, 1, 2, 1};
         int [] colorsBA = {Colors.getColorAt(2), Colors.getColorAt(4), Colors.getColorAt(4), Colors.getColorAt(4), Colors.getColorAt(2), Colors.getColorAt(2), Colors.getColorAt(4), Colors.getColorAt(2)};
 
+        String[] selectValuesUni = {"     Días", "        Horas", "          Minutos"};
+        String[] selectValuesRangt = {"2", "3", "4", "5", "6", "7", "8", "9", "10"};
+
+        Unidadest=new Select(selectValuesUni, XSensors, YActuadors+HeightInhabilitarSensor/2, WidthInhabilitarSensor, HeightInhabilitarSensor/2);
+        Rangot=new Select(selectValuesRangt, XSensors, (YActuadors+YinhabilitarActuador)/2+HeightInhabilitarSensor/2, WidthInhabilitarSensor, HeightInhabilitarSensor/2);
+
 // Configuració de Dades (textos, valors, colors)
         sab.setTexts(textosBA);
         sab.setValues(valuesBA);
         sab.setColors(colorsBA);
-
+/*
         UnidadesA = new Button(p5, "Unidades(t)", XSensors, YActuadors, WidthInhabilitarSensor, HeightInhabilitarSensor);
         UnidadesA.setColors(Colors.getColorAt(4), Colors.getColorAt(1), Colors.getColorAt(3),  Colors.getColorAt(3));
         IntervaloA = new Button(p5, "Intervalo", XSensors, (YActuadors+YinhabilitarActuador)/2, WidthInhabilitarSensor, HeightInhabilitarSensor);
-        IntervaloA.setColors(Colors.getColorAt(4), Colors.getColorAt(1), Colors.getColorAt(3),  Colors.getColorAt(3));
+        IntervaloA.setColors(Colors.getColorAt(4), Colors.getColorAt(1), Colors.getColorAt(3),  Colors.getColorAt(3)); */
 
         //Mapa
 
@@ -287,7 +304,7 @@ public class GUI {
         dibuixaBanner(p5);
         dibuixaLogo(p5);
         p5.textFont(Fonts.getFontAt(1));
-        dibuixaImatgeMapa(p5);
+       // dibuixaImatgeMapa(p5);
 
         p5.textFont(Fonts.getFontAt(2));
         ts1.display(p5, XTaules, YTaules/*+(heightImatge/2)-heightTaules/2+8*/, widthTaules, heightTaules);
@@ -302,6 +319,10 @@ public class GUI {
        // TNameSensor.display(p5);
         p5.textFont(Fonts.getFontAt(2));
        // p5.text("          Nombre sensor:", /*XGraficaSensor*/ 708, /*YGraficaSensor*/ 239);
+
+        for(int i=0; i<habitacions.length; i++) {
+            habitacions[i].dibuixa(p5);
+        }
     }
 
     public void dibuixaPantallaPlano(PApplet p5){
@@ -310,7 +331,7 @@ public class GUI {
         dibuixaBanner(p5);
         dibuixaLogo(p5);
         p5.textFont(Fonts.getFontAt(1));
-        dibuixaImatgeMapa(p5);
+        //dibuixaImatgeMapa(p5);
         p5.textFont(Fonts.getFontAt(2));
 
 
@@ -331,6 +352,10 @@ public class GUI {
         Actuador7.display(p5);
 
         MapaInteractiu.display(p5);
+
+        for(int i=0; i<habitacions.length; i++) {
+            habitacions[i].dibuixa(p5);
+        }
     }
 
     public void dibuixaPantallaActuadorX(PApplet p5){
@@ -339,7 +364,7 @@ public class GUI {
         dibuixaBanner(p5);
         dibuixaLogo(p5);
         p5.textFont(Fonts.getFontAt(1));
-        dibuixaImatgeMapa(p5);
+      //  dibuixaImatgeMapa(p5);
 
         p5.textFont(Fonts.getFontAt(2));
         ts2.display(p5, XTaules, YTaules/*+(heightImatge/2)-heightTaules/2+8*/, widthTaules, heightTaules);
@@ -347,11 +372,21 @@ public class GUI {
         InhabilitarActuador.display(p5);
         BloquearA.display(p5);
         MenuA.display(p5);
+        Tipoa.display(p5);
+        Ubicaciona.display(p5);
+        Arduinoa.display(p5);
+        Sensora.display(p5);
+
+        ValMin.display(p5);
+        ValMax.display(p5);
 
      //  TNameActuador.display(p5);
        p5.textFont(Fonts.getFontAt(2));
       // p5.text("               Nombre actuador:", /*XGraficaSensor*/ 708, /*YGraficaSensor*/ 239);
 
+        for(int i=0; i<habitacions.length; i++) {
+            habitacions[i].dibuixa(p5);
+        }
     }
 
     public void dibuixaPantallaEstadisticaSensorX(PApplet p5){
@@ -364,9 +399,10 @@ public class GUI {
         ssl.display(p5);
       //  dibuixaColumnes123(p5);
         MenuS.display(p5);
-        IntervaloA.display(p5);
-        UnidadesA.display(p5);
-
+        p5.text("Unidades:", XUsuari+2*marginH, YActuadors, WidthInhabilitarSensor, HeightInhabilitarSensor/2);
+        p5.text("Rango(t):", XUsuari+2*marginH, (YActuadors+YinhabilitarActuador)/2, WidthInhabilitarActuador, HeightInhabilitarSensor/2);
+        Rangot.display(p5);
+        Unidadest.display(p5);
     }
 
     public void dibuixaPantallaEstadisticaActuadorX(PApplet p5){
@@ -379,8 +415,10 @@ public class GUI {
         sab.display(p5);
       //  dibuixaColumnes123(p5);
         MenuA.display(p5);
-        IntervaloA.display(p5);
-        UnidadesA.display(p5);
+        p5.text("Unidades:", XUsuari+2*marginH, YActuadors, WidthInhabilitarSensor, HeightInhabilitarSensor/2);
+        p5.text("Rango(t):", XUsuari+2*marginH, (YActuadors+YinhabilitarActuador)/2, WidthInhabilitarActuador, HeightInhabilitarSensor/2);
+        Rangot.display(p5);
+        Unidadest.display(p5);
     }
 
     public void dibuixaPantallaMapa(PApplet p5){
@@ -390,11 +428,11 @@ public class GUI {
         dibuixaLogo(p5);
         p5.textFont(Fonts.getFontAt(2));
         MenuA.display(p5);
-        p5.stroke(0); p5.strokeWeight(1);
-        for(int i=0; i<habitacions.length; i++) {
+     p5.stroke(0); p5.strokeWeight(1);
+      /*  for(int i=0; i<habitacions.length; i++) {
             habitacions[i].dibuixa(p5);
         }
-
+*/
 
     }
     // ZONES DE LA GUI

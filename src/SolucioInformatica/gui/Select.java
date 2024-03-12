@@ -64,7 +64,6 @@ class Select {
                     p5.fill(200); p5.noStroke();
                     p5.rect(x+4, y+4 + h + (h + lineSpace)*i - 2, w -8, h + lineSpace - 8);
                 }
-
                 p5.fill(0);
                 p5.text(texts[i], x + 10, y + h + 25 + (h + lineSpace)*i);
             }
