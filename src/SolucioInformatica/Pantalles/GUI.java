@@ -59,8 +59,8 @@ public class GUI {
 
     //MAPA
     Habitacio[] habitacions;
-    Habitacio Dormitorio, Cocina, Salón ,Pasillo, Baño, hSelected;
-    Sensor SensorMapa1, SensorMapa2, SensorMapa4, SensorMapa3;
+    Habitacio Dormitorio, Cocina, Salón ,Pasillo, Baño, hSelected, SensorSinHabitacion, ActuadorSinHabitacion;
+    Sensor ActuadorMapa1, ActuadorMapa2, SensorMapa4, ActuadorMapa3, ActuadorMapa4, ActuadorMapa5, ActuadorMapa6, ActuadorMapa7, SensorMapa5, SensorMapa6, SensorMapa7, SensorMapa8, SensorMapa9, SensorMapa10;
 
     // Constructor de la GUI
     public GUI(PApplet p5){
@@ -133,7 +133,7 @@ public class GUI {
         };
 
         
-        String[] selectValuesTs = {"                Temperatura", "                 Proximidad", "          Presión"};
+        String[] selectValuesTs = {"                   Temperatura", "                 Proximidad", "          Presión"};
         String[] selectValuesUs = {"        Cocina", "        Pasillo", "               Dormitorio", "     Baño", "     Salón"};
         String[] selectValuesAr = {"1", "2", "3", "4"};
         String[] selectValuesAct = {"               Actuador1", "               Actuador2", "               Actuador3", "               Actuador4"};
@@ -224,7 +224,7 @@ public class GUI {
         int [] colorsBA = {Colors.getColorAt(2), Colors.getColorAt(4), Colors.getColorAt(4), Colors.getColorAt(4), Colors.getColorAt(2), Colors.getColorAt(2), Colors.getColorAt(4), Colors.getColorAt(2)};
 
         String[] selectValuesUni = {"     Días", "        Horas", "          Minutos"};
-        String[] selectValuesRangt = {"2", "3", "4", "5", "6", "7", "8", "9", "10"};
+        String[] selectValuesRangt = {String.valueOf(3), String.valueOf(5), String.valueOf(7)};
 
         Unidadest=new Select(selectValuesUni, XSensors, YActuadors+HeightInhabilitarSensor/2, WidthInhabilitarSensor, HeightInhabilitarSensor/2);
         Rangot=new Select(selectValuesRangt, XSensors, (YActuadors+YinhabilitarActuador)/2+HeightInhabilitarSensor/2, WidthInhabilitarSensor, HeightInhabilitarSensor/2);
@@ -241,10 +241,25 @@ public class GUI {
 
         //Mapa
 
-        SensorMapa1 = new Llum("LED A", true);
-        SensorMapa2 = new Llum("LED B", true);
-        SensorMapa3 = new Llum("LED C");
+        ActuadorMapa1 = new Llum("Actuador 1");
+        ActuadorMapa2 = new Llum("Actuador 2");
+        ActuadorMapa3 = new Llum("Actuador 3");
+        ActuadorMapa4 = new Llum("Actuador 4");
+        ActuadorMapa5 = new Llum("Actuador 5");
+        ActuadorMapa6 = new Llum("Actuador 6");
+        ActuadorMapa7 = new Llum("Actuador 7");
+
+
         SensorMapa4 = new Sensor("Sensor 1");
+        SensorMapa5 = new Sensor("Sensor 2");
+        SensorMapa6 = new Sensor("Sensor 3");
+        SensorMapa7 = new Sensor("Sensor 4");
+        SensorMapa8 = new Sensor("Sensor 5");
+        SensorMapa9 = new Sensor("Sensor 6");
+        SensorMapa10 = new Sensor("Sensor 7");
+
+
+
 
         // Constructor d'Habitacions
         p5.strokeWeight(1);
@@ -253,20 +268,38 @@ public class GUI {
         Baño = new Habitacio(" Baño", XBaño, YBaño, WidthBaño, HeightBaño, Colors.getColorAt(7));
         Pasillo = new Habitacio(" Pasillo", XPasillo, YPasillo, WidthPasillo, HeightPasillo, Colors.getColorAt(6));
         Salón = new Habitacio("Salón", XSalón, YSalón, WidthSalón, HeightSalón, Colors.getColorAt(8));
+        SensorSinHabitacion = new Habitacio(" ", XSalón-60, YPasillo+HeightPasillo+2, WidthBaño+WidthPasillo+WidthSalón+140, WidthPasillo/2+13, Colors.getColorAt(10));
+        ActuadorSinHabitacion = new Habitacio(" ", XSalón-60, YPasillo-(WidthPasillo/2+15), WidthBaño+WidthPasillo+WidthSalón+140, WidthPasillo/2+13, Colors.getColorAt(10));
 
         // Agregam Sensors a les Habitacions
-        Dormitorio.addSensor(SensorMapa1);
-        Dormitorio.addSensor(SensorMapa2);
-        Dormitorio.addSensor(SensorMapa3);
-        Cocina.addSensor(SensorMapa4);
+        ActuadorSinHabitacion.addSensor(ActuadorMapa1);
+        ActuadorSinHabitacion.addSensor(ActuadorMapa2);
+        ActuadorSinHabitacion.addSensor(ActuadorMapa3);
+        ActuadorSinHabitacion.addSensor(ActuadorMapa4);
+        ActuadorSinHabitacion.addSensor(ActuadorMapa5);
+        ActuadorSinHabitacion.addSensor(ActuadorMapa6);
+        ActuadorSinHabitacion.addSensor(ActuadorMapa7);
+
+
+        SensorSinHabitacion.addSensor(SensorMapa4);
+        SensorSinHabitacion.addSensor(SensorMapa5);
+        SensorSinHabitacion.addSensor(SensorMapa6);
+        SensorSinHabitacion.addSensor(SensorMapa7);
+        SensorSinHabitacion.addSensor(SensorMapa8);
+        SensorSinHabitacion.addSensor(SensorMapa9);
+        SensorSinHabitacion.addSensor(SensorMapa10);
+
+
 
         // Cream array d'habitacions
-        habitacions = new Habitacio[5];
+        habitacions = new Habitacio[7];
         habitacions[0] = Dormitorio;
         habitacions[1] = Cocina;
         habitacions[2] = Pasillo;
         habitacions[3]= Salón;
         habitacions[4]= Baño;
+        habitacions[5]= SensorSinHabitacion;
+        habitacions[6]= ActuadorSinHabitacion;
 
         // Habitació Seleccionada (cap)
         hSelected = null;

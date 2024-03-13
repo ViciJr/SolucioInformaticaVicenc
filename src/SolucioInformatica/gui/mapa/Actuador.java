@@ -37,7 +37,7 @@ public class Actuador {
         p5.rectMode(p5.CENTER);
         p5.rect(x, y, 25, 25);
         p5.fill(0); p5.textAlign(p5.CENTER);
-        p5.text(this.nom, x, y +  50);
+        p5.text(this.nom, x, y +  25);
         p5.popStyle();
     }
 
