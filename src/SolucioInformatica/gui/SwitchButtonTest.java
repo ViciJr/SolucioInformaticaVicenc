@@ -19,7 +19,7 @@ public class SwitchButtonTest extends PApplet {
 
     public void setup(){
         // Crea els TextFields
-        sbt = new SwitchButton(this, width/2 - 150, height/2 - 100, 300, 100);
+        sbt = new SwitchButton(this, "On","Off",width/2 - 150, height/2 - 100, 300, 100);
 
         bgColor = color(255);
     }

@@ -57,19 +57,19 @@ public class MainPantalles extends PApplet {
             case MENÚ:          gui.dibuixaPantallaPlano(this);
                 break;
 
-            case SENSORX:        gui.dibuixaPantallaSensorX(this);
+            case SENSOR1:        gui.dibuixaPantallaSensor1(this);
                 break;
 
-            case ACTUADORX:         gui.dibuixaPantallaActuadorX(this);
+            case ACTUADOR1:         gui.dibuixaPantallaActuador1(this);
                 break;
 
-            case ESTADÍSTICA_SENSORX:       gui.dibuixaPantallaEstadisticaSensorX(this);
+            case GRÁFICA_SENSOR1:       gui.dibuixaPantallaEstadisticaSensor1(this);
                 break;
 
-            case ESTADÍSTICA_ACTUADORX:    gui.dibuixaPantallaEstadisticaActuadorX(this);
+            case GRÁFICA_ACTUADOR1:    gui.dibuixaPantallaEstadisticaActuador1(this);
                 break;
 
-            case MAPA:    gui.dibuixaPantallaMapa(this);
+            case INSTRUCCIONES:    gui.dibuixaPantallaInstrucciones(this);
                 break;
 
         }
@@ -100,19 +100,19 @@ public class MainPantalles extends PApplet {
             gui.pantallaActual = GUI.PANTALLA.MENÚ;
         }
         else if(key=='2'){
-            gui.pantallaActual = GUI.PANTALLA.SENSORX;
+            gui.pantallaActual = GUI.PANTALLA.SENSOR1;
         }
         else if(key=='3'){
-            gui.pantallaActual = GUI.PANTALLA.ACTUADORX;
+            gui.pantallaActual = GUI.PANTALLA.ACTUADOR1;
         }
         else if(key=='4'){
-            gui.pantallaActual = GUI.PANTALLA.ESTADÍSTICA_SENSORX;
+            gui.pantallaActual = GUI.PANTALLA.GRÁFICA_SENSOR1;
         }
         else if(key=='5'){
-            gui.pantallaActual = GUI.PANTALLA.ESTADÍSTICA_ACTUADORX;
+            gui.pantallaActual = GUI.PANTALLA.GRÁFICA_ACTUADOR1;
         }
         else if(key=='6'){
-            gui.pantallaActual = GUI.PANTALLA.MAPA;
+            gui.pantallaActual = GUI.PANTALLA.INSTRUCCIONES;
         }
 
         gui.TUsuario.keyPressed(key, keyCode);
@@ -143,6 +143,81 @@ public class MainPantalles extends PApplet {
     // ******************* MOUSE interaction ***************************** //
 
     public void mousePressed(){
+        if(gui.pantallaActual == GUI.PANTALLA.INICIO || gui.pantallaActual == GUI.PANTALLA.MENÚ || gui.pantallaActual == GUI.PANTALLA.SENSOR1 || gui.pantallaActual == GUI.PANTALLA.ACTUADOR1 || gui.pantallaActual == GUI.PANTALLA.GRÁFICA_SENSOR1 || gui.pantallaActual == GUI.PANTALLA.GRÁFICA_ACTUADOR1) {
+
+            if (gui.Logo.mouseOverButton(this)) {
+                gui.pantallaActual = GUI.PANTALLA.MENÚ;
+            }
+
+            if (gui.BlogIn.mouseOverButton(this)) {
+                gui.pantallaActual = GUI.PANTALLA.MENÚ;
+            }
+            if (gui.Sensor1.mouseOverButton(this)) {
+                gui.pantallaActual = GUI.PANTALLA.SENSOR1;
+            }
+            if (gui.Actuador1.mouseOverButton(this)) {
+                gui.pantallaActual = GUI.PANTALLA.ACTUADOR1;
+            }
+
+
+            if (gui.pantallaActual == GUI.PANTALLA.INICIO && gui.pantallaActual != GUI.PANTALLA.MENÚ && gui.pantallaActual != GUI.PANTALLA.SENSOR1 && gui.pantallaActual != GUI.PANTALLA.ACTUADOR1 && gui.pantallaActual != GUI.PANTALLA.GRÁFICA_SENSOR1 && gui.pantallaActual != GUI.PANTALLA.GRÁFICA_ACTUADOR1) {
+                if (gui.BlogIn.mouseOverButton(this) && gui.pantallaActual == GUI.PANTALLA.INICIO) {
+                    gui.pantallaActual = GUI.PANTALLA.MENÚ;
+                }
+            }
+
+            if (gui.pantallaActual == GUI.PANTALLA.MENÚ && gui.pantallaActual != GUI.PANTALLA.INICIO && gui.pantallaActual != GUI.PANTALLA.SENSOR1 && gui.pantallaActual != GUI.PANTALLA.ACTUADOR1 && gui.pantallaActual != GUI.PANTALLA.GRÁFICA_SENSOR1 && gui.pantallaActual != GUI.PANTALLA.GRÁFICA_ACTUADOR1) {
+                if (gui.Actuador1.mouseOverButton(this)) {
+                    gui.pantallaActual = GUI.PANTALLA.ACTUADOR1;
+                }
+                if (gui.Sensor1.mouseOverButton(this)) {
+                    gui.pantallaActual = GUI.PANTALLA.SENSOR1;
+                }
+            }
+
+            if (gui.pantallaActual == GUI.PANTALLA.ACTUADOR1 && gui.pantallaActual != GUI.PANTALLA.MENÚ && gui.pantallaActual != GUI.PANTALLA.SENSOR1 && gui.pantallaActual != GUI.PANTALLA.INICIO && gui.pantallaActual != GUI.PANTALLA.GRÁFICA_SENSOR1 && gui.pantallaActual != GUI.PANTALLA.GRÁFICA_ACTUADOR1) {
+                if (gui.GraficaActuador.mouseOverButton(this)) {
+                    gui.pantallaActual = GUI.PANTALLA.GRÁFICA_ACTUADOR1;
+                }
+                if (gui.EncesA.isEnabled()) {
+                    gui.ActuadorMapa1.setEnces(true);
+                } else {
+                    gui.ActuadorMapa1.setEnces(false);
+                }
+                if (gui.MenuS.mouseOverButton(this) && gui.pantallaActual == GUI.PANTALLA.ACTUADOR1) {
+                    gui.pantallaActual = GUI.PANTALLA.MENÚ;
+                }
+            }
+
+            if (gui.pantallaActual == GUI.PANTALLA.SENSOR1 && gui.pantallaActual != GUI.PANTALLA.MENÚ && gui.pantallaActual != GUI.PANTALLA.INICIO && gui.pantallaActual != GUI.PANTALLA.ACTUADOR1 && gui.pantallaActual != GUI.PANTALLA.GRÁFICA_SENSOR1 && gui.pantallaActual != GUI.PANTALLA.GRÁFICA_ACTUADOR1) {
+                if (gui.GraficaSensor.mouseOverButton(this)) {
+                    gui.pantallaActual = GUI.PANTALLA.GRÁFICA_SENSOR1;
+                }
+                if (gui.EncesS.isEnabled()) {
+                    gui.SensorMapa4.setEnces(true);
+                } else {
+                    gui.SensorMapa4.setEnces(false);
+                }
+                if (gui.MenuS.mouseOverButton(this) && gui.pantallaActual == GUI.PANTALLA.SENSOR1) {
+                    gui.pantallaActual = GUI.PANTALLA.MENÚ;
+                }
+            }
+
+            if (gui.pantallaActual == GUI.PANTALLA.GRÁFICA_SENSOR1 && gui.pantallaActual != GUI.PANTALLA.MENÚ && gui.pantallaActual != GUI.PANTALLA.INICIO && gui.pantallaActual != GUI.PANTALLA.ACTUADOR1 && gui.pantallaActual != GUI.PANTALLA.SENSOR1 && gui.pantallaActual != GUI.PANTALLA.GRÁFICA_ACTUADOR1) {
+                if (gui.MenuSns.mouseOverButton(this) && gui.pantallaActual == GUI.PANTALLA.GRÁFICA_SENSOR1) {
+                    gui.pantallaActual = GUI.PANTALLA.SENSOR1;
+                }
+            }
+
+            if (gui.pantallaActual == GUI.PANTALLA.GRÁFICA_ACTUADOR1 && gui.pantallaActual != GUI.PANTALLA.MENÚ && gui.pantallaActual != GUI.PANTALLA.INICIO && gui.pantallaActual != GUI.PANTALLA.ACTUADOR1 && gui.pantallaActual != GUI.PANTALLA.SENSOR1 && gui.pantallaActual != GUI.PANTALLA.GRÁFICA_SENSOR1) {
+                if (gui.MenuSns.mouseOverButton(this) && gui.pantallaActual == GUI.PANTALLA.GRÁFICA_ACTUADOR1) {
+                    gui.pantallaActual = GUI.PANTALLA.ACTUADOR1;
+                }
+            }
+        }
+
+
+
         println("X: "+mouseX+", Y:"+mouseY);
         gui.TUsuario.isPressed(this);
         gui.TContraseña.isPressed(this);
@@ -238,6 +313,35 @@ public class MainPantalles extends PApplet {
                 //   updateColor();    // Fer acció amb valor
             }
             gui.Unidadest.toggle();        // Plegar o desplegar
+        }
+        if(gui.EncesS.mouseOverButton(this)){
+            gui.EncesS.toggle();
+            if(gui.EncesS.isEnabled()){
+                //bgColor = color(255);
+            }
+            else {
+              //  gui.EncesS.Color = color(0);
+            }
+        }
+
+        if(gui.EncesA.mouseOverButton(this)){
+            gui.EncesA.toggle();
+            if(gui.EncesA.isEnabled()){
+                //bgColor = color(255);
+            }
+            else {
+                //  gui.EncesS.Color = color(0);
+            }
+        }
+
+        if(gui.BloquejatA.mouseOverButton(this)){
+            gui.BloquejatA.toggle();
+            if(gui.BloquejatA.isEnabled()){
+                //bgColor = color(255);
+            }
+            else {
+                //  gui.EncesS.Color = color(0);
+            }
         }
 
        /* // Si pitjam sobre el select 2
