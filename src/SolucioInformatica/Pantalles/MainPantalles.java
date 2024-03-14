@@ -160,6 +160,8 @@ public class MainPantalles extends PApplet {
             }
 
 
+            }
+
             if (gui.pantallaActual == GUI.PANTALLA.INICIO && gui.pantallaActual != GUI.PANTALLA.MENÚ && gui.pantallaActual != GUI.PANTALLA.SENSOR1 && gui.pantallaActual != GUI.PANTALLA.ACTUADOR1 && gui.pantallaActual != GUI.PANTALLA.GRÁFICA_SENSOR1 && gui.pantallaActual != GUI.PANTALLA.GRÁFICA_ACTUADOR1) {
                 if (gui.BlogIn.mouseOverButton(this) && gui.pantallaActual == GUI.PANTALLA.INICIO) {
                     gui.pantallaActual = GUI.PANTALLA.MENÚ;
@@ -214,7 +216,7 @@ public class MainPantalles extends PApplet {
                     gui.pantallaActual = GUI.PANTALLA.ACTUADOR1;
                 }
             }
-        }
+
 
 
 
