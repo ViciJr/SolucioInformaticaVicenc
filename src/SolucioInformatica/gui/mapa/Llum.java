@@ -12,6 +12,10 @@ public class Llum extends Sensor{
         super(n, ences);
     }
 
+    public Llum (String n, boolean ences, Sensor sv, Habitacio h, String ta, String pa, float valMax, float valMin) {
+        super(n, ences, sv, h, ta, pa, valMax, valMin);
+    }
+
     public void dibuixa(PApplet p5){
 
         p5.pushStyle();

@@ -13,7 +13,9 @@ public class MainPantalles extends PApplet {
     // Dades de connexió (user, password, nom de la base de dades)
     String user     = "admin";
     String pass     = "12345";
-    String database = "domotica";
+    String database = "domotico";
+    String usuario = "Lolito FDZ";
+    String password = "12345";
     boolean connectat = false;
     DataBase db;
     int n;
@@ -163,6 +165,8 @@ public class MainPantalles extends PApplet {
             }
 
             if (gui.pantallaActual == GUI.PANTALLA.INICIO && gui.pantallaActual != GUI.PANTALLA.MENÚ && gui.pantallaActual != GUI.PANTALLA.SENSOR1 && gui.pantallaActual != GUI.PANTALLA.ACTUADOR1 && gui.pantallaActual != GUI.PANTALLA.GRÁFICA_SENSOR1 && gui.pantallaActual != GUI.PANTALLA.GRÁFICA_ACTUADOR1) {
+
+
                 if (gui.BlogIn.mouseOverButton(this) && gui.pantallaActual == GUI.PANTALLA.INICIO) {
                     gui.pantallaActual = GUI.PANTALLA.MENÚ;
                 }

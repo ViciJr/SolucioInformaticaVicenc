@@ -2,6 +2,7 @@ package SolucioInformatica.Pantalles;
 
 ;
 import SolucioInformatica.gui.*;
+import SolucioInformatica.gui.mapa.Actuador;
 import SolucioInformatica.gui.mapa.Habitacio;
 import SolucioInformatica.gui.mapa.Llum;
 import SolucioInformatica.gui.mapa.Sensor;
@@ -251,13 +252,7 @@ public class GUI {
 
         //Mapa
 
-        ActuadorMapa1 = new Llum("Actuador 1");
-        ActuadorMapa2 = new Llum("Actuador 2");
-        ActuadorMapa3 = new Llum("Actuador 3");
-        ActuadorMapa4 = new Llum("Actuador 4");
-        ActuadorMapa5 = new Llum("Actuador 5");
-        ActuadorMapa6 = new Llum("Actuador 6");
-        ActuadorMapa7 = new Llum("Actuador 7");
+
 
 
         SensorMapa4 = new Sensor("Sensor 1");
@@ -267,6 +262,14 @@ public class GUI {
         SensorMapa8 = new Sensor("Sensor 5");
         SensorMapa9 = new Sensor("Sensor 6");
         SensorMapa10 = new Sensor("Sensor 7");
+
+        ActuadorMapa1 = new Llum("Actuador 1", false ,SensorMapa4, ActuadorSinHabitacion, "LED", "1", 15f, 0f);
+        ActuadorMapa2 = new Llum("Actuador 2", false ,SensorMapa5, ActuadorSinHabitacion, "LED", "1", 15f, 0f);
+        ActuadorMapa3 = new Llum("Actuador 3", false ,SensorMapa6, ActuadorSinHabitacion, "LED", "1", 15f, 0f);
+        ActuadorMapa4 = new Llum("Actuador 4", false ,SensorMapa7, ActuadorSinHabitacion, "LED", "1", 15f, 0f);
+        ActuadorMapa5 = new Llum("Actuador 5",  false ,SensorMapa8, ActuadorSinHabitacion, "LED", "1", 15f, 0f);
+        ActuadorMapa6 = new Llum("Actuador 6", false ,SensorMapa9, ActuadorSinHabitacion, "LED", "1", 15f, 0f);
+        ActuadorMapa7 = new Llum("Actuador 7", false ,SensorMapa10, ActuadorSinHabitacion, "LED", "1", 15f, 0f);
 
 
 

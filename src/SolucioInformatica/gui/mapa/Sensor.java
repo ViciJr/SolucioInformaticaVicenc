@@ -7,6 +7,22 @@ public class Sensor {
     String nom;
     boolean ences;
 
+    Llum actuadorVinculado;
+
+    Sensor sensorVinculado;
+
+    Habitacio habitacion;
+
+    String puertoArduino;
+
+    String tipoSensor;
+
+    String tipoActuador;
+
+    float valMax, valMin;
+
+    float valorActual;
+
     float x, y;
     float radi = 25;
 
@@ -18,6 +34,24 @@ public class Sensor {
     public Sensor(String n, boolean ences){
         this.nom = n;
         this.ences = ences;
+    }
+
+    public Sensor (String n, boolean ences, Sensor sv, Habitacio h, String ta, String pa, float valMax, float valMin){
+        this.nom = n;
+        this.ences = ences;
+        this.sensorVinculado=sv;
+        this.habitacion=h;
+        this.tipoActuador=ta;
+        this.puertoArduino=pa;
+        this.valMax=valMax;
+        this.valMin=valMin;
+    }
+
+    public Sensor (String n, boolean ences, Llum a, Habitacio h, String ts, String pa, float valorActual){
+        this.actuadorVinculado=a;
+        this.habitacion=h;
+        this.tipoSensor=ts;
+        this.puertoArduino=pa;
     }
 
     public void setPosicio(float x, float y){

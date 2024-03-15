@@ -27,6 +27,7 @@ public class DataBase {
 
     public void connect(){
         try {
+            Class.forName("com.mysql.jdbc.Driver");
             c = DriverManager.getConnection("jdbc:mysql://localhost:3306/"+databaseName, user, password);
             query = c.createStatement();
             System.out.println("Connectat a la BBDD! :) ");
@@ -51,7 +52,39 @@ public class DataBase {
         }
     }
 
-    // Retorna les dades d'una taula en concret
+    // Retorna el número de files que retornaria una query SELECT qualsevol amb valor "n"
+    // Per exemple: SELECT COUNT(*) AS n FROM ...
+    public int getNumRowsQuery(String q){
+        try {
+            ResultSet rs = query.executeQuery( q);
+            rs.next();
+            return rs.getInt("n");
+        }
+        catch(Exception e) {
+            System.out.println(e);
+            return 0;
+        }
+    }
+
+    // Retorna el número de columnes d'una taula de la base de dades
+    public int getNumColsTaula(String nomTaula){
+        try {
+            String q = "SELECT count(*) as n FROM information_schema.columns WHERE table_name ='"+ nomTaula +"' AND table_schema='"+databaseName+"'";
+            System.out.println(q);
+            ResultSet rs = query.executeQuery( q);
+            rs.next();
+            int numCols = rs.getInt("n");
+            return numCols;
+        }
+        catch(Exception e) {
+            System.out.println(e);
+            return 0;
+        }
+    }
+
+
+
+    // Retorna totes les dades d'una taula en concret
     public String[][] getInfoTaulaUnitat(){
         int numFiles = getNumRowsTaula("unitat");
         int numCols  = 2;
@@ -62,6 +95,47 @@ public class DataBase {
             while (rs.next()) {
                 info[nr][0] = String.valueOf(rs.getInt("numero"));
                 info[nr][1] = rs.getString("nom");
+                nr++;
+            }
+            return info;
+        }
+        catch(Exception e) {
+            System.out.println(e);
+            return null;
+        }
+    }
+
+    // Retorna les dades bidimensionals d'una query en concret (Dades de les unitats d'un curs en concret).
+    public String[][] getInfoTaulaUnitatCurs(int curs){
+        int numFiles = getNumRowsQuery("SELECT COUNT(*) AS n FROM unitat WHERE curs = '"+curs+"'");
+        int numCols  = 3;
+        String[][] info = new String[numFiles][numCols];
+        try {
+            ResultSet rs = query.executeQuery( "SELECT numero, nom, curs FROM unitat WHERE curs= '"+curs+"'");
+            int nr = 0;
+            while (rs.next()) {
+                info[nr][0] = String.valueOf(rs.getInt("numero"));
+                info[nr][1] = rs.getString("nom");
+                info[nr][2] = String.valueOf(rs.getInt("curs"));
+                nr++;
+            }
+            return info;
+        }
+        catch(Exception e) {
+            System.out.println(e);
+            return null;
+        }
+    }
+
+    // Retorna les dades unidimensionals d'una query en concret (Cursos diferents)
+    public String[] getInfoColumnaCursTaulaUnitat(){
+        int numFiles = getNumRowsQuery("SELECT COUNT(DISTINCT curs) AS n FROM unitat");
+        String[] info = new String[numFiles];
+        try {
+            ResultSet rs = query.executeQuery( "SELECT DISTINCT(curs) AS curs FROM unitat");
+            int nr = 0;
+            while (rs.next()) {
+                info[nr] = rs.getString("curs");
                 nr++;
             }
             return info;
@@ -88,6 +162,93 @@ public class DataBase {
         catch(Exception e) {
             System.out.println(e);
             return null;
+        }
+    }
+
+    // Retorna el valor de la Columna NUMERO de la taula UNITAT per aquella fila amb NOM
+    public String getNumeroFromTaulaUnitat(String nom)  {
+        try {
+            ResultSet rs = query.executeQuery( "SELECT numero FROM unitat WHERE nom = '"+nom+"'");
+            rs.next();
+            return String.valueOf(rs.getInt("numero"));
+        }
+        catch(Exception e) {
+            System.out.println(e);
+            return null;
+        }
+    }
+
+
+    public boolean isValidUser(String userName, String password){
+        String q = "SELECT COUNT(*) AS n FROM usuario WHERE idUsuario = '"+userName+"' AND password='"+password+"'";
+        try {
+            ResultSet rs = query.executeQuery( q);
+            rs.next();
+            return rs.getInt("n")==1;
+        }
+        catch(Exception e) {
+            System.out.println(e);
+            return false;
+        }
+    }
+
+    public String getClaveFromTabla(String nombreTable, String nombreClave, String nombreColumna, String valorColumna){
+        try {
+            String q = "SELECT "+nombreClave+" AS clave FROM "+nombreTable+" WHERE "+nombreColumna+"='"+valorColumna+"'";
+            ResultSet rs = query.executeQuery( q);
+            rs.next();
+            return rs.getString("clave");
+        }
+        catch(Exception e) {
+            System.out.println(e);
+            return null;
+        }
+    }
+
+
+    // INSERTS
+
+    // Inserta les dades a la taula Unitat
+
+    void insertInfoTaulaUnitat(String num, String nom){
+        try {
+            String sNom = nom.replace("\'", "\\'");
+            String q = "INSERT INTO unitat (numero, nom) VALUES ('" + num + "','" + sNom + "')";
+            System.out.println(q);
+            query.execute(q);
+        }
+        catch(Exception e) {
+            System.out.println(e);
+        }
+    }
+
+
+    // UPDATES
+
+    // Actualitza les dades a la taula Unitat
+
+    void updateInfoTaulaUnitat(String id, String num, String nom){
+        try {
+            String q = "UPDATE unitat SET numero='"+num+"', nom='"+nom+"' WHERE numero='"+id+"'";
+            System.out.println(q);
+            query.execute(q);
+        }
+        catch(Exception e) {
+            System.out.println(e);
+        }
+    }
+
+    // DELETES
+
+    // Esborra la fila de la taula Unitat amb el número concret
+    void deleteInfoTaulaUnitat(String id){
+        try {
+            String q = "DELETE FROM unitat WHERE numero='"+id+"'";
+            System.out.println(q);
+            query.execute(q);
+        }
+        catch(Exception e) {
+            System.out.println(e);
         }
     }
 }
