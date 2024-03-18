@@ -48,10 +48,13 @@ public class Sensor {
     }
 
     public Sensor (String n, boolean ences, Llum a, Habitacio h, String ts, String pa, float valorActual){
+        this.nom = n;
+        this.ences = ences;
         this.actuadorVinculado=a;
         this.habitacion=h;
         this.tipoSensor=ts;
         this.puertoArduino=pa;
+        this.valorActual= valorActual;
     }
 
     public void setPosicio(float x, float y){

@@ -207,11 +207,14 @@ public class GUI {
 
         p5.textFont(Fonts.getFontAt(2));
         // Dades del Diagrama (etiquetes)
-        String[] textosLS  = {"8am","9am", "10am", "11am", "12am", "1pm", "2pm",
-                "3pm"};
+        String[] textosLS7  = {"7","6", "5", "4", "3", "2", "1"};
+        String[] textosLS5  = {"5", "4", "3", "2", "1"};
+        String[] textosLS3  = {"3", "2", "1"};
 
         // Dades del Diagrama (valors)
-        float[] valuesLS  = {6, 8, 11, 13, 18, 20, 22, 22};
+        float[] valuesLS7  = {6, 8, 11, 13, 18, 20, 22};
+        float[] valuesLS5  = {11, 13, 18, 20, 22};
+        float[] valuesLS3  = {18, 20, 22};
 
         // Color de la línia
         int colorLineLS = p5.color(0);
@@ -219,8 +222,12 @@ public class GUI {
         ssl = new LinesDiagram(XDiagram, YDiagram, WidthDiagram, HeightDiagram);
 
         // Configuració de Dades (textosLS, valors, colors)
-        ssl.setTexts(textosLS);
-        ssl.setValues(valuesLS);
+        ssl.setTexts(textosLS7);
+        ssl.setTexts(textosLS5);
+        ssl.setTexts(textosLS3);
+        ssl.setValues(valuesLS7);
+        ssl.setValues(valuesLS5);
+        ssl.setValues(valuesLS3);
         ssl.setColors(colorLineLS);
 
         //Pantalla estadística Actuador x
@@ -228,9 +235,13 @@ public class GUI {
         sab= new BarsDiagram(XDiagram, YDiagram, WidthDiagram, HeightDiagram);
 
         // Dades del Diagrama (textosLS, valors i colors)
-        String[] textosBA = {"8am","9am", "10am", "11am", "12am", "1pm", "2pm",
-                "3pm"};
-        float[] valuesBA = {1, 2, 2, 2, 1, 1, 2, 1};
+        String[] textosBA7 = {"7","6", "5", "4", "3", "2", "1"};
+        String[] textosBA5 = {"7","6", "5", "4", "3", "2", "1"};
+        String[] textosBA3 = {"7","6", "5", "4", "3", "2", "1"};
+        float[] valuesBA7 = {1, 2, 2, 2, 1, 1, 2};
+        float[] valuesBA5 = {2, 2, 1, 1, 2};
+        float[] valuesBA3 = {1, 1, 2};
+
         int [] colorsBA = {Colors.getColorAt(2), Colors.getColorAt(4), Colors.getColorAt(4), Colors.getColorAt(4), Colors.getColorAt(2), Colors.getColorAt(2), Colors.getColorAt(4), Colors.getColorAt(2)};
 
         String[] selectValuesUni = {"     Días", "        Horas", "          Minutos"};
@@ -241,8 +252,12 @@ public class GUI {
         MenuSns =new Button (p5, "Volver al menú del sensor", XinhabilitarActuador, YinhabilitarActuador, WidthInhabilitarActuador, HeightInhabilitarActuador);
 
 // Configuració de Dades (textos, valors, colors)
-        sab.setTexts(textosBA);
-        sab.setValues(valuesBA);
+        sab.setTexts(textosBA7);
+        sab.setTexts(textosBA5);
+        sab.setTexts(textosBA3);
+        sab.setValues(valuesBA7);
+        sab.setValues(valuesBA5);
+        sab.setValues(valuesBA3);
         sab.setColors(colorsBA);
 /*
         UnidadesA = new Button(p5, "Unidades(t)", XSensors, YActuadors, WidthInhabilitarSensor, HeightInhabilitarSensor);
@@ -255,13 +270,13 @@ public class GUI {
 
 
 
-        SensorMapa4 = new Sensor("Sensor 1");
-        SensorMapa5 = new Sensor("Sensor 2");
-        SensorMapa6 = new Sensor("Sensor 3");
-        SensorMapa7 = new Sensor("Sensor 4");
-        SensorMapa8 = new Sensor("Sensor 5");
-        SensorMapa9 = new Sensor("Sensor 6");
-        SensorMapa10 = new Sensor("Sensor 7");
+        SensorMapa4 = new Sensor("Sensor 1", false, (Llum) ActuadorMapa1, SensorSinHabitacion, "Térmico", "1", 26f);
+        SensorMapa5 = new Sensor("Sensor 2", false, (Llum) ActuadorMapa2, SensorSinHabitacion, "Térmico", "1", 26f);
+        SensorMapa6 = new Sensor("Sensor 3", false, (Llum) ActuadorMapa3, SensorSinHabitacion, "Térmico", "1", 26f);
+        SensorMapa7 = new Sensor("Sensor 4",false, (Llum) ActuadorMapa4, SensorSinHabitacion, "Térmico", "1", 26f);
+        SensorMapa8 = new Sensor("Sensor 5",false, (Llum) ActuadorMapa5, SensorSinHabitacion, "Térmico", "1", 26f);
+        SensorMapa9 = new Sensor("Sensor 6",false, (Llum) ActuadorMapa6, SensorSinHabitacion, "Térmico", "1", 26f);
+        SensorMapa10 = new Sensor("Sensor 7", false, (Llum) ActuadorMapa7, SensorSinHabitacion, "Térmico", "1", 26f);
 
         ActuadorMapa1 = new Llum("Actuador 1", false ,SensorMapa4, ActuadorSinHabitacion, "LED", "1", 15f, 0f);
         ActuadorMapa2 = new Llum("Actuador 2", false ,SensorMapa5, ActuadorSinHabitacion, "LED", "1", 15f, 0f);
