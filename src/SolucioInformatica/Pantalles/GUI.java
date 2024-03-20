@@ -2,7 +2,7 @@ package SolucioInformatica.Pantalles;
 
 ;
 import SolucioInformatica.gui.*;
-import SolucioInformatica.gui.mapa.Actuador;
+import SolucioInformatica.gui.PopUp.PopUp;
 import SolucioInformatica.gui.mapa.Habitacio;
 import SolucioInformatica.gui.mapa.Llum;
 import SolucioInformatica.gui.mapa.Sensor;
@@ -31,6 +31,7 @@ public class GUI {
     Button BlogIn, Logo;
     TextField TUsuario;
     TextField TContraseña;
+    PopUp Inicio;
 
     // MENÚ I PLÀNOL
     Button Sensor1, Sensor2, Sensor3, Sensor4, Sensor5, Sensor6, Sensor7;
@@ -52,11 +53,11 @@ public class GUI {
     SwitchButton EncesA, BloquejatA;
 
     //Estadística SensorX
-    LinesDiagram ssl;
+    LinesDiagram ssl7, ssl5, ssl3;
     Button UnidadesS, IntervaloS, MenuSns;
 
     //Estadística ActuadorX
-    BarsDiagram sab;
+    BarsDiagram sab7, sab5, sab3;
     Button UnidadesA, IntervaloA, MenuAct;
     Select Unidadest, Rangot;
 
@@ -81,7 +82,9 @@ public class GUI {
         BlogIn = new Button (p5, "Hecho", XHecho+marginH, YHecho, widthPrimeraPantalla, heightPrimeraPantalla);
        // BlogIn.setColors(Colors.getColorAt(0), Colors.getColorAt(1), Colors.getColorAt(2), Colors.getColorAt(3));
         Logo = new Button(p5, "LOGO", marginH, marginV, midaLogo, midaLogo);
-
+        Logo.setEnabled(true);
+        Inicio=new PopUp(p5, "ERROR", "Usuario o contraseña incorrectos", 330, 250, 600, 300);
+        Inicio.setVisible(false);
 
         //Pantalla Menú i Plànol
         p5.stroke(0, 2);
@@ -219,25 +222,31 @@ public class GUI {
         // Color de la línia
         int colorLineLS = p5.color(0);
 
-        ssl = new LinesDiagram(XDiagram, YDiagram, WidthDiagram, HeightDiagram);
+        ssl7 = new LinesDiagram(XDiagram, YDiagram, WidthDiagram, HeightDiagram);
+        ssl5 = new LinesDiagram(XDiagram, YDiagram, WidthDiagram, HeightDiagram);
+        ssl3 = new LinesDiagram(XDiagram, YDiagram, WidthDiagram, HeightDiagram);
 
         // Configuració de Dades (textosLS, valors, colors)
-        ssl.setTexts(textosLS7);
-        ssl.setTexts(textosLS5);
-        ssl.setTexts(textosLS3);
-        ssl.setValues(valuesLS7);
-        ssl.setValues(valuesLS5);
-        ssl.setValues(valuesLS3);
-        ssl.setColors(colorLineLS);
+        ssl7.setTexts(textosLS7);
+        ssl5.setTexts(textosLS5);
+        ssl3.setTexts(textosLS3);
+        ssl7.setValues(valuesLS7);
+        ssl5.setValues(valuesLS5);
+        ssl3.setValues(valuesLS3);
+        ssl7.setColors(colorLineLS);
+        ssl5.setColors(colorLineLS);
+        ssl3.setColors(colorLineLS);
 
         //Pantalla estadística Actuador x
 
-        sab= new BarsDiagram(XDiagram, YDiagram, WidthDiagram, HeightDiagram);
+        sab7 = new BarsDiagram(XDiagram, YDiagram, WidthDiagram, HeightDiagram);
+        sab5 = new BarsDiagram(XDiagram, YDiagram, WidthDiagram, HeightDiagram);
+        sab3 = new BarsDiagram(XDiagram, YDiagram, WidthDiagram, HeightDiagram);
 
         // Dades del Diagrama (textosLS, valors i colors)
         String[] textosBA7 = {"7","6", "5", "4", "3", "2", "1"};
-        String[] textosBA5 = {"7","6", "5", "4", "3", "2", "1"};
-        String[] textosBA3 = {"7","6", "5", "4", "3", "2", "1"};
+        String[] textosBA5 = {"5", "4", "3", "2", "1"};
+        String[] textosBA3 = {"3", "2", "1"};
         float[] valuesBA7 = {1, 2, 2, 2, 1, 1, 2};
         float[] valuesBA5 = {2, 2, 1, 1, 2};
         float[] valuesBA3 = {1, 1, 2};
@@ -252,13 +261,17 @@ public class GUI {
         MenuSns =new Button (p5, "Volver al menú del sensor", XinhabilitarActuador, YinhabilitarActuador, WidthInhabilitarActuador, HeightInhabilitarActuador);
 
 // Configuració de Dades (textos, valors, colors)
-        sab.setTexts(textosBA7);
-        sab.setTexts(textosBA5);
-        sab.setTexts(textosBA3);
-        sab.setValues(valuesBA7);
-        sab.setValues(valuesBA5);
-        sab.setValues(valuesBA3);
-        sab.setColors(colorsBA);
+        sab7.setTexts(textosBA7);
+        sab7.setValues(valuesBA7);
+        sab7.setColors(colorsBA);
+
+        sab5.setTexts(textosBA5);
+        sab5.setValues(valuesBA5);
+        sab5.setColors(colorsBA);
+
+        sab3.setTexts(textosBA3);
+        sab3.setValues(valuesBA3);
+        sab3.setColors(colorsBA);
 /*
         UnidadesA = new Button(p5, "Unidades(t)", XSensors, YActuadors, WidthInhabilitarSensor, HeightInhabilitarSensor);
         UnidadesA.setColors(Colors.getColorAt(4), Colors.getColorAt(1), Colors.getColorAt(3),  Colors.getColorAt(3));
@@ -357,6 +370,7 @@ public class GUI {
 
         p5.textFont(Fonts.getFontAt(1));
         dibuixaImatgeMapa(p5);
+        Inicio.display(p5);
     }
 
     public void dibuixaPantallaSensor1(PApplet p5){
@@ -457,7 +471,17 @@ public class GUI {
         Logo.display(p5);
         p5.textFont(Fonts.getFontAt(2));
    //     dibuixaImatgeMapa(p5);
-        ssl.display(p5);
+
+        if (Rangot.getSelectedValue()=="7"||Rangot.getSelectedValue()==""){
+            ssl7.display(p5);
+        }
+        else if (Rangot.getSelectedValue()=="5"){
+            ssl5.display(p5);
+        }
+        else if (Rangot.getSelectedValue()=="3"){
+            ssl3.display(p5);
+        }
+
       //  dibuixaColumnes123(p5);
         MenuSns.display(p5);
         p5.text("Unidades:", XUsuari+2*marginH, YActuadors, WidthInhabilitarSensor, HeightInhabilitarSensor/2);
@@ -473,7 +497,15 @@ public class GUI {
         Logo.display(p5);
         p5.textFont(Fonts.getFontAt(2));
         //dibuixaImatgeMapa(p5);
-        sab.display(p5);
+        if(Rangot.getSelectedValue()=="7"||Rangot.getSelectedValue()==""){
+            sab7.display(p5);
+        }
+        else if(Rangot.getSelectedValue()=="5"){
+            sab5.display(p5);
+        }
+        else if(Rangot.getSelectedValue()=="3"){
+            sab3.display(p5);
+        }
       //  dibuixaColumnes123(p5);
         MenuAct.display(p5);
         p5.text("Unidades:", XUsuari+2*marginH, YActuadors, WidthInhabilitarSensor, HeightInhabilitarSensor/2);

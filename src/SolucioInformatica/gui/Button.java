@@ -20,10 +20,10 @@ public class Button {
         this.y = y;
         this.w = w;
         this.h = h;
-        this.enabled = true;
+        this.enabled = false;
         this.fillColor = p5.color(0xFF4764A7); //colors [2]
         this.fillColorOver = p5.color(0xFF4A7DD3); //Colors [3]
-        this.fillColorDisabled = p5.color(150);
+        this.fillColorDisabled = p5.color(0xFF4764A7);
         this.strokeColor = p5.color(0);
     }
 

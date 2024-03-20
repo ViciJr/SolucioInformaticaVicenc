@@ -22,13 +22,17 @@ class Select {
         this.y = y;
         this.w = w;
         this.h = h;
-        this.enabled = true;
+        this.enabled = false;
         this.collapsed = true;
     }
 
 
     public  boolean isEnabled(){
         return  this.enabled;
+    }
+
+    public void setEnabled(boolean b){
+        this.enabled = b;
     }
 
     public  boolean isCollapsed(){

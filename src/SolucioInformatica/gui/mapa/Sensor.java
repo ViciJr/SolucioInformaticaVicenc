@@ -77,7 +77,6 @@ public class Sensor {
         p5.text(this.nom, x, y +  35);
         p5.popStyle();
     }
-
     public boolean mouseOnSensor(PApplet p5){
         return p5.dist(p5.mouseX, p5.mouseY, x, y)<=radi;
     }
@@ -88,7 +87,7 @@ public class Sensor {
 
     public void updateSensor(PApplet p5){
         if(mouseOnSensor(p5)){
-            toggleEnces();
+           // toggleEnces();
         }
     }
 

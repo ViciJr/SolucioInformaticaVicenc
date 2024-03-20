@@ -80,6 +80,7 @@ public class Habitacio {
         }
     }
 
+
     public boolean mouseOnHabitacio(PApplet p5){
         return p5.mouseX>= this.x && p5.mouseX<= this.x + this.w && p5.mouseY>= this.y && p5.mouseY<= this.y + this.h;
     }

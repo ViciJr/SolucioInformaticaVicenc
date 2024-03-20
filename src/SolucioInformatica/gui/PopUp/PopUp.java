@@ -1,5 +1,6 @@
 package SolucioInformatica.gui.PopUp;
 
+import SolucioInformatica.Pantalles.Colors;
 import SolucioInformatica.gui.Button;
 import processing.core.PApplet;
 
@@ -15,6 +16,7 @@ public class PopUp {
     float buttonW = 200, buttonH = 80;
     boolean visible = true;
 
+
     // Constructor
 
     public PopUp(PApplet p5, String title, String message, float x, float y, float w, float h){
@@ -23,6 +25,7 @@ public class PopUp {
         this.x = x; this.y = y;
         this.w = w; this.h = h;
         this.bAceptar = new Button(p5, "Aceptar", x + w/2 - buttonW/2,y + h - buttonH*1.5f, buttonW, buttonH);
+
     }
 
     //Setters
@@ -52,7 +55,7 @@ public class PopUp {
             p5.pushStyle();
 
             // Rectangle
-            p5.stroke(0); p5.strokeWeight(10);p5.fill(200, 200, 100);
+            p5.stroke(0); p5.strokeWeight(10);p5.fill(0xFFCCCCCC);
             p5.rect(x, y, w, h, b/2);
 
             p5.line(x, y + 2*b , x+w, y + 2*b);

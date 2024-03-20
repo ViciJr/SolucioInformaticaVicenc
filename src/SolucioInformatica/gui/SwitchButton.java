@@ -21,7 +21,7 @@ public class SwitchButton {
         this.y = y;
         this.w = w;
         this.h = h;
-        this.enabled = true;
+        this.enabled = false;
         fillColor = p5.color(70);
         fillColorOver = p5.color(100);
         fillColorDisabled = p5.color(150);
@@ -31,7 +31,7 @@ public class SwitchButton {
 
     // Setters
 
-    void setEnabled(boolean b){
+    public void setEnabled(boolean b){
         this.enabled = b;
     }
 
