@@ -18,7 +18,8 @@ import static SolucioInformatica.Pantalles.LayoutNMides.YMapaInteractivo;
 public class GUI {
 
     // Enumerat de les Pantalles de l'App
-    public enum PANTALLA {INICIO, MENÚ, SENSOR1, ACTUADOR1, GRÁFICA_SENSOR1, GRÁFICA_ACTUADOR1, INSTRUCCIONES};
+    public enum PANTALLA {INICIO, MENÚ, SENSOR1, SENSOR2, SENSOR3, SENSOR4, SENSOR5, SENSOR6, SENSOR7, ACTUADOR1, ACTUADOR2, ACTUADOR3, ACTUADOR4,ACTUADOR5, ACTUADOR6, ACTUADOR7,GRÁFICA_SENSOR1, GRÁFICA_SENSOR2, GRÁFICA_SENSOR3, GRÁFICA_SENSOR4, GRÁFICA_SENSOR5, GRÁFICA_SENSOR6, GRÁFICA_SENSOR7,GRÁFICA_ACTUADOR1, GRÁFICA_ACTUADOR2,
+        GRÁFICA_ACTUADOR3, GRÁFICA_ACTUADOR4, GRÁFICA_ACTUADOR5, GRÁFICA_ACTUADOR6, GRÁFICA_ACTUADOR7,INSTRUCCIONES};
 
     // Pantalla Actual
     public PANTALLA pantallaActual;
@@ -53,12 +54,26 @@ public class GUI {
     SwitchButton EncesA, BloquejatA;
 
     //Estadística SensorX
-    LinesDiagram ssl7, ssl5, ssl3;
+    LinesDiagram ssl17, ssl15, ssl13;
+    LinesDiagram ssl27, ssl25, ssl23;
+    LinesDiagram ssl37, ssl35, ssl33;
+    LinesDiagram ssl47, ssl45, ssl43;
+    LinesDiagram ssl57, ssl55, ssl53;
+    LinesDiagram ssl67, ssl65, ssl63;
+    LinesDiagram ssl77, ssl75, ssl73;
+
     Button UnidadesS, IntervaloS, MenuSns;
 
     //Estadística ActuadorX
-    BarsDiagram sab7, sab5, sab3;
-    Button UnidadesA, IntervaloA, MenuAct;
+    BarsDiagram sab17, sab15, sab13;
+    BarsDiagram sab27, sab25, sab23;
+    BarsDiagram sab37, sab35, sab33;
+    BarsDiagram sab47, sab45, sab43;
+    BarsDiagram sab57, sab55, sab53;
+    BarsDiagram sab67, sab65, sab63;
+    BarsDiagram sab77, sab75, sab73;
+
+    Button MenuAct;
     Select Unidadest, Rangot;
 
 
@@ -215,33 +230,141 @@ public class GUI {
         String[] textosLS3  = {"3", "2", "1"};
 
         // Dades del Diagrama (valors)
-        float[] valuesLS7  = {6, 8, 11, 13, 18, 20, 22};
-        float[] valuesLS5  = {11, 13, 18, 20, 22};
-        float[] valuesLS3  = {18, 20, 22};
+        float[] values1LS7  = {6, 8, 11, 13, 18, 20, 22};
+        float[] values1LS5  = {11, 13, 18, 20, 22};
+        float[] values1LS3  = {18, 20, 22};
 
+        float[] values2LS7  = {6, 8, 11, 13, 18, 20, 22};
+        float[] values2LS5  = {11, 13, 18, 20, 22};
+        float[] values2LS3  = {18, 20, 22};
+
+        float[] values5LS7  = {6, 8, 11, 13, 18, 20, 22};
+        float[] values5S5  = {11, 13, 18, 20, 22};
+        float[] values5LS3  = {18, 20, 22};
+/*
+        float[] values1LS7  = {6, 8, 11, 13, 18, 20, 22};
+        float[] values1LS5  = {11, 13, 18, 20, 22};
+        float[] values1LS3  = {18, 20, 22};
+
+        float[] values1LS7  = {6, 8, 11, 13, 18, 20, 22};
+        float[] values1LS5  = {11, 13, 18, 20, 22};
+        float[] values1LS3  = {18, 20, 22};
+
+        float[] values1LS7  = {6, 8, 11, 13, 18, 20, 22};
+        float[] values1LS5  = {11, 13, 18, 20, 22};
+        float[] values1LS3  = {18, 20, 22};
+
+        float[] values1LS7  = {6, 8, 11, 13, 18, 20, 22};
+        float[] values1LS5  = {11, 13, 18, 20, 22};
+        float[] values1LS3  = {18, 20, 22};
+*/
         // Color de la línia
         int colorLineLS = p5.color(0);
 
-        ssl7 = new LinesDiagram(XDiagram, YDiagram, WidthDiagram, HeightDiagram);
-        ssl5 = new LinesDiagram(XDiagram, YDiagram, WidthDiagram, HeightDiagram);
-        ssl3 = new LinesDiagram(XDiagram, YDiagram, WidthDiagram, HeightDiagram);
+        ssl17 = new LinesDiagram(XDiagram, YDiagram, WidthDiagram, HeightDiagram);
+        ssl15 = new LinesDiagram(XDiagram, YDiagram, WidthDiagram, HeightDiagram);
+        ssl13 = new LinesDiagram(XDiagram, YDiagram, WidthDiagram, HeightDiagram);
+
+        ssl27 = new LinesDiagram(XDiagram, YDiagram, WidthDiagram, HeightDiagram);
+        ssl25 = new LinesDiagram(XDiagram, YDiagram, WidthDiagram, HeightDiagram);
+        ssl23 = new LinesDiagram(XDiagram, YDiagram, WidthDiagram, HeightDiagram);
+
+        ssl37 = new LinesDiagram(XDiagram, YDiagram, WidthDiagram, HeightDiagram);
+        ssl35 = new LinesDiagram(XDiagram, YDiagram, WidthDiagram, HeightDiagram);
+        ssl33 = new LinesDiagram(XDiagram, YDiagram, WidthDiagram, HeightDiagram);
+
+        ssl47 = new LinesDiagram(XDiagram, YDiagram, WidthDiagram, HeightDiagram);
+        ssl45 = new LinesDiagram(XDiagram, YDiagram, WidthDiagram, HeightDiagram);
+        ssl43 = new LinesDiagram(XDiagram, YDiagram, WidthDiagram, HeightDiagram);
+
+        ssl57 = new LinesDiagram(XDiagram, YDiagram, WidthDiagram, HeightDiagram);
+        ssl55 = new LinesDiagram(XDiagram, YDiagram, WidthDiagram, HeightDiagram);
+        ssl53 = new LinesDiagram(XDiagram, YDiagram, WidthDiagram, HeightDiagram);
+
+        ssl67 = new LinesDiagram(XDiagram, YDiagram, WidthDiagram, HeightDiagram);
+        ssl65 = new LinesDiagram(XDiagram, YDiagram, WidthDiagram, HeightDiagram);
+        ssl63 = new LinesDiagram(XDiagram, YDiagram, WidthDiagram, HeightDiagram);
+
+        ssl77 = new LinesDiagram(XDiagram, YDiagram, WidthDiagram, HeightDiagram);
+        ssl75 = new LinesDiagram(XDiagram, YDiagram, WidthDiagram, HeightDiagram);
+        ssl73 = new LinesDiagram(XDiagram, YDiagram, WidthDiagram, HeightDiagram);
 
         // Configuració de Dades (textosLS, valors, colors)
-        ssl7.setTexts(textosLS7);
-        ssl5.setTexts(textosLS5);
-        ssl3.setTexts(textosLS3);
-        ssl7.setValues(valuesLS7);
-        ssl5.setValues(valuesLS5);
-        ssl3.setValues(valuesLS3);
-        ssl7.setColors(colorLineLS);
-        ssl5.setColors(colorLineLS);
-        ssl3.setColors(colorLineLS);
+        ssl17.setTexts(textosLS7);
+        ssl15.setTexts(textosLS5);
+        ssl13.setTexts(textosLS3);
+        ssl17.setValues(values1LS7);
+        ssl15.setValues(values1LS5);
+        ssl13.setValues(values1LS3);
+        ssl17.setColors(colorLineLS);
+        ssl15.setColors(colorLineLS);
+        ssl13.setColors(colorLineLS);
+
+        ssl27.setTexts(textosLS7);
+        ssl25.setTexts(textosLS5);
+        ssl23.setTexts(textosLS3);
+        ssl27.setValues(values1LS7);
+        ssl25.setValues(values1LS5);
+        ssl23.setValues(values1LS3);
+        ssl27.setColors(colorLineLS);
+        ssl25.setColors(colorLineLS);
+        ssl23.setColors(colorLineLS);
+
+        ssl37.setTexts(textosLS7);
+        ssl35.setTexts(textosLS5);
+        ssl33.setTexts(textosLS3);
+        ssl37.setValues(values1LS7);
+        ssl35.setValues(values1LS5);
+        ssl33.setValues(values1LS3);
+        ssl37.setColors(colorLineLS);
+        ssl35.setColors(colorLineLS);
+        ssl33.setColors(colorLineLS);
+
+        ssl47.setTexts(textosLS7);
+        ssl45.setTexts(textosLS5);
+        ssl43.setTexts(textosLS3);
+        ssl47.setValues(values1LS7);
+        ssl45.setValues(values1LS5);
+        ssl43.setValues(values1LS3);
+        ssl47.setColors(colorLineLS);
+        ssl45.setColors(colorLineLS);
+        ssl43.setColors(colorLineLS);
+
+        ssl57.setTexts(textosLS7);
+        ssl55.setTexts(textosLS5);
+        ssl53.setTexts(textosLS3);
+        ssl57.setValues(values1LS7);
+        ssl55.setValues(values1LS5);
+        ssl53.setValues(values1LS3);
+        ssl57.setColors(colorLineLS);
+        ssl55.setColors(colorLineLS);
+        ssl53.setColors(colorLineLS);
+
+        ssl67.setTexts(textosLS7);
+        ssl65.setTexts(textosLS5);
+        ssl63.setTexts(textosLS3);
+        ssl67.setValues(values1LS7);
+        ssl65.setValues(values1LS5);
+        ssl63.setValues(values1LS3);
+        ssl67.setColors(colorLineLS);
+        ssl65.setColors(colorLineLS);
+        ssl63.setColors(colorLineLS);
+
+        ssl77.setTexts(textosLS7);
+        ssl75.setTexts(textosLS5);
+        ssl73.setTexts(textosLS3);
+        ssl77.setValues(values1LS7);
+        ssl75.setValues(values1LS5);
+        ssl73.setValues(values1LS3);
+        ssl77.setColors(colorLineLS);
+        ssl75.setColors(colorLineLS);
+        ssl73.setColors(colorLineLS);
 
         //Pantalla estadística Actuador x
 
-        sab7 = new BarsDiagram(XDiagram, YDiagram, WidthDiagram, HeightDiagram);
-        sab5 = new BarsDiagram(XDiagram, YDiagram, WidthDiagram, HeightDiagram);
-        sab3 = new BarsDiagram(XDiagram, YDiagram, WidthDiagram, HeightDiagram);
+        sab17 = new BarsDiagram(XDiagram, YDiagram, WidthDiagram, HeightDiagram);
+        sab15 = new BarsDiagram(XDiagram, YDiagram, WidthDiagram, HeightDiagram);
+        sab13 = new BarsDiagram(XDiagram, YDiagram, WidthDiagram, HeightDiagram);
 
         // Dades del Diagrama (textosLS, valors i colors)
         String[] textosBA7 = {"7","6", "5", "4", "3", "2", "1"};
@@ -261,17 +384,17 @@ public class GUI {
         MenuSns =new Button (p5, "Volver al menú del sensor", XinhabilitarActuador, YinhabilitarActuador, WidthInhabilitarActuador, HeightInhabilitarActuador);
 
 // Configuració de Dades (textos, valors, colors)
-        sab7.setTexts(textosBA7);
-        sab7.setValues(valuesBA7);
-        sab7.setColors(colorsBA);
+        sab17.setTexts(textosBA7);
+        sab17.setValues(valuesBA7);
+        sab17.setColors(colorsBA);
 
-        sab5.setTexts(textosBA5);
-        sab5.setValues(valuesBA5);
-        sab5.setColors(colorsBA);
+        sab15.setTexts(textosBA5);
+        sab15.setValues(valuesBA5);
+        sab15.setColors(colorsBA);
 
-        sab3.setTexts(textosBA3);
-        sab3.setValues(valuesBA3);
-        sab3.setColors(colorsBA);
+        sab13.setTexts(textosBA3);
+        sab13.setValues(valuesBA3);
+        sab13.setColors(colorsBA);
 /*
         UnidadesA = new Button(p5, "Unidades(t)", XSensors, YActuadors, WidthInhabilitarSensor, HeightInhabilitarSensor);
         UnidadesA.setColors(Colors.getColorAt(4), Colors.getColorAt(1), Colors.getColorAt(3),  Colors.getColorAt(3));
@@ -400,6 +523,168 @@ public class GUI {
         }
     }
 
+    public void dibuixaPantallaSensor2(PApplet p5){
+        p5.background(255);
+        p5.textFont(Fonts.getFontAt(0));
+        dibuixaBanner(p5);
+        Logo.display(p5);
+        p5.textFont(Fonts.getFontAt(1));
+        // dibuixaImatgeMapa(p5);
+
+        p5.textFont(Fonts.getFontAt(2));
+        ts1.display(p5, XTaules, YTaules/*+(heightImatge/2)-heightTaules/2+8*/, widthTaules, heightTaules);
+        GraficaSensor.display(p5);
+        EncesS.display(p5);
+        MenuS.display(p5);
+        Tipos.display(p5);
+        Ubicacions.display(p5);
+        Arduino.display(p5);
+        Actuador.display(p5);
+
+        // TNameSensor.display(p5);
+        p5.textFont(Fonts.getFontAt(2));
+        // p5.text("          Nombre sensor:", /*XGraficaSensor*/ 708, /*YGraficaSensor*/ 239);
+
+        for(int i=0; i<habitacions.length; i++) {
+            habitacions[i].dibuixa(p5);
+        }
+    }
+
+    public void dibuixaPantallaSensor3(PApplet p5){
+        p5.background(255);
+        p5.textFont(Fonts.getFontAt(0));
+        dibuixaBanner(p5);
+        Logo.display(p5);
+        p5.textFont(Fonts.getFontAt(1));
+        // dibuixaImatgeMapa(p5);
+
+        p5.textFont(Fonts.getFontAt(2));
+        ts1.display(p5, XTaules, YTaules/*+(heightImatge/2)-heightTaules/2+8*/, widthTaules, heightTaules);
+        GraficaSensor.display(p5);
+        EncesS.display(p5);
+        MenuS.display(p5);
+        Tipos.display(p5);
+        Ubicacions.display(p5);
+        Arduino.display(p5);
+        Actuador.display(p5);
+
+        // TNameSensor.display(p5);
+        p5.textFont(Fonts.getFontAt(2));
+        // p5.text("          Nombre sensor:", /*XGraficaSensor*/ 708, /*YGraficaSensor*/ 239);
+
+        for(int i=0; i<habitacions.length; i++) {
+            habitacions[i].dibuixa(p5);
+        }
+    }
+
+    public void dibuixaPantallaSensor4(PApplet p5){
+        p5.background(255);
+        p5.textFont(Fonts.getFontAt(0));
+        dibuixaBanner(p5);
+        Logo.display(p5);
+        p5.textFont(Fonts.getFontAt(1));
+        // dibuixaImatgeMapa(p5);
+
+        p5.textFont(Fonts.getFontAt(2));
+        ts1.display(p5, XTaules, YTaules/*+(heightImatge/2)-heightTaules/2+8*/, widthTaules, heightTaules);
+        GraficaSensor.display(p5);
+        EncesS.display(p5);
+        MenuS.display(p5);
+        Tipos.display(p5);
+        Ubicacions.display(p5);
+        Arduino.display(p5);
+        Actuador.display(p5);
+
+        // TNameSensor.display(p5);
+        p5.textFont(Fonts.getFontAt(2));
+        // p5.text("          Nombre sensor:", /*XGraficaSensor*/ 708, /*YGraficaSensor*/ 239);
+
+        for(int i=0; i<habitacions.length; i++) {
+            habitacions[i].dibuixa(p5);
+        }
+    }
+
+    public void dibuixaPantallaSensor5(PApplet p5){
+        p5.background(255);
+        p5.textFont(Fonts.getFontAt(0));
+        dibuixaBanner(p5);
+        Logo.display(p5);
+        p5.textFont(Fonts.getFontAt(1));
+        // dibuixaImatgeMapa(p5);
+
+        p5.textFont(Fonts.getFontAt(2));
+        ts1.display(p5, XTaules, YTaules/*+(heightImatge/2)-heightTaules/2+8*/, widthTaules, heightTaules);
+        GraficaSensor.display(p5);
+        EncesS.display(p5);
+        MenuS.display(p5);
+        Tipos.display(p5);
+        Ubicacions.display(p5);
+        Arduino.display(p5);
+        Actuador.display(p5);
+
+        // TNameSensor.display(p5);
+        p5.textFont(Fonts.getFontAt(2));
+        // p5.text("          Nombre sensor:", /*XGraficaSensor*/ 708, /*YGraficaSensor*/ 239);
+
+        for(int i=0; i<habitacions.length; i++) {
+            habitacions[i].dibuixa(p5);
+        }
+    }
+
+    public void dibuixaPantallaSensor6(PApplet p5){
+        p5.background(255);
+        p5.textFont(Fonts.getFontAt(0));
+        dibuixaBanner(p5);
+        Logo.display(p5);
+        p5.textFont(Fonts.getFontAt(1));
+        // dibuixaImatgeMapa(p5);
+
+        p5.textFont(Fonts.getFontAt(2));
+        ts1.display(p5, XTaules, YTaules/*+(heightImatge/2)-heightTaules/2+8*/, widthTaules, heightTaules);
+        GraficaSensor.display(p5);
+        EncesS.display(p5);
+        MenuS.display(p5);
+        Tipos.display(p5);
+        Ubicacions.display(p5);
+        Arduino.display(p5);
+        Actuador.display(p5);
+
+        // TNameSensor.display(p5);
+        p5.textFont(Fonts.getFontAt(2));
+        // p5.text("          Nombre sensor:", /*XGraficaSensor*/ 708, /*YGraficaSensor*/ 239);
+
+        for(int i=0; i<habitacions.length; i++) {
+            habitacions[i].dibuixa(p5);
+        }
+    }
+
+    public void dibuixaPantallaSensor7(PApplet p5){
+        p5.background(255);
+        p5.textFont(Fonts.getFontAt(0));
+        dibuixaBanner(p5);
+        Logo.display(p5);
+        p5.textFont(Fonts.getFontAt(1));
+        // dibuixaImatgeMapa(p5);
+
+        p5.textFont(Fonts.getFontAt(2));
+        ts1.display(p5, XTaules, YTaules/*+(heightImatge/2)-heightTaules/2+8*/, widthTaules, heightTaules);
+        GraficaSensor.display(p5);
+        EncesS.display(p5);
+        MenuS.display(p5);
+        Tipos.display(p5);
+        Ubicacions.display(p5);
+        Arduino.display(p5);
+        Actuador.display(p5);
+
+        // TNameSensor.display(p5);
+        p5.textFont(Fonts.getFontAt(2));
+        // p5.text("          Nombre sensor:", /*XGraficaSensor*/ 708, /*YGraficaSensor*/ 239);
+
+        for(int i=0; i<habitacions.length; i++) {
+            habitacions[i].dibuixa(p5);
+        }
+    }
+
     public void dibuixaPantallaPlano(PApplet p5){
         p5.background(255);
         p5.textFont(Fonts.getFontAt(0));
@@ -433,13 +718,15 @@ public class GUI {
         }
     }
 
+
+
     public void dibuixaPantallaActuador1(PApplet p5){
         p5.background(255);
         p5.textFont(Fonts.getFontAt(0));
         dibuixaBanner(p5);
         Logo.display(p5);
         p5.textFont(Fonts.getFontAt(1));
-      //  dibuixaImatgeMapa(p5);
+        //  dibuixaImatgeMapa(p5);
 
         p5.textFont(Fonts.getFontAt(2));
         ts2.display(p5, XTaules, YTaules/*+(heightImatge/2)-heightTaules/2+8*/, widthTaules, heightTaules);
@@ -455,9 +742,189 @@ public class GUI {
         ValMin.display(p5);
         ValMax.display(p5);
 
-     //  TNameActuador.display(p5);
-       p5.textFont(Fonts.getFontAt(2));
-      // p5.text("               Nombre actuador:", /*XGraficaSensor*/ 708, /*YGraficaSensor*/ 239);
+        //  TNameActuador.display(p5);
+        p5.textFont(Fonts.getFontAt(2));
+        // p5.text("               Nombre actuador:", /*XGraficaSensor*/ 708, /*YGraficaSensor*/ 239);
+
+        for(int i=0; i<habitacions.length; i++) {
+            habitacions[i].dibuixa(p5);
+        }
+    }
+    public void dibuixaPantallaActuador2(PApplet p5){
+        p5.background(255);
+        p5.textFont(Fonts.getFontAt(0));
+        dibuixaBanner(p5);
+        Logo.display(p5);
+        p5.textFont(Fonts.getFontAt(1));
+        //  dibuixaImatgeMapa(p5);
+
+        p5.textFont(Fonts.getFontAt(2));
+        ts2.display(p5, XTaules, YTaules/*+(heightImatge/2)-heightTaules/2+8*/, widthTaules, heightTaules);
+        GraficaActuador.display(p5);
+        EncesA.display(p5);
+        BloquejatA.display(p5);
+        MenuS.display(p5);
+        Tipoa.display(p5);
+        Ubicaciona.display(p5);
+        Arduinoa.display(p5);
+        Sensora.display(p5);
+
+        ValMin.display(p5);
+        ValMax.display(p5);
+
+        //  TNameActuador.display(p5);
+        p5.textFont(Fonts.getFontAt(2));
+        // p5.text("               Nombre actuador:", /*XGraficaSensor*/ 708, /*YGraficaSensor*/ 239);
+
+        for(int i=0; i<habitacions.length; i++) {
+            habitacions[i].dibuixa(p5);
+        }
+    }
+    public void dibuixaPantallaActuador3(PApplet p5){
+        p5.background(255);
+        p5.textFont(Fonts.getFontAt(0));
+        dibuixaBanner(p5);
+        Logo.display(p5);
+        p5.textFont(Fonts.getFontAt(1));
+        //  dibuixaImatgeMapa(p5);
+
+        p5.textFont(Fonts.getFontAt(2));
+        ts2.display(p5, XTaules, YTaules/*+(heightImatge/2)-heightTaules/2+8*/, widthTaules, heightTaules);
+        GraficaActuador.display(p5);
+        EncesA.display(p5);
+        BloquejatA.display(p5);
+        MenuS.display(p5);
+        Tipoa.display(p5);
+        Ubicaciona.display(p5);
+        Arduinoa.display(p5);
+        Sensora.display(p5);
+
+        ValMin.display(p5);
+        ValMax.display(p5);
+
+        //  TNameActuador.display(p5);
+        p5.textFont(Fonts.getFontAt(2));
+        // p5.text("               Nombre actuador:", /*XGraficaSensor*/ 708, /*YGraficaSensor*/ 239);
+
+        for(int i=0; i<habitacions.length; i++) {
+            habitacions[i].dibuixa(p5);
+        }
+    }
+    public void dibuixaPantallaActuador4(PApplet p5){
+        p5.background(255);
+        p5.textFont(Fonts.getFontAt(0));
+        dibuixaBanner(p5);
+        Logo.display(p5);
+        p5.textFont(Fonts.getFontAt(1));
+        //  dibuixaImatgeMapa(p5);
+
+        p5.textFont(Fonts.getFontAt(2));
+        ts2.display(p5, XTaules, YTaules/*+(heightImatge/2)-heightTaules/2+8*/, widthTaules, heightTaules);
+        GraficaActuador.display(p5);
+        EncesA.display(p5);
+        BloquejatA.display(p5);
+        MenuS.display(p5);
+        Tipoa.display(p5);
+        Ubicaciona.display(p5);
+        Arduinoa.display(p5);
+        Sensora.display(p5);
+
+        ValMin.display(p5);
+        ValMax.display(p5);
+
+        //  TNameActuador.display(p5);
+        p5.textFont(Fonts.getFontAt(2));
+        // p5.text("               Nombre actuador:", /*XGraficaSensor*/ 708, /*YGraficaSensor*/ 239);
+
+        for(int i=0; i<habitacions.length; i++) {
+            habitacions[i].dibuixa(p5);
+        }
+    }
+    public void dibuixaPantallaActuador5(PApplet p5){
+        p5.background(255);
+        p5.textFont(Fonts.getFontAt(0));
+        dibuixaBanner(p5);
+        Logo.display(p5);
+        p5.textFont(Fonts.getFontAt(1));
+        //  dibuixaImatgeMapa(p5);
+
+        p5.textFont(Fonts.getFontAt(2));
+        ts2.display(p5, XTaules, YTaules/*+(heightImatge/2)-heightTaules/2+8*/, widthTaules, heightTaules);
+        GraficaActuador.display(p5);
+        EncesA.display(p5);
+        BloquejatA.display(p5);
+        MenuS.display(p5);
+        Tipoa.display(p5);
+        Ubicaciona.display(p5);
+        Arduinoa.display(p5);
+        Sensora.display(p5);
+
+        ValMin.display(p5);
+        ValMax.display(p5);
+
+        //  TNameActuador.display(p5);
+        p5.textFont(Fonts.getFontAt(2));
+        // p5.text("               Nombre actuador:", /*XGraficaSensor*/ 708, /*YGraficaSensor*/ 239);
+
+        for(int i=0; i<habitacions.length; i++) {
+            habitacions[i].dibuixa(p5);
+        }
+    }
+    public void dibuixaPantallaActuador6(PApplet p5){
+        p5.background(255);
+        p5.textFont(Fonts.getFontAt(0));
+        dibuixaBanner(p5);
+        Logo.display(p5);
+        p5.textFont(Fonts.getFontAt(1));
+        //  dibuixaImatgeMapa(p5);
+
+        p5.textFont(Fonts.getFontAt(2));
+        ts2.display(p5, XTaules, YTaules/*+(heightImatge/2)-heightTaules/2+8*/, widthTaules, heightTaules);
+        GraficaActuador.display(p5);
+        EncesA.display(p5);
+        BloquejatA.display(p5);
+        MenuS.display(p5);
+        Tipoa.display(p5);
+        Ubicaciona.display(p5);
+        Arduinoa.display(p5);
+        Sensora.display(p5);
+
+        ValMin.display(p5);
+        ValMax.display(p5);
+
+        //  TNameActuador.display(p5);
+        p5.textFont(Fonts.getFontAt(2));
+        // p5.text("               Nombre actuador:", /*XGraficaSensor*/ 708, /*YGraficaSensor*/ 239);
+
+        for(int i=0; i<habitacions.length; i++) {
+            habitacions[i].dibuixa(p5);
+        }
+    }
+    public void dibuixaPantallaActuador7(PApplet p5){
+        p5.background(255);
+        p5.textFont(Fonts.getFontAt(0));
+        dibuixaBanner(p5);
+        Logo.display(p5);
+        p5.textFont(Fonts.getFontAt(1));
+        //  dibuixaImatgeMapa(p5);
+
+        p5.textFont(Fonts.getFontAt(2));
+        ts2.display(p5, XTaules, YTaules/*+(heightImatge/2)-heightTaules/2+8*/, widthTaules, heightTaules);
+        GraficaActuador.display(p5);
+        EncesA.display(p5);
+        BloquejatA.display(p5);
+        MenuS.display(p5);
+        Tipoa.display(p5);
+        Ubicaciona.display(p5);
+        Arduinoa.display(p5);
+        Sensora.display(p5);
+
+        ValMin.display(p5);
+        ValMax.display(p5);
+
+        //  TNameActuador.display(p5);
+        p5.textFont(Fonts.getFontAt(2));
+        // p5.text("               Nombre actuador:", /*XGraficaSensor*/ 708, /*YGraficaSensor*/ 239);
 
         for(int i=0; i<habitacions.length; i++) {
             habitacions[i].dibuixa(p5);
@@ -472,17 +939,187 @@ public class GUI {
         p5.textFont(Fonts.getFontAt(2));
    //     dibuixaImatgeMapa(p5);
 
-        if (Rangot.getSelectedValue()=="7"||Rangot.getSelectedValue()==""){
-            ssl7.display(p5);
+        System.out.println("RANGOT: "+Rangot.getSelectedValue());
+
+        if (Rangot.getSelectedValue().equals("7") ||Rangot.getSelectedValue()==""){
+            ssl17.display(p5);
         }
-        else if (Rangot.getSelectedValue()=="5"){
-            ssl5.display(p5);
+        else if (Rangot.getSelectedValue().equals("5")){
+            ssl15.display(p5);
         }
-        else if (Rangot.getSelectedValue()=="3"){
-            ssl3.display(p5);
+        else if (Rangot.getSelectedValue().equals("3")){
+            ssl13.display(p5);
         }
 
       //  dibuixaColumnes123(p5);
+        MenuSns.display(p5);
+        p5.text("Unidades:", XUsuari+2*marginH, YActuadors, WidthInhabilitarSensor, HeightInhabilitarSensor/2);
+        p5.text("Rango(t):", XUsuari+2*marginH, (YActuadors+YinhabilitarActuador)/2, WidthInhabilitarActuador, HeightInhabilitarSensor/2);
+        Rangot.display(p5);
+        Unidadest.display(p5);
+    }
+
+    public void dibuixaPantallaEstadisticaSensor2(PApplet p5){
+        p5.background(255);
+        p5.textFont(Fonts.getFontAt(0));
+        dibuixaBanner(p5);
+        Logo.display(p5);
+        p5.textFont(Fonts.getFontAt(2));
+        //     dibuixaImatgeMapa(p5);
+
+        System.out.println("RANGOT: "+Rangot.getSelectedValue());
+
+        if (Rangot.getSelectedValue().equals("7") ||Rangot.getSelectedValue()==""){
+            ssl17.display(p5);
+        }
+        else if (Rangot.getSelectedValue().equals("5")){
+            ssl15.display(p5);
+        }
+        else if (Rangot.getSelectedValue().equals("3")){
+            ssl13.display(p5);
+        }
+
+        //  dibuixaColumnes123(p5);
+        MenuSns.display(p5);
+        p5.text("Unidades:", XUsuari+2*marginH, YActuadors, WidthInhabilitarSensor, HeightInhabilitarSensor/2);
+        p5.text("Rango(t):", XUsuari+2*marginH, (YActuadors+YinhabilitarActuador)/2, WidthInhabilitarActuador, HeightInhabilitarSensor/2);
+        Rangot.display(p5);
+        Unidadest.display(p5);
+    }
+
+    public void dibuixaPantallaEstadisticaSensor3(PApplet p5){
+        p5.background(255);
+        p5.textFont(Fonts.getFontAt(0));
+        dibuixaBanner(p5);
+        Logo.display(p5);
+        p5.textFont(Fonts.getFontAt(2));
+        //     dibuixaImatgeMapa(p5);
+
+        System.out.println("RANGOT: "+Rangot.getSelectedValue());
+
+        if (Rangot.getSelectedValue().equals("7") ||Rangot.getSelectedValue()==""){
+            ssl17.display(p5);
+        }
+        else if (Rangot.getSelectedValue().equals("5")){
+            ssl15.display(p5);
+        }
+        else if (Rangot.getSelectedValue().equals("3")){
+            ssl13.display(p5);
+        }
+
+        //  dibuixaColumnes123(p5);
+        MenuSns.display(p5);
+        p5.text("Unidades:", XUsuari+2*marginH, YActuadors, WidthInhabilitarSensor, HeightInhabilitarSensor/2);
+        p5.text("Rango(t):", XUsuari+2*marginH, (YActuadors+YinhabilitarActuador)/2, WidthInhabilitarActuador, HeightInhabilitarSensor/2);
+        Rangot.display(p5);
+        Unidadest.display(p5);
+    }
+
+    public void dibuixaPantallaEstadisticaSensor4(PApplet p5){
+        p5.background(255);
+        p5.textFont(Fonts.getFontAt(0));
+        dibuixaBanner(p5);
+        Logo.display(p5);
+        p5.textFont(Fonts.getFontAt(2));
+        //     dibuixaImatgeMapa(p5);
+
+        System.out.println("RANGOT: "+Rangot.getSelectedValue());
+
+        if (Rangot.getSelectedValue().equals("7") ||Rangot.getSelectedValue()==""){
+            ssl17.display(p5);
+        }
+        else if (Rangot.getSelectedValue().equals("5")){
+            ssl15.display(p5);
+        }
+        else if (Rangot.getSelectedValue().equals("3")){
+            ssl13.display(p5);
+        }
+
+        //  dibuixaColumnes123(p5);
+        MenuSns.display(p5);
+        p5.text("Unidades:", XUsuari+2*marginH, YActuadors, WidthInhabilitarSensor, HeightInhabilitarSensor/2);
+        p5.text("Rango(t):", XUsuari+2*marginH, (YActuadors+YinhabilitarActuador)/2, WidthInhabilitarActuador, HeightInhabilitarSensor/2);
+        Rangot.display(p5);
+        Unidadest.display(p5);
+    }
+
+    public void dibuixaPantallaEstadisticaSensor5(PApplet p5){
+        p5.background(255);
+        p5.textFont(Fonts.getFontAt(0));
+        dibuixaBanner(p5);
+        Logo.display(p5);
+        p5.textFont(Fonts.getFontAt(2));
+        //     dibuixaImatgeMapa(p5);
+
+        System.out.println("RANGOT: "+Rangot.getSelectedValue());
+
+        if (Rangot.getSelectedValue().equals("7") ||Rangot.getSelectedValue()==""){
+            ssl17.display(p5);
+        }
+        else if (Rangot.getSelectedValue().equals("5")){
+            ssl15.display(p5);
+        }
+        else if (Rangot.getSelectedValue().equals("3")){
+            ssl13.display(p5);
+        }
+
+        //  dibuixaColumnes123(p5);
+        MenuSns.display(p5);
+        p5.text("Unidades:", XUsuari+2*marginH, YActuadors, WidthInhabilitarSensor, HeightInhabilitarSensor/2);
+        p5.text("Rango(t):", XUsuari+2*marginH, (YActuadors+YinhabilitarActuador)/2, WidthInhabilitarActuador, HeightInhabilitarSensor/2);
+        Rangot.display(p5);
+        Unidadest.display(p5);
+    }
+
+    public void dibuixaPantallaEstadisticaSensor6(PApplet p5){
+        p5.background(255);
+        p5.textFont(Fonts.getFontAt(0));
+        dibuixaBanner(p5);
+        Logo.display(p5);
+        p5.textFont(Fonts.getFontAt(2));
+        //     dibuixaImatgeMapa(p5);
+
+        System.out.println("RANGOT: "+Rangot.getSelectedValue());
+
+        if (Rangot.getSelectedValue().equals("7") ||Rangot.getSelectedValue()==""){
+            ssl17.display(p5);
+        }
+        else if (Rangot.getSelectedValue().equals("5")){
+            ssl15.display(p5);
+        }
+        else if (Rangot.getSelectedValue().equals("3")){
+            ssl13.display(p5);
+        }
+
+        //  dibuixaColumnes123(p5);
+        MenuSns.display(p5);
+        p5.text("Unidades:", XUsuari+2*marginH, YActuadors, WidthInhabilitarSensor, HeightInhabilitarSensor/2);
+        p5.text("Rango(t):", XUsuari+2*marginH, (YActuadors+YinhabilitarActuador)/2, WidthInhabilitarActuador, HeightInhabilitarSensor/2);
+        Rangot.display(p5);
+        Unidadest.display(p5);
+    }
+
+    public void dibuixaPantallaEstadisticaSensor7(PApplet p5){
+        p5.background(255);
+        p5.textFont(Fonts.getFontAt(0));
+        dibuixaBanner(p5);
+        Logo.display(p5);
+        p5.textFont(Fonts.getFontAt(2));
+        //     dibuixaImatgeMapa(p5);
+
+        System.out.println("RANGOT: "+Rangot.getSelectedValue());
+
+        if (Rangot.getSelectedValue().equals("7") ||Rangot.getSelectedValue()==""){
+            ssl17.display(p5);
+        }
+        else if (Rangot.getSelectedValue().equals("5")){
+            ssl15.display(p5);
+        }
+        else if (Rangot.getSelectedValue().equals("3")){
+            ssl13.display(p5);
+        }
+
+        //  dibuixaColumnes123(p5);
         MenuSns.display(p5);
         p5.text("Unidades:", XUsuari+2*marginH, YActuadors, WidthInhabilitarSensor, HeightInhabilitarSensor/2);
         p5.text("Rango(t):", XUsuari+2*marginH, (YActuadors+YinhabilitarActuador)/2, WidthInhabilitarActuador, HeightInhabilitarSensor/2);
@@ -496,17 +1133,175 @@ public class GUI {
         dibuixaBanner(p5);
         Logo.display(p5);
         p5.textFont(Fonts.getFontAt(2));
+
+        System.out.println("RANGOT:"+Rangot.getSelectedValue());
         //dibuixaImatgeMapa(p5);
-        if(Rangot.getSelectedValue()=="7"||Rangot.getSelectedValue()==""){
-            sab7.display(p5);
+        if(Rangot.getSelectedValue().equals("7")||Rangot.getSelectedValue().equals("")){
+            sab17.display(p5);
         }
-        else if(Rangot.getSelectedValue()=="5"){
-            sab5.display(p5);
+        else if(Rangot.getSelectedValue().equals("5")){
+            sab15.display(p5);
         }
-        else if(Rangot.getSelectedValue()=="3"){
-            sab3.display(p5);
+        else if(Rangot.getSelectedValue().equals("3")){
+            sab13.display(p5);
         }
       //  dibuixaColumnes123(p5);
+        MenuAct.display(p5);
+        p5.text("Unidades:", XUsuari+2*marginH, YActuadors, WidthInhabilitarSensor, HeightInhabilitarSensor/2);
+        p5.text("Rango(t):", XUsuari+2*marginH, (YActuadors+YinhabilitarActuador)/2, WidthInhabilitarActuador, HeightInhabilitarSensor/2);
+        Rangot.display(p5);
+        Unidadest.display(p5);
+    }
+
+    public void dibuixaPantallaEstadisticaActuador2(PApplet p5){
+        p5.background(255);
+        p5.textFont(Fonts.getFontAt(0));
+        dibuixaBanner(p5);
+        Logo.display(p5);
+        p5.textFont(Fonts.getFontAt(2));
+
+        System.out.println("RANGOT:"+Rangot.getSelectedValue());
+        //dibuixaImatgeMapa(p5);
+        if(Rangot.getSelectedValue().equals("7")||Rangot.getSelectedValue().equals("")){
+            sab17.display(p5);
+        }
+        else if(Rangot.getSelectedValue().equals("5")){
+            sab15.display(p5);
+        }
+        else if(Rangot.getSelectedValue().equals("3")){
+            sab13.display(p5);
+        }
+        //  dibuixaColumnes123(p5);
+        MenuAct.display(p5);
+        p5.text("Unidades:", XUsuari+2*marginH, YActuadors, WidthInhabilitarSensor, HeightInhabilitarSensor/2);
+        p5.text("Rango(t):", XUsuari+2*marginH, (YActuadors+YinhabilitarActuador)/2, WidthInhabilitarActuador, HeightInhabilitarSensor/2);
+        Rangot.display(p5);
+        Unidadest.display(p5);
+    }
+
+    public void dibuixaPantallaEstadisticaActuador3(PApplet p5){
+        p5.background(255);
+        p5.textFont(Fonts.getFontAt(0));
+        dibuixaBanner(p5);
+        Logo.display(p5);
+        p5.textFont(Fonts.getFontAt(2));
+
+        System.out.println("RANGOT:"+Rangot.getSelectedValue());
+        //dibuixaImatgeMapa(p5);
+        if(Rangot.getSelectedValue().equals("7")||Rangot.getSelectedValue().equals("")){
+            sab17.display(p5);
+        }
+        else if(Rangot.getSelectedValue().equals("5")){
+            sab15.display(p5);
+        }
+        else if(Rangot.getSelectedValue().equals("3")){
+            sab13.display(p5);
+        }
+        //  dibuixaColumnes123(p5);
+        MenuAct.display(p5);
+        p5.text("Unidades:", XUsuari+2*marginH, YActuadors, WidthInhabilitarSensor, HeightInhabilitarSensor/2);
+        p5.text("Rango(t):", XUsuari+2*marginH, (YActuadors+YinhabilitarActuador)/2, WidthInhabilitarActuador, HeightInhabilitarSensor/2);
+        Rangot.display(p5);
+        Unidadest.display(p5);
+    }
+
+    public void dibuixaPantallaEstadisticaActuador4(PApplet p5){
+        p5.background(255);
+        p5.textFont(Fonts.getFontAt(0));
+        dibuixaBanner(p5);
+        Logo.display(p5);
+        p5.textFont(Fonts.getFontAt(2));
+
+        System.out.println("RANGOT:"+Rangot.getSelectedValue());
+        //dibuixaImatgeMapa(p5);
+        if(Rangot.getSelectedValue().equals("7")||Rangot.getSelectedValue().equals("")){
+            sab17.display(p5);
+        }
+        else if(Rangot.getSelectedValue().equals("5")){
+            sab15.display(p5);
+        }
+        else if(Rangot.getSelectedValue().equals("3")){
+            sab13.display(p5);
+        }
+        //  dibuixaColumnes123(p5);
+        MenuAct.display(p5);
+        p5.text("Unidades:", XUsuari+2*marginH, YActuadors, WidthInhabilitarSensor, HeightInhabilitarSensor/2);
+        p5.text("Rango(t):", XUsuari+2*marginH, (YActuadors+YinhabilitarActuador)/2, WidthInhabilitarActuador, HeightInhabilitarSensor/2);
+        Rangot.display(p5);
+        Unidadest.display(p5);
+    }
+
+    public void dibuixaPantallaEstadisticaActuador5(PApplet p5){
+        p5.background(255);
+        p5.textFont(Fonts.getFontAt(0));
+        dibuixaBanner(p5);
+        Logo.display(p5);
+        p5.textFont(Fonts.getFontAt(2));
+
+        System.out.println("RANGOT:"+Rangot.getSelectedValue());
+        //dibuixaImatgeMapa(p5);
+        if(Rangot.getSelectedValue().equals("7")||Rangot.getSelectedValue().equals("")){
+            sab17.display(p5);
+        }
+        else if(Rangot.getSelectedValue().equals("5")){
+            sab15.display(p5);
+        }
+        else if(Rangot.getSelectedValue().equals("3")){
+            sab13.display(p5);
+        }
+        //  dibuixaColumnes123(p5);
+        MenuAct.display(p5);
+        p5.text("Unidades:", XUsuari+2*marginH, YActuadors, WidthInhabilitarSensor, HeightInhabilitarSensor/2);
+        p5.text("Rango(t):", XUsuari+2*marginH, (YActuadors+YinhabilitarActuador)/2, WidthInhabilitarActuador, HeightInhabilitarSensor/2);
+        Rangot.display(p5);
+        Unidadest.display(p5);
+    }
+
+    public void dibuixaPantallaEstadisticaActuador6(PApplet p5){
+        p5.background(255);
+        p5.textFont(Fonts.getFontAt(0));
+        dibuixaBanner(p5);
+        Logo.display(p5);
+        p5.textFont(Fonts.getFontAt(2));
+
+        System.out.println("RANGOT:"+Rangot.getSelectedValue());
+        //dibuixaImatgeMapa(p5);
+        if(Rangot.getSelectedValue().equals("7")||Rangot.getSelectedValue().equals("")){
+            sab17.display(p5);
+        }
+        else if(Rangot.getSelectedValue().equals("5")){
+            sab15.display(p5);
+        }
+        else if(Rangot.getSelectedValue().equals("3")){
+            sab13.display(p5);
+        }
+        //  dibuixaColumnes123(p5);
+        MenuAct.display(p5);
+        p5.text("Unidades:", XUsuari+2*marginH, YActuadors, WidthInhabilitarSensor, HeightInhabilitarSensor/2);
+        p5.text("Rango(t):", XUsuari+2*marginH, (YActuadors+YinhabilitarActuador)/2, WidthInhabilitarActuador, HeightInhabilitarSensor/2);
+        Rangot.display(p5);
+        Unidadest.display(p5);
+    }
+
+    public void dibuixaPantallaEstadisticaActuador7(PApplet p5){
+        p5.background(255);
+        p5.textFont(Fonts.getFontAt(0));
+        dibuixaBanner(p5);
+        Logo.display(p5);
+        p5.textFont(Fonts.getFontAt(2));
+
+        System.out.println("RANGOT:"+Rangot.getSelectedValue());
+        //dibuixaImatgeMapa(p5);
+        if(Rangot.getSelectedValue().equals("7")||Rangot.getSelectedValue().equals("")){
+            sab17.display(p5);
+        }
+        else if(Rangot.getSelectedValue().equals("5")){
+            sab15.display(p5);
+        }
+        else if(Rangot.getSelectedValue().equals("3")){
+            sab13.display(p5);
+        }
+        //  dibuixaColumnes123(p5);
         MenuAct.display(p5);
         p5.text("Unidades:", XUsuari+2*marginH, YActuadors, WidthInhabilitarSensor, HeightInhabilitarSensor/2);
         p5.text("Rango(t):", XUsuari+2*marginH, (YActuadors+YinhabilitarActuador)/2, WidthInhabilitarActuador, HeightInhabilitarSensor/2);

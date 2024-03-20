@@ -65,13 +65,86 @@ public class MainPantalles extends PApplet {
             case SENSOR1:        gui.dibuixaPantallaSensor1(this);
                 break;
 
+            case SENSOR2:        gui.dibuixaPantallaSensor2(this);
+                break;
+
+            case SENSOR3:        gui.dibuixaPantallaSensor3(this);
+                break;
+
+            case SENSOR4:        gui.dibuixaPantallaSensor4(this);
+                break;
+
+            case SENSOR5:        gui.dibuixaPantallaSensor5(this);
+                break;
+
+            case SENSOR6:        gui.dibuixaPantallaSensor6(this);
+                break;
+
+            case SENSOR7:        gui.dibuixaPantallaSensor7(this);
+                break;
+
             case ACTUADOR1:         gui.dibuixaPantallaActuador1(this);
+                break;
+
+            case ACTUADOR2:         gui.dibuixaPantallaActuador2(this);
+                break;
+
+            case ACTUADOR3:         gui.dibuixaPantallaActuador3(this);
+                break;
+
+            case ACTUADOR4:         gui.dibuixaPantallaActuador4(this);
+                break;
+
+            case ACTUADOR5:         gui.dibuixaPantallaActuador5(this);
+                break;
+
+            case ACTUADOR6:         gui.dibuixaPantallaActuador6(this);
+                break;
+
+            case ACTUADOR7:         gui.dibuixaPantallaActuador7(this);
                 break;
 
             case GRÁFICA_SENSOR1:       gui.dibuixaPantallaEstadisticaSensor1(this);
                 break;
 
+            case GRÁFICA_SENSOR2:       gui.dibuixaPantallaEstadisticaSensor2(this);
+                break;
+
+            case GRÁFICA_SENSOR3:       gui.dibuixaPantallaEstadisticaSensor3(this);
+                break;
+
+            case GRÁFICA_SENSOR4:       gui.dibuixaPantallaEstadisticaSensor4(this);
+                break;
+
+            case GRÁFICA_SENSOR5:       gui.dibuixaPantallaEstadisticaSensor5(this);
+                break;
+
+            case GRÁFICA_SENSOR6:       gui.dibuixaPantallaEstadisticaSensor6(this);
+                break;
+
+            case GRÁFICA_SENSOR7:       gui.dibuixaPantallaEstadisticaSensor7(this);
+                break;
+
+
             case GRÁFICA_ACTUADOR1:    gui.dibuixaPantallaEstadisticaActuador1(this);
+                break;
+
+            case GRÁFICA_ACTUADOR2:    gui.dibuixaPantallaEstadisticaActuador2(this);
+                break;
+
+            case GRÁFICA_ACTUADOR3:    gui.dibuixaPantallaEstadisticaActuador3(this);
+                break;
+
+            case GRÁFICA_ACTUADOR4:    gui.dibuixaPantallaEstadisticaActuador4(this);
+                break;
+
+            case GRÁFICA_ACTUADOR5:    gui.dibuixaPantallaEstadisticaActuador5(this);
+                break;
+
+            case GRÁFICA_ACTUADOR6:    gui.dibuixaPantallaEstadisticaActuador6(this);
+                break;
+
+            case GRÁFICA_ACTUADOR7:    gui.dibuixaPantallaEstadisticaActuador7(this);
                 break;
 
             case INSTRUCCIONES:    gui.dibuixaPantallaInstrucciones(this);
@@ -81,6 +154,8 @@ public class MainPantalles extends PApplet {
       /*  String info = connectat ? "OK" : "ERROR";
         fill(0); textSize(48);
         text("Connexió a la BBDD : "+ info, 100, 100); */
+
+        println(gui.pantallaActual);
 
     }
 
