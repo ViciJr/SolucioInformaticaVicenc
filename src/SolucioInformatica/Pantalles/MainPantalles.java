@@ -6,8 +6,6 @@ import java.sql.DriverManager;
 import SolucioInformatica.DataBase.DataBase;
 import processing.core.PApplet;
 
-import static SolucioInformatica.Pantalles.LayoutNMides.*;
-
 public class MainPantalles extends PApplet {
     GUI gui;
     Connection con;
@@ -200,8 +198,8 @@ public class MainPantalles extends PApplet {
         gui.TContraseña.keyPressed(key, keyCode);
         gui.TNameSensor.keyPressed(key, keyCode);
         gui.TNameActuador.keyPressed(key, keyCode);
-        gui.ValMin.keyPressed(key, keyCode);
-        gui.ValMax.keyPressed(key, keyCode);
+        gui.ValMin1.keyPressed(key, keyCode);
+        gui.ValMax1.keyPressed(key, keyCode);
 
 
         if(key=='n' || key=='N'){
@@ -290,8 +288,45 @@ public class MainPantalles extends PApplet {
                 if (gui.Actuador1.mouseOverButton(this)) {
                     gui.pantallaActual = GUI.PANTALLA.ACTUADOR1;
                 }
+                if (gui.Actuador2.mouseOverButton(this)) {
+                    gui.pantallaActual = GUI.PANTALLA.ACTUADOR2;
+                }
+                if (gui.Actuador3.mouseOverButton(this)) {
+                    gui.pantallaActual = GUI.PANTALLA.ACTUADOR3;
+                }
+                if (gui.Actuador4.mouseOverButton(this)) {
+                    gui.pantallaActual = GUI.PANTALLA.ACTUADOR4;
+                }
+                if (gui.Actuador5.mouseOverButton(this)) {
+                    gui.pantallaActual = GUI.PANTALLA.ACTUADOR5;
+                }
+                if (gui.Actuador6.mouseOverButton(this)) {
+                    gui.pantallaActual = GUI.PANTALLA.ACTUADOR6;
+                }
+                if (gui.Actuador7.mouseOverButton(this)) {
+                    gui.pantallaActual = GUI.PANTALLA.ACTUADOR7;
+                }
+
                 if (gui.Sensor1.mouseOverButton(this)) {
                     gui.pantallaActual = GUI.PANTALLA.SENSOR1;
+                }
+                if (gui.Sensor2.mouseOverButton(this)) {
+                    gui.pantallaActual = GUI.PANTALLA.SENSOR2;
+                }
+                if (gui.Sensor3.mouseOverButton(this)) {
+                    gui.pantallaActual = GUI.PANTALLA.SENSOR3;
+                }
+                if (gui.Sensor4.mouseOverButton(this)) {
+                    gui.pantallaActual = GUI.PANTALLA.SENSOR4;
+                }
+                if (gui.Sensor5.mouseOverButton(this)) {
+                    gui.pantallaActual = GUI.PANTALLA.SENSOR5;
+                }
+                if (gui.Sensor6.mouseOverButton(this)) {
+                    gui.pantallaActual = GUI.PANTALLA.SENSOR6;
+                }
+                if (gui.Sensor7.mouseOverButton(this)) {
+                    gui.pantallaActual = GUI.PANTALLA.SENSOR7;
                 }
             }
             else{
@@ -319,70 +354,497 @@ public class MainPantalles extends PApplet {
                 gui.GraficaActuador.setEnabled(true);
                 //  gui.BloquejatA.setEnabled(true);
                // gui.MenuS.setEnabled(true);
-                gui.Tipoa.setEnabled(true);
-                gui.Ubicaciona.setEnabled(true);
-                gui.Arduinoa.setEnabled(true);
-                gui.Sensora.setEnabled(true);
+                gui.Tipoa1.setEnabled(true);
+                gui.Ubicaciona1.setEnabled(true);
+                gui.Arduinoa1.setEnabled(true);
+                gui.Sensora1.setEnabled(true);
 
-                gui.ValMin.isPressed(this);
-                gui.ValMax.isPressed(this);
+                gui.ValMin1.isPressed(this);
+                gui.ValMax1.isPressed(this);
 
-                if (gui.GraficaActuador.mouseOverButton(this)) {
+                if (gui.GraficaActuador.mouseOverButton(this) && gui.pantallaActual == GUI.PANTALLA.ACTUADOR1) {
                     gui.pantallaActual = GUI.PANTALLA.GRÁFICA_ACTUADOR1;
                 }
-                if (gui.EncesA.isEnabled()) {
+                if (gui.EncesA1.isEnabled()) {
                     gui.ActuadorMapa1.setEnces(true);
-                } else {
+                } else{
                     gui.ActuadorMapa1.setEnces(false);
                 }
-                if (gui.MenuS.mouseOverButton(this) && gui.pantallaActual == GUI.PANTALLA.ACTUADOR1) {
+                if (gui.MenuS.mouseOverButton(this)) {
                     gui.pantallaActual = GUI.PANTALLA.MENÚ;
                 }
             }
             else{
                 gui.MenuS.setEnabled(false);
-
                 gui.GraficaActuador.setEnabled(false);
-              //  gui.EncesA.setEnabled(false);
+              //  gui.EncesA1.setEnabled(false);
               //  gui.BloquejatA.setEnabled(false);
                 gui.MenuS.setEnabled(false);
-                gui.Tipoa.setEnabled(false);
-                gui.Ubicaciona.setEnabled(false);
-                gui.Arduinoa.setEnabled(false);
-                gui.Sensora.setEnabled(false);
+                gui.Tipoa1.setEnabled(false);
+                gui.Ubicaciona1.setEnabled(false);
+                gui.Arduinoa1.setEnabled(false);
+                gui.Sensora1.setEnabled(false);
             }
 
-            if (gui.pantallaActual == GUI.PANTALLA.SENSOR1 && gui.pantallaActual != GUI.PANTALLA.MENÚ && gui.pantallaActual != GUI.PANTALLA.INICIO && gui.pantallaActual != GUI.PANTALLA.ACTUADOR1 && gui.pantallaActual != GUI.PANTALLA.GRÁFICA_SENSOR1 && gui.pantallaActual != GUI.PANTALLA.GRÁFICA_ACTUADOR1) {
-                gui.MenuS.setEnabled(true);
-                gui.GraficaSensor.setEnabled(true);
-               // gui.EncesS.setEnabled(true);
-                gui.Tipos.setEnabled(true);
-                gui.Ubicacions.setEnabled(true);
-                gui.Arduino.setEnabled(true);
-                gui.Actuador.setEnabled(true);
+        if (gui.pantallaActual == GUI.PANTALLA.ACTUADOR2 && gui.pantallaActual != GUI.PANTALLA.MENÚ && gui.pantallaActual != GUI.PANTALLA.SENSOR1 && gui.pantallaActual != GUI.PANTALLA.INICIO && gui.pantallaActual != GUI.PANTALLA.GRÁFICA_SENSOR1 && gui.pantallaActual != GUI.PANTALLA.GRÁFICA_ACTUADOR1) {
 
-                if (gui.GraficaSensor.mouseOverButton(this)) {
-                    gui.pantallaActual = GUI.PANTALLA.GRÁFICA_SENSOR1;
-                }
-                if (gui.EncesS.isEnabled()) {
-                    gui.SensorMapa4.setEnces(true);
-                } else {
-                    gui.SensorMapa4.setEnces(false);
-                }
-                if (gui.MenuS.mouseOverButton(this) && gui.pantallaActual == GUI.PANTALLA.SENSOR1) {
-                    gui.pantallaActual = GUI.PANTALLA.MENÚ;
-                }
+            gui.MenuS.setEnabled(true);
+
+            gui.GraficaActuador.setEnabled(true);
+            //  gui.BloquejatA.setEnabled(true);
+            // gui.MenuS.setEnabled(true);
+            gui.Tipoa2.setEnabled(true);
+            gui.Ubicaciona2.setEnabled(true);
+            gui.Arduinoa2.setEnabled(true);
+            gui.Sensora2.setEnabled(true);
+
+            gui.ValMin2.isPressed(this);
+            gui.ValMax2.isPressed(this);
+
+            if (gui.GraficaActuador.mouseOverButton(this) && gui.pantallaActual == GUI.PANTALLA.ACTUADOR2) {
+                gui.pantallaActual = GUI.PANTALLA.GRÁFICA_ACTUADOR2;
             }
-            else{
-                gui.MenuS.setEnabled(false);
-                gui.MenuS.setEnabled(false);
-                gui.GraficaSensor.setEnabled(false);
-              //  gui.EncesS.setEnabled(false);
-                gui.Tipos.setEnabled(false);
-                gui.Ubicacions.setEnabled(false);
-                gui.Arduino.setEnabled(false);
-                gui.Actuador.setEnabled(false);
+            if (gui.EncesA2.isEnabled()) {
+                gui.ActuadorMapa2.setEnces(true);
+            } else{
+                gui.ActuadorMapa2.setEnces(false);
             }
+            if (gui.MenuS.mouseOverButton(this)) {
+                gui.pantallaActual = GUI.PANTALLA.MENÚ;
+            }
+        }
+        else{
+            gui.MenuS.setEnabled(false);
+            gui.GraficaActuador.setEnabled(false);
+            //  gui.EncesA1.setEnabled(false);
+            //  gui.BloquejatA.setEnabled(false);
+            gui.MenuS.setEnabled(false);
+            gui.Tipoa2.setEnabled(false);
+            gui.Ubicaciona2.setEnabled(false);
+            gui.Arduinoa2.setEnabled(false);
+            gui.Sensora2.setEnabled(false);
+        }
+
+        if (gui.pantallaActual == GUI.PANTALLA.ACTUADOR3 && gui.pantallaActual != GUI.PANTALLA.MENÚ && gui.pantallaActual != GUI.PANTALLA.SENSOR1 && gui.pantallaActual != GUI.PANTALLA.INICIO && gui.pantallaActual != GUI.PANTALLA.GRÁFICA_SENSOR1 && gui.pantallaActual != GUI.PANTALLA.GRÁFICA_ACTUADOR1) {
+
+            gui.MenuS.setEnabled(true);
+
+            gui.GraficaActuador.setEnabled(true);
+            //  gui.BloquejatA.setEnabled(true);
+            // gui.MenuS.setEnabled(true);
+            gui.Tipoa3.setEnabled(true);
+            gui.Ubicaciona3.setEnabled(true);
+            gui.Arduinoa3.setEnabled(true);
+            gui.Sensora3.setEnabled(true);
+
+            gui.ValMin3.isPressed(this);
+            gui.ValMax3.isPressed(this);
+
+            if (gui.GraficaActuador.mouseOverButton(this) && gui.pantallaActual == GUI.PANTALLA.ACTUADOR3) {
+                gui.pantallaActual = GUI.PANTALLA.GRÁFICA_ACTUADOR3;
+            }
+            if (gui.EncesA3.isEnabled()) {
+                gui.ActuadorMapa3.setEnces(true);
+            } else{
+                gui.ActuadorMapa3.setEnces(false);
+            }
+            if (gui.MenuS.mouseOverButton(this)) {
+                gui.pantallaActual = GUI.PANTALLA.MENÚ;
+            }
+        }
+        else{
+            gui.MenuS.setEnabled(false);
+            gui.GraficaActuador.setEnabled(false);
+            //  gui.EncesA1.setEnabled(false);
+            //  gui.BloquejatA.setEnabled(false);
+            gui.MenuS.setEnabled(false);
+            gui.Tipoa3.setEnabled(false);
+            gui.Ubicaciona3.setEnabled(false);
+            gui.Arduinoa3.setEnabled(false);
+            gui.Sensora3.setEnabled(false);
+        }
+
+        if (gui.pantallaActual == GUI.PANTALLA.ACTUADOR4 && gui.pantallaActual != GUI.PANTALLA.MENÚ && gui.pantallaActual != GUI.PANTALLA.SENSOR1 && gui.pantallaActual != GUI.PANTALLA.INICIO && gui.pantallaActual != GUI.PANTALLA.GRÁFICA_SENSOR1 && gui.pantallaActual != GUI.PANTALLA.GRÁFICA_ACTUADOR1) {
+
+            gui.MenuS.setEnabled(true);
+
+            gui.GraficaActuador.setEnabled(true);
+            //  gui.BloquejatA.setEnabled(true);
+            // gui.MenuS.setEnabled(true);
+            gui.Tipoa4.setEnabled(true);
+            gui.Ubicaciona4.setEnabled(true);
+            gui.Arduinoa4.setEnabled(true);
+            gui.Sensora4.setEnabled(true);
+
+            gui.ValMin4.isPressed(this);
+            gui.ValMax4.isPressed(this);
+
+            if (gui.GraficaActuador.mouseOverButton(this) && gui.pantallaActual == GUI.PANTALLA.ACTUADOR4) {
+                gui.pantallaActual = GUI.PANTALLA.GRÁFICA_ACTUADOR4;
+            }
+            if (gui.EncesA4.isEnabled()) {
+                gui.ActuadorMapa4.setEnces(true);
+            } else {
+                gui.ActuadorMapa4.setEnces(false);
+            }
+            if (gui.MenuS.mouseOverButton(this)) {
+                gui.pantallaActual = GUI.PANTALLA.MENÚ;
+            }
+        }
+        else{
+            gui.MenuS.setEnabled(false);
+            gui.GraficaActuador.setEnabled(false);
+            //  gui.EncesA1.setEnabled(false);
+            //  gui.BloquejatA.setEnabled(false);
+            gui.MenuS.setEnabled(false);
+            gui.Tipoa4.setEnabled(false);
+            gui.Ubicaciona4.setEnabled(false);
+            gui.Arduinoa4.setEnabled(false);
+            gui.Sensora4.setEnabled(false);
+        }
+
+        if (gui.pantallaActual == GUI.PANTALLA.ACTUADOR5 && gui.pantallaActual != GUI.PANTALLA.MENÚ && gui.pantallaActual != GUI.PANTALLA.SENSOR1 && gui.pantallaActual != GUI.PANTALLA.INICIO && gui.pantallaActual != GUI.PANTALLA.GRÁFICA_SENSOR1 && gui.pantallaActual != GUI.PANTALLA.GRÁFICA_ACTUADOR1) {
+
+            gui.MenuS.setEnabled(true);
+
+            gui.GraficaActuador.setEnabled(true);
+            //  gui.BloquejatA.setEnabled(true);
+            // gui.MenuS.setEnabled(true);
+            gui.Tipoa5.setEnabled(true);
+            gui.Ubicaciona5.setEnabled(true);
+            gui.Arduinoa5.setEnabled(true);
+            gui.Sensora5.setEnabled(true);
+
+            gui.ValMin5.isPressed(this);
+            gui.ValMax5.isPressed(this);
+
+            if (gui.GraficaActuador.mouseOverButton(this) && gui.pantallaActual == GUI.PANTALLA.ACTUADOR5) {
+                gui.pantallaActual = GUI.PANTALLA.GRÁFICA_ACTUADOR5;
+            }
+            if (gui.EncesA5.isEnabled()) {
+                gui.ActuadorMapa5.setEnces(true);
+            } else {
+                gui.ActuadorMapa5.setEnces(false);
+            }
+            if (gui.MenuS.mouseOverButton(this)) {
+                gui.pantallaActual = GUI.PANTALLA.MENÚ;
+            }
+        }
+        else{
+            gui.MenuS.setEnabled(false);
+            gui.GraficaActuador.setEnabled(false);
+            //  gui.EncesA1.setEnabled(false);
+            //  gui.BloquejatA.setEnabled(false);
+            gui.MenuS.setEnabled(false);
+            gui.Tipoa5.setEnabled(false);
+            gui.Ubicaciona5.setEnabled(false);
+            gui.Arduinoa5.setEnabled(false);
+            gui.Sensora5.setEnabled(false);
+        }
+
+        if (gui.pantallaActual == GUI.PANTALLA.ACTUADOR6 && gui.pantallaActual != GUI.PANTALLA.MENÚ && gui.pantallaActual != GUI.PANTALLA.SENSOR1 && gui.pantallaActual != GUI.PANTALLA.INICIO && gui.pantallaActual != GUI.PANTALLA.GRÁFICA_SENSOR1 && gui.pantallaActual != GUI.PANTALLA.GRÁFICA_ACTUADOR1) {
+
+            gui.MenuS.setEnabled(true);
+
+            gui.GraficaActuador.setEnabled(true);
+            //  gui.BloquejatA.setEnabled(true);
+            // gui.MenuS.setEnabled(true);
+            gui.Tipoa6.setEnabled(true);
+            gui.Ubicaciona6.setEnabled(true);
+            gui.Arduinoa6.setEnabled(true);
+            gui.Sensora6.setEnabled(true);
+
+            gui.ValMin6.isPressed(this);
+            gui.ValMax6.isPressed(this);
+
+            if (gui.GraficaActuador.mouseOverButton(this) && gui.pantallaActual == GUI.PANTALLA.ACTUADOR6) {
+                gui.pantallaActual = GUI.PANTALLA.GRÁFICA_ACTUADOR6;
+            }
+            if (gui.EncesA6.isEnabled()) {
+                gui.ActuadorMapa6.setEnces(true);
+            } else {
+                gui.ActuadorMapa6.setEnces(false);
+            }
+            if (gui.MenuS.mouseOverButton(this)) {
+                gui.pantallaActual = GUI.PANTALLA.MENÚ;
+            }
+        }
+        else{
+            gui.MenuS.setEnabled(false);
+            gui.GraficaActuador.setEnabled(false);
+            //  gui.EncesA1.setEnabled(false);
+            //  gui.BloquejatA.setEnabled(false);
+            gui.MenuS.setEnabled(false);
+            gui.Tipoa6.setEnabled(false);
+            gui.Ubicaciona6.setEnabled(false);
+            gui.Arduinoa6.setEnabled(false);
+            gui.Sensora6.setEnabled(false);
+        }
+
+        if (gui.pantallaActual == GUI.PANTALLA.ACTUADOR7 && gui.pantallaActual != GUI.PANTALLA.MENÚ && gui.pantallaActual != GUI.PANTALLA.SENSOR1 && gui.pantallaActual != GUI.PANTALLA.INICIO && gui.pantallaActual != GUI.PANTALLA.GRÁFICA_SENSOR1 && gui.pantallaActual != GUI.PANTALLA.GRÁFICA_ACTUADOR1) {
+
+            gui.MenuS.setEnabled(true);
+
+            gui.GraficaActuador.setEnabled(true);
+            //  gui.BloquejatA.setEnabled(true);
+            // gui.MenuS.setEnabled(true);
+            gui.Tipoa7.setEnabled(true);
+            gui.Ubicaciona7.setEnabled(true);
+            gui.Arduinoa7.setEnabled(true);
+            gui.Sensora7.setEnabled(true);
+
+            gui.ValMin7.isPressed(this);
+            gui.ValMax7.isPressed(this);
+
+            if (gui.GraficaActuador.mouseOverButton(this) && gui.pantallaActual == GUI.PANTALLA.ACTUADOR7) {
+                gui.pantallaActual = GUI.PANTALLA.GRÁFICA_ACTUADOR7;
+            }
+            if (gui.EncesA7.isEnabled()) {
+                gui.ActuadorMapa7.setEnces(true);
+            } else{
+                gui.ActuadorMapa7.setEnces(false);
+            }
+            if (gui.MenuS.mouseOverButton(this)) {
+                gui.pantallaActual = GUI.PANTALLA.MENÚ;
+            }
+        }
+        else{
+            gui.MenuS.setEnabled(false);
+            gui.GraficaActuador.setEnabled(false);
+            //  gui.EncesA1.setEnabled(false);
+            //  gui.BloquejatA.setEnabled(false);
+            gui.MenuS.setEnabled(false);
+            gui.Tipoa7.setEnabled(false);
+            gui.Ubicaciona7.setEnabled(false);
+            gui.Arduinoa7.setEnabled(false);
+            gui.Sensora7.setEnabled(false);
+        }
+
+
+
+        if (gui.pantallaActual == GUI.PANTALLA.SENSOR1 && gui.pantallaActual != GUI.PANTALLA.MENÚ && gui.pantallaActual != GUI.PANTALLA.INICIO && gui.pantallaActual != GUI.PANTALLA.ACTUADOR1 && gui.pantallaActual != GUI.PANTALLA.GRÁFICA_SENSOR1 && gui.pantallaActual != GUI.PANTALLA.GRÁFICA_ACTUADOR1) {
+            gui.MenuS.setEnabled(true);
+            gui.GraficaSensor.setEnabled(true);
+            // gui.EncesS1.setEnabled(true);
+            gui.Tipos1.setEnabled(true);
+            gui.Ubicacions1.setEnabled(true);
+            gui.Arduino1.setEnabled(true);
+            gui.ActuadorS1.setEnabled(true);
+
+            if (gui.GraficaSensor.mouseOverButton(this) && gui.pantallaActual == GUI.PANTALLA.SENSOR1) {
+                gui.pantallaActual = GUI.PANTALLA.GRÁFICA_SENSOR1;
+            }
+            if (gui.EncesS1.isEnabled()) {
+                gui.SensorMapa1.setEnces(true);
+            } else{
+                gui.SensorMapa1.setEnces(false);
+            }
+            if (gui.MenuS.mouseOverButton(this)) {
+                gui.pantallaActual = GUI.PANTALLA.MENÚ;
+            }
+        }
+        else{
+            gui.MenuS.setEnabled(false);
+            gui.MenuS.setEnabled(false);
+            gui.GraficaSensor.setEnabled(false);
+            //  gui.EncesS1.setEnabled(false);
+            gui.Tipos1.setEnabled(false);
+            gui.Ubicacions1.setEnabled(false);
+            gui.Arduino1.setEnabled(false);
+            gui.ActuadorS1.setEnabled(false);
+        }
+
+        if (gui.pantallaActual == GUI.PANTALLA.SENSOR2 && gui.pantallaActual != GUI.PANTALLA.MENÚ && gui.pantallaActual != GUI.PANTALLA.INICIO && gui.pantallaActual != GUI.PANTALLA.ACTUADOR1 && gui.pantallaActual != GUI.PANTALLA.GRÁFICA_SENSOR1 && gui.pantallaActual != GUI.PANTALLA.GRÁFICA_ACTUADOR1) {
+            gui.MenuS.setEnabled(true);
+            gui.GraficaSensor.setEnabled(true);
+            // gui.EncesS1.setEnabled(true);
+            gui.Tipos2.setEnabled(true);
+            gui.Ubicacions2.setEnabled(true);
+            gui.Arduino2.setEnabled(true);
+            gui.ActuadorS2.setEnabled(true);
+
+            if (gui.GraficaSensor.mouseOverButton(this) && gui.pantallaActual == GUI.PANTALLA.SENSOR2) {
+                gui.pantallaActual = GUI.PANTALLA.GRÁFICA_SENSOR2;
+            }
+            if (gui.EncesS2.isEnabled()) {
+                gui.SensorMapa2.setEnces(true);
+            } else{
+                gui.SensorMapa2.setEnces(false);
+            }
+            if (gui.MenuS.mouseOverButton(this) && gui.pantallaActual == GUI.PANTALLA.SENSOR2) {
+                gui.pantallaActual = GUI.PANTALLA.MENÚ;
+            }
+        }
+        else{
+            gui.MenuS.setEnabled(false);
+            gui.MenuS.setEnabled(false);
+            gui.GraficaSensor.setEnabled(false);
+            //  gui.EncesS1.setEnabled(false);
+            gui.Tipos2.setEnabled(false);
+            gui.Ubicacions2.setEnabled(false);
+            gui.Arduino2.setEnabled(false);
+            gui.ActuadorS2.setEnabled(false);
+        }
+
+        if (gui.pantallaActual == GUI.PANTALLA.SENSOR3 && gui.pantallaActual != GUI.PANTALLA.MENÚ && gui.pantallaActual != GUI.PANTALLA.INICIO && gui.pantallaActual != GUI.PANTALLA.ACTUADOR1 && gui.pantallaActual != GUI.PANTALLA.GRÁFICA_SENSOR1 && gui.pantallaActual != GUI.PANTALLA.GRÁFICA_ACTUADOR1) {
+            gui.MenuS.setEnabled(true);
+            gui.GraficaSensor.setEnabled(true);
+            // gui.EncesS1.setEnabled(true);
+            gui.Tipos3.setEnabled(true);
+            gui.Ubicacions3.setEnabled(true);
+            gui.Arduino3.setEnabled(true);
+            gui.ActuadorS3.setEnabled(true);
+
+            if (gui.GraficaSensor.mouseOverButton(this) && gui.pantallaActual == GUI.PANTALLA.SENSOR3) {
+                gui.pantallaActual = GUI.PANTALLA.GRÁFICA_SENSOR3;
+            }
+            if (gui.EncesS3.isEnabled()) {
+                gui.SensorMapa3.setEnces(true);
+            } else{
+                gui.SensorMapa3.setEnces(false);
+            }
+            if (gui.MenuS.mouseOverButton(this)) {
+                gui.pantallaActual = GUI.PANTALLA.MENÚ;
+            }
+        }
+        else{
+            gui.MenuS.setEnabled(false);
+            gui.MenuS.setEnabled(false);
+            gui.GraficaSensor.setEnabled(false);
+            //  gui.EncesS1.setEnabled(false);
+            gui.Tipos3.setEnabled(false);
+            gui.Ubicacions3.setEnabled(false);
+            gui.Arduino3.setEnabled(false);
+            gui.ActuadorS3.setEnabled(false);
+        }
+
+        if (gui.pantallaActual == GUI.PANTALLA.SENSOR4 && gui.pantallaActual != GUI.PANTALLA.MENÚ && gui.pantallaActual != GUI.PANTALLA.INICIO && gui.pantallaActual != GUI.PANTALLA.ACTUADOR1 && gui.pantallaActual != GUI.PANTALLA.GRÁFICA_SENSOR1 && gui.pantallaActual != GUI.PANTALLA.GRÁFICA_ACTUADOR1) {
+            gui.MenuS.setEnabled(true);
+            gui.GraficaSensor.setEnabled(true);
+            // gui.EncesS1.setEnabled(true);
+            gui.Tipos4.setEnabled(true);
+            gui.Ubicacions4.setEnabled(true);
+            gui.Arduino4.setEnabled(true);
+            gui.ActuadorS4.setEnabled(true);
+
+            if (gui.GraficaSensor.mouseOverButton(this) && gui.pantallaActual == GUI.PANTALLA.SENSOR4) {
+                gui.pantallaActual = GUI.PANTALLA.GRÁFICA_SENSOR4;
+            }
+            if (gui.EncesS4.isEnabled()) {
+                gui.SensorMapa4.setEnces(true);
+            } else{
+                gui.SensorMapa4.setEnces(false);
+            }
+            if (gui.MenuS.mouseOverButton(this) && gui.pantallaActual == GUI.PANTALLA.SENSOR4) {
+                gui.pantallaActual = GUI.PANTALLA.MENÚ;
+            }
+        }
+        else{
+            gui.MenuS.setEnabled(false);
+            gui.MenuS.setEnabled(false);
+            gui.GraficaSensor.setEnabled(false);
+            //  gui.EncesS1.setEnabled(false);
+            gui.Tipos4.setEnabled(false);
+            gui.Ubicacions4.setEnabled(false);
+            gui.Arduino4.setEnabled(false);
+            gui.ActuadorS4.setEnabled(false);
+        }
+
+        if (gui.pantallaActual == GUI.PANTALLA.SENSOR5 && gui.pantallaActual != GUI.PANTALLA.MENÚ && gui.pantallaActual != GUI.PANTALLA.INICIO && gui.pantallaActual != GUI.PANTALLA.ACTUADOR1 && gui.pantallaActual != GUI.PANTALLA.GRÁFICA_SENSOR1 && gui.pantallaActual != GUI.PANTALLA.GRÁFICA_ACTUADOR1) {
+            gui.MenuS.setEnabled(true);
+            gui.GraficaSensor.setEnabled(true);
+            // gui.EncesS1.setEnabled(true);
+            gui.Tipos5.setEnabled(true);
+            gui.Ubicacions5.setEnabled(true);
+            gui.Arduino5.setEnabled(true);
+            gui.ActuadorS5.setEnabled(true);
+
+            if (gui.GraficaSensor.mouseOverButton(this) && gui.pantallaActual == GUI.PANTALLA.SENSOR5) {
+                gui.pantallaActual = GUI.PANTALLA.GRÁFICA_SENSOR5;
+            }
+            if (gui.EncesS5.isEnabled()) {
+                gui.SensorMapa5.setEnces(true);
+            } else{
+                gui.SensorMapa5.setEnces(false);
+            }
+            if (gui.MenuS.mouseOverButton(this)) {
+                gui.pantallaActual = GUI.PANTALLA.MENÚ;
+            }
+        }
+        else{
+            gui.MenuS.setEnabled(false);
+            gui.MenuS.setEnabled(false);
+            gui.GraficaSensor.setEnabled(false);
+            //  gui.EncesS1.setEnabled(false);
+            gui.Tipos5.setEnabled(false);
+            gui.Ubicacions5.setEnabled(false);
+            gui.Arduino5.setEnabled(false);
+            gui.ActuadorS5.setEnabled(false);
+        }
+
+        if (gui.pantallaActual == GUI.PANTALLA.SENSOR6 && gui.pantallaActual != GUI.PANTALLA.MENÚ && gui.pantallaActual != GUI.PANTALLA.INICIO && gui.pantallaActual != GUI.PANTALLA.ACTUADOR1 && gui.pantallaActual != GUI.PANTALLA.GRÁFICA_SENSOR1 && gui.pantallaActual != GUI.PANTALLA.GRÁFICA_ACTUADOR1) {
+            gui.MenuS.setEnabled(true);
+            gui.GraficaSensor.setEnabled(true);
+            // gui.EncesS1.setEnabled(true);
+            gui.Tipos6.setEnabled(true);
+            gui.Ubicacions6.setEnabled(true);
+            gui.Arduino6.setEnabled(true);
+            gui.ActuadorS6.setEnabled(true);
+
+            if (gui.GraficaSensor.mouseOverButton(this) && gui.pantallaActual == GUI.PANTALLA.SENSOR6) {
+                gui.pantallaActual = GUI.PANTALLA.GRÁFICA_SENSOR6;
+            }
+            if (gui.EncesS6.isEnabled()) {
+                gui.SensorMapa6.setEnces(true);
+            } else {
+                gui.SensorMapa6.setEnces(false);
+            }
+            if (gui.MenuS.mouseOverButton(this)) {
+                gui.pantallaActual = GUI.PANTALLA.MENÚ;
+            }
+        }
+        else{
+            gui.MenuS.setEnabled(false);
+            gui.MenuS.setEnabled(false);
+            gui.GraficaSensor.setEnabled(false);
+            //  gui.EncesS1.setEnabled(false);
+            gui.Tipos6.setEnabled(false);
+            gui.Ubicacions6.setEnabled(false);
+            gui.Arduino6.setEnabled(false);
+            gui.ActuadorS6.setEnabled(false);
+        }
+
+        if (gui.pantallaActual == GUI.PANTALLA.SENSOR7 && gui.pantallaActual != GUI.PANTALLA.MENÚ && gui.pantallaActual != GUI.PANTALLA.INICIO && gui.pantallaActual != GUI.PANTALLA.ACTUADOR1 && gui.pantallaActual != GUI.PANTALLA.GRÁFICA_SENSOR1 && gui.pantallaActual != GUI.PANTALLA.GRÁFICA_ACTUADOR1) {
+            gui.MenuS.setEnabled(true);
+            gui.GraficaSensor.setEnabled(true);
+            // gui.EncesS1.setEnabled(true);
+            gui.Tipos7.setEnabled(true);
+            gui.Ubicacions7.setEnabled(true);
+            gui.Arduino7.setEnabled(true);
+            gui.ActuadorS7.setEnabled(true);
+
+            if (gui.GraficaSensor.mouseOverButton(this) && gui.pantallaActual == GUI.PANTALLA.SENSOR7) {
+                gui.pantallaActual = GUI.PANTALLA.GRÁFICA_SENSOR7;
+            }
+            if (gui.EncesS7.isEnabled()) {
+                gui.SensorMapa7.setEnces(true);
+            } else {
+                gui.SensorMapa7.setEnces(false);
+            }
+            if (gui.MenuS.mouseOverButton(this)) {
+                gui.pantallaActual = GUI.PANTALLA.MENÚ;
+            }
+        }
+        else{
+            gui.MenuS.setEnabled(false);
+            gui.MenuS.setEnabled(false);
+            gui.GraficaSensor.setEnabled(false);
+            //  gui.EncesS1.setEnabled(false);
+            gui.Tipos7.setEnabled(false);
+            gui.Ubicacions7.setEnabled(false);
+            gui.Arduino7.setEnabled(false);
+            gui.ActuadorS7.setEnabled(false);
+        }
 
             if (gui.pantallaActual == GUI.PANTALLA.GRÁFICA_SENSOR1 && gui.pantallaActual != GUI.PANTALLA.MENÚ && gui.pantallaActual != GUI.PANTALLA.INICIO && gui.pantallaActual != GUI.PANTALLA.ACTUADOR1 && gui.pantallaActual != GUI.PANTALLA.SENSOR1 && gui.pantallaActual != GUI.PANTALLA.GRÁFICA_ACTUADOR1) {
                 gui.MenuSns.setEnabled(true);
@@ -395,6 +857,72 @@ public class MainPantalles extends PApplet {
                 gui.MenuSns.setEnabled(false);
             }
 
+        if (gui.pantallaActual == GUI.PANTALLA.GRÁFICA_SENSOR2 && gui.pantallaActual != GUI.PANTALLA.MENÚ && gui.pantallaActual != GUI.PANTALLA.INICIO && gui.pantallaActual != GUI.PANTALLA.ACTUADOR1 && gui.pantallaActual != GUI.PANTALLA.SENSOR1 && gui.pantallaActual != GUI.PANTALLA.GRÁFICA_ACTUADOR1) {
+            gui.MenuSns.setEnabled(true);
+            if (gui.MenuSns.mouseOverButton(this) && gui.pantallaActual == GUI.PANTALLA.GRÁFICA_SENSOR2) {
+                gui.pantallaActual = GUI.PANTALLA.SENSOR2;
+            }
+
+        }
+        else{
+            gui.MenuSns.setEnabled(false);
+        }
+
+        if (gui.pantallaActual == GUI.PANTALLA.GRÁFICA_SENSOR3 && gui.pantallaActual != GUI.PANTALLA.MENÚ && gui.pantallaActual != GUI.PANTALLA.INICIO && gui.pantallaActual != GUI.PANTALLA.ACTUADOR1 && gui.pantallaActual != GUI.PANTALLA.SENSOR1 && gui.pantallaActual != GUI.PANTALLA.GRÁFICA_ACTUADOR1) {
+            gui.MenuSns.setEnabled(true);
+            if (gui.MenuSns.mouseOverButton(this) && gui.pantallaActual == GUI.PANTALLA.GRÁFICA_SENSOR3) {
+                gui.pantallaActual = GUI.PANTALLA.SENSOR3;
+            }
+
+        }
+        else{
+            gui.MenuSns.setEnabled(false);
+        }
+
+        if (gui.pantallaActual == GUI.PANTALLA.GRÁFICA_SENSOR4 && gui.pantallaActual != GUI.PANTALLA.MENÚ && gui.pantallaActual != GUI.PANTALLA.INICIO && gui.pantallaActual != GUI.PANTALLA.ACTUADOR1 && gui.pantallaActual != GUI.PANTALLA.SENSOR1 && gui.pantallaActual != GUI.PANTALLA.GRÁFICA_ACTUADOR1) {
+            gui.MenuSns.setEnabled(true);
+            if (gui.MenuSns.mouseOverButton(this) && gui.pantallaActual == GUI.PANTALLA.GRÁFICA_SENSOR4) {
+                gui.pantallaActual = GUI.PANTALLA.SENSOR4;
+            }
+
+        }
+        else{
+            gui.MenuSns.setEnabled(false);
+        }
+
+        if (gui.pantallaActual == GUI.PANTALLA.GRÁFICA_SENSOR5 && gui.pantallaActual != GUI.PANTALLA.MENÚ && gui.pantallaActual != GUI.PANTALLA.INICIO && gui.pantallaActual != GUI.PANTALLA.ACTUADOR1 && gui.pantallaActual != GUI.PANTALLA.SENSOR1 && gui.pantallaActual != GUI.PANTALLA.GRÁFICA_ACTUADOR1) {
+            gui.MenuSns.setEnabled(true);
+            if (gui.MenuSns.mouseOverButton(this) && gui.pantallaActual == GUI.PANTALLA.GRÁFICA_SENSOR5) {
+                gui.pantallaActual = GUI.PANTALLA.SENSOR5;
+            }
+
+        }
+        else{
+            gui.MenuSns.setEnabled(false);
+        }
+
+        if (gui.pantallaActual == GUI.PANTALLA.GRÁFICA_SENSOR6 && gui.pantallaActual != GUI.PANTALLA.MENÚ && gui.pantallaActual != GUI.PANTALLA.INICIO && gui.pantallaActual != GUI.PANTALLA.ACTUADOR1 && gui.pantallaActual != GUI.PANTALLA.SENSOR1 && gui.pantallaActual != GUI.PANTALLA.GRÁFICA_ACTUADOR1) {
+            gui.MenuSns.setEnabled(true);
+            if (gui.MenuSns.mouseOverButton(this) && gui.pantallaActual == GUI.PANTALLA.GRÁFICA_SENSOR6) {
+                gui.pantallaActual = GUI.PANTALLA.SENSOR6;
+            }
+
+        }
+        else{
+            gui.MenuSns.setEnabled(false);
+        }
+
+        if (gui.pantallaActual == GUI.PANTALLA.GRÁFICA_SENSOR7 && gui.pantallaActual != GUI.PANTALLA.MENÚ && gui.pantallaActual != GUI.PANTALLA.INICIO && gui.pantallaActual != GUI.PANTALLA.ACTUADOR1 && gui.pantallaActual != GUI.PANTALLA.SENSOR1 && gui.pantallaActual != GUI.PANTALLA.GRÁFICA_ACTUADOR1) {
+            gui.MenuSns.setEnabled(true);
+            if (gui.MenuSns.mouseOverButton(this) && gui.pantallaActual == GUI.PANTALLA.GRÁFICA_SENSOR7) {
+                gui.pantallaActual = GUI.PANTALLA.SENSOR7;
+            }
+
+        }
+        else{
+            gui.MenuSns.setEnabled(false);
+        }
+
             if (gui.pantallaActual == GUI.PANTALLA.GRÁFICA_ACTUADOR1 && gui.pantallaActual != GUI.PANTALLA.MENÚ && gui.pantallaActual != GUI.PANTALLA.INICIO && gui.pantallaActual != GUI.PANTALLA.ACTUADOR1 && gui.pantallaActual != GUI.PANTALLA.SENSOR1 && gui.pantallaActual != GUI.PANTALLA.GRÁFICA_SENSOR1) {
                 gui.MenuAct.setEnabled(true);
                 if (gui.MenuSns.mouseOverButton(this) && gui.pantallaActual == GUI.PANTALLA.GRÁFICA_ACTUADOR1) {
@@ -405,7 +933,67 @@ public class MainPantalles extends PApplet {
                 gui.MenuAct.setEnabled(false);
             }
 
-            if (gui.pantallaActual== GUI.PANTALLA.GRÁFICA_SENSOR1 || gui.pantallaActual== GUI.PANTALLA.GRÁFICA_ACTUADOR1){
+        if (gui.pantallaActual == GUI.PANTALLA.GRÁFICA_ACTUADOR2 && gui.pantallaActual != GUI.PANTALLA.MENÚ && gui.pantallaActual != GUI.PANTALLA.INICIO && gui.pantallaActual != GUI.PANTALLA.ACTUADOR1 && gui.pantallaActual != GUI.PANTALLA.SENSOR1 && gui.pantallaActual != GUI.PANTALLA.GRÁFICA_SENSOR1) {
+            gui.MenuAct.setEnabled(true);
+            if (gui.MenuSns.mouseOverButton(this) && gui.pantallaActual == GUI.PANTALLA.GRÁFICA_ACTUADOR2) {
+                gui.pantallaActual = GUI.PANTALLA.ACTUADOR2;
+            }
+        }
+        else{
+            gui.MenuAct.setEnabled(false);
+        }
+
+        if (gui.pantallaActual == GUI.PANTALLA.GRÁFICA_ACTUADOR3 && gui.pantallaActual != GUI.PANTALLA.MENÚ && gui.pantallaActual != GUI.PANTALLA.INICIO && gui.pantallaActual != GUI.PANTALLA.ACTUADOR1 && gui.pantallaActual != GUI.PANTALLA.SENSOR1 && gui.pantallaActual != GUI.PANTALLA.GRÁFICA_SENSOR1) {
+            gui.MenuAct.setEnabled(true);
+            if (gui.MenuSns.mouseOverButton(this) && gui.pantallaActual == GUI.PANTALLA.GRÁFICA_ACTUADOR3) {
+                gui.pantallaActual = GUI.PANTALLA.ACTUADOR3;
+            }
+        }
+        else{
+            gui.MenuAct.setEnabled(false);
+        }
+
+        if (gui.pantallaActual == GUI.PANTALLA.GRÁFICA_ACTUADOR4 && gui.pantallaActual != GUI.PANTALLA.MENÚ && gui.pantallaActual != GUI.PANTALLA.INICIO && gui.pantallaActual != GUI.PANTALLA.ACTUADOR1 && gui.pantallaActual != GUI.PANTALLA.SENSOR1 && gui.pantallaActual != GUI.PANTALLA.GRÁFICA_SENSOR1) {
+            gui.MenuAct.setEnabled(true);
+            if (gui.MenuSns.mouseOverButton(this) && gui.pantallaActual == GUI.PANTALLA.GRÁFICA_ACTUADOR4) {
+                gui.pantallaActual = GUI.PANTALLA.ACTUADOR4;
+            }
+        }
+        else{
+            gui.MenuAct.setEnabled(false);
+        }
+
+        if (gui.pantallaActual == GUI.PANTALLA.GRÁFICA_ACTUADOR5 && gui.pantallaActual != GUI.PANTALLA.MENÚ && gui.pantallaActual != GUI.PANTALLA.INICIO && gui.pantallaActual != GUI.PANTALLA.ACTUADOR1 && gui.pantallaActual != GUI.PANTALLA.SENSOR1 && gui.pantallaActual != GUI.PANTALLA.GRÁFICA_SENSOR1) {
+            gui.MenuAct.setEnabled(true);
+            if (gui.MenuSns.mouseOverButton(this) && gui.pantallaActual == GUI.PANTALLA.GRÁFICA_ACTUADOR5) {
+                gui.pantallaActual = GUI.PANTALLA.ACTUADOR5;
+            }
+        }
+        else{
+            gui.MenuAct.setEnabled(false);
+        }
+
+        if (gui.pantallaActual == GUI.PANTALLA.GRÁFICA_ACTUADOR6 && gui.pantallaActual != GUI.PANTALLA.MENÚ && gui.pantallaActual != GUI.PANTALLA.INICIO && gui.pantallaActual != GUI.PANTALLA.ACTUADOR1 && gui.pantallaActual != GUI.PANTALLA.SENSOR1 && gui.pantallaActual != GUI.PANTALLA.GRÁFICA_SENSOR1) {
+            gui.MenuAct.setEnabled(true);
+            if (gui.MenuSns.mouseOverButton(this) && gui.pantallaActual == GUI.PANTALLA.GRÁFICA_ACTUADOR6) {
+                gui.pantallaActual = GUI.PANTALLA.ACTUADOR6;
+            }
+        }
+        else{
+            gui.MenuAct.setEnabled(false);
+        }
+
+        if (gui.pantallaActual == GUI.PANTALLA.GRÁFICA_ACTUADOR7 && gui.pantallaActual != GUI.PANTALLA.MENÚ && gui.pantallaActual != GUI.PANTALLA.INICIO && gui.pantallaActual != GUI.PANTALLA.ACTUADOR1 && gui.pantallaActual != GUI.PANTALLA.SENSOR1 && gui.pantallaActual != GUI.PANTALLA.GRÁFICA_SENSOR1) {
+            gui.MenuAct.setEnabled(true);
+            if (gui.MenuSns.mouseOverButton(this) && gui.pantallaActual == GUI.PANTALLA.GRÁFICA_ACTUADOR7) {
+                gui.pantallaActual = GUI.PANTALLA.ACTUADOR7;
+            }
+        }
+        else{
+            gui.MenuAct.setEnabled(false);
+        }
+
+            if (gui.pantallaActual== GUI.PANTALLA.GRÁFICA_SENSOR1 || gui.pantallaActual== GUI.PANTALLA.GRÁFICA_SENSOR2 ||gui.pantallaActual== GUI.PANTALLA.GRÁFICA_SENSOR3 ||gui.pantallaActual== GUI.PANTALLA.GRÁFICA_SENSOR4 ||gui.pantallaActual== GUI.PANTALLA.GRÁFICA_SENSOR5 ||gui.pantallaActual== GUI.PANTALLA.GRÁFICA_SENSOR6 ||gui.pantallaActual== GUI.PANTALLA.GRÁFICA_SENSOR7 ||gui.pantallaActual== GUI.PANTALLA.GRÁFICA_ACTUADOR1 ||gui.pantallaActual== GUI.PANTALLA.GRÁFICA_ACTUADOR2||gui.pantallaActual== GUI.PANTALLA.GRÁFICA_ACTUADOR2||gui.pantallaActual== GUI.PANTALLA.GRÁFICA_ACTUADOR2||gui.pantallaActual== GUI.PANTALLA.GRÁFICA_ACTUADOR2||gui.pantallaActual== GUI.PANTALLA.GRÁFICA_ACTUADOR2||gui.pantallaActual== GUI.PANTALLA.GRÁFICA_ACTUADOR2){
                 gui.Rangot.setEnabled(true);
                 gui.Unidadest.setEnabled(true);
             }
@@ -435,7 +1023,7 @@ public class MainPantalles extends PApplet {
             }
         }*/
 
-        if(gui.SensorMapa4.mouseOnSensor(this)==true){
+        if(gui.SensorMapa1.mouseOnSensor(this)==true){
             gui.pantallaActual= GUI.PANTALLA.SENSOR1;
         }
 
@@ -443,64 +1031,64 @@ public class MainPantalles extends PApplet {
             gui.pantallaActual= GUI.PANTALLA.ACTUADOR1;
         }
 
-        if(gui.Tipos.mouseOverSelect(this) && gui.Tipos.isEnabled()){
-            if(!gui.Tipos.isCollapsed()){
-                gui.Tipos.update(this);      // Actualitzar valor
+        if(gui.Tipos1.mouseOverSelect(this) && gui.Tipos1.isEnabled()){
+            if(!gui.Tipos1.isCollapsed()){
+                gui.Tipos1.update(this);      // Actualitzar valor
              //   updateColor();    // Fer acció amb valor
             }
-            gui.Tipos.toggle();        // Plegar o desplegar
+            gui.Tipos1.toggle();        // Plegar o desplegar
         }
 
-        if(gui.Ubicacions.mouseOverSelect(this) && gui.Ubicacions.isEnabled()){
-            if(!gui.Ubicacions.isCollapsed()){
-                gui.Ubicacions.update(this);      // Actualitzar valor
+        if(gui.Ubicacions1.mouseOverSelect(this) && gui.Ubicacions1.isEnabled()){
+            if(!gui.Ubicacions1.isCollapsed()){
+                gui.Ubicacions1.update(this);      // Actualitzar valor
                 //   updateColor();    // Fer acció amb valor
             }
-            gui.Ubicacions.toggle();        // Plegar o desplegar
+            gui.Ubicacions1.toggle();        // Plegar o desplegar
         }
 
-        if(gui.Arduino.mouseOverSelect(this) && gui.Arduino.isEnabled()){
-            if(!gui.Arduino.isCollapsed()){
-                gui.Arduino.update(this);      // Actualitzar valor
+        if(gui.Arduino1.mouseOverSelect(this) && gui.Arduino1.isEnabled()){
+            if(!gui.Arduino1.isCollapsed()){
+                gui.Arduino1.update(this);      // Actualitzar valor
                 //   updateColor();    // Fer acció amb valor
             }
-            gui.Arduino.toggle();        // Plegar o desplegar
+            gui.Arduino1.toggle();        // Plegar o desplegar
         }
-        if(gui.Actuador.mouseOverSelect(this) && gui.Actuador.isEnabled()){
-            if(!gui.Actuador.isCollapsed()){
-                gui.Actuador.update(this);      // Actualitzar valor
+        if(gui.ActuadorS1.mouseOverSelect(this) && gui.ActuadorS1.isEnabled()){
+            if(!gui.ActuadorS1.isCollapsed()){
+                gui.ActuadorS1.update(this);      // Actualitzar valor
                 //   updateColor();    // Fer acció amb valor
             }
-            gui.Actuador.toggle();        // Plegar o desplegar
+            gui.ActuadorS1.toggle();        // Plegar o desplegar
         }
 
-        if(gui.Tipoa.mouseOverSelect(this) && gui.Tipoa.isEnabled()){
-            if(!gui.Tipoa.isCollapsed()){
-                gui.Tipoa.update(this);      // Actualitzar valor
+        if(gui.Tipoa1.mouseOverSelect(this) && gui.Tipoa1.isEnabled()){
+            if(!gui.Tipoa1.isCollapsed()){
+                gui.Tipoa1.update(this);      // Actualitzar valor
                 //   updateColor();    // Fer acció amb valor
             }
-            gui.Tipoa.toggle();        // Plegar o desplegar
+            gui.Tipoa1.toggle();        // Plegar o desplegar
         }
-        if(gui.Ubicaciona.mouseOverSelect(this) && gui.Ubicaciona.isEnabled()){
-            if(!gui.Ubicaciona.isCollapsed()){
-                gui.Ubicaciona.update(this);      // Actualitzar valor
+        if(gui.Ubicaciona1.mouseOverSelect(this) && gui.Ubicaciona1.isEnabled()){
+            if(!gui.Ubicaciona1.isCollapsed()){
+                gui.Ubicaciona1.update(this);      // Actualitzar valor
                 //   updateColor();    // Fer acció amb valor
             }
-            gui.Ubicaciona.toggle();        // Plegar o desplegar
+            gui.Ubicaciona1.toggle();        // Plegar o desplegar
         }
-        if(gui.Arduinoa.mouseOverSelect(this) && gui.Arduinoa.isEnabled()){
-            if(!gui.Arduinoa.isCollapsed()){
-                gui.Arduinoa.update(this);      // Actualitzar valor
+        if(gui.Arduinoa1.mouseOverSelect(this) && gui.Arduinoa1.isEnabled()){
+            if(!gui.Arduinoa1.isCollapsed()){
+                gui.Arduinoa1.update(this);      // Actualitzar valor
                 //   updateColor();    // Fer acció amb valor
             }
-            gui.Arduinoa.toggle();        // Plegar o desplegar
+            gui.Arduinoa1.toggle();        // Plegar o desplegar
         }
-        if(gui.Sensora.mouseOverSelect(this) && gui.Sensora.isEnabled()){
-            if(!gui.Sensora.isCollapsed()){
-                gui.Sensora.update(this);      // Actualitzar valor
+        if(gui.Sensora1.mouseOverSelect(this) && gui.Sensora1.isEnabled()){
+            if(!gui.Sensora1.isCollapsed()){
+                gui.Sensora1.update(this);      // Actualitzar valor
                 //   updateColor();    // Fer acció amb valor
             }
-            gui.Sensora.toggle();        // Plegar o desplegar
+            gui.Sensora1.toggle();        // Plegar o desplegar
         }
         if(gui.Rangot.mouseOverSelect(this) && gui.Rangot.isEnabled()){
             if(!gui.Rangot.isCollapsed()){
@@ -516,35 +1104,26 @@ public class MainPantalles extends PApplet {
             }
             gui.Unidadest.toggle();        // Plegar o desplegar
         }
-        if(gui.EncesS.mouseOverButton(this)){
-            gui.EncesS.toggle();
-            if(gui.EncesS.isEnabled()){
+        if(gui.EncesS1.mouseOverButton(this)){
+            gui.EncesS1.toggle();
+            if(gui.EncesS1.isEnabled()){
                 //bgColor = color(255);
             }
             else {
-              //  gui.EncesS.Color = color(0);
+              //  gui.EncesS1.Color = color(0);
             }
         }
 
-        if(gui.EncesA.mouseOverButton(this)){
-            gui.EncesA.toggle();
-            if(gui.EncesA.isEnabled()){
+        if(gui.EncesA1.mouseOverButton(this)){
+            gui.EncesA1.toggle();
+            if(gui.EncesA1.isEnabled()){
                 //bgColor = color(255);
             }
             else {
-                //  gui.EncesS.Color = color(0);
+                //  gui.EncesS1.Color = color(0);
             }
         }
 
-        if(gui.BloquejatA.mouseOverButton(this)){
-            gui.BloquejatA.toggle();
-            if(gui.BloquejatA.isEnabled()){
-                //bgColor = color(255);
-            }
-            else {
-                //  gui.EncesS.Color = color(0);
-            }
-        }
 
        /* // Si pitjam sobre el select 2
         if(s2.mouseOverSelect(this) && s2.isEnabled()){
