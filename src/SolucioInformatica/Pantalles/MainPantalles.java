@@ -993,7 +993,7 @@ public class MainPantalles extends PApplet {
             gui.MenuAct.setEnabled(false);
         }
 
-            if (gui.pantallaActual== GUI.PANTALLA.GRÁFICA_SENSOR1 || gui.pantallaActual== GUI.PANTALLA.GRÁFICA_SENSOR2 ||gui.pantallaActual== GUI.PANTALLA.GRÁFICA_SENSOR3 ||gui.pantallaActual== GUI.PANTALLA.GRÁFICA_SENSOR4 ||gui.pantallaActual== GUI.PANTALLA.GRÁFICA_SENSOR5 ||gui.pantallaActual== GUI.PANTALLA.GRÁFICA_SENSOR6 ||gui.pantallaActual== GUI.PANTALLA.GRÁFICA_SENSOR7 ||gui.pantallaActual== GUI.PANTALLA.GRÁFICA_ACTUADOR1 ||gui.pantallaActual== GUI.PANTALLA.GRÁFICA_ACTUADOR2||gui.pantallaActual== GUI.PANTALLA.GRÁFICA_ACTUADOR2||gui.pantallaActual== GUI.PANTALLA.GRÁFICA_ACTUADOR2||gui.pantallaActual== GUI.PANTALLA.GRÁFICA_ACTUADOR2||gui.pantallaActual== GUI.PANTALLA.GRÁFICA_ACTUADOR2||gui.pantallaActual== GUI.PANTALLA.GRÁFICA_ACTUADOR2){
+            if (gui.pantallaActual== GUI.PANTALLA.GRÁFICA_SENSOR1 || gui.pantallaActual== GUI.PANTALLA.GRÁFICA_SENSOR2 ||gui.pantallaActual== GUI.PANTALLA.GRÁFICA_SENSOR3 ||gui.pantallaActual== GUI.PANTALLA.GRÁFICA_SENSOR4 ||gui.pantallaActual== GUI.PANTALLA.GRÁFICA_SENSOR5 ||gui.pantallaActual== GUI.PANTALLA.GRÁFICA_SENSOR6 ||gui.pantallaActual== GUI.PANTALLA.GRÁFICA_SENSOR7 ||gui.pantallaActual== GUI.PANTALLA.GRÁFICA_ACTUADOR1 ||gui.pantallaActual== GUI.PANTALLA.GRÁFICA_ACTUADOR2||gui.pantallaActual== GUI.PANTALLA.GRÁFICA_ACTUADOR3||gui.pantallaActual== GUI.PANTALLA.GRÁFICA_ACTUADOR4||gui.pantallaActual== GUI.PANTALLA.GRÁFICA_ACTUADOR5||gui.pantallaActual== GUI.PANTALLA.GRÁFICA_ACTUADOR6||gui.pantallaActual== GUI.PANTALLA.GRÁFICA_ACTUADOR7){
                 gui.Rangot.setEnabled(true);
                 gui.Unidadest.setEnabled(true);
             }
@@ -1026,9 +1026,46 @@ public class MainPantalles extends PApplet {
         if(gui.SensorMapa1.mouseOnSensor(this)==true){
             gui.pantallaActual= GUI.PANTALLA.SENSOR1;
         }
+        if(gui.SensorMapa2.mouseOnSensor(this)==true){
+            gui.pantallaActual= GUI.PANTALLA.SENSOR2;
+        }
+        if(gui.SensorMapa3.mouseOnSensor(this)==true){
+            gui.pantallaActual= GUI.PANTALLA.SENSOR3;
+        }
+        if(gui.SensorMapa4.mouseOnSensor(this)==true){
+            gui.pantallaActual= GUI.PANTALLA.SENSOR4;
+        }
+        if(gui.SensorMapa5.mouseOnSensor(this)==true){
+            gui.pantallaActual= GUI.PANTALLA.SENSOR5;
+        }
+        if(gui.SensorMapa6.mouseOnSensor(this)==true){
+            gui.pantallaActual= GUI.PANTALLA.SENSOR6;
+        }
+        if(gui.SensorMapa7.mouseOnSensor(this)==true){
+            gui.pantallaActual= GUI.PANTALLA.SENSOR7;
+        }
 
         if(gui.ActuadorMapa1.mouseOnSensor(this)==true){
             gui.pantallaActual= GUI.PANTALLA.ACTUADOR1;
+        }
+
+        if(gui.ActuadorMapa2.mouseOnSensor(this)==true){
+            gui.pantallaActual= GUI.PANTALLA.ACTUADOR2;
+        }
+        if(gui.ActuadorMapa3.mouseOnSensor(this)==true){
+            gui.pantallaActual= GUI.PANTALLA.ACTUADOR3;
+        }
+        if(gui.ActuadorMapa4.mouseOnSensor(this)==true){
+            gui.pantallaActual= GUI.PANTALLA.ACTUADOR4;
+        }
+        if(gui.ActuadorMapa5.mouseOnSensor(this)==true){
+            gui.pantallaActual= GUI.PANTALLA.ACTUADOR5;
+        }
+        if(gui.ActuadorMapa6.mouseOnSensor(this)==true){
+            gui.pantallaActual= GUI.PANTALLA.ACTUADOR6;
+        }
+        if(gui.ActuadorMapa7.mouseOnSensor(this)==true){
+            gui.pantallaActual= GUI.PANTALLA.ACTUADOR7;
         }
 
         if(gui.Tipos1.mouseOverSelect(this) && gui.Tipos1.isEnabled()){
@@ -1039,12 +1076,103 @@ public class MainPantalles extends PApplet {
             gui.Tipos1.toggle();        // Plegar o desplegar
         }
 
+        if(gui.Tipos2.mouseOverSelect(this) && gui.Tipos2.isEnabled()){
+            if(!gui.Tipos2.isCollapsed()){
+                gui.Tipos2.update(this);      // Actualitzar valor
+                //   updateColor();    // Fer acció amb valor
+            }
+            gui.Tipos2.toggle();        // Plegar o desplegar
+        }
+
+        if(gui.Tipos3.mouseOverSelect(this) && gui.Tipos3.isEnabled()){
+            if(!gui.Tipos3.isCollapsed()){
+                gui.Tipos3.update(this);      // Actualitzar valor
+                //   updateColor();    // Fer acció amb valor
+            }
+            gui.Tipos3.toggle();        // Plegar o desplegar
+        }
+
+        if(gui.Tipos4.mouseOverSelect(this) && gui.Tipos4.isEnabled()){
+            if(!gui.Tipos4.isCollapsed()){
+                gui.Tipos4.update(this);      // Actualitzar valor
+                //   updateColor();    // Fer acció amb valor
+            }
+            gui.Tipos4.toggle();        // Plegar o desplegar
+        }
+
+        if(gui.Tipos5.mouseOverSelect(this) && gui.Tipos5.isEnabled()){
+            if(!gui.Tipos5.isCollapsed()){
+                gui.Tipos5.update(this);      // Actualitzar valor
+                //   updateColor();    // Fer acció amb valor
+            }
+            gui.Tipos5.toggle();        // Plegar o desplegar
+        }
+
+        if(gui.Tipos6.mouseOverSelect(this) && gui.Tipos6.isEnabled()){
+            if(!gui.Tipos6.isCollapsed()){
+                gui.Tipos6.update(this);      // Actualitzar valor
+                //   updateColor();    // Fer acció amb valor
+            }
+            gui.Tipos6.toggle();        // Plegar o desplegar
+        }
+
+        if(gui.Tipos7.mouseOverSelect(this) && gui.Tipos7.isEnabled()){
+            if(!gui.Tipos7.isCollapsed()){
+                gui.Tipos7.update(this);      // Actualitzar valor
+                //   updateColor();    // Fer acció amb valor
+            }
+            gui.Tipos7.toggle();        // Plegar o desplegar
+        }
+
+
         if(gui.Ubicacions1.mouseOverSelect(this) && gui.Ubicacions1.isEnabled()){
             if(!gui.Ubicacions1.isCollapsed()){
                 gui.Ubicacions1.update(this);      // Actualitzar valor
                 //   updateColor();    // Fer acció amb valor
             }
             gui.Ubicacions1.toggle();        // Plegar o desplegar
+        }
+        if(gui.Ubicacions2.mouseOverSelect(this) && gui.Ubicacions2.isEnabled()){
+            if(!gui.Ubicacions2.isCollapsed()){
+                gui.Ubicacions2.update(this);      // Actualitzar valor
+                //   updateColor();    // Fer acció amb valor
+            }
+            gui.Ubicacions2.toggle();        // Plegar o desplegar
+        }
+        if(gui.Ubicacions3.mouseOverSelect(this) && gui.Ubicacions3.isEnabled()){
+            if(!gui.Ubicacions3.isCollapsed()){
+                gui.Ubicacions3.update(this);      // Actualitzar valor
+                //   updateColor();    // Fer acció amb valor
+            }
+            gui.Ubicacions3.toggle();        // Plegar o desplegar
+        }
+        if(gui.Ubicacions4.mouseOverSelect(this) && gui.Ubicacions4.isEnabled()){
+            if(!gui.Ubicacions4.isCollapsed()){
+                gui.Ubicacions4.update(this);      // Actualitzar valor
+                //   updateColor();    // Fer acció amb valor
+            }
+            gui.Ubicacions4.toggle();        // Plegar o desplegar
+        }
+        if(gui.Ubicacions5.mouseOverSelect(this) && gui.Ubicacions5.isEnabled()){
+            if(!gui.Ubicacions5.isCollapsed()){
+                gui.Ubicacions5.update(this);      // Actualitzar valor
+                //   updateColor();    // Fer acció amb valor
+            }
+            gui.Ubicacions5.toggle();        // Plegar o desplegar
+        }
+        if(gui.Ubicacions6.mouseOverSelect(this) && gui.Ubicacions6.isEnabled()){
+            if(!gui.Ubicacions6.isCollapsed()){
+                gui.Ubicacions6.update(this);      // Actualitzar valor
+                //   updateColor();    // Fer acció amb valor
+            }
+            gui.Ubicacions6.toggle();        // Plegar o desplegar
+        }
+        if(gui.Ubicacions7.mouseOverSelect(this) && gui.Ubicacions7.isEnabled()){
+            if(!gui.Ubicacions7.isCollapsed()){
+                gui.Ubicacions7.update(this);      // Actualitzar valor
+                //   updateColor();    // Fer acció amb valor
+            }
+            gui.Ubicacions7.toggle();        // Plegar o desplegar
         }
 
         if(gui.Arduino1.mouseOverSelect(this) && gui.Arduino1.isEnabled()){
@@ -1053,6 +1181,48 @@ public class MainPantalles extends PApplet {
                 //   updateColor();    // Fer acció amb valor
             }
             gui.Arduino1.toggle();        // Plegar o desplegar
+        }
+        if(gui.Arduino2.mouseOverSelect(this) && gui.Arduino2.isEnabled()){
+            if(!gui.Arduino2.isCollapsed()){
+                gui.Arduino2.update(this);      // Actualitzar valor
+                //   updateColor();    // Fer acció amb valor
+            }
+            gui.Arduino2.toggle();        // Plegar o desplegar
+        }
+        if(gui.Arduino3.mouseOverSelect(this) && gui.Arduino3.isEnabled()){
+            if(!gui.Arduino3.isCollapsed()){
+                gui.Arduino3.update(this);      // Actualitzar valor
+                //   updateColor();    // Fer acció amb valor
+            }
+            gui.Arduino3.toggle();        // Plegar o desplegar
+        }
+        if(gui.Arduino4.mouseOverSelect(this) && gui.Arduino4.isEnabled()){
+            if(!gui.Arduino4.isCollapsed()){
+                gui.Arduino4.update(this);      // Actualitzar valor
+                //   updateColor();    // Fer acció amb valor
+            }
+            gui.Arduino4.toggle();        // Plegar o desplegar
+        }
+        if(gui.Arduino5.mouseOverSelect(this) && gui.Arduino5.isEnabled()){
+            if(!gui.Arduino5.isCollapsed()){
+                gui.Arduino5.update(this);      // Actualitzar valor
+                //   updateColor();    // Fer acció amb valor
+            }
+            gui.Arduino5.toggle();        // Plegar o desplegar
+        }
+        if(gui.Arduino6.mouseOverSelect(this) && gui.Arduino6.isEnabled()){
+            if(!gui.Arduino6.isCollapsed()){
+                gui.Arduino6.update(this);      // Actualitzar valor
+                //   updateColor();    // Fer acció amb valor
+            }
+            gui.Arduino6.toggle();        // Plegar o desplegar
+        }
+        if(gui.Arduino7.mouseOverSelect(this) && gui.Arduino7.isEnabled()){
+            if(!gui.Arduino7.isCollapsed()){
+                gui.Arduino7.update(this);      // Actualitzar valor
+                //   updateColor();    // Fer acció amb valor
+            }
+            gui.Arduino7.toggle();        // Plegar o desplegar
         }
         if(gui.ActuadorS1.mouseOverSelect(this) && gui.ActuadorS1.isEnabled()){
             if(!gui.ActuadorS1.isCollapsed()){
@@ -1069,12 +1239,96 @@ public class MainPantalles extends PApplet {
             }
             gui.Tipoa1.toggle();        // Plegar o desplegar
         }
+        if(gui.Tipoa2.mouseOverSelect(this) && gui.Tipoa2.isEnabled()){
+            if(!gui.Tipoa2.isCollapsed()){
+                gui.Tipoa2.update(this);      // Actualitzar valor
+                //   updateColor();    // Fer acció amb valor
+            }
+            gui.Tipoa2.toggle();        // Plegar o desplegar
+        }
+        if(gui.Tipoa3.mouseOverSelect(this) && gui.Tipoa3.isEnabled()){
+            if(!gui.Tipoa3.isCollapsed()){
+                gui.Tipoa3.update(this);      // Actualitzar valor
+                //   updateColor();    // Fer acció amb valor
+            }
+            gui.Tipoa3.toggle();        // Plegar o desplegar
+        }
+        if(gui.Tipoa4.mouseOverSelect(this) && gui.Tipoa4.isEnabled()){
+            if(!gui.Tipoa4.isCollapsed()){
+                gui.Tipoa4.update(this);      // Actualitzar valor
+                //   updateColor();    // Fer acció amb valor
+            }
+            gui.Tipoa4.toggle();        // Plegar o desplegar
+        }
+        if(gui.Tipoa5.mouseOverSelect(this) && gui.Tipoa5.isEnabled()){
+            if(!gui.Tipoa5.isCollapsed()){
+                gui.Tipoa5.update(this);      // Actualitzar valor
+                //   updateColor();    // Fer acció amb valor
+            }
+            gui.Tipoa5.toggle();        // Plegar o desplegar
+        }
+        if(gui.Tipoa6.mouseOverSelect(this) && gui.Tipoa6.isEnabled()){
+            if(!gui.Tipoa6.isCollapsed()){
+                gui.Tipoa6.update(this);      // Actualitzar valor
+                //   updateColor();    // Fer acció amb valor
+            }
+            gui.Tipoa6.toggle();        // Plegar o desplegar
+        }
+        if(gui.Tipoa7.mouseOverSelect(this) && gui.Tipoa7.isEnabled()){
+            if(!gui.Tipoa7.isCollapsed()){
+                gui.Tipoa7.update(this);      // Actualitzar valor
+                //   updateColor();    // Fer acció amb valor
+            }
+            gui.Tipoa7.toggle();        // Plegar o desplegar
+        }
         if(gui.Ubicaciona1.mouseOverSelect(this) && gui.Ubicaciona1.isEnabled()){
             if(!gui.Ubicaciona1.isCollapsed()){
                 gui.Ubicaciona1.update(this);      // Actualitzar valor
                 //   updateColor();    // Fer acció amb valor
             }
             gui.Ubicaciona1.toggle();        // Plegar o desplegar
+        }
+        if(gui.Ubicaciona2.mouseOverSelect(this) && gui.Ubicaciona2.isEnabled()){
+            if(!gui.Ubicaciona2.isCollapsed()){
+                gui.Ubicaciona2.update(this);      // Actualitzar valor
+                //   updateColor();    // Fer acció amb valor
+            }
+            gui.Ubicaciona2.toggle();        // Plegar o desplegar
+        }
+        if(gui.Ubicaciona3.mouseOverSelect(this) && gui.Ubicaciona3.isEnabled()){
+            if(!gui.Ubicaciona3.isCollapsed()){
+                gui.Ubicaciona3.update(this);      // Actualitzar valor
+                //   updateColor();    // Fer acció amb valor
+            }
+            gui.Ubicaciona3.toggle();        // Plegar o desplegar
+        }
+        if(gui.Ubicaciona4.mouseOverSelect(this) && gui.Ubicaciona4.isEnabled()){
+            if(!gui.Ubicaciona4.isCollapsed()){
+                gui.Ubicaciona4.update(this);      // Actualitzar valor
+                //   updateColor();    // Fer acció amb valor
+            }
+            gui.Ubicaciona4.toggle();        // Plegar o desplegar
+        }
+        if(gui.Ubicaciona5.mouseOverSelect(this) && gui.Ubicaciona5.isEnabled()){
+            if(!gui.Ubicaciona5.isCollapsed()){
+                gui.Ubicaciona5.update(this);      // Actualitzar valor
+                //   updateColor();    // Fer acció amb valor
+            }
+            gui.Ubicaciona5.toggle();        // Plegar o desplegar
+        }
+        if(gui.Ubicaciona6.mouseOverSelect(this) && gui.Ubicaciona6.isEnabled()){
+            if(!gui.Ubicaciona6.isCollapsed()){
+                gui.Ubicaciona6.update(this);      // Actualitzar valor
+                //   updateColor();    // Fer acció amb valor
+            }
+            gui.Ubicaciona6.toggle();        // Plegar o desplegar
+        }
+        if(gui.Ubicaciona7.mouseOverSelect(this) && gui.Ubicaciona7.isEnabled()){
+            if(!gui.Ubicaciona7.isCollapsed()){
+                gui.Ubicaciona7.update(this);      // Actualitzar valor
+                //   updateColor();    // Fer acció amb valor
+            }
+            gui.Ubicaciona7.toggle();        // Plegar o desplegar
         }
         if(gui.Arduinoa1.mouseOverSelect(this) && gui.Arduinoa1.isEnabled()){
             if(!gui.Arduinoa1.isCollapsed()){
@@ -1083,12 +1337,96 @@ public class MainPantalles extends PApplet {
             }
             gui.Arduinoa1.toggle();        // Plegar o desplegar
         }
+        if(gui.Arduinoa2.mouseOverSelect(this) && gui.Arduinoa2.isEnabled()){
+            if(!gui.Arduinoa2.isCollapsed()){
+                gui.Arduinoa2.update(this);      // Actualitzar valor
+                //   updateColor();    // Fer acció amb valor
+            }
+            gui.Arduinoa2.toggle();        // Plegar o desplegar
+        }
+        if(gui.Arduinoa3.mouseOverSelect(this) && gui.Arduinoa3.isEnabled()){
+            if(!gui.Arduinoa3.isCollapsed()){
+                gui.Arduinoa3.update(this);      // Actualitzar valor
+                //   updateColor();    // Fer acció amb valor
+            }
+            gui.Arduinoa3.toggle();        // Plegar o desplegar
+        }
+        if(gui.Arduinoa4.mouseOverSelect(this) && gui.Arduinoa4.isEnabled()){
+            if(!gui.Arduinoa4.isCollapsed()){
+                gui.Arduinoa4.update(this);      // Actualitzar valor
+                //   updateColor();    // Fer acció amb valor
+            }
+            gui.Arduinoa4.toggle();        // Plegar o desplegar
+        }
+        if(gui.Arduinoa5.mouseOverSelect(this) && gui.Arduinoa5.isEnabled()){
+            if(!gui.Arduinoa5.isCollapsed()){
+                gui.Arduinoa5.update(this);      // Actualitzar valor
+                //   updateColor();    // Fer acció amb valor
+            }
+            gui.Arduinoa5.toggle();        // Plegar o desplegar
+        }
+        if(gui.Arduinoa6.mouseOverSelect(this) && gui.Arduinoa6.isEnabled()){
+            if(!gui.Arduinoa6.isCollapsed()){
+                gui.Arduinoa6.update(this);      // Actualitzar valor
+                //   updateColor();    // Fer acció amb valor
+            }
+            gui.Arduinoa6.toggle();        // Plegar o desplegar
+        }
+        if(gui.Arduinoa7.mouseOverSelect(this) && gui.Arduinoa7.isEnabled()){
+            if(!gui.Arduinoa7.isCollapsed()){
+                gui.Arduinoa7.update(this);      // Actualitzar valor
+                //   updateColor();    // Fer acció amb valor
+            }
+            gui.Arduinoa7.toggle();        // Plegar o desplegar
+        }
         if(gui.Sensora1.mouseOverSelect(this) && gui.Sensora1.isEnabled()){
             if(!gui.Sensora1.isCollapsed()){
                 gui.Sensora1.update(this);      // Actualitzar valor
                 //   updateColor();    // Fer acció amb valor
             }
             gui.Sensora1.toggle();        // Plegar o desplegar
+        }
+        if(gui.Sensora2.mouseOverSelect(this) && gui.Sensora2.isEnabled()){
+            if(!gui.Sensora2.isCollapsed()){
+                gui.Sensora2.update(this);      // Actualitzar valor
+                //   updateColor();    // Fer acció amb valor
+            }
+            gui.Sensora2.toggle();        // Plegar o desplegar
+        }
+        if(gui.Sensora3.mouseOverSelect(this) && gui.Sensora3.isEnabled()){
+            if(!gui.Sensora3.isCollapsed()){
+                gui.Sensora3.update(this);      // Actualitzar valor
+                //   updateColor();    // Fer acció amb valor
+            }
+            gui.Sensora3.toggle();        // Plegar o desplegar
+        }
+        if(gui.Sensora4.mouseOverSelect(this) && gui.Sensora4.isEnabled()){
+            if(!gui.Sensora4.isCollapsed()){
+                gui.Sensora4.update(this);      // Actualitzar valor
+                //   updateColor();    // Fer acció amb valor
+            }
+            gui.Sensora4.toggle();        // Plegar o desplegar
+        }
+        if(gui.Sensora5.mouseOverSelect(this) && gui.Sensora5.isEnabled()){
+            if(!gui.Sensora5.isCollapsed()){
+                gui.Sensora5.update(this);      // Actualitzar valor
+                //   updateColor();    // Fer acció amb valor
+            }
+            gui.Sensora5.toggle();        // Plegar o desplegar
+        }
+        if(gui.Sensora6.mouseOverSelect(this) && gui.Sensora6.isEnabled()){
+            if(!gui.Sensora6.isCollapsed()){
+                gui.Sensora6.update(this);      // Actualitzar valor
+                //   updateColor();    // Fer acció amb valor
+            }
+            gui.Sensora6.toggle();        // Plegar o desplegar
+        }
+        if(gui.Sensora7.mouseOverSelect(this) && gui.Sensora7.isEnabled()){
+            if(!gui.Sensora7.isCollapsed()){
+                gui.Sensora7.update(this);      // Actualitzar valor
+                //   updateColor();    // Fer acció amb valor
+            }
+            gui.Sensora7.toggle();        // Plegar o desplegar
         }
         if(gui.Rangot.mouseOverSelect(this) && gui.Rangot.isEnabled()){
             if(!gui.Rangot.isCollapsed()){
@@ -1104,6 +1442,7 @@ public class MainPantalles extends PApplet {
             }
             gui.Unidadest.toggle();        // Plegar o desplegar
         }
+
         if(gui.EncesS1.mouseOverButton(this)){
             gui.EncesS1.toggle();
             if(gui.EncesS1.isEnabled()){
@@ -1113,10 +1452,118 @@ public class MainPantalles extends PApplet {
               //  gui.EncesS1.Color = color(0);
             }
         }
+        if(gui.EncesS2.mouseOverButton(this)){
+            gui.EncesS2.toggle();
+            if(gui.EncesS2.isEnabled()){
+                //bgColor = color(255);
+            }
+            else {
+                //  gui.EncesS1.Color = color(0);
+            }
+        }
+        if(gui.EncesS3.mouseOverButton(this)){
+            gui.EncesS3.toggle();
+            if(gui.EncesS3.isEnabled()){
+                //bgColor = color(255);
+            }
+            else {
+                //  gui.EncesS1.Color = color(0);
+            }
+        }
+        if(gui.EncesS4.mouseOverButton(this)){
+            gui.EncesS4.toggle();
+            if(gui.EncesS4.isEnabled()){
+                //bgColor = color(255);
+            }
+            else {
+                //  gui.EncesS1.Color = color(0);
+            }
+        }
+        if(gui.EncesS5.mouseOverButton(this)){
+            gui.EncesS5.toggle();
+            if(gui.EncesS5.isEnabled()){
+                //bgColor = color(255);
+            }
+            else {
+                //  gui.EncesS1.Color = color(0);
+            }
+        }
+        if(gui.EncesS6.mouseOverButton(this)){
+            gui.EncesS6.toggle();
+            if(gui.EncesS6.isEnabled()){
+                //bgColor = color(255);
+            }
+            else {
+                //  gui.EncesS1.Color = color(0);
+            }
+        }
+        if(gui.EncesS7.mouseOverButton(this)){
+            gui.EncesS7.toggle();
+            if(gui.EncesS7.isEnabled()){
+                //bgColor = color(255);
+            }
+            else {
+                //  gui.EncesS1.Color = color(0);
+            }
+        }
 
         if(gui.EncesA1.mouseOverButton(this)){
             gui.EncesA1.toggle();
             if(gui.EncesA1.isEnabled()){
+                //bgColor = color(255);
+            }
+            else {
+                //  gui.EncesS1.Color = color(0);
+            }
+        }
+        if(gui.EncesA2.mouseOverButton(this)){
+            gui.EncesA2.toggle();
+            if(gui.EncesA2.isEnabled()){
+                //bgColor = color(255);
+            }
+            else {
+                //  gui.EncesS1.Color = color(0);
+            }
+        }
+        if(gui.EncesA3.mouseOverButton(this)){
+            gui.EncesA3.toggle();
+            if(gui.EncesA3.isEnabled()){
+                //bgColor = color(255);
+            }
+            else {
+                //  gui.EncesS1.Color = color(0);
+            }
+        }
+        if(gui.EncesA4.mouseOverButton(this)){
+            gui.EncesA4.toggle();
+            if(gui.EncesA4.isEnabled()){
+                //bgColor = color(255);
+            }
+            else {
+                //  gui.EncesS1.Color = color(0);
+            }
+        }
+        if(gui.EncesA5.mouseOverButton(this)){
+            gui.EncesA5.toggle();
+            if(gui.EncesA5.isEnabled()){
+                //bgColor = color(255);
+            }
+            else {
+                //  gui.EncesS1.Color = color(0);
+            }
+        }
+        if(gui.EncesA6.mouseOverButton(this)){
+            gui.EncesA6.toggle();
+            if(gui.EncesA6.isEnabled()){
+                //bgColor = color(255);
+            }
+            else {
+                //  gui.EncesS1.Color = color(0);
+            }
+        }
+        if(gui.EncesA7.mouseOverButton(this)){
+            gui.EncesA7.toggle();
+            if(gui.EncesA7.isEnabled()){
                 //bgColor = color(255);
             }
             else {

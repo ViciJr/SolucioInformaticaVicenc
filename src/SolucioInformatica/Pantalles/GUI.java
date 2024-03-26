@@ -131,19 +131,19 @@ public class GUI {
         Sensor7 = new Button (p5, "Sensor 7", XSensors, YSensors+6*heightSensors, widthSensors, heightSensors);
        // Sensor7.setColors(Colors.getColorAt(0), Colors.getColorAt(1), Colors.getColorAt(2), Colors.getColorAt(3));
 
-        Actuador1 = new Button (p5, "ActuadorS1 1", XActuadors, YActuadors, widthActuadors, heightActuadors);
+        Actuador1 = new Button (p5, "Actuador 1", XActuadors, YActuadors, widthActuadors, heightActuadors);
        // Actuador1.setColors(Colors.getColorAt(0), Colors.getColorAt(1), Colors.getColorAt(2),  Colors.getColorAt(3));
-        Actuador2 = new Button (p5, "ActuadorS1 2", XActuadors, YActuadors+heightActuadors, widthActuadors, heightActuadors);
+        Actuador2 = new Button (p5, "Actuador 2", XActuadors, YActuadors+heightActuadors, widthActuadors, heightActuadors);
        // Actuador2.setColors(Colors.getColorAt(0), Colors.getColorAt(1), Colors.getColorAt(2), Colors.getColorAt(3));
-        Actuador3 = new Button (p5, "ActuadorS1 3", XActuadors, YActuadors+2*heightActuadors, widthActuadors, heightActuadors);
+        Actuador3 = new Button (p5, "Actuador 3", XActuadors, YActuadors+2*heightActuadors, widthActuadors, heightActuadors);
        // Actuador3.setColors(Colors.getColorAt(0), Colors.getColorAt(1), Colors.getColorAt(2), Colors.getColorAt(3));
-        Actuador4 = new Button (p5, "ActuadorS1 4", XActuadors, YActuadors+3*heightActuadors, widthActuadors, heightActuadors);
+        Actuador4 = new Button (p5, "Actuador 4", XActuadors, YActuadors+3*heightActuadors, widthActuadors, heightActuadors);
        // Actuador4.setColors(Colors.getColorAt(0), Colors.getColorAt(1), Colors.getColorAt(2), Colors.getColorAt(3));
-        Actuador5 = new Button (p5, "ActuadorS1 5", XActuadors, YActuadors+4*heightActuadors, widthActuadors, heightActuadors);
+        Actuador5 = new Button (p5, "Actuador 5", XActuadors, YActuadors+4*heightActuadors, widthActuadors, heightActuadors);
        // Actuador5.setColors(Colors.getColorAt(0), Colors.getColorAt(1), Colors.getColorAt(2), Colors.getColorAt(3));
-        Actuador6 = new Button (p5, "ActuadorS1 6", XActuadors, YActuadors+5*heightActuadors, widthActuadors, heightActuadors);
+        Actuador6 = new Button (p5, "Actuador 6", XActuadors, YActuadors+5*heightActuadors, widthActuadors, heightActuadors);
        // Actuador6.setColors(Colors.getColorAt(0), Colors.getColorAt(1), Colors.getColorAt(2), Colors.getColorAt(3));
-        Actuador7 = new Button (p5, "ActuadorS1 7", XActuadors, YActuadors+6*heightActuadors, widthActuadors, heightActuadors);
+        Actuador7 = new Button (p5, "Actuador 7", XActuadors, YActuadors+6*heightActuadors, widthActuadors, heightActuadors);
        // Actuador7.setColors(Colors.getColorAt(0), Colors.getColorAt(1), Colors.getColorAt(2), Colors.getColorAt(3));
 
         Instrucciones = new Button (p5, "Instrucciones", XMapaInteractivo, YMapaInteractivo, WidthMapaInteractivo, HeightMapaInteractivo);
@@ -192,9 +192,9 @@ public class GUI {
                 {"x", "x", "x", "x", "x"},
         };
 
-        
-        String[] selectValuesTs = {"                   Temperatura", "                 Proximidad", "          Presión"};
-        String[] selectValuesUs = {"        Cocina", "        Pasillo", "               Dormitorio", "     Baño", "     Salón"};
+      // p5.textAlign(p5.CENTER);
+        String[] selectValuesTs = {"Temperatura", "Proximidad", "Presión"};
+        String[] selectValuesUs = {" ","        Cocina", "        Pasillo", "               Dormitorio", "     Baño", "     Salón"};
         String[] selectValuesAr = {"1", "2", "3", "4"};
         String[] selectValuesAct = {"               Actuador1", "               Actuador2", "               Actuador3", "               Actuador4"};
 
@@ -714,13 +714,13 @@ public class GUI {
         SensorMapa6 = new Sensor("Sensor 6",false, (Llum) ActuadorMapa6, SensorSinHabitacion, "Térmico", "1", 26f);
         SensorMapa7 = new Sensor("Sensor 7", false, (Llum) ActuadorMapa7, SensorSinHabitacion, "Térmico", "1", 26f);
 
-        ActuadorMapa1 = new Llum("ActuadorS1 1", false , SensorMapa1, ActuadorSinHabitacion, "LED", "1", 15f, 0f);
-        ActuadorMapa2 = new Llum("ActuadorS1 2", false , SensorMapa2, ActuadorSinHabitacion, "LED", "1", 15f, 0f);
-        ActuadorMapa3 = new Llum("ActuadorS1 3", false , SensorMapa3, ActuadorSinHabitacion, "LED", "1", 15f, 0f);
-        ActuadorMapa4 = new Llum("ActuadorS1 4", false , SensorMapa4, ActuadorSinHabitacion, "LED", "1", 15f, 0f);
-        ActuadorMapa5 = new Llum("ActuadorS1 5",  false , SensorMapa5, ActuadorSinHabitacion, "LED", "1", 15f, 0f);
-        ActuadorMapa6 = new Llum("ActuadorS1 6", false , SensorMapa6, ActuadorSinHabitacion, "LED", "1", 15f, 0f);
-        ActuadorMapa7 = new Llum("ActuadorS1 7", false , SensorMapa7, ActuadorSinHabitacion, "LED", "1", 15f, 0f);
+        ActuadorMapa1 = new Llum("Actuador 1", false , SensorMapa1, ActuadorSinHabitacion, "LED", "1", 15f, 0f);
+        ActuadorMapa2 = new Llum("Actuador 2", false , SensorMapa2, ActuadorSinHabitacion, "LED", "1", 15f, 0f);
+        ActuadorMapa3 = new Llum("Actuador 3", false , SensorMapa3, ActuadorSinHabitacion, "LED", "1", 15f, 0f);
+        ActuadorMapa4 = new Llum("Actuador 4", false , SensorMapa4, ActuadorSinHabitacion, "LED", "1", 15f, 0f);
+        ActuadorMapa5 = new Llum("Actuador 5",  false , SensorMapa5, ActuadorSinHabitacion, "LED", "1", 15f, 0f);
+        ActuadorMapa6 = new Llum("Actuador 6", false , SensorMapa6, ActuadorSinHabitacion, "LED", "1", 15f, 0f);
+        ActuadorMapa7 = new Llum("Actuador 7", false , SensorMapa7, ActuadorSinHabitacion, "LED", "1", 15f, 0f);
 
 
 
@@ -806,6 +806,7 @@ public class GUI {
 
         p5.textFont(Fonts.getFontAt(2));
         ts1.display(p5, XTaules, YTaules/*+(heightImatge/2)-heightTaules/2+8*/, widthTaules, heightTaules);
+        //p5.textAlign(p5.LEFT);
         GraficaSensor.display(p5);
         EncesS1.display(p5);
         MenuS.display(p5);
