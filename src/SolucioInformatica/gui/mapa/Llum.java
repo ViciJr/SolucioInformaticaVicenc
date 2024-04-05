@@ -28,4 +28,8 @@ public class Llum extends Sensor{
         p5.popStyle();
     }
 
+    public String getNom() {
+        return nom;
+    }
+
 }

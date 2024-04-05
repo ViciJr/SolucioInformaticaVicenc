@@ -44,6 +44,7 @@ class Select {
     }
 
     public void display(PApplet p5){
+        p5.textAlign(p5.LEFT);
         p5.pushStyle();
         p5.stroke(0); p5.strokeWeight(2); p5.fill(255);
         p5.rect(x, y, w, h);

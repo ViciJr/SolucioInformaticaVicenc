@@ -1,21 +1,22 @@
 package SolucioInformatica.Pantalles;
 
 ;
+import SolucioInformatica.DataBase.DataBase;
 import SolucioInformatica.gui.*;
 import SolucioInformatica.gui.PopUp.PopUp;
 import SolucioInformatica.gui.mapa.Habitacio;
 import SolucioInformatica.gui.mapa.Llum;
 import SolucioInformatica.gui.mapa.Sensor;
 import processing.core.PApplet;
-
-
+//import SolucioInformatica.DataBase.DataBase;
 
 
 import static SolucioInformatica.Pantalles.LayoutNMides.*;
 import static SolucioInformatica.Pantalles.LayoutNMides.YMapaInteractivo;
 
 
-public class GUI {
+
+public class GUI{
 
     // Enumerat de les Pantalles de l'App
     public enum PANTALLA {INICIO, MENÚ, SENSOR1, SENSOR2, SENSOR3, SENSOR4, SENSOR5, SENSOR6, SENSOR7, ACTUADOR1, ACTUADOR2, ACTUADOR3, ACTUADOR4,ACTUADOR5, ACTUADOR6, ACTUADOR7,GRÁFICA_SENSOR1, GRÁFICA_SENSOR2, GRÁFICA_SENSOR3, GRÁFICA_SENSOR4, GRÁFICA_SENSOR5, GRÁFICA_SENSOR6, GRÁFICA_SENSOR7,GRÁFICA_ACTUADOR1, GRÁFICA_ACTUADOR2,
@@ -93,11 +94,14 @@ public class GUI {
     Habitacio[] habitacions;
     Habitacio Dormitorio, Cocina, Salón ,Pasillo, Baño, hSelected, SensorSinHabitacion, ActuadorSinHabitacion;
     Sensor ActuadorMapa1, ActuadorMapa2, SensorMapa1, ActuadorMapa3, ActuadorMapa4, ActuadorMapa5, ActuadorMapa6, ActuadorMapa7, SensorMapa2, SensorMapa3, SensorMapa4, SensorMapa5, SensorMapa6, SensorMapa7;
+    DataBase bbdd;
 
     // Constructor de la GUI
-    public GUI(PApplet p5){
+    public GUI(PApplet p5, DataBase bbdd){
 
         pantallaActual = PANTALLA.INICIO;
+
+        this.bbdd = bbdd;
 
         Colors = new Colors(p5);   // Constructor dels colors de l'App
         Fonts = new Fonts(p5);     // Constructor de les fonts de l'App
@@ -163,7 +167,7 @@ public class GUI {
         // Número de files (capçalera inclosa) i columnes de la taula
 
         // Títols de les columnes
-        String[] headersS = {"Tipo", "Ubicación", "Pto.Arduino1", "Act.vinculado", "Valor actual"};
+        String[] headersS = {"Tipo", "Ubicación", "Pto.Arduino", "Act.vinculado", "Valor actual"};
 
         // Amplades de les columnes
         //float[] colWidths = {widthTaules/columnes, widthTaules/columnes, widthTaules/columnes, widthTaules/columnes, widthTaules/columnes};
@@ -193,10 +197,10 @@ public class GUI {
         };
 
       // p5.textAlign(p5.CENTER);
-        String[] selectValuesTs = {"Temperatura", "Proximidad", "Presión"};
-        String[] selectValuesUs = {" ","        Cocina", "        Pasillo", "               Dormitorio", "     Baño", "     Salón"};
-        String[] selectValuesAr = {"1", "2", "3", "4"};
-        String[] selectValuesAct = {"               Actuador1", "               Actuador2", "               Actuador3", "               Actuador4"};
+        String[] selectValuesTs = bbdd.getTipoSensor()/*{"Temperatura", "Proximidad", "Presión"}*/;
+        String[] selectValuesUs = bbdd.getHabitacions()/*{"","Cocina", "Pasillo", "Dormitorio", "Baño", "Salón"}*/;
+        String[] selectValuesAr = {"","1", "2", "3", "4"};
+        String[] selectValuesAct = {"Actuador 1","Actuador 2", "Actuador 3", "Actuador 4", "Actuador 5", "Actuador 6", "Actuador 7"};
 
         Tipos1 = new Select(selectValuesTs, XGraficaSensor, YTaules+heightTaules/2, widthTaules/5, heightTaules/2);
         Ubicacions1 = new Select(selectValuesUs, XGraficaSensor+widthTaules/5, YTaules+heightTaules/2, widthTaules/5, heightTaules/2);
@@ -288,7 +292,7 @@ public class GUI {
         // Número de files (capçalera inclosa) i columnes de la taula
 
         // Títols de les columnes
-        String[] headersA = {"Tipo", "Ubicación", "Pto.Arduino1", "Sns.vinculado","Valor min.rgo.", "Valor max.rgo."};
+        String[] headersA = {"Tipo", "Ubicación", "Pto.Arduino", "Sns.vinculado","Valor min.rgo.", "Valor max.rgo."};
 
         // Amplades de les columnes
         //float[] colWidthsA = {widthTaules/columnesA, widthTaules/columnesA, widthTaules/columnesA, widthTaules/columnesA, widthTaules/columnesA, widthTaules/columnesA};
@@ -317,8 +321,8 @@ public class GUI {
                 {"x", "x", "x", "x", "x", "x"}
         };
 
-        String[] selectValuesTa = {"          LED", "                 Servomotor", "               Zumbador"};
-        String[] selectValuesSns = {"               Sensor1", "               Sensor2", "               Sensor3", "               Sensor4"};
+        String[] selectValuesTa = bbdd.getTipoActuador()/*{"LED", "Servomotor", "Zumbador"}*/;
+        String[] selectValuesSns = {"Sensor 1", "Sensor 2", "Sensor 3", "Sensor 4", "Sensor 5", "Sensor 6", "Sensor 7"};
 
         Tipoa1 =new Select(selectValuesTa, XGraficaSensor, YTaules+heightTaules/2, widthTaules/6, heightTaules/2);
         Ubicaciona1 = new Select(selectValuesUs, XGraficaSensor+widthTaules/6, YTaules+heightTaules/2, widthTaules/6, heightTaules/2);
@@ -618,7 +622,7 @@ public class GUI {
 
         int [] colorsBA = {Colors.getColorAt(2), Colors.getColorAt(4), Colors.getColorAt(4), Colors.getColorAt(4), Colors.getColorAt(2), Colors.getColorAt(2), Colors.getColorAt(4), Colors.getColorAt(2)};
 
-        String[] selectValuesUni = {"     Días", "        Horas", "          Minutos"};
+        String[] selectValuesUni = {"Días", "Horas", "Minutos"};
         String[] selectValuesRangt = {String.valueOf(3), String.valueOf(5), String.valueOf(7)};
 
         Unidadest=new Select(selectValuesUni, XSensors, YActuadors+HeightInhabilitarSensor/2, WidthInhabilitarSensor, HeightInhabilitarSensor/2);
@@ -706,36 +710,39 @@ public class GUI {
 
 
 
-        SensorMapa1 = new Sensor("Sensor 1", false, (Llum) ActuadorMapa1, SensorSinHabitacion, "Térmico", "1", 26f);
-        SensorMapa2 = new Sensor("Sensor 2", false, (Llum) ActuadorMapa2, SensorSinHabitacion, "Térmico", "1", 26f);
-        SensorMapa3 = new Sensor("Sensor 3", false, (Llum) ActuadorMapa3, SensorSinHabitacion, "Térmico", "1", 26f);
-        SensorMapa4 = new Sensor("Sensor 4",false, (Llum) ActuadorMapa4, SensorSinHabitacion, "Térmico", "1", 26f);
-        SensorMapa5 = new Sensor("Sensor 5",false, (Llum) ActuadorMapa5, SensorSinHabitacion, "Térmico", "1", 26f);
-        SensorMapa6 = new Sensor("Sensor 6",false, (Llum) ActuadorMapa6, SensorSinHabitacion, "Térmico", "1", 26f);
-        SensorMapa7 = new Sensor("Sensor 7", false, (Llum) ActuadorMapa7, SensorSinHabitacion, "Térmico", "1", 26f);
+        SensorMapa1 = new Sensor("Sensor 1", false, (Llum) ActuadorMapa1, SensorSinHabitacion, Tipos1.getSelectedValue(), Arduino1.getSelectedValue(), 26f);
+        SensorMapa2 = new Sensor("Sensor 2", false, (Llum) ActuadorMapa2, SensorSinHabitacion, Tipos2.getSelectedValue(), Arduino2.getSelectedValue(), 26f);
+        SensorMapa3 = new Sensor("Sensor 3", false, (Llum) ActuadorMapa3, SensorSinHabitacion, Tipos3.getSelectedValue(), Arduino3.getSelectedValue(), 26f);
+        SensorMapa4 = new Sensor("Sensor 4",false, (Llum) ActuadorMapa4, SensorSinHabitacion, Tipos4.getSelectedValue(), Arduino4.getSelectedValue(), 26f);
+        SensorMapa5 = new Sensor("Sensor 5",false, (Llum) ActuadorMapa5, SensorSinHabitacion, Tipos5.getSelectedValue(), Arduino5.getSelectedValue(), 26f);
+        SensorMapa6 = new Sensor("Sensor 6",false, (Llum) ActuadorMapa6, SensorSinHabitacion, Tipos6.getSelectedValue(), Arduino6.getSelectedValue(), 26f);
+        SensorMapa7 = new Sensor("Sensor 7", false, (Llum) ActuadorMapa7, SensorSinHabitacion, Tipos7.getSelectedValue(), Arduino7.getSelectedValue(), 26f);
 
-        ActuadorMapa1 = new Llum("Actuador 1", false , SensorMapa1, ActuadorSinHabitacion, "LED", "1", 15f, 0f);
-        ActuadorMapa2 = new Llum("Actuador 2", false , SensorMapa2, ActuadorSinHabitacion, "LED", "1", 15f, 0f);
-        ActuadorMapa3 = new Llum("Actuador 3", false , SensorMapa3, ActuadorSinHabitacion, "LED", "1", 15f, 0f);
-        ActuadorMapa4 = new Llum("Actuador 4", false , SensorMapa4, ActuadorSinHabitacion, "LED", "1", 15f, 0f);
-        ActuadorMapa5 = new Llum("Actuador 5",  false , SensorMapa5, ActuadorSinHabitacion, "LED", "1", 15f, 0f);
-        ActuadorMapa6 = new Llum("Actuador 6", false , SensorMapa6, ActuadorSinHabitacion, "LED", "1", 15f, 0f);
-        ActuadorMapa7 = new Llum("Actuador 7", false , SensorMapa7, ActuadorSinHabitacion, "LED", "1", 15f, 0f);
+        ActuadorMapa1 = new Llum("Actuador 1", false , SensorMapa1, ActuadorSinHabitacion, Tipoa1.getSelectedValue(), Arduinoa1.getSelectedValue(), /*Float.valueOf(ValMax1.getText()), Float.valueOf(ValMin1.getText())*/ 2f, 3f);
+        ActuadorMapa2 = new Llum("Actuador 2", false , SensorMapa2, ActuadorSinHabitacion, Tipoa2.getSelectedValue(), Arduinoa1.getSelectedValue(), /*Float.valueOf(ValMax2.getText()), Float.valueOf(ValMin2.getText())*/ 2f, 3f);
+        ActuadorMapa3 = new Llum("Actuador 3", false , SensorMapa3, ActuadorSinHabitacion, Tipoa3.getSelectedValue(), Arduinoa1.getSelectedValue(), /*Float.valueOf(ValMax3.getText()), Float.valueOf(ValMin3.getText())*/ 2f, 3f);
+        ActuadorMapa4 = new Llum("Actuador 4", false , SensorMapa4, ActuadorSinHabitacion, Tipoa4.getSelectedValue(), Arduinoa1.getSelectedValue(), /*Float.valueOf(ValMax4.getText()), Float.valueOf(ValMin4.getText())*/ 2f, 3f);
+        ActuadorMapa5 = new Llum("Actuador 5",  false , SensorMapa5, ActuadorSinHabitacion,Tipoa5.getSelectedValue(), Arduinoa1.getSelectedValue(), /*Float.valueOf(ValMax5.getText()), Float.valueOf(ValMin5.getText())*/ 2f, 3f);
+        ActuadorMapa6 = new Llum("Actuador 6", false , SensorMapa6, ActuadorSinHabitacion, Tipoa6.getSelectedValue(), Arduinoa1.getSelectedValue(), /*Float.valueOf(ValMax6.getText()), Float.valueOf(ValMin6.getText())*/ 2f, 3f);
+        ActuadorMapa7 = new Llum("Actuador 7", false , SensorMapa7, ActuadorSinHabitacion, Tipoa7.getSelectedValue(), Arduinoa1.getSelectedValue(), /*Float.valueOf(ValMax7.getText()), Float.valueOf(ValMin7.getText())*/ 2f, 3f);
 
 
 
 
         // Constructor d'Habitacions
         p5.strokeWeight(1);
-        Dormitorio = new Habitacio(" Dormitorio", XDormitorio, YDormitorio, WidthDormitorio, HeightDormitorio, Colors.getColorAt(7));
+        Dormitorio = new Habitacio("Dormitorio", XDormitorio, YDormitorio, WidthDormitorio, HeightDormitorio, Colors.getColorAt(7));
         Cocina = new Habitacio("Cocina", XCocina, YCocina, WidthCocina, HeightCocina, Colors.getColorAt(8));
         Baño = new Habitacio(" Baño", XBaño, YBaño, WidthBaño, HeightBaño, Colors.getColorAt(7));
-        Pasillo = new Habitacio(" Pasillo", XPasillo, YPasillo, WidthPasillo, HeightPasillo, Colors.getColorAt(6));
+        Pasillo = new Habitacio("Pasillo", XPasillo, YPasillo, WidthPasillo, HeightPasillo, Colors.getColorAt(6));
         Salón = new Habitacio("Salón", XSalón, YSalón, WidthSalón, HeightSalón, Colors.getColorAt(8));
         SensorSinHabitacion = new Habitacio(" ", XSalón-60, YPasillo+HeightPasillo+2, WidthBaño+WidthPasillo+WidthSalón+140, WidthPasillo/2+13, Colors.getColorAt(10));
         ActuadorSinHabitacion = new Habitacio(" ", XSalón-60, YPasillo-(WidthPasillo/2+15), WidthBaño+WidthPasillo+WidthSalón+140, WidthPasillo/2+13, Colors.getColorAt(10));
 
         // Agregam Sensors a les Habitacions
+
+
+
         ActuadorSinHabitacion.addSensor(ActuadorMapa1);
         ActuadorSinHabitacion.addSensor(ActuadorMapa2);
         ActuadorSinHabitacion.addSensor(ActuadorMapa3);
@@ -743,7 +750,6 @@ public class GUI {
         ActuadorSinHabitacion.addSensor(ActuadorMapa5);
         ActuadorSinHabitacion.addSensor(ActuadorMapa6);
         ActuadorSinHabitacion.addSensor(ActuadorMapa7);
-
 
         SensorSinHabitacion.addSensor(SensorMapa1);
         SensorSinHabitacion.addSensor(SensorMapa2);
@@ -768,7 +774,204 @@ public class GUI {
         // Habitació Seleccionada (cap)
         hSelected = null;
         }
+    public void canviUbi(){
+        if (Ubicacions1.getSelectedValue().equals("") || Ubicacions1.getSelectedValue().equals("Sin ubicación")) {
+            SensorSinHabitacion.addSensor(SensorMapa1);
+        } else if (Ubicacions1.getSelectedValue().equals("Dormitorio")) {
+            Dormitorio.addSensor(SensorMapa1);
+        } else if (Ubicacions1.getSelectedValue().equals("Cocina")) {
+            Cocina.addSensor(SensorMapa1);
+        } else if (Ubicacions1.getSelectedValue().equals("Baño")) {
+            Baño.addSensor(SensorMapa1);
+        } else if (Ubicacions1.getSelectedValue().equals("Pasillo")) {
+            Pasillo.addSensor(SensorMapa1);
+        } else if (Ubicacions1.getSelectedValue().equals("Salón")) {
+            Salón.addSensor(SensorMapa1);
+        }
 
+        if (Ubicacions2.getSelectedValue().equals("") || Ubicacions2.getSelectedValue().equals("Sin ubicación")) {
+            SensorSinHabitacion.addSensor(SensorMapa2);
+        } else if (Ubicacions2.getSelectedValue().equals("Dormitorio")) {
+            Dormitorio.addSensor(SensorMapa2);
+        } else if (Ubicacions2.getSelectedValue().equals("Cocina")) {
+            Cocina.addSensor(SensorMapa2);
+        } else if (Ubicacions2.getSelectedValue().equals("Baño")) {
+            Baño.addSensor(SensorMapa2);
+        } else if (Ubicacions2.getSelectedValue().equals("Pasillo")) {
+            Pasillo.addSensor(SensorMapa2);
+        } else if (Ubicacions2.getSelectedValue().equals("Salón")) {
+            Salón.addSensor(SensorMapa2);
+        }
+
+        if (Ubicacions3.getSelectedValue().equals("") || Ubicacions3.getSelectedValue().equals("Sin ubicación")) {
+            SensorSinHabitacion.addSensor(SensorMapa3);
+        } else if (Ubicacions3.getSelectedValue().equals("Dormitorio")) {
+            Dormitorio.addSensor(SensorMapa3);
+        } else if (Ubicacions3.getSelectedValue().equals("Cocina")) {
+            Cocina.addSensor(SensorMapa3);
+        } else if (Ubicacions3.getSelectedValue().equals("Baño")) {
+            Baño.addSensor(SensorMapa3);
+        } else if (Ubicacions3.getSelectedValue().equals("Pasillo")) {
+            Pasillo.addSensor(SensorMapa3);
+        } else if (Ubicacions3.getSelectedValue().equals("Salón")) {
+            Salón.addSensor(SensorMapa3);
+        }
+
+        if (Ubicacions4.getSelectedValue().equals("") || Ubicacions4.getSelectedValue().equals("Sin ubicación")) {
+            SensorSinHabitacion.addSensor(SensorMapa4);
+        } else if (Ubicacions4.getSelectedValue().equals("Dormitorio")) {
+            Dormitorio.addSensor(SensorMapa4);
+        } else if (Ubicacions4.getSelectedValue().equals("Cocina")) {
+            Cocina.addSensor(SensorMapa4);
+        } else if (Ubicacions4.getSelectedValue().equals("Baño")) {
+            Baño.addSensor(SensorMapa4);
+        } else if (Ubicacions4.getSelectedValue().equals("Pasillo")) {
+            Pasillo.addSensor(SensorMapa4);
+        } else if (Ubicacions4.getSelectedValue().equals("Salón")) {
+            Salón.addSensor(SensorMapa4);
+        }
+
+        if (Ubicacions5.getSelectedValue().equals("") || Ubicacions5.getSelectedValue().equals("Sin ubicación")) {
+            SensorSinHabitacion.addSensor(SensorMapa5);
+        } else if (Ubicacions5.getSelectedValue().equals("Dormitorio")) {
+            Dormitorio.addSensor(SensorMapa5);
+        } else if (Ubicacions5.getSelectedValue().equals("Cocina")) {
+            Cocina.addSensor(SensorMapa5);
+        } else if (Ubicacions5.getSelectedValue().equals("Baño")) {
+            Baño.addSensor(SensorMapa5);
+        } else if (Ubicacions5.getSelectedValue().equals("Pasillo")) {
+            Pasillo.addSensor(SensorMapa5);
+        } else if (Ubicacions5.getSelectedValue().equals("Salón")) {
+            Salón.addSensor(SensorMapa5);
+        }
+
+        if (Ubicacions6.getSelectedValue().equals("") || Ubicacions6.getSelectedValue().equals("Sin ubicación")) {
+            SensorSinHabitacion.addSensor(SensorMapa6);
+        } else if (Ubicacions6.getSelectedValue().equals("Dormitorio")) {
+            Dormitorio.addSensor(SensorMapa6);
+        } else if (Ubicacions6.getSelectedValue().equals("Cocina")) {
+            Cocina.addSensor(SensorMapa6);
+        } else if (Ubicacions6.getSelectedValue().equals("Baño")) {
+            Baño.addSensor(SensorMapa6);
+        } else if (Ubicacions6.getSelectedValue().equals("Pasillo")) {
+            Pasillo.addSensor(SensorMapa6);
+        } else if (Ubicacions6.getSelectedValue().equals("Salón")) {
+            Salón.addSensor(SensorMapa6);
+        }
+
+        if (Ubicacions7.getSelectedValue().equals("") || Ubicacions7.getSelectedValue().equals("Sin ubicación")) {
+            SensorSinHabitacion.addSensor(SensorMapa7);
+        } else if (Ubicacions7.getSelectedValue().equals("Dormitorio")) {
+            Dormitorio.addSensor(SensorMapa7);
+        } else if (Ubicacions7.getSelectedValue().equals("Cocina")) {
+            Cocina.addSensor(SensorMapa7);
+        } else if (Ubicacions7.getSelectedValue().equals("Baño")) {
+            Baño.addSensor(SensorMapa7);
+        } else if (Ubicacions7.getSelectedValue().equals("Pasillo")) {
+            Pasillo.addSensor(SensorMapa7);
+        } else if (Ubicacions7.getSelectedValue().equals("Salón")) {
+            Salón.addSensor(SensorMapa7);
+        }
+
+
+        if (Ubicaciona1.getSelectedValue().equals("") || Ubicaciona1.getSelectedValue().equals("Sin ubicación")) {
+            ActuadorSinHabitacion.addSensor(ActuadorMapa1);
+        } else if (Ubicaciona1.getSelectedValue().equals("Dormitorio")) {
+            Dormitorio.addSensor(ActuadorMapa1);
+        } else if (Ubicaciona1.getSelectedValue().equals("Cocina")) {
+            Cocina.addSensor(ActuadorMapa1);
+        } else if (Ubicaciona1.getSelectedValue().equals("Baño")) {
+            Baño.addSensor(ActuadorMapa1);
+        } else if (Ubicaciona1.getSelectedValue().equals("Pasillo")) {
+            Pasillo.addSensor(ActuadorMapa1);
+        } else if (Ubicaciona1.getSelectedValue().equals("Salón")) {
+            Salón.addSensor(ActuadorMapa1);
+        }
+
+        if (Ubicaciona2.getSelectedValue().equals("") || Ubicaciona2.getSelectedValue().equals("Sin ubicación")) {
+            ActuadorSinHabitacion.addSensor(ActuadorMapa2);
+        } else if (Ubicaciona2.getSelectedValue().equals("Dormitorio")) {
+            Dormitorio.addSensor(ActuadorMapa2);
+        } else if (Ubicaciona2.getSelectedValue().equals("Cocina")) {
+            Cocina.addSensor(ActuadorMapa2);
+        } else if (Ubicaciona2.getSelectedValue().equals("Baño")) {
+            Baño.addSensor(ActuadorMapa2);
+        } else if (Ubicaciona2.getSelectedValue().equals("Pasillo")) {
+            Pasillo.addSensor(ActuadorMapa2);
+        } else if (Ubicaciona2.getSelectedValue().equals("Salón")) {
+            Salón.addSensor(ActuadorMapa2);
+        }
+
+        if (Ubicaciona3.getSelectedValue().equals("") || Ubicaciona3.getSelectedValue().equals("Sin ubicación")) {
+            ActuadorSinHabitacion.addSensor(ActuadorMapa3);
+        } else if (Ubicaciona3.getSelectedValue().equals("Dormitorio")) {
+            Dormitorio.addSensor(ActuadorMapa3);
+        } else if (Ubicaciona3.getSelectedValue().equals("Cocina")) {
+            Cocina.addSensor(ActuadorMapa3);
+        } else if (Ubicaciona3.getSelectedValue().equals("Baño")) {
+            Baño.addSensor(ActuadorMapa3);
+        } else if (Ubicaciona3.getSelectedValue().equals("Pasillo")) {
+            Pasillo.addSensor(ActuadorMapa3);
+        } else if (Ubicaciona3.getSelectedValue().equals("Salón")) {
+            Salón.addSensor(ActuadorMapa3);
+        }
+
+        if (Ubicaciona4.getSelectedValue().equals("") || Ubicaciona4.getSelectedValue().equals("Sin ubicación")) {
+            ActuadorSinHabitacion.addSensor(ActuadorMapa4);
+        } else if (Ubicaciona4.getSelectedValue().equals("Dormitorio")) {
+            Dormitorio.addSensor(ActuadorMapa4);
+        } else if (Ubicaciona4.getSelectedValue().equals("Cocina")) {
+            Cocina.addSensor(ActuadorMapa4);
+        } else if (Ubicaciona4.getSelectedValue().equals("Baño")) {
+            Baño.addSensor(ActuadorMapa4);
+        } else if (Ubicaciona4.getSelectedValue().equals("Pasillo")) {
+            Pasillo.addSensor(ActuadorMapa4);
+        } else if (Ubicaciona4.getSelectedValue().equals("Salón")) {
+            Salón.addSensor(ActuadorMapa4);
+        }
+
+        if (Ubicaciona5.getSelectedValue().equals("") || Ubicaciona5.getSelectedValue().equals("Sin ubicación")) {
+            ActuadorSinHabitacion.addSensor(ActuadorMapa5);
+        } else if (Ubicaciona5.getSelectedValue().equals("Dormitorio")) {
+            Dormitorio.addSensor(ActuadorMapa5);
+        } else if (Ubicaciona5.getSelectedValue().equals("Cocina")) {
+            Cocina.addSensor(ActuadorMapa5);
+        } else if (Ubicaciona5.getSelectedValue().equals("Baño")) {
+            Baño.addSensor(ActuadorMapa5);
+        } else if (Ubicaciona5.getSelectedValue().equals("Pasillo")) {
+            Pasillo.addSensor(ActuadorMapa5);
+        } else if (Ubicaciona5.getSelectedValue().equals("Salón")) {
+            Salón.addSensor(ActuadorMapa5);
+        }
+
+        if (Ubicaciona6.getSelectedValue().equals("") || Ubicaciona6.getSelectedValue().equals("Sin ubicación")) {
+            ActuadorSinHabitacion.addSensor(ActuadorMapa6);
+        } else if (Ubicaciona6.getSelectedValue().equals("Dormitorio")) {
+            Dormitorio.addSensor(ActuadorMapa6);
+        } else if (Ubicaciona6.getSelectedValue().equals("Cocina")) {
+            Cocina.addSensor(ActuadorMapa6);
+        } else if (Ubicaciona6.getSelectedValue().equals("Baño")) {
+            Baño.addSensor(ActuadorMapa6);
+        } else if (Ubicaciona6.getSelectedValue().equals("Pasillo")) {
+            Pasillo.addSensor(ActuadorMapa6);
+        } else if (Ubicaciona6.getSelectedValue().equals("Salón")) {
+            Salón.addSensor(ActuadorMapa6);
+        }
+
+        if (Ubicaciona7.getSelectedValue().equals("") || Ubicaciona7.getSelectedValue().equals("Sin ubicación")) {
+            ActuadorSinHabitacion.addSensor(ActuadorMapa7);
+        } else if (Ubicaciona7.getSelectedValue().equals("Dormitorio")) {
+            Dormitorio.addSensor(ActuadorMapa7);
+        } else if (Ubicaciona7.getSelectedValue().equals("Cocina")) {
+            Cocina.addSensor(ActuadorMapa7);
+        } else if (Ubicaciona7.getSelectedValue().equals("Baño")) {
+            Baño.addSensor(ActuadorMapa7);
+        } else if (Ubicaciona7.getSelectedValue().equals("Pasillo")) {
+            Pasillo.addSensor(ActuadorMapa7);
+        } else if (Ubicaciona7.getSelectedValue().equals("Salón")) {
+            Salón.addSensor(ActuadorMapa7);
+        }
+    }
 
     // PANTALLES DE LA GUI
 
@@ -806,6 +1009,8 @@ public class GUI {
 
         p5.textFont(Fonts.getFontAt(2));
         ts1.display(p5, XTaules, YTaules/*+(heightImatge/2)-heightTaules/2+8*/, widthTaules, heightTaules);
+
+        p5.pushStyle();
         //p5.textAlign(p5.LEFT);
         GraficaSensor.display(p5);
         EncesS1.display(p5);
@@ -814,10 +1019,12 @@ public class GUI {
         Ubicacions1.display(p5);
         Arduino1.display(p5);
         ActuadorS1.display(p5);
+        p5.popStyle();
 
        // TNameSensor.display(p5);
         p5.textFont(Fonts.getFontAt(2));
        // p5.text("          Nombre sensor:", /*XGraficaSensor*/ 708, /*YGraficaSensor*/ 239);
+        canviUbi();
 
         for(int i=0; i<habitacions.length; i++) {
             habitacions[i].dibuixa(p5);
@@ -834,6 +1041,8 @@ public class GUI {
 
         p5.textFont(Fonts.getFontAt(2));
         ts2.display(p5, XTaules, YTaules/*+(heightImatge/2)-heightTaules/2+8*/, widthTaules, heightTaules);
+        p5.pushStyle();
+        //p5.textAlign(p5.LEFT);
         GraficaSensor.display(p5);
         EncesS2.display(p5);
         MenuS.display(p5);
@@ -841,10 +1050,12 @@ public class GUI {
         Ubicacions2.display(p5);
         Arduino2.display(p5);
         ActuadorS2.display(p5);
+        p5.popStyle();
 
         // TNameSensor.display(p5);
         p5.textFont(Fonts.getFontAt(2));
         // p5.text("          Nombre sensor:", /*XGraficaSensor*/ 708, /*YGraficaSensor*/ 239);
+        canviUbi();
 
         for(int i=0; i<habitacions.length; i++) {
             habitacions[i].dibuixa(p5);
@@ -872,6 +1083,7 @@ public class GUI {
         // TNameSensor.display(p5);
         p5.textFont(Fonts.getFontAt(2));
         // p5.text("          Nombre sensor:", /*XGraficaSensor*/ 708, /*YGraficaSensor*/ 239);
+        canviUbi();
 
         for(int i=0; i<habitacions.length; i++) {
             habitacions[i].dibuixa(p5);
@@ -899,6 +1111,7 @@ public class GUI {
         // TNameSensor.display(p5);
         p5.textFont(Fonts.getFontAt(2));
         // p5.text("          Nombre sensor:", /*XGraficaSensor*/ 708, /*YGraficaSensor*/ 239);
+        canviUbi();
 
         for(int i=0; i<habitacions.length; i++) {
             habitacions[i].dibuixa(p5);
@@ -926,6 +1139,7 @@ public class GUI {
         // TNameSensor.display(p5);
         p5.textFont(Fonts.getFontAt(2));
         // p5.text("          Nombre sensor:", /*XGraficaSensor*/ 708, /*YGraficaSensor*/ 239);
+        canviUbi();
 
         for(int i=0; i<habitacions.length; i++) {
             habitacions[i].dibuixa(p5);
@@ -953,6 +1167,7 @@ public class GUI {
         // TNameSensor.display(p5);
         p5.textFont(Fonts.getFontAt(2));
         // p5.text("          Nombre sensor:", /*XGraficaSensor*/ 708, /*YGraficaSensor*/ 239);
+        canviUbi();
 
         for(int i=0; i<habitacions.length; i++) {
             habitacions[i].dibuixa(p5);
@@ -980,6 +1195,7 @@ public class GUI {
         // TNameSensor.display(p5);
         p5.textFont(Fonts.getFontAt(2));
         // p5.text("          Nombre sensor:", /*XGraficaSensor*/ 708, /*YGraficaSensor*/ 239);
+        canviUbi();
 
         for(int i=0; i<habitacions.length; i++) {
             habitacions[i].dibuixa(p5);
@@ -1014,6 +1230,8 @@ public class GUI {
 
         Instrucciones.display(p5);
 
+        canviUbi();
+
         for(int i=0; i<habitacions.length; i++) {
             habitacions[i].dibuixa(p5);
         }
@@ -1045,6 +1263,7 @@ public class GUI {
         //  TNameActuador.display(p5);
         p5.textFont(Fonts.getFontAt(2));
         // p5.text("               Nombre actuador:", /*XGraficaSensor*/ 708, /*YGraficaSensor*/ 239);
+        canviUbi();
 
         for(int i=0; i<habitacions.length; i++) {
             habitacions[i].dibuixa(p5);
@@ -1074,6 +1293,7 @@ public class GUI {
         //  TNameActuador.display(p5);
         p5.textFont(Fonts.getFontAt(2));
         // p5.text("               Nombre actuador:", /*XGraficaSensor*/ 708, /*YGraficaSensor*/ 239);
+        canviUbi();
 
         for(int i=0; i<habitacions.length; i++) {
             habitacions[i].dibuixa(p5);
@@ -1103,6 +1323,7 @@ public class GUI {
         //  TNameActuador.display(p5);
         p5.textFont(Fonts.getFontAt(2));
         // p5.text("               Nombre actuador:", /*XGraficaSensor*/ 708, /*YGraficaSensor*/ 239);
+        canviUbi();
 
         for(int i=0; i<habitacions.length; i++) {
             habitacions[i].dibuixa(p5);
@@ -1132,6 +1353,7 @@ public class GUI {
         //  TNameActuador.display(p5);
         p5.textFont(Fonts.getFontAt(2));
         // p5.text("               Nombre actuador:", /*XGraficaSensor*/ 708, /*YGraficaSensor*/ 239);
+        canviUbi();
 
         for(int i=0; i<habitacions.length; i++) {
             habitacions[i].dibuixa(p5);
@@ -1161,6 +1383,7 @@ public class GUI {
         //  TNameActuador.display(p5);
         p5.textFont(Fonts.getFontAt(2));
         // p5.text("               Nombre actuador:", /*XGraficaSensor*/ 708, /*YGraficaSensor*/ 239);
+        canviUbi();
 
         for(int i=0; i<habitacions.length; i++) {
             habitacions[i].dibuixa(p5);
@@ -1190,6 +1413,7 @@ public class GUI {
         //  TNameActuador.display(p5);
         p5.textFont(Fonts.getFontAt(2));
         // p5.text("               Nombre actuador:", /*XGraficaSensor*/ 708, /*YGraficaSensor*/ 239);
+        canviUbi();
 
         for(int i=0; i<habitacions.length; i++) {
             habitacions[i].dibuixa(p5);
@@ -1219,6 +1443,7 @@ public class GUI {
         //  TNameActuador.display(p5);
         p5.textFont(Fonts.getFontAt(2));
         // p5.text("               Nombre actuador:", /*XGraficaSensor*/ 708, /*YGraficaSensor*/ 239);
+        canviUbi();
 
         for(int i=0; i<habitacions.length; i++) {
             habitacions[i].dibuixa(p5);

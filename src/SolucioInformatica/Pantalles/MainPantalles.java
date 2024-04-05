@@ -31,23 +31,25 @@ public class MainPantalles extends PApplet {
 
     public void setup(){
 
-        connectBBDD();
+       /// connectBBDD();
         noStroke();                         // Sense bordes
         textAlign(CENTER); textSize(18);   // Alineació i mida del text
-        gui = new GUI(this);           // Constructor de la GUI
+
 
         db = new DataBase("admin", "12345", "domotico");
         // Connecta amb la BBDD
         db.connect();
 
         // Número de files d'una taula
-        n = db.getNumRowsTaula("usuario");
-        println("\nFiles Usuario:"+n);
+       // n = db.getNumRowsTaula("usuario");
+        //println("\nFiles Usuario:"+n);
 
         // Dades d'una taula (unitat)
-        String[][] dades1 = db.getInfoTaulaUnitat();
-        println("\nDades Taula Usuario:");
+      //  String[][] dades1 = db.getInfoTaulaUnitat();
+      //  println("\nDades Taula Usuario:");
        // printArray2D(dades1);
+
+        gui = new GUI(this, db);           // Constructor de la GUI
     }
 
     public void draw(){
@@ -157,7 +159,7 @@ public class MainPantalles extends PApplet {
 
     }
 
-    public void connectBBDD(){
+   /* public void connectBBDD(){
         try {
             con= DriverManager.getConnection("jdbc:mysql://localhost:3306/"+database, user, pass);
             System.out.println("Connectat a la BBDD! :) ");
@@ -166,7 +168,7 @@ public class MainPantalles extends PApplet {
         catch(Exception e) {
             System.out.println(e);
         }
-    }
+    }*/
 
     // ******************* KEYBOARD interaction ***************************** //
 
@@ -200,6 +202,19 @@ public class MainPantalles extends PApplet {
         gui.TNameActuador.keyPressed(key, keyCode);
         gui.ValMin1.keyPressed(key, keyCode);
         gui.ValMax1.keyPressed(key, keyCode);
+        gui.ValMin2.keyPressed(key, keyCode);
+        gui.ValMax2.keyPressed(key, keyCode);
+        gui.ValMin3.keyPressed(key, keyCode);
+        gui.ValMax3.keyPressed(key, keyCode);
+        gui.ValMin4.keyPressed(key, keyCode);
+        gui.ValMax4.keyPressed(key, keyCode);
+        gui.ValMin5.keyPressed(key, keyCode);
+        gui.ValMax5.keyPressed(key, keyCode);
+        gui.ValMin6.keyPressed(key, keyCode);
+        gui.ValMax6.keyPressed(key, keyCode);
+        gui.ValMin7.keyPressed(key, keyCode);
+        gui.ValMax7.keyPressed(key, keyCode);
+
 
 
         if(key=='n' || key=='N'){

@@ -81,6 +81,10 @@ public class Sensor {
         return p5.dist(p5.mouseX, p5.mouseY, x, y)<=radi;
     }
 
+    public String getNom() {
+        return nom;
+    }
+
     public void toggleEnces(){
         ences = !ences;
     }

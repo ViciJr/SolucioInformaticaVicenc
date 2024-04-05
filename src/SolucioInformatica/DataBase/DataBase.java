@@ -1,5 +1,7 @@
 package SolucioInformatica.DataBase;
 
+import processing.core.PApplet;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -7,6 +9,7 @@ import java.sql.Statement;
 
 public class DataBase {
 
+    // Variable de connexió a la BBDD
     // Variable de connexió a la BBDD
     Connection c;
 
@@ -18,6 +21,7 @@ public class DataBase {
 
     // Estat de la connexió
     boolean connectat = false;
+
 
     public DataBase(String user, String password, String databaseName){
         this.user = user;
@@ -165,6 +169,9 @@ public class DataBase {
         }
     }
 
+
+
+
     // Retorna el valor de la Columna NUMERO de la taula UNITAT per aquella fila amb NOM
     public String getNumeroFromTaulaUnitat(String nom)  {
         try {
@@ -178,6 +185,65 @@ public class DataBase {
         }
     }
 
+    public String[] getHabitacions(/*String userName*/)  {
+        int numFiles = getNumRowsTaula("ubicacion");
+        String[] habitaciones = new String[numFiles];
+        try {
+            ResultSet rs = query.executeQuery( "SELECT nombre FROM ubicacion" /*WHERE idUsuario = '"+userName+"'"*/);
+            int nr = 0;
+            while (rs.next()) {
+
+                habitaciones[nr] = rs.getString("nombre");
+                nr++;
+            }
+            //return new String[]{String.valueOf(rs.getInt("nombre"))};
+            return habitaciones;
+        }
+        catch(Exception e) {
+            System.out.println(e);
+            return null;
+        }
+    }
+
+    public String[] getTipoSensor(/*String userName*/)  {
+        int numFiles = getNumRowsTaula("tipos");
+        String[] tiposSensor = new String[numFiles];
+        try {
+            ResultSet rs = query.executeQuery( "SELECT tipoSensor FROM tipos" /*WHERE idUsuario = '"+userName+"'"*/);
+            int nr = 0;
+            while (rs.next()) {
+
+                tiposSensor[nr] = rs.getString("tipoSensor");
+                nr++;
+            }
+            //return new String[]{String.valueOf(rs.getInt("nombre"))};
+            return tiposSensor;
+        }
+        catch(Exception e) {
+            System.out.println(e);
+            return null;
+        }
+    }
+
+    public String[] getTipoActuador(/*String userName*/)  {
+        int numFiles = getNumRowsTaula("tipoa");
+        String[] tiposActuador = new String[numFiles];
+        try {
+            ResultSet rs = query.executeQuery( "SELECT tipoActuador FROM tipoa" /*WHERE idUsuario = '"+userName+"'"*/);
+            int nr = 0;
+            while (rs.next()) {
+
+                tiposActuador[nr] = rs.getString("tipoActuador");
+                nr++;
+            }
+            //return new String[]{String.valueOf(rs.getInt("nombre"))};
+            return tiposActuador;
+        }
+        catch(Exception e) {
+            System.out.println(e);
+            return null;
+        }
+    }
 
     public boolean isValidUser(String userName, String password){
         String q = "SELECT COUNT(*) AS n FROM usuario WHERE idUsuario = '"+userName+"' AND password='"+password+"'";
@@ -237,6 +303,8 @@ public class DataBase {
             System.out.println(e);
         }
     }
+
+
 
     // DELETES
 
