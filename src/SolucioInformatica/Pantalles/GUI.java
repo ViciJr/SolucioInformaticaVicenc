@@ -200,7 +200,7 @@ public class GUI{
         String[] selectValuesTs = bbdd.getTipoSensor()/*{"Temperatura", "Proximidad", "Presión"}*/;
         String[] selectValuesUs = bbdd.getHabitacions()/*{"","Cocina", "Pasillo", "Dormitorio", "Baño", "Salón"}*/;
         String[] selectValuesAr = {"","1", "2", "3", "4"};
-        String[] selectValuesAct = {"Actuador 1","Actuador 2", "Actuador 3", "Actuador 4", "Actuador 5", "Actuador 6", "Actuador 7"};
+        String[] selectValuesAct = bbdd.getActuadores()/*{"Actuador 1","Actuador 2", "Actuador 3", "Actuador 4", "Actuador 5", "Actuador 6", "Actuador 7"}*/;
 
         Tipos1 = new Select(selectValuesTs, XGraficaSensor, YTaules+heightTaules/2, widthTaules/5, heightTaules/2);
         Ubicacions1 = new Select(selectValuesUs, XGraficaSensor+widthTaules/5, YTaules+heightTaules/2, widthTaules/5, heightTaules/2);
@@ -322,7 +322,7 @@ public class GUI{
         };
 
         String[] selectValuesTa = bbdd.getTipoActuador()/*{"LED", "Servomotor", "Zumbador"}*/;
-        String[] selectValuesSns = {"Sensor 1", "Sensor 2", "Sensor 3", "Sensor 4", "Sensor 5", "Sensor 6", "Sensor 7"};
+        String[] selectValuesSns = bbdd.getSensores()/*{"Sensor 1", "Sensor 2", "Sensor 3", "Sensor 4", "Sensor 5", "Sensor 6", "Sensor 7"}*/;
 
         Tipoa1 =new Select(selectValuesTa, XGraficaSensor, YTaules+heightTaules/2, widthTaules/6, heightTaules/2);
         Ubicaciona1 = new Select(selectValuesUs, XGraficaSensor+widthTaules/6, YTaules+heightTaules/2, widthTaules/6, heightTaules/2);
@@ -1032,7 +1032,7 @@ public class GUI{
 
         String tipoSensorNou = Tipos1.getSelectedValue();
         String puertoArduino= Arduino1.getSelectedValue();
-        char encendido= EncesA1.getEncesOrApagat();
+        char encendido= EncesS1.getEncesOrApagat();
         String ubicacion= Ubicacions1.getSelectedValue();
         String actuador= ActuadorS1.getSelectedValue();
         String identificadorSensor = SensorMapa1.getNom();
@@ -1071,6 +1071,17 @@ public class GUI{
         for(int i=0; i<habitacions.length; i++) {
             habitacions[i].dibuixa(p5);
         }
+
+        String tipoSensorNou = Tipos2.getSelectedValue();
+        String puertoArduino= Arduino2.getSelectedValue();
+        char encendido= EncesS2.getEncesOrApagat();
+        String ubicacion= Ubicacions2.getSelectedValue();
+        String actuador= ActuadorS2.getSelectedValue();
+        String identificadorSensor = SensorMapa2.getNom();
+
+
+        bbdd.updateCosesSensor(tipoSensorNou, puertoArduino, encendido, ubicacion, actuador, identificadorSensor);
+
     }
 
     public void dibuixaPantallaSensor3(PApplet p5){
@@ -1099,6 +1110,16 @@ public class GUI{
         for(int i=0; i<habitacions.length; i++) {
             habitacions[i].dibuixa(p5);
         }
+        String tipoSensorNou = Tipos3.getSelectedValue();
+        String puertoArduino= Arduino3.getSelectedValue();
+        char encendido= EncesS3.getEncesOrApagat();
+        String ubicacion= Ubicacions3.getSelectedValue();
+        String actuador= ActuadorS3.getSelectedValue();
+        String identificadorSensor = SensorMapa3.getNom();
+
+
+        bbdd.updateCosesSensor(tipoSensorNou, puertoArduino, encendido, ubicacion, actuador, identificadorSensor);
+
     }
 
     public void dibuixaPantallaSensor4(PApplet p5){
@@ -1127,6 +1148,17 @@ public class GUI{
         for(int i=0; i<habitacions.length; i++) {
             habitacions[i].dibuixa(p5);
         }
+
+        String tipoSensorNou = Tipos4.getSelectedValue();
+        String puertoArduino= Arduino4.getSelectedValue();
+        char encendido= EncesS4.getEncesOrApagat();
+        String ubicacion= Ubicacions4.getSelectedValue();
+        String actuador= ActuadorS4.getSelectedValue();
+        String identificadorSensor = SensorMapa4.getNom();
+
+
+        bbdd.updateCosesSensor(tipoSensorNou, puertoArduino, encendido, ubicacion, actuador, identificadorSensor);
+
     }
 
     public void dibuixaPantallaSensor5(PApplet p5){
@@ -1155,6 +1187,16 @@ public class GUI{
         for(int i=0; i<habitacions.length; i++) {
             habitacions[i].dibuixa(p5);
         }
+        String tipoSensorNou = Tipos5.getSelectedValue();
+        String puertoArduino= Arduino5.getSelectedValue();
+        char encendido= EncesS5.getEncesOrApagat();
+        String ubicacion= Ubicacions5.getSelectedValue();
+        String actuador= ActuadorS5.getSelectedValue();
+        String identificadorSensor = SensorMapa5.getNom();
+
+
+        bbdd.updateCosesSensor(tipoSensorNou, puertoArduino, encendido, ubicacion, actuador, identificadorSensor);
+
     }
 
     public void dibuixaPantallaSensor6(PApplet p5){
@@ -1183,6 +1225,16 @@ public class GUI{
         for(int i=0; i<habitacions.length; i++) {
             habitacions[i].dibuixa(p5);
         }
+        String tipoSensorNou = Tipos6.getSelectedValue();
+        String puertoArduino= Arduino6.getSelectedValue();
+        char encendido= EncesS6.getEncesOrApagat();
+        String ubicacion= Ubicacions6.getSelectedValue();
+        String actuador= ActuadorS6.getSelectedValue();
+        String identificadorSensor = SensorMapa6.getNom();
+
+
+        bbdd.updateCosesSensor(tipoSensorNou, puertoArduino, encendido, ubicacion, actuador, identificadorSensor);
+
     }
 
     public void dibuixaPantallaSensor7(PApplet p5){
@@ -1211,6 +1263,16 @@ public class GUI{
         for(int i=0; i<habitacions.length; i++) {
             habitacions[i].dibuixa(p5);
         }
+        String tipoSensorNou = Tipos7.getSelectedValue();
+        String puertoArduino= Arduino7.getSelectedValue();
+        char encendido= EncesS7.getEncesOrApagat();
+        String ubicacion= Ubicacions7.getSelectedValue();
+        String actuador= ActuadorS7.getSelectedValue();
+        String identificadorSensor = SensorMapa7.getNom();
+
+
+        bbdd.updateCosesSensor(tipoSensorNou, puertoArduino, encendido, ubicacion, actuador, identificadorSensor);
+
     }
 
     public void dibuixaPantallaPlano(PApplet p5){
@@ -1279,6 +1341,16 @@ public class GUI{
         for(int i=0; i<habitacions.length; i++) {
             habitacions[i].dibuixa(p5);
         }
+
+        String puertoArduino = Arduinoa1.getSelectedValue();
+        String valorMinParaActuar = ValMin1.getText();
+        String valorMaxParaActuar= ValMax1.getText();
+        char encendido = EncesA1.getEncesOrApagat();
+        String ubicacion = Ubicaciona1.getSelectedValue();
+        String tipoActuador = Tipoa1.getSelectedValue();
+        String identificadorActuador = ActuadorMapa1.getNom();
+
+        bbdd.updateCosesActuador(puertoArduino, valorMinParaActuar, valorMaxParaActuar, encendido, ubicacion, tipoActuador, identificadorActuador);
     }
     public void dibuixaPantallaActuador2(PApplet p5){
         p5.background(255);
@@ -1309,6 +1381,17 @@ public class GUI{
         for(int i=0; i<habitacions.length; i++) {
             habitacions[i].dibuixa(p5);
         }
+
+        String puertoArduino = Arduinoa2.getSelectedValue();
+        String valorMinParaActuar = ValMin2.getText();
+        String valorMaxParaActuar= ValMax2.getText();
+        char encendido = EncesA2.getEncesOrApagat();
+        String ubicacion = Ubicaciona2.getSelectedValue();
+        String tipoActuador = Tipoa2.getSelectedValue();
+        String identificadorActuador = ActuadorMapa2.getNom();
+
+        bbdd.updateCosesActuador(puertoArduino, valorMinParaActuar, valorMaxParaActuar, encendido, ubicacion, tipoActuador, identificadorActuador);
+
     }
     public void dibuixaPantallaActuador3(PApplet p5){
         p5.background(255);
@@ -1339,6 +1422,17 @@ public class GUI{
         for(int i=0; i<habitacions.length; i++) {
             habitacions[i].dibuixa(p5);
         }
+
+        String puertoArduino = Arduinoa3.getSelectedValue();
+        String valorMinParaActuar = ValMin3.getText();
+        String valorMaxParaActuar= ValMax3.getText();
+        char encendido = EncesA3.getEncesOrApagat();
+        String ubicacion = Ubicaciona3.getSelectedValue();
+        String tipoActuador = Tipoa3.getSelectedValue();
+        String identificadorActuador = ActuadorMapa3.getNom();
+
+        bbdd.updateCosesActuador(puertoArduino, valorMinParaActuar, valorMaxParaActuar, encendido, ubicacion, tipoActuador, identificadorActuador);
+
     }
     public void dibuixaPantallaActuador4(PApplet p5){
         p5.background(255);
@@ -1369,6 +1463,17 @@ public class GUI{
         for(int i=0; i<habitacions.length; i++) {
             habitacions[i].dibuixa(p5);
         }
+
+        String puertoArduino = Arduinoa4.getSelectedValue();
+        String valorMinParaActuar = ValMin4.getText();
+        String valorMaxParaActuar= ValMax4.getText();
+        char encendido = EncesA4.getEncesOrApagat();
+        String ubicacion = Ubicaciona4.getSelectedValue();
+        String tipoActuador = Tipoa4.getSelectedValue();
+        String identificadorActuador = ActuadorMapa4.getNom();
+
+        bbdd.updateCosesActuador(puertoArduino, valorMinParaActuar, valorMaxParaActuar, encendido, ubicacion, tipoActuador, identificadorActuador);
+
     }
     public void dibuixaPantallaActuador5(PApplet p5){
         p5.background(255);
@@ -1399,6 +1504,17 @@ public class GUI{
         for(int i=0; i<habitacions.length; i++) {
             habitacions[i].dibuixa(p5);
         }
+
+        String puertoArduino = Arduinoa5.getSelectedValue();
+        String valorMinParaActuar = ValMin5.getText();
+        String valorMaxParaActuar= ValMax5.getText();
+        char encendido = EncesA5.getEncesOrApagat();
+        String ubicacion = Ubicaciona5.getSelectedValue();
+        String tipoActuador = Tipoa5.getSelectedValue();
+        String identificadorActuador = ActuadorMapa5.getNom();
+
+        bbdd.updateCosesActuador(puertoArduino, valorMinParaActuar, valorMaxParaActuar, encendido, ubicacion, tipoActuador, identificadorActuador);
+
     }
     public void dibuixaPantallaActuador6(PApplet p5){
         p5.background(255);
@@ -1429,6 +1545,17 @@ public class GUI{
         for(int i=0; i<habitacions.length; i++) {
             habitacions[i].dibuixa(p5);
         }
+
+        String puertoArduino = Arduinoa6.getSelectedValue();
+        String valorMinParaActuar = ValMin6.getText();
+        String valorMaxParaActuar= ValMax6.getText();
+        char encendido = EncesA6.getEncesOrApagat();
+        String ubicacion = Ubicaciona6.getSelectedValue();
+        String tipoActuador = Tipoa6.getSelectedValue();
+        String identificadorActuador = ActuadorMapa6.getNom();
+
+        bbdd.updateCosesActuador(puertoArduino, valorMinParaActuar, valorMaxParaActuar, encendido, ubicacion, tipoActuador, identificadorActuador);
+
     }
     public void dibuixaPantallaActuador7(PApplet p5){
         p5.background(255);
@@ -1459,6 +1586,17 @@ public class GUI{
         for(int i=0; i<habitacions.length; i++) {
             habitacions[i].dibuixa(p5);
         }
+
+        String puertoArduino = Arduinoa7.getSelectedValue();
+        String valorMinParaActuar = ValMin7.getText();
+        String valorMaxParaActuar= ValMax7.getText();
+        char encendido = EncesA7.getEncesOrApagat();
+        String ubicacion = Ubicaciona7.getSelectedValue();
+        String tipoActuador = Tipoa7.getSelectedValue();
+        String identificadorActuador = ActuadorMapa7.getNom();
+
+        bbdd.updateCosesActuador(puertoArduino, valorMinParaActuar, valorMaxParaActuar, encendido, ubicacion, tipoActuador, identificadorActuador);
+
     }
 
     public void dibuixaPantallaEstadisticaSensor1(PApplet p5){

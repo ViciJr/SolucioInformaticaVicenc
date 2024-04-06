@@ -1246,6 +1246,48 @@ public class MainPantalles extends PApplet {
             }
             gui.ActuadorS1.toggle();        // Plegar o desplegar
         }
+        if(gui.ActuadorS2.mouseOverSelect(this) && gui.ActuadorS2.isEnabled()){
+            if(!gui.ActuadorS2.isCollapsed()){
+                gui.ActuadorS2.update(this);      // Actualitzar valor
+                //   updateColor();    // Fer acció amb valor
+            }
+            gui.ActuadorS2.toggle();        // Plegar o desplegar
+        }
+        if(gui.ActuadorS3.mouseOverSelect(this) && gui.ActuadorS3.isEnabled()){
+            if(!gui.ActuadorS3.isCollapsed()){
+                gui.ActuadorS3.update(this);      // Actualitzar valor
+                //   updateColor();    // Fer acció amb valor
+            }
+            gui.ActuadorS3.toggle();        // Plegar o desplegar
+        }
+        if(gui.ActuadorS4.mouseOverSelect(this) && gui.ActuadorS4.isEnabled()){
+            if(!gui.ActuadorS4.isCollapsed()){
+                gui.ActuadorS4.update(this);      // Actualitzar valor
+                //   updateColor();    // Fer acció amb valor
+            }
+            gui.ActuadorS4.toggle();        // Plegar o desplegar
+        }
+        if(gui.ActuadorS5.mouseOverSelect(this) && gui.ActuadorS5.isEnabled()){
+            if(!gui.ActuadorS5.isCollapsed()){
+                gui.ActuadorS5.update(this);      // Actualitzar valor
+                //   updateColor();    // Fer acció amb valor
+            }
+            gui.ActuadorS5.toggle();        // Plegar o desplegar
+        }
+        if(gui.ActuadorS6.mouseOverSelect(this) && gui.ActuadorS6.isEnabled()){
+            if(!gui.ActuadorS6.isCollapsed()){
+                gui.ActuadorS6.update(this);      // Actualitzar valor
+                //   updateColor();    // Fer acció amb valor
+            }
+            gui.ActuadorS6.toggle();        // Plegar o desplegar
+        }
+        if(gui.ActuadorS7.mouseOverSelect(this) && gui.ActuadorS7.isEnabled()){
+            if(!gui.ActuadorS7.isCollapsed()){
+                gui.ActuadorS7.update(this);      // Actualitzar valor
+                //   updateColor();    // Fer acció amb valor
+            }
+            gui.ActuadorS7.toggle();        // Plegar o desplegar
+        }
 
         if(gui.Tipoa1.mouseOverSelect(this) && gui.Tipoa1.isEnabled()){
             if(!gui.Tipoa1.isCollapsed()){

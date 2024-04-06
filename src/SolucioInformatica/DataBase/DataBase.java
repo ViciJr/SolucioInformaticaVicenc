@@ -243,6 +243,48 @@ public class DataBase {
         }
     }
 
+    public String[] getActuadores(/*String userName*/)  {
+        int numFiles = getNumRowsTaula("actuador");
+        String[] Actuadores = new String[numFiles];
+        try {
+            ResultSet rs = query.executeQuery( "SELECT idActuador FROM actuador" /*WHERE idUsuario = '"+userName+"'"*/);
+            int nr = 0;
+            while (rs.next()) {
+
+                Actuadores[nr] = rs.getString("idActuador");
+                nr++;
+            }
+            //return new String[]{String.valueOf(rs.getInt("nombre"))};
+            return Actuadores;
+        }
+        catch(Exception e) {
+            System.out.println(e);
+            return null;
+        }
+    }
+
+    public String[] getSensores(/*String userName*/)  {
+        int numFiles = getNumRowsTaula("sensor");
+        String[] Sensores = new String[numFiles];
+        try {
+            ResultSet rs = query.executeQuery( "SELECT idSensor FROM sensor" /*WHERE idUsuario = '"+userName+"'"*/);
+            int nr = 0;
+            while (rs.next()) {
+
+                Sensores[nr] = rs.getString("idSensor");
+                nr++;
+            }
+            //return new String[]{String.valueOf(rs.getInt("nombre"))};
+            return Sensores;
+        }
+        catch(Exception e) {
+            System.out.println(e);
+            return null;
+        }
+    }
+
+
+
     public boolean isValidUser(String userName, String password){
         String q = "SELECT COUNT(*) AS n FROM usuario WHERE idUsuario = '"+userName+"' AND password='"+password+"'";
         try {
@@ -305,6 +347,17 @@ public class DataBase {
    public void updateCosesSensor(/*String tipoSensorAntic,*/ String tipoSensorNou, String puertoArduino, char encendido, String ubicacion, String actuador,  String identificadorSensor){
         try {
             String q = "UPDATE `sensor` SET `puertoArduino` = '"+puertoArduino+"', `encendido` = '"+encendido+"', `ubicacion` = '"+ubicacion+"', `actuador` = '"+actuador+"', `tipoSensor` = '"+tipoSensorNou+"' WHERE `sensor`.`idSensor` = '"+identificadorSensor+"'";
+            System.out.println(q);
+            query.execute(q);
+        }
+        catch(Exception e) {
+            System.out.println(e);
+        }
+    }
+
+    public void updateCosesActuador(String puertoArduino, String valorMinParaActuar, String valorMaxParaActuar, char encendido, String ubicacion, String tipoActuador,  String identificadorActuador){
+        try {
+            String q = "UPDATE `actuador` SET `puertoArduino` = '"+puertoArduino+"', `valorMinParaActuar` = '"+valorMinParaActuar+"', `valorMaxParaActuar` = '"+valorMaxParaActuar+"', `encendido` = '"+encendido+"', `ubicacion` = '"+ubicacion+"', `tipoActuador` = '"+tipoActuador+"' WHERE `actuador`.`idActuador` = '"+identificadorActuador+"'";
             System.out.println(q);
             query.execute(q);
         }
