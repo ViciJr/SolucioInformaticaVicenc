@@ -1029,6 +1029,17 @@ public class GUI{
         for(int i=0; i<habitacions.length; i++) {
             habitacions[i].dibuixa(p5);
         }
+
+        String tipoSensorNou = Tipos1.getSelectedValue();
+        String puertoArduino= Arduino1.getSelectedValue();
+        char encendido= EncesA1.getEncesOrApagat();
+        String ubicacion= Ubicacions1.getSelectedValue();
+        String actuador= ActuadorS1.getSelectedValue();
+        String identificadorSensor = SensorMapa1.getNom();
+
+
+        bbdd.updateCosesSensor(tipoSensorNou, puertoArduino, encendido, ubicacion, actuador, identificadorSensor);
+
     }
 
     public void dibuixaPantallaSensor2(PApplet p5){

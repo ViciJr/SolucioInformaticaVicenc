@@ -11,6 +11,7 @@ public class SwitchButton {
     boolean enabled;  // Abilitat / desabilitat
 
     String l, f;
+    char encesOrApagat;
 
 
     // Mètode Constructor
@@ -42,6 +43,15 @@ public class SwitchButton {
     // Getters
     public boolean isEnabled(){
         return  this.enabled;
+    }
+
+    public char getEncesOrApagat(){
+        if (this.enabled==false){
+            return this.encesOrApagat='S';
+        }
+        else {
+            return this.encesOrApagat='N';
+        }
     }
 
     // Dibuixa el botó

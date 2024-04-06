@@ -1,7 +1,5 @@
 package SolucioInformatica.DataBase;
 
-import processing.core.PApplet;
-
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -304,6 +302,16 @@ public class DataBase {
         }
     }
 
+   public void updateCosesSensor(/*String tipoSensorAntic,*/ String tipoSensorNou, String puertoArduino, char encendido, String ubicacion, String actuador,  String identificadorSensor){
+        try {
+            String q = "UPDATE `sensor` SET `puertoArduino` = '"+puertoArduino+"', `encendido` = '"+encendido+"', `ubicacion` = '"+ubicacion+"', `actuador` = '"+actuador+"', `tipoSensor` = '"+tipoSensorNou+"' WHERE `sensor`.`idSensor` = '"+identificadorSensor+"'";
+            System.out.println(q);
+            query.execute(q);
+        }
+        catch(Exception e) {
+            System.out.println(e);
+        }
+    }
 
 
     // DELETES
