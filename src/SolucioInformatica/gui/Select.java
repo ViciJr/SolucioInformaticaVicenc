@@ -35,6 +35,10 @@ class Select {
         this.enabled = b;
     }
 
+    public void setSelectedValue(String s){
+        this.selectedValue=s;
+    }
+
     public  boolean isCollapsed(){
         return  this.collapsed;
     }

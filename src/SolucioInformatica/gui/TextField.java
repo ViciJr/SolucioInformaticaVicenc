@@ -33,6 +33,10 @@ public class TextField {
        return this.text;
     }
 
+    public void setText(String s){
+        this.text=s;
+    }
+
     // Dibuixa el Camp de Text
     public void display(PApplet p5) {
         p5.pushStyle();

@@ -8,6 +8,7 @@ import SolucioInformatica.gui.mapa.Habitacio;
 import SolucioInformatica.gui.mapa.Llum;
 import SolucioInformatica.gui.mapa.Sensor;
 import processing.core.PApplet;
+import processing.core.PImage;
 //import SolucioInformatica.DataBase.DataBase;
 
 
@@ -25,9 +26,11 @@ public class GUI{
     // Pantalla Actual
     public PANTALLA pantallaActual;
 
-    //Colors i tipografia
+    //Colors, tipografia i imatges
     Fonts Fonts;
     Colors Colors;
+
+    PImage ImatgeLogo, ImatgeInici;
 
     // PANTALLA INICIAL Y LOGIN
     Button BlogIn, Logo;
@@ -117,6 +120,17 @@ public class GUI{
         Inicio=new PopUp(p5, "ERROR", "Usuario o contraseña incorrectos", 330, 250, 600, 300);
         Inicio.setVisible(false);
 
+        ImatgeLogo = new PImage(marginH, marginV);
+        ImatgeLogo = p5.loadImage("data/LogoAIInfo.jpg");
+        ImatgeLogo.resize(midaLogo, midaLogo);
+
+        ImatgeInici = new PImage(marginH, 6*marginV + logoHeight);
+        ImatgeInici = p5.loadImage("data/ImatgeCasaAIInfo.jpg");
+        ImatgeLogo.resize(widthImatge, heightImatge);
+
+
+
+
         //Pantalla Menú i Plànol
         p5.stroke(0, 2);
         p5.textFont(Fonts.getFontAt(2));
@@ -203,40 +217,67 @@ public class GUI{
         String[] selectValuesAct = bbdd.getActuadores()/*{"Actuador 1","Actuador 2", "Actuador 3", "Actuador 4", "Actuador 5", "Actuador 6", "Actuador 7"}*/;
 
         Tipos1 = new Select(selectValuesTs, XGraficaSensor, YTaules+heightTaules/2, widthTaules/5, heightTaules/2);
+        Tipos1.setSelectedValue(bbdd.getTiposSensor("Sensor 1"));
         Ubicacions1 = new Select(selectValuesUs, XGraficaSensor+widthTaules/5, YTaules+heightTaules/2, widthTaules/5, heightTaules/2);
+        Ubicacions1.setSelectedValue(bbdd.getUbicacionSensor("Sensor 1"));
         Arduino1 = new Select(selectValuesAr, XGraficaSensor+widthTaules*2/5, YTaules+heightTaules/2, widthTaules/5, heightTaules/2);
+        Arduino1.setSelectedValue(bbdd.getPuertoArduinoSensor("Sensor 1"));
         ActuadorS1 = new Select( selectValuesAct, XGraficaSensor+widthTaules*3/5, YTaules+heightTaules/2, widthTaules/5, heightTaules/2);
+        ActuadorS1.setSelectedValue(bbdd.getActuadorSensor("Sensor 1"));
 
         Tipos2 = new Select(selectValuesTs, XGraficaSensor, YTaules+heightTaules/2, widthTaules/5, heightTaules/2);
+        Tipos2.setSelectedValue(bbdd.getTiposSensor("Sensor 2"));
         Ubicacions2 = new Select(selectValuesUs, XGraficaSensor+widthTaules/5, YTaules+heightTaules/2, widthTaules/5, heightTaules/2);
+        Ubicacions2.setSelectedValue(bbdd.getUbicacionSensor("Sensor 2"));
         Arduino2 = new Select(selectValuesAr, XGraficaSensor+widthTaules*2/5, YTaules+heightTaules/2, widthTaules/5, heightTaules/2);
+        Arduino2.setSelectedValue(bbdd.getPuertoArduinoSensor("Sensor 2"));
         ActuadorS2 = new Select( selectValuesAct, XGraficaSensor+widthTaules*3/5, YTaules+heightTaules/2, widthTaules/5, heightTaules/2);
+        ActuadorS2.setSelectedValue(bbdd.getActuadorSensor("Sensor 2"));
 
         Tipos3 = new Select(selectValuesTs, XGraficaSensor, YTaules+heightTaules/2, widthTaules/5, heightTaules/2);
+        Tipos3.setSelectedValue(bbdd.getTiposSensor("Sensor 3"));
         Ubicacions3 = new Select(selectValuesUs, XGraficaSensor+widthTaules/5, YTaules+heightTaules/2, widthTaules/5, heightTaules/2);
+        Ubicacions3.setSelectedValue(bbdd.getUbicacionSensor("Sensor 3"));
         Arduino3 = new Select(selectValuesAr, XGraficaSensor+widthTaules*2/5, YTaules+heightTaules/2, widthTaules/5, heightTaules/2);
+        Arduino3.setSelectedValue(bbdd.getPuertoArduinoSensor("Sensor 3"));
         ActuadorS3 = new Select( selectValuesAct, XGraficaSensor+widthTaules*3/5, YTaules+heightTaules/2, widthTaules/5, heightTaules/2);
+        ActuadorS3.setSelectedValue(bbdd.getActuadorSensor("Sensor 3"));
 
         Tipos4 = new Select(selectValuesTs, XGraficaSensor, YTaules+heightTaules/2, widthTaules/5, heightTaules/2);
+        Tipos4.setSelectedValue(bbdd.getTiposSensor("Sensor 4"));
         Ubicacions4 = new Select(selectValuesUs, XGraficaSensor+widthTaules/5, YTaules+heightTaules/2, widthTaules/5, heightTaules/2);
+        Ubicacions4.setSelectedValue(bbdd.getUbicacionSensor("Sensor 4"));
         Arduino4 = new Select(selectValuesAr, XGraficaSensor+widthTaules*2/5, YTaules+heightTaules/2, widthTaules/5, heightTaules/2);
+        Arduino4.setSelectedValue(bbdd.getPuertoArduinoSensor("Sensor 4"));
         ActuadorS4 = new Select( selectValuesAct, XGraficaSensor+widthTaules*3/5, YTaules+heightTaules/2, widthTaules/5, heightTaules/2);
+        ActuadorS4.setSelectedValue(bbdd.getActuadorSensor("Sensor 4"));
 
         Tipos5 = new Select(selectValuesTs, XGraficaSensor, YTaules+heightTaules/2, widthTaules/5, heightTaules/2);
+        Tipos5.setSelectedValue(bbdd.getTiposSensor("Sensor 5"));
         Ubicacions5 = new Select(selectValuesUs, XGraficaSensor+widthTaules/5, YTaules+heightTaules/2, widthTaules/5, heightTaules/2);
+        Ubicacions5.setSelectedValue(bbdd.getUbicacionSensor("Sensor 5"));
         Arduino5 = new Select(selectValuesAr, XGraficaSensor+widthTaules*2/5, YTaules+heightTaules/2, widthTaules/5, heightTaules/2);
+        Arduino5.setSelectedValue(bbdd.getPuertoArduinoSensor("Sensor 5"));
         ActuadorS5 = new Select( selectValuesAct, XGraficaSensor+widthTaules*3/5, YTaules+heightTaules/2, widthTaules/5, heightTaules/2);
+        ActuadorS5.setSelectedValue(bbdd.getActuadorSensor("Sensor 5"));
 
         Tipos6 = new Select(selectValuesTs, XGraficaSensor, YTaules+heightTaules/2, widthTaules/5, heightTaules/2);
+        Tipos6.setSelectedValue(bbdd.getTiposSensor("Sensor 6"));
         Ubicacions6 = new Select(selectValuesUs, XGraficaSensor+widthTaules/5, YTaules+heightTaules/2, widthTaules/5, heightTaules/2);
+        Ubicacions6.setSelectedValue(bbdd.getUbicacionSensor("Sensor 6"));
         Arduino6 = new Select(selectValuesAr, XGraficaSensor+widthTaules*2/5, YTaules+heightTaules/2, widthTaules/5, heightTaules/2);
+        Arduino6.setSelectedValue(bbdd.getPuertoArduinoSensor("Sensor 6"));
         ActuadorS6 = new Select( selectValuesAct, XGraficaSensor+widthTaules*3/5, YTaules+heightTaules/2, widthTaules/5, heightTaules/2);
+        ActuadorS6.setSelectedValue(bbdd.getActuadorSensor("Sensor 6"));
 
         Tipos7 = new Select(selectValuesTs, XGraficaSensor, YTaules+heightTaules/2, widthTaules/5, heightTaules/2);
+        Tipos7.setSelectedValue(bbdd.getTiposSensor("Sensor 7"));
         Ubicacions7 = new Select(selectValuesUs, XGraficaSensor+widthTaules/5, YTaules+heightTaules/2, widthTaules/5, heightTaules/2);
+        Ubicacions7.setSelectedValue(bbdd.getUbicacionSensor("Sensor 7"));
         Arduino7 = new Select(selectValuesAr, XGraficaSensor+widthTaules*2/5, YTaules+heightTaules/2, widthTaules/5, heightTaules/2);
+        Arduino7.setSelectedValue(bbdd.getPuertoArduinoSensor("Sensor 7"));
         ActuadorS7 = new Select( selectValuesAct, XGraficaSensor+widthTaules*3/5, YTaules+heightTaules/2, widthTaules/5, heightTaules/2);
-
+        ActuadorS7.setSelectedValue(bbdd.getActuadorSensor("Sensor 7"));
 
         ts1.setData(infoS1);
         ts1.setHeaders(headersS);
@@ -325,40 +366,67 @@ public class GUI{
         String[] selectValuesSns = bbdd.getSensores()/*{"Sensor 1", "Sensor 2", "Sensor 3", "Sensor 4", "Sensor 5", "Sensor 6", "Sensor 7"}*/;
 
         Tipoa1 =new Select(selectValuesTa, XGraficaSensor, YTaules+heightTaules/2, widthTaules/6, heightTaules/2);
+        Tipoa1.setSelectedValue(bbdd.getTiposActuador("Actuador 1"));
         Ubicaciona1 = new Select(selectValuesUs, XGraficaSensor+widthTaules/6, YTaules+heightTaules/2, widthTaules/6, heightTaules/2);
+        Ubicaciona1.setSelectedValue(bbdd.getUbicacionActuador("Actuador 1"));
         Arduinoa1 =new Select(selectValuesAr, XGraficaSensor+widthTaules*2/6, YTaules+heightTaules/2, widthTaules/6, heightTaules/2);
+        Arduinoa1.setSelectedValue(bbdd.getPuertoArduinoActuador("Actuador 1"));
         Sensora1 =new Select(selectValuesSns, XGraficaSensor+widthTaules*3/6, YTaules+heightTaules/2, widthTaules/6, heightTaules/2);
+        Sensora1.setSelectedValue(bbdd.getSensorActuador("Actuador 1"));
 
         Tipoa2 =new Select(selectValuesTa, XGraficaSensor, YTaules+heightTaules/2, widthTaules/6, heightTaules/2);
+        Tipoa2.setSelectedValue(bbdd.getTiposActuador("Actuador 2"));
         Ubicaciona2 = new Select(selectValuesUs, XGraficaSensor+widthTaules/6, YTaules+heightTaules/2, widthTaules/6, heightTaules/2);
+        Ubicaciona2.setSelectedValue(bbdd.getUbicacionActuador("Actuador 2"));
         Arduinoa2 =new Select(selectValuesAr, XGraficaSensor+widthTaules*2/6, YTaules+heightTaules/2, widthTaules/6, heightTaules/2);
+        Arduinoa2.setSelectedValue(bbdd.getPuertoArduinoActuador("Actuador 2"));
         Sensora2 =new Select(selectValuesSns, XGraficaSensor+widthTaules*3/6, YTaules+heightTaules/2, widthTaules/6, heightTaules/2);
+        Sensora2.setSelectedValue(bbdd.getSensorActuador("Actuador 2"));
 
         Tipoa3 =new Select(selectValuesTa, XGraficaSensor, YTaules+heightTaules/2, widthTaules/6, heightTaules/2);
+        Tipoa3.setSelectedValue(bbdd.getTiposActuador("Actuador 3"));
         Ubicaciona3 = new Select(selectValuesUs, XGraficaSensor+widthTaules/6, YTaules+heightTaules/2, widthTaules/6, heightTaules/2);
+        Ubicaciona3.setSelectedValue(bbdd.getUbicacionActuador("Actuador 3"));
         Arduinoa3 =new Select(selectValuesAr, XGraficaSensor+widthTaules*2/6, YTaules+heightTaules/2, widthTaules/6, heightTaules/2);
+        Arduinoa3.setSelectedValue(bbdd.getPuertoArduinoActuador("Actuador 3"));
         Sensora3 =new Select(selectValuesSns, XGraficaSensor+widthTaules*3/6, YTaules+heightTaules/2, widthTaules/6, heightTaules/2);
+        Sensora3.setSelectedValue(bbdd.getSensorActuador("Actuador 3"));
 
         Tipoa4 =new Select(selectValuesTa, XGraficaSensor, YTaules+heightTaules/2, widthTaules/6, heightTaules/2);
+        Tipoa4.setSelectedValue(bbdd.getTiposActuador("Actuador 4"));
         Ubicaciona4 = new Select(selectValuesUs, XGraficaSensor+widthTaules/6, YTaules+heightTaules/2, widthTaules/6, heightTaules/2);
+        Ubicaciona4.setSelectedValue(bbdd.getUbicacionActuador("Actuador 4"));
         Arduinoa4 =new Select(selectValuesAr, XGraficaSensor+widthTaules*2/6, YTaules+heightTaules/2, widthTaules/6, heightTaules/2);
+        Arduinoa4.setSelectedValue(bbdd.getPuertoArduinoActuador("Actuador 4"));
         Sensora4 =new Select(selectValuesSns, XGraficaSensor+widthTaules*3/6, YTaules+heightTaules/2, widthTaules/6, heightTaules/2);
+        Sensora4.setSelectedValue(bbdd.getSensorActuador("Actuador 4"));
 
         Tipoa5 =new Select(selectValuesTa, XGraficaSensor, YTaules+heightTaules/2, widthTaules/6, heightTaules/2);
+        Tipoa5.setSelectedValue(bbdd.getTiposActuador("Actuador 5"));
         Ubicaciona5 = new Select(selectValuesUs, XGraficaSensor+widthTaules/6, YTaules+heightTaules/2, widthTaules/6, heightTaules/2);
+        Ubicaciona5.setSelectedValue(bbdd.getUbicacionActuador("Actuador 5"));
         Arduinoa5 =new Select(selectValuesAr, XGraficaSensor+widthTaules*2/6, YTaules+heightTaules/2, widthTaules/6, heightTaules/2);
+        Arduinoa5.setSelectedValue(bbdd.getPuertoArduinoActuador("Actuador 5"));
         Sensora5 =new Select(selectValuesSns, XGraficaSensor+widthTaules*3/6, YTaules+heightTaules/2, widthTaules/6, heightTaules/2);
+        Sensora5.setSelectedValue(bbdd.getSensorActuador("Actuador 5"));
 
         Tipoa6 =new Select(selectValuesTa, XGraficaSensor, YTaules+heightTaules/2, widthTaules/6, heightTaules/2);
+        Tipoa6.setSelectedValue(bbdd.getTiposActuador("Actuador 6"));
         Ubicaciona6 = new Select(selectValuesUs, XGraficaSensor+widthTaules/6, YTaules+heightTaules/2, widthTaules/6, heightTaules/2);
+        Ubicaciona6.setSelectedValue(bbdd.getUbicacionActuador("Actuador 6"));
         Arduinoa6 =new Select(selectValuesAr, XGraficaSensor+widthTaules*2/6, YTaules+heightTaules/2, widthTaules/6, heightTaules/2);
+        Arduinoa6.setSelectedValue(bbdd.getPuertoArduinoActuador("Actuador 6"));
         Sensora6 =new Select(selectValuesSns, XGraficaSensor+widthTaules*3/6, YTaules+heightTaules/2, widthTaules/6, heightTaules/2);
+        Sensora6.setSelectedValue(bbdd.getSensorActuador("Actuador 6"));
 
         Tipoa7 =new Select(selectValuesTa, XGraficaSensor, YTaules+heightTaules/2, widthTaules/6, heightTaules/2);
+        Tipoa7.setSelectedValue(bbdd.getTiposActuador("Actuador 7"));
         Ubicaciona7 = new Select(selectValuesUs, XGraficaSensor+widthTaules/6, YTaules+heightTaules/2, widthTaules/6, heightTaules/2);
+        Ubicaciona7.setSelectedValue(bbdd.getUbicacionActuador("Actuador 7"));
         Arduinoa7 =new Select(selectValuesAr, XGraficaSensor+widthTaules*2/6, YTaules+heightTaules/2, widthTaules/6, heightTaules/2);
+        Arduinoa7.setSelectedValue(bbdd.getPuertoArduinoActuador("Actuador 7"));
         Sensora7 =new Select(selectValuesSns, XGraficaSensor+widthTaules*3/6, YTaules+heightTaules/2, widthTaules/6, heightTaules/2);
-
+        Sensora7.setSelectedValue(bbdd.getSensorActuador("Actuador 7"));
 
         ValMin1 = new TextField(p5, XGraficaSensor+widthTaules*4/6+1,YTaules+heightTaules/2, widthTaules/6-2, heightTaules/2);
         ValMax1 = new TextField(p5, XGraficaSensor+widthTaules*5/6+1,YTaules+heightTaules/2, widthTaules/6-1, heightTaules/2);
@@ -375,6 +443,20 @@ public class GUI{
         ValMin7 = new TextField(p5, XGraficaSensor+widthTaules*4/6+1,YTaules+heightTaules/2, widthTaules/6-2, heightTaules/2);
         ValMax7 = new TextField(p5, XGraficaSensor+widthTaules*5/6+1,YTaules+heightTaules/2, widthTaules/6-1, heightTaules/2);
 
+        ValMin1.setText(bbdd.getValMinActuador("Actuador 1"));
+        ValMax1.setText(bbdd.getValMaxActuador("Actuador 1"));
+        ValMin2.setText(bbdd.getValMinActuador("Actuador 2"));
+        ValMax2.setText(bbdd.getValMaxActuador("Actuador 2"));
+        ValMin3.setText(bbdd.getValMinActuador("Actuador 3"));
+        ValMax3.setText(bbdd.getValMaxActuador("Actuador 3"));
+        ValMin4.setText(bbdd.getValMinActuador("Actuador 4"));
+        ValMax4.setText(bbdd.getValMaxActuador("Actuador 4"));
+        ValMin5.setText(bbdd.getValMinActuador("Actuador 5"));
+        ValMax5.setText(bbdd.getValMaxActuador("Actuador 5"));
+        ValMin6.setText(bbdd.getValMinActuador("Actuador 6"));
+        ValMax6.setText(bbdd.getValMaxActuador("Actuador 6"));
+        ValMin7.setText(bbdd.getValMinActuador("Actuador 7"));
+        ValMax7.setText(bbdd.getValMaxActuador("Actuador 7"));
 
         ta1.setData(infoA1);
         ta1.setHeaders(headersA);
@@ -984,6 +1066,7 @@ public class GUI{
         p5.textFont(Fonts.getFontAt(2));
 
 
+
         BlogIn.display(p5);
 
         TUsuario.display(p5);
@@ -997,6 +1080,11 @@ public class GUI{
         p5.textFont(Fonts.getFontAt(1));
         dibuixaImatgeMapa(p5);
         Inicio.display(p5);
+
+        p5.image(ImatgeInici, marginH, 6*marginV + logoHeight, widthImatge, heightImatge);
+        p5.image(ImatgeLogo, marginH, marginV , midaLogo, midaLogo);
+
+
     }
 
     public void dibuixaPantallaSensor1(PApplet p5){
@@ -1039,7 +1127,7 @@ public class GUI{
 
 
         bbdd.updateCosesSensor(tipoSensorNou, puertoArduino, encendido, ubicacion, actuador, identificadorSensor);
-
+        p5.image(ImatgeLogo, marginH, marginV , logoWidth, logoHeight);
     }
 
     public void dibuixaPantallaSensor2(PApplet p5){
@@ -1081,7 +1169,7 @@ public class GUI{
 
 
         bbdd.updateCosesSensor(tipoSensorNou, puertoArduino, encendido, ubicacion, actuador, identificadorSensor);
-
+        p5.image(ImatgeLogo, marginH, marginV , logoWidth, logoHeight);
     }
 
     public void dibuixaPantallaSensor3(PApplet p5){
@@ -1119,7 +1207,7 @@ public class GUI{
 
 
         bbdd.updateCosesSensor(tipoSensorNou, puertoArduino, encendido, ubicacion, actuador, identificadorSensor);
-
+        p5.image(ImatgeLogo, marginH, marginV , logoWidth, logoHeight);
     }
 
     public void dibuixaPantallaSensor4(PApplet p5){
@@ -1158,7 +1246,7 @@ public class GUI{
 
 
         bbdd.updateCosesSensor(tipoSensorNou, puertoArduino, encendido, ubicacion, actuador, identificadorSensor);
-
+        p5.image(ImatgeLogo, marginH, marginV , logoWidth, logoHeight);
     }
 
     public void dibuixaPantallaSensor5(PApplet p5){
@@ -1196,7 +1284,7 @@ public class GUI{
 
 
         bbdd.updateCosesSensor(tipoSensorNou, puertoArduino, encendido, ubicacion, actuador, identificadorSensor);
-
+        p5.image(ImatgeLogo, marginH, marginV , logoWidth, logoHeight);
     }
 
     public void dibuixaPantallaSensor6(PApplet p5){
@@ -1234,7 +1322,7 @@ public class GUI{
 
 
         bbdd.updateCosesSensor(tipoSensorNou, puertoArduino, encendido, ubicacion, actuador, identificadorSensor);
-
+        p5.image(ImatgeLogo, marginH, marginV , logoWidth, logoHeight);
     }
 
     public void dibuixaPantallaSensor7(PApplet p5){
@@ -1272,7 +1360,7 @@ public class GUI{
 
 
         bbdd.updateCosesSensor(tipoSensorNou, puertoArduino, encendido, ubicacion, actuador, identificadorSensor);
-
+        p5.image(ImatgeLogo, marginH, marginV , logoWidth, logoHeight);
     }
 
     public void dibuixaPantallaPlano(PApplet p5){
@@ -1308,6 +1396,7 @@ public class GUI{
         for(int i=0; i<habitacions.length; i++) {
             habitacions[i].dibuixa(p5);
         }
+        p5.image(ImatgeLogo, marginH, marginV , logoWidth, logoHeight);
     }
 
 
@@ -1351,6 +1440,7 @@ public class GUI{
         String identificadorActuador = ActuadorMapa1.getNom();
 
         bbdd.updateCosesActuador(puertoArduino, valorMinParaActuar, valorMaxParaActuar, encendido, ubicacion, tipoActuador, identificadorActuador);
+        p5.image(ImatgeLogo, marginH, marginV , logoWidth, logoHeight);
     }
     public void dibuixaPantallaActuador2(PApplet p5){
         p5.background(255);
@@ -1391,7 +1481,7 @@ public class GUI{
         String identificadorActuador = ActuadorMapa2.getNom();
 
         bbdd.updateCosesActuador(puertoArduino, valorMinParaActuar, valorMaxParaActuar, encendido, ubicacion, tipoActuador, identificadorActuador);
-
+        p5.image(ImatgeLogo, marginH, marginV , logoWidth, logoHeight);
     }
     public void dibuixaPantallaActuador3(PApplet p5){
         p5.background(255);
@@ -1432,7 +1522,7 @@ public class GUI{
         String identificadorActuador = ActuadorMapa3.getNom();
 
         bbdd.updateCosesActuador(puertoArduino, valorMinParaActuar, valorMaxParaActuar, encendido, ubicacion, tipoActuador, identificadorActuador);
-
+        p5.image(ImatgeLogo, marginH, marginV , logoWidth, logoHeight);
     }
     public void dibuixaPantallaActuador4(PApplet p5){
         p5.background(255);
@@ -1473,7 +1563,7 @@ public class GUI{
         String identificadorActuador = ActuadorMapa4.getNom();
 
         bbdd.updateCosesActuador(puertoArduino, valorMinParaActuar, valorMaxParaActuar, encendido, ubicacion, tipoActuador, identificadorActuador);
-
+        p5.image(ImatgeLogo, marginH, marginV , logoWidth, logoHeight);
     }
     public void dibuixaPantallaActuador5(PApplet p5){
         p5.background(255);
@@ -1514,7 +1604,7 @@ public class GUI{
         String identificadorActuador = ActuadorMapa5.getNom();
 
         bbdd.updateCosesActuador(puertoArduino, valorMinParaActuar, valorMaxParaActuar, encendido, ubicacion, tipoActuador, identificadorActuador);
-
+        p5.image(ImatgeLogo, marginH, marginV , logoWidth, logoHeight);
     }
     public void dibuixaPantallaActuador6(PApplet p5){
         p5.background(255);
@@ -1544,6 +1634,7 @@ public class GUI{
 
         for(int i=0; i<habitacions.length; i++) {
             habitacions[i].dibuixa(p5);
+            p5.image(ImatgeLogo, marginH, marginV , logoWidth, logoHeight);
         }
 
         String puertoArduino = Arduinoa6.getSelectedValue();
@@ -1596,7 +1687,7 @@ public class GUI{
         String identificadorActuador = ActuadorMapa7.getNom();
 
         bbdd.updateCosesActuador(puertoArduino, valorMinParaActuar, valorMaxParaActuar, encendido, ubicacion, tipoActuador, identificadorActuador);
-
+        p5.image(ImatgeLogo, marginH, marginV , logoWidth, logoHeight);
     }
 
     public void dibuixaPantallaEstadisticaSensor1(PApplet p5){
@@ -1625,6 +1716,7 @@ public class GUI{
         p5.text("Rango(t):", XUsuari+2*marginH, (YActuadors+YinhabilitarActuador)/2, WidthInhabilitarActuador, HeightInhabilitarSensor/2);
         Rangot.display(p5);
         Unidadest.display(p5);
+        p5.image(ImatgeLogo, marginH, marginV , logoWidth, logoHeight);
     }
 
     public void dibuixaPantallaEstadisticaSensor2(PApplet p5){
@@ -1653,6 +1745,7 @@ public class GUI{
         p5.text("Rango(t):", XUsuari+2*marginH, (YActuadors+YinhabilitarActuador)/2, WidthInhabilitarActuador, HeightInhabilitarSensor/2);
         Rangot.display(p5);
         Unidadest.display(p5);
+        p5.image(ImatgeLogo, marginH, marginV , logoWidth, logoHeight);
     }
 
     public void dibuixaPantallaEstadisticaSensor3(PApplet p5){
@@ -1681,6 +1774,7 @@ public class GUI{
         p5.text("Rango(t):", XUsuari+2*marginH, (YActuadors+YinhabilitarActuador)/2, WidthInhabilitarActuador, HeightInhabilitarSensor/2);
         Rangot.display(p5);
         Unidadest.display(p5);
+        p5.image(ImatgeLogo, marginH, marginV , logoWidth, logoHeight);
     }
 
     public void dibuixaPantallaEstadisticaSensor4(PApplet p5){
@@ -1709,6 +1803,7 @@ public class GUI{
         p5.text("Rango(t):", XUsuari+2*marginH, (YActuadors+YinhabilitarActuador)/2, WidthInhabilitarActuador, HeightInhabilitarSensor/2);
         Rangot.display(p5);
         Unidadest.display(p5);
+        p5.image(ImatgeLogo, marginH, marginV , logoWidth, logoHeight);
     }
 
     public void dibuixaPantallaEstadisticaSensor5(PApplet p5){
@@ -1737,6 +1832,7 @@ public class GUI{
         p5.text("Rango(t):", XUsuari+2*marginH, (YActuadors+YinhabilitarActuador)/2, WidthInhabilitarActuador, HeightInhabilitarSensor/2);
         Rangot.display(p5);
         Unidadest.display(p5);
+        p5.image(ImatgeLogo, marginH, marginV , logoWidth, logoHeight);
     }
 
     public void dibuixaPantallaEstadisticaSensor6(PApplet p5){
@@ -1765,6 +1861,7 @@ public class GUI{
         p5.text("Rango(t):", XUsuari+2*marginH, (YActuadors+YinhabilitarActuador)/2, WidthInhabilitarActuador, HeightInhabilitarSensor/2);
         Rangot.display(p5);
         Unidadest.display(p5);
+        p5.image(ImatgeLogo, marginH, marginV , logoWidth, logoHeight);
     }
 
     public void dibuixaPantallaEstadisticaSensor7(PApplet p5){
@@ -1793,6 +1890,7 @@ public class GUI{
         p5.text("Rango(t):", XUsuari+2*marginH, (YActuadors+YinhabilitarActuador)/2, WidthInhabilitarActuador, HeightInhabilitarSensor/2);
         Rangot.display(p5);
         Unidadest.display(p5);
+        p5.image(ImatgeLogo, marginH, marginV , logoWidth, logoHeight);
     }
 
     public void dibuixaPantallaEstadisticaActuador1(PApplet p5){
@@ -1819,6 +1917,7 @@ public class GUI{
         p5.text("Rango(t):", XUsuari+2*marginH, (YActuadors+YinhabilitarActuador)/2, WidthInhabilitarActuador, HeightInhabilitarSensor/2);
         Rangot.display(p5);
         Unidadest.display(p5);
+        p5.image(ImatgeLogo, marginH, marginV , logoWidth, logoHeight);
     }
 
     public void dibuixaPantallaEstadisticaActuador2(PApplet p5){
@@ -1845,6 +1944,7 @@ public class GUI{
         p5.text("Rango(t):", XUsuari+2*marginH, (YActuadors+YinhabilitarActuador)/2, WidthInhabilitarActuador, HeightInhabilitarSensor/2);
         Rangot.display(p5);
         Unidadest.display(p5);
+        p5.image(ImatgeLogo, marginH, marginV , logoWidth, logoHeight);
     }
 
     public void dibuixaPantallaEstadisticaActuador3(PApplet p5){
@@ -1871,6 +1971,7 @@ public class GUI{
         p5.text("Rango(t):", XUsuari+2*marginH, (YActuadors+YinhabilitarActuador)/2, WidthInhabilitarActuador, HeightInhabilitarSensor/2);
         Rangot.display(p5);
         Unidadest.display(p5);
+        p5.image(ImatgeLogo, marginH, marginV , logoWidth, logoHeight);
     }
 
     public void dibuixaPantallaEstadisticaActuador4(PApplet p5){
@@ -1897,6 +1998,7 @@ public class GUI{
         p5.text("Rango(t):", XUsuari+2*marginH, (YActuadors+YinhabilitarActuador)/2, WidthInhabilitarActuador, HeightInhabilitarSensor/2);
         Rangot.display(p5);
         Unidadest.display(p5);
+        p5.image(ImatgeLogo, marginH, marginV , logoWidth, logoHeight);
     }
 
     public void dibuixaPantallaEstadisticaActuador5(PApplet p5){
@@ -1923,6 +2025,7 @@ public class GUI{
         p5.text("Rango(t):", XUsuari+2*marginH, (YActuadors+YinhabilitarActuador)/2, WidthInhabilitarActuador, HeightInhabilitarSensor/2);
         Rangot.display(p5);
         Unidadest.display(p5);
+        p5.image(ImatgeLogo, marginH, marginV , logoWidth, logoHeight);
     }
 
     public void dibuixaPantallaEstadisticaActuador6(PApplet p5){
@@ -1949,6 +2052,7 @@ public class GUI{
         p5.text("Rango(t):", XUsuari+2*marginH, (YActuadors+YinhabilitarActuador)/2, WidthInhabilitarActuador, HeightInhabilitarSensor/2);
         Rangot.display(p5);
         Unidadest.display(p5);
+        p5.image(ImatgeLogo, marginH, marginV , logoWidth, logoHeight);
     }
 
     public void dibuixaPantallaEstadisticaActuador7(PApplet p5){
@@ -1975,6 +2079,7 @@ public class GUI{
         p5.text("Rango(t):", XUsuari+2*marginH, (YActuadors+YinhabilitarActuador)/2, WidthInhabilitarActuador, HeightInhabilitarSensor/2);
         Rangot.display(p5);
         Unidadest.display(p5);
+        p5.image(ImatgeLogo, marginH, marginV , logoWidth, logoHeight);
     }
 
     public void dibuixaPantallaInstrucciones(PApplet p5){
@@ -1989,7 +2094,7 @@ public class GUI{
             habitacions[i].dibuixa(p5);
         }
 */
-
+        p5.image(ImatgeLogo, marginH, marginV , logoWidth, logoHeight);
     }
     // ZONES DE LA GUI
 

@@ -283,6 +283,168 @@ public class DataBase {
         }
     }
 
+    public String getTiposActuador(String idActuador)  {
+        String Actuador = new String();
+        try {
+            ResultSet rs = query.executeQuery( "SELECT tipoActuador FROM actuador WHERE idActuador = '"+idActuador+"'");
+            rs.next();
+                Actuador = rs.getString("tipoActuador");
+
+            //return new String[]{String.valueOf(rs.getInt("nombre"))};
+            return Actuador;
+        }
+        catch(Exception e) {
+            System.out.println(e);
+            return null;
+        }
+    }
+
+    public String getPuertoArduinoActuador(String idActuador)  {
+        String Arduino = new String();
+        try {
+            ResultSet rs = query.executeQuery( "SELECT puertoArduino FROM actuador WHERE idActuador = '"+idActuador+"'");
+            rs.next();
+            Arduino = rs.getString("puertoArduino");
+
+            //return new String[]{String.valueOf(rs.getInt("nombre"))};
+            return Arduino;
+        }
+        catch(Exception e) {
+            System.out.println(e);
+            return null;
+        }
+    }
+
+    public String getUbicacionActuador(String idActuador)  {
+        String Ubicacion = new String();
+        try {
+            ResultSet rs = query.executeQuery( "SELECT ubicacion FROM actuador WHERE idActuador = '"+idActuador+"'");
+            rs.next();
+            Ubicacion = rs.getString("ubicacion");
+
+            //return new String[]{String.valueOf(rs.getInt("nombre"))};
+            return Ubicacion;
+        }
+        catch(Exception e) {
+            System.out.println(e);
+            return null;
+        }
+    }
+
+    public String getSensorActuador(String idActuador)  {
+        String Sensor = new String();
+        try {
+            ResultSet rs = query.executeQuery( "SELECT sensor FROM actuador WHERE idActuador = '"+idActuador+"'");
+            rs.next();
+            Sensor = rs.getString("actuador");
+
+            //return new String[]{String.valueOf(rs.getInt("nombre"))};
+            return Sensor;
+        }
+        catch(Exception e) {
+            System.out.println(e);
+            return null;
+        }
+    }
+
+    public String getValMinActuador(String idActuador)  {
+        String valMin = new String();
+        try {
+            ResultSet rs = query.executeQuery( "SELECT valorMinParaActuar FROM actuador WHERE idActuador = '"+idActuador+"'");
+            rs.next();
+            valMin = rs.getString("valorMinParaActuar");
+
+            //return new String[]{String.valueOf(rs.getInt("nombre"))};
+            return valMin;
+        }
+        catch(Exception e) {
+            System.out.println(e);
+            return null;
+        }
+    }
+
+    public String getValMaxActuador(String idActuador)  {
+        String valMax = new String();
+        try {
+            ResultSet rs = query.executeQuery( "SELECT valorMaxParaActuar FROM actuador WHERE idActuador = '"+idActuador+"'");
+            rs.next();
+            valMax = rs.getString("valorMaxParaActuar");
+
+            //return new String[]{String.valueOf(rs.getInt("nombre"))};
+            return valMax;
+        }
+        catch(Exception e) {
+            System.out.println(e);
+            return null;
+        }
+    }
+
+
+
+
+    public String getTiposSensor(String idSensor)  {
+        String Sensor = new String();
+        try {
+            ResultSet rs = query.executeQuery( "SELECT tipoSensor FROM sensor WHERE idSensor = '"+idSensor+"'");
+            rs.next();
+            Sensor = rs.getString("tipoSensor");
+
+            //return new String[]{String.valueOf(rs.getInt("nombre"))};
+            return Sensor;
+        }
+        catch(Exception e) {
+            System.out.println(e);
+            return null;
+        }
+    }
+
+    public String getPuertoArduinoSensor(String idSensor)  {
+        String Arduino = new String();
+        try {
+            ResultSet rs = query.executeQuery( "SELECT puertoArduino FROM sensor WHERE idSensor = '"+idSensor+"'");
+            rs.next();
+            Arduino = rs.getString("puertoArduino");
+
+            //return new String[]{String.valueOf(rs.getInt("nombre"))};
+            return Arduino;
+        }
+        catch(Exception e) {
+            System.out.println(e);
+            return null;
+        }
+    }
+
+    public String getUbicacionSensor(String idSensor)  {
+        String Ubicacion = new String();
+        try {
+            ResultSet rs = query.executeQuery( "SELECT ubicacion FROM sensor WHERE idSensor = '"+idSensor+"'");
+            rs.next();
+            Ubicacion = rs.getString("ubicacion");
+
+            //return new String[]{String.valueOf(rs.getInt("nombre"))};
+            return Ubicacion;
+        }
+        catch(Exception e) {
+            System.out.println(e);
+            return null;
+        }
+    }
+
+    public String getActuadorSensor(String idSensor)  {
+        String Sensor = new String();
+        try {
+            ResultSet rs = query.executeQuery( "SELECT actuador FROM sensor WHERE idSensor = '"+idSensor+"'");
+            rs.next();
+            Sensor = rs.getString("actuador");
+
+            //return new String[]{String.valueOf(rs.getInt("nombre"))};
+            return Sensor;
+        }
+        catch(Exception e) {
+            System.out.println(e);
+            return null;
+        }
+    }
 
 
     public boolean isValidUser(String userName, String password){
