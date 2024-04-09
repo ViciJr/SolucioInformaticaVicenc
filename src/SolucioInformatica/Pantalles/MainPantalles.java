@@ -365,6 +365,7 @@ public class MainPantalles extends PApplet {
             if (gui.pantallaActual == GUI.PANTALLA.ACTUADOR1 && gui.pantallaActual != GUI.PANTALLA.MENÚ && gui.pantallaActual != GUI.PANTALLA.SENSOR1 && gui.pantallaActual != GUI.PANTALLA.INICIO && gui.pantallaActual != GUI.PANTALLA.GRÁFICA_SENSOR1 && gui.pantallaActual != GUI.PANTALLA.GRÁFICA_ACTUADOR1) {
 
                 gui.MenuS.setEnabled(true);
+                gui.Ejecutar.setEnabled(true);
 
                 gui.GraficaActuador.setEnabled(true);
                 //  gui.BloquejatA.setEnabled(true);
@@ -388,6 +389,19 @@ public class MainPantalles extends PApplet {
                 if (gui.MenuS.mouseOverButton(this)) {
                     gui.pantallaActual = GUI.PANTALLA.MENÚ;
                 }
+                if (gui.Ejecutar.mouseOverButton(this) && gui.Ubicaciona1.getSelectedValue().equals("Sin ubicación")) {
+                    gui.SensorSinHabitacion.addSensor(gui.ActuadorMapa1);
+                } else if (gui.Ejecutar.mouseOverButton(this) && gui.Ubicaciona1.getSelectedValue().equals("Dormitorio")) {
+                    gui.Dormitorio.addSensor(gui.ActuadorMapa1);
+                } else if (gui.Ejecutar.mouseOverButton(this) && gui.Ubicaciona1.getSelectedValue().equals("Cocina")) {
+                    gui.Cocina.addSensor(gui.ActuadorMapa1);
+                } else if (gui.Ejecutar.mouseOverButton(this) && gui.Ubicaciona1.getSelectedValue().equals("Baño")) {
+                    gui.Baño.addSensor(gui.ActuadorMapa1);
+                } else if (gui.Ejecutar.mouseOverButton(this) && gui.Ubicaciona1.getSelectedValue().equals("Pasillo")) {
+                    gui.Pasillo.addSensor(gui.ActuadorMapa1);
+                } else if (gui.Ejecutar.mouseOverButton(this) && gui.Ubicaciona1.getSelectedValue().equals("Salón")) {
+                    gui.Salón.addSensor(gui.ActuadorMapa1);
+                }
             }
             else{
                 gui.MenuS.setEnabled(false);
@@ -399,11 +413,13 @@ public class MainPantalles extends PApplet {
                 gui.Ubicaciona1.setEnabled(false);
                 gui.Arduinoa1.setEnabled(false);
                 gui.Sensora1.setEnabled(false);
+                gui.Ejecutar.setEnabled(false);
             }
 
         if (gui.pantallaActual == GUI.PANTALLA.ACTUADOR2 && gui.pantallaActual != GUI.PANTALLA.MENÚ && gui.pantallaActual != GUI.PANTALLA.SENSOR1 && gui.pantallaActual != GUI.PANTALLA.INICIO && gui.pantallaActual != GUI.PANTALLA.GRÁFICA_SENSOR1 && gui.pantallaActual != GUI.PANTALLA.GRÁFICA_ACTUADOR1) {
 
             gui.MenuS.setEnabled(true);
+            gui.Ejecutar.setEnabled(true);
 
             gui.GraficaActuador.setEnabled(true);
             //  gui.BloquejatA.setEnabled(true);
@@ -427,6 +443,19 @@ public class MainPantalles extends PApplet {
             if (gui.MenuS.mouseOverButton(this)) {
                 gui.pantallaActual = GUI.PANTALLA.MENÚ;
             }
+            if (gui.Ejecutar.mouseOverButton(this) && gui.Ubicaciona2.getSelectedValue().equals("Sin ubicación")) {
+                gui.SensorSinHabitacion.addSensor(gui.ActuadorMapa2);
+            } else if (gui.Ejecutar.mouseOverButton(this) && gui.Ubicaciona2.getSelectedValue().equals("Dormitorio")) {
+                gui.Dormitorio.addSensor(gui.ActuadorMapa2);
+            } else if (gui.Ejecutar.mouseOverButton(this) && gui.Ubicaciona2.getSelectedValue().equals("Cocina")) {
+                gui.Cocina.addSensor(gui.ActuadorMapa2);
+            } else if (gui.Ejecutar.mouseOverButton(this) && gui.Ubicaciona2.getSelectedValue().equals("Baño")) {
+                gui.Baño.addSensor(gui.ActuadorMapa2);
+            } else if (gui.Ejecutar.mouseOverButton(this) && gui.Ubicaciona2.getSelectedValue().equals("Pasillo")) {
+                gui.Pasillo.addSensor(gui.ActuadorMapa2);
+            } else if (gui.Ejecutar.mouseOverButton(this) && gui.Ubicaciona2.getSelectedValue().equals("Salón")) {
+                gui.Salón.addSensor(gui.ActuadorMapa2);
+            }
         }
         else{
             gui.MenuS.setEnabled(false);
@@ -438,11 +467,13 @@ public class MainPantalles extends PApplet {
             gui.Ubicaciona2.setEnabled(false);
             gui.Arduinoa2.setEnabled(false);
             gui.Sensora2.setEnabled(false);
+            gui.Ejecutar.setEnabled(false);
         }
 
         if (gui.pantallaActual == GUI.PANTALLA.ACTUADOR3 && gui.pantallaActual != GUI.PANTALLA.MENÚ && gui.pantallaActual != GUI.PANTALLA.SENSOR1 && gui.pantallaActual != GUI.PANTALLA.INICIO && gui.pantallaActual != GUI.PANTALLA.GRÁFICA_SENSOR1 && gui.pantallaActual != GUI.PANTALLA.GRÁFICA_ACTUADOR1) {
 
             gui.MenuS.setEnabled(true);
+            gui.Ejecutar.setEnabled(true);
 
             gui.GraficaActuador.setEnabled(true);
             //  gui.BloquejatA.setEnabled(true);
@@ -466,6 +497,19 @@ public class MainPantalles extends PApplet {
             if (gui.MenuS.mouseOverButton(this)) {
                 gui.pantallaActual = GUI.PANTALLA.MENÚ;
             }
+            if (gui.Ejecutar.mouseOverButton(this) && gui.Ubicaciona3.getSelectedValue().equals("Sin ubicación")) {
+                gui.SensorSinHabitacion.addSensor(gui.ActuadorMapa3);
+            } else if (gui.Ejecutar.mouseOverButton(this) && gui.Ubicaciona3.getSelectedValue().equals("Dormitorio")) {
+                gui.Dormitorio.addSensor(gui.ActuadorMapa3);
+            } else if (gui.Ejecutar.mouseOverButton(this) && gui.Ubicaciona3.getSelectedValue().equals("Cocina")) {
+                gui.Cocina.addSensor(gui.ActuadorMapa3);
+            } else if (gui.Ejecutar.mouseOverButton(this) && gui.Ubicaciona3.getSelectedValue().equals("Baño")) {
+                gui.Baño.addSensor(gui.ActuadorMapa3);
+            } else if (gui.Ejecutar.mouseOverButton(this) && gui.Ubicaciona3.getSelectedValue().equals("Pasillo")) {
+                gui.Pasillo.addSensor(gui.ActuadorMapa3);
+            } else if (gui.Ejecutar.mouseOverButton(this) && gui.Ubicaciona3.getSelectedValue().equals("Salón")) {
+                gui.Salón.addSensor(gui.ActuadorMapa3);
+            }
         }
         else{
             gui.MenuS.setEnabled(false);
@@ -477,11 +521,14 @@ public class MainPantalles extends PApplet {
             gui.Ubicaciona3.setEnabled(false);
             gui.Arduinoa3.setEnabled(false);
             gui.Sensora3.setEnabled(false);
+            gui.Ejecutar.setEnabled(false);
         }
 
         if (gui.pantallaActual == GUI.PANTALLA.ACTUADOR4 && gui.pantallaActual != GUI.PANTALLA.MENÚ && gui.pantallaActual != GUI.PANTALLA.SENSOR1 && gui.pantallaActual != GUI.PANTALLA.INICIO && gui.pantallaActual != GUI.PANTALLA.GRÁFICA_SENSOR1 && gui.pantallaActual != GUI.PANTALLA.GRÁFICA_ACTUADOR1) {
 
             gui.MenuS.setEnabled(true);
+
+            gui.Ejecutar.setEnabled(true);
 
             gui.GraficaActuador.setEnabled(true);
             //  gui.BloquejatA.setEnabled(true);
@@ -505,6 +552,19 @@ public class MainPantalles extends PApplet {
             if (gui.MenuS.mouseOverButton(this)) {
                 gui.pantallaActual = GUI.PANTALLA.MENÚ;
             }
+            if (gui.Ejecutar.mouseOverButton(this) && gui.Ubicaciona4.getSelectedValue().equals("Sin ubicación")) {
+                gui.SensorSinHabitacion.addSensor(gui.ActuadorMapa4);
+            } else if (gui.Ejecutar.mouseOverButton(this) && gui.Ubicaciona4.getSelectedValue().equals("Dormitorio")) {
+                gui.Dormitorio.addSensor(gui.ActuadorMapa4);
+            } else if (gui.Ejecutar.mouseOverButton(this) && gui.Ubicaciona4.getSelectedValue().equals("Cocina")) {
+                gui.Cocina.addSensor(gui.ActuadorMapa4);
+            } else if (gui.Ejecutar.mouseOverButton(this) && gui.Ubicaciona4.getSelectedValue().equals("Baño")) {
+                gui.Baño.addSensor(gui.ActuadorMapa4);
+            } else if (gui.Ejecutar.mouseOverButton(this) && gui.Ubicaciona4.getSelectedValue().equals("Pasillo")) {
+                gui.Pasillo.addSensor(gui.ActuadorMapa4);
+            } else if (gui.Ejecutar.mouseOverButton(this) && gui.Ubicaciona4.getSelectedValue().equals("Salón")) {
+                gui.Salón.addSensor(gui.ActuadorMapa4);
+            }
         }
         else{
             gui.MenuS.setEnabled(false);
@@ -516,11 +576,13 @@ public class MainPantalles extends PApplet {
             gui.Ubicaciona4.setEnabled(false);
             gui.Arduinoa4.setEnabled(false);
             gui.Sensora4.setEnabled(false);
+            gui.Ejecutar.setEnabled(false);
         }
 
         if (gui.pantallaActual == GUI.PANTALLA.ACTUADOR5 && gui.pantallaActual != GUI.PANTALLA.MENÚ && gui.pantallaActual != GUI.PANTALLA.SENSOR1 && gui.pantallaActual != GUI.PANTALLA.INICIO && gui.pantallaActual != GUI.PANTALLA.GRÁFICA_SENSOR1 && gui.pantallaActual != GUI.PANTALLA.GRÁFICA_ACTUADOR1) {
 
             gui.MenuS.setEnabled(true);
+            gui.Ejecutar.setEnabled(true);
 
             gui.GraficaActuador.setEnabled(true);
             //  gui.BloquejatA.setEnabled(true);
@@ -544,6 +606,19 @@ public class MainPantalles extends PApplet {
             if (gui.MenuS.mouseOverButton(this)) {
                 gui.pantallaActual = GUI.PANTALLA.MENÚ;
             }
+            if (gui.Ejecutar.mouseOverButton(this) && gui.Ubicaciona5.getSelectedValue().equals("Sin ubicación")) {
+                gui.SensorSinHabitacion.addSensor(gui.ActuadorMapa5);
+            } else if (gui.Ejecutar.mouseOverButton(this) && gui.Ubicaciona5.getSelectedValue().equals("Dormitorio")) {
+                gui.Dormitorio.addSensor(gui.ActuadorMapa5);
+            } else if (gui.Ejecutar.mouseOverButton(this) && gui.Ubicaciona5.getSelectedValue().equals("Cocina")) {
+                gui.Cocina.addSensor(gui.ActuadorMapa5);
+            } else if (gui.Ejecutar.mouseOverButton(this) && gui.Ubicaciona5.getSelectedValue().equals("Baño")) {
+                gui.Baño.addSensor(gui.ActuadorMapa5);
+            } else if (gui.Ejecutar.mouseOverButton(this) && gui.Ubicaciona5.getSelectedValue().equals("Pasillo")) {
+                gui.Pasillo.addSensor(gui.ActuadorMapa5);
+            } else if (gui.Ejecutar.mouseOverButton(this) && gui.Ubicaciona5.getSelectedValue().equals("Salón")) {
+                gui.Salón.addSensor(gui.ActuadorMapa5);
+            }
         }
         else{
             gui.MenuS.setEnabled(false);
@@ -555,11 +630,13 @@ public class MainPantalles extends PApplet {
             gui.Ubicaciona5.setEnabled(false);
             gui.Arduinoa5.setEnabled(false);
             gui.Sensora5.setEnabled(false);
+            gui.Ejecutar.setEnabled(false);
         }
 
         if (gui.pantallaActual == GUI.PANTALLA.ACTUADOR6 && gui.pantallaActual != GUI.PANTALLA.MENÚ && gui.pantallaActual != GUI.PANTALLA.SENSOR1 && gui.pantallaActual != GUI.PANTALLA.INICIO && gui.pantallaActual != GUI.PANTALLA.GRÁFICA_SENSOR1 && gui.pantallaActual != GUI.PANTALLA.GRÁFICA_ACTUADOR1) {
 
             gui.MenuS.setEnabled(true);
+            gui.Ejecutar.setEnabled(true);
 
             gui.GraficaActuador.setEnabled(true);
             //  gui.BloquejatA.setEnabled(true);
@@ -583,6 +660,19 @@ public class MainPantalles extends PApplet {
             if (gui.MenuS.mouseOverButton(this)) {
                 gui.pantallaActual = GUI.PANTALLA.MENÚ;
             }
+            if (gui.Ejecutar.mouseOverButton(this) && gui.Ubicaciona6.getSelectedValue().equals("Sin ubicación")) {
+                gui.SensorSinHabitacion.addSensor(gui.ActuadorMapa6);
+            } else if (gui.Ejecutar.mouseOverButton(this) && gui.Ubicaciona6.getSelectedValue().equals("Dormitorio")) {
+                gui.Dormitorio.addSensor(gui.ActuadorMapa6);
+            } else if (gui.Ejecutar.mouseOverButton(this) && gui.Ubicaciona6.getSelectedValue().equals("Cocina")) {
+                gui.Cocina.addSensor(gui.ActuadorMapa6);
+            } else if (gui.Ejecutar.mouseOverButton(this) && gui.Ubicaciona6.getSelectedValue().equals("Baño")) {
+                gui.Baño.addSensor(gui.ActuadorMapa6);
+            } else if (gui.Ejecutar.mouseOverButton(this) && gui.Ubicaciona6.getSelectedValue().equals("Pasillo")) {
+                gui.Pasillo.addSensor(gui.ActuadorMapa6);
+            } else if (gui.Ejecutar.mouseOverButton(this) && gui.Ubicaciona6.getSelectedValue().equals("Salón")) {
+                gui.Salón.addSensor(gui.ActuadorMapa6);
+            }
         }
         else{
             gui.MenuS.setEnabled(false);
@@ -594,11 +684,13 @@ public class MainPantalles extends PApplet {
             gui.Ubicaciona6.setEnabled(false);
             gui.Arduinoa6.setEnabled(false);
             gui.Sensora6.setEnabled(false);
+            gui.Ejecutar.setEnabled(false);
         }
 
         if (gui.pantallaActual == GUI.PANTALLA.ACTUADOR7 && gui.pantallaActual != GUI.PANTALLA.MENÚ && gui.pantallaActual != GUI.PANTALLA.SENSOR1 && gui.pantallaActual != GUI.PANTALLA.INICIO && gui.pantallaActual != GUI.PANTALLA.GRÁFICA_SENSOR1 && gui.pantallaActual != GUI.PANTALLA.GRÁFICA_ACTUADOR1) {
 
             gui.MenuS.setEnabled(true);
+            gui.Ejecutar.setEnabled(true);
 
             gui.GraficaActuador.setEnabled(true);
             //  gui.BloquejatA.setEnabled(true);
@@ -622,6 +714,19 @@ public class MainPantalles extends PApplet {
             if (gui.MenuS.mouseOverButton(this)) {
                 gui.pantallaActual = GUI.PANTALLA.MENÚ;
             }
+            if (gui.Ejecutar.mouseOverButton(this) && gui.Ubicaciona7.getSelectedValue().equals("Sin ubicación")) {
+                gui.SensorSinHabitacion.addSensor(gui.ActuadorMapa7);
+            } else if (gui.Ejecutar.mouseOverButton(this) && gui.Ubicaciona7.getSelectedValue().equals("Dormitorio")) {
+                gui.Dormitorio.addSensor(gui.ActuadorMapa7);
+            } else if (gui.Ejecutar.mouseOverButton(this) && gui.Ubicaciona7.getSelectedValue().equals("Cocina")) {
+                gui.Cocina.addSensor(gui.ActuadorMapa7);
+            } else if (gui.Ejecutar.mouseOverButton(this) && gui.Ubicaciona7.getSelectedValue().equals("Baño")) {
+                gui.Baño.addSensor(gui.ActuadorMapa7);
+            } else if (gui.Ejecutar.mouseOverButton(this) && gui.Ubicaciona7.getSelectedValue().equals("Pasillo")) {
+                gui.Pasillo.addSensor(gui.ActuadorMapa7);
+            } else if (gui.Ejecutar.mouseOverButton(this) && gui.Ubicaciona7.getSelectedValue().equals("Salón")) {
+                gui.Salón.addSensor(gui.ActuadorMapa7);
+            }
         }
         else{
             gui.MenuS.setEnabled(false);
@@ -633,6 +738,7 @@ public class MainPantalles extends PApplet {
             gui.Ubicaciona7.setEnabled(false);
             gui.Arduinoa7.setEnabled(false);
             gui.Sensora7.setEnabled(false);
+            gui.Ejecutar.setEnabled(false);
         }
 
 
@@ -645,18 +751,34 @@ public class MainPantalles extends PApplet {
             gui.Ubicacions1.setEnabled(true);
             gui.Arduino1.setEnabled(true);
             gui.ActuadorS1.setEnabled(true);
+            gui.Ejecutar.setEnabled(true);
 
             if (gui.GraficaSensor.mouseOverButton(this) && gui.pantallaActual == GUI.PANTALLA.SENSOR1) {
                 gui.pantallaActual = GUI.PANTALLA.GRÁFICA_SENSOR1;
             }
             if (gui.EncesS1.isEnabled()) {
                 gui.SensorMapa1.setEnces(true);
-            } else{
+            } else {
                 gui.SensorMapa1.setEnces(false);
             }
             if (gui.MenuS.mouseOverButton(this)) {
                 gui.pantallaActual = GUI.PANTALLA.MENÚ;
             }
+
+                if (gui.Ejecutar.mouseOverButton(this) && gui.Ubicacions1.getSelectedValue().equals("Sin ubicación")) {
+                    gui.SensorSinHabitacion.addSensor(gui.SensorMapa1);
+                } else if (gui.Ejecutar.mouseOverButton(this) && gui.Ubicacions1.getSelectedValue().equals("Dormitorio")) {
+                    gui.Dormitorio.addSensor(gui.SensorMapa1);
+                } else if (gui.Ejecutar.mouseOverButton(this) && gui.Ubicacions1.getSelectedValue().equals("Cocina")) {
+                    gui.Cocina.addSensor(gui.SensorMapa1);
+                } else if (gui.Ejecutar.mouseOverButton(this) && gui.Ubicacions1.getSelectedValue().equals("Baño")) {
+                    gui.Baño.addSensor(gui.SensorMapa1);
+                } else if (gui.Ejecutar.mouseOverButton(this) && gui.Ubicacions1.getSelectedValue().equals("Pasillo")) {
+                    gui.Pasillo.addSensor(gui.SensorMapa1);
+                } else if (gui.Ejecutar.mouseOverButton(this) && gui.Ubicacions1.getSelectedValue().equals("Salón")) {
+                    gui.Salón.addSensor(gui.SensorMapa1);
+                }
+
         }
         else{
             gui.MenuS.setEnabled(false);
@@ -667,6 +789,7 @@ public class MainPantalles extends PApplet {
             gui.Ubicacions1.setEnabled(false);
             gui.Arduino1.setEnabled(false);
             gui.ActuadorS1.setEnabled(false);
+            gui.Ejecutar.setEnabled(true);
         }
 
         if (gui.pantallaActual == GUI.PANTALLA.SENSOR2 && gui.pantallaActual != GUI.PANTALLA.MENÚ && gui.pantallaActual != GUI.PANTALLA.INICIO && gui.pantallaActual != GUI.PANTALLA.ACTUADOR1 && gui.pantallaActual != GUI.PANTALLA.GRÁFICA_SENSOR1 && gui.pantallaActual != GUI.PANTALLA.GRÁFICA_ACTUADOR1) {
@@ -688,6 +811,19 @@ public class MainPantalles extends PApplet {
             }
             if (gui.MenuS.mouseOverButton(this) && gui.pantallaActual == GUI.PANTALLA.SENSOR2) {
                 gui.pantallaActual = GUI.PANTALLA.MENÚ;
+            }
+            if (gui.Ejecutar.mouseOverButton(this) && gui.Ubicacions2.getSelectedValue().equals("Sin ubicación")) {
+                gui.SensorSinHabitacion.addSensor(gui.SensorMapa2);
+            } else if (gui.Ejecutar.mouseOverButton(this) && gui.Ubicacions2.getSelectedValue().equals("Dormitorio")) {
+                gui.Dormitorio.addSensor(gui.SensorMapa2);
+            } else if (gui.Ejecutar.mouseOverButton(this) && gui.Ubicacions2.getSelectedValue().equals("Cocina")) {
+                gui.Cocina.addSensor(gui.SensorMapa2);
+            } else if (gui.Ejecutar.mouseOverButton(this) && gui.Ubicacions2.getSelectedValue().equals("Baño")) {
+                gui.Baño.addSensor(gui.SensorMapa2);
+            } else if (gui.Ejecutar.mouseOverButton(this) && gui.Ubicacions2.getSelectedValue().equals("Pasillo")) {
+                gui.Pasillo.addSensor(gui.SensorMapa2);
+            } else if (gui.Ejecutar.mouseOverButton(this) && gui.Ubicacions2.getSelectedValue().equals("Salón")) {
+                gui.Salón.addSensor(gui.SensorMapa2);
             }
         }
         else{
@@ -721,6 +857,19 @@ public class MainPantalles extends PApplet {
             if (gui.MenuS.mouseOverButton(this)) {
                 gui.pantallaActual = GUI.PANTALLA.MENÚ;
             }
+            if (gui.Ejecutar.mouseOverButton(this) && gui.Ubicacions3.getSelectedValue().equals("Sin ubicación")) {
+                gui.SensorSinHabitacion.addSensor(gui.SensorMapa3);
+            } else if (gui.Ejecutar.mouseOverButton(this) && gui.Ubicacions3.getSelectedValue().equals("Dormitorio")) {
+                gui.Dormitorio.addSensor(gui.SensorMapa3);
+            } else if (gui.Ejecutar.mouseOverButton(this) && gui.Ubicacions3.getSelectedValue().equals("Cocina")) {
+                gui.Cocina.addSensor(gui.SensorMapa3);
+            } else if (gui.Ejecutar.mouseOverButton(this) && gui.Ubicacions3.getSelectedValue().equals("Baño")) {
+                gui.Baño.addSensor(gui.SensorMapa3);
+            } else if (gui.Ejecutar.mouseOverButton(this) && gui.Ubicacions3.getSelectedValue().equals("Pasillo")) {
+                gui.Pasillo.addSensor(gui.SensorMapa3);
+            } else if (gui.Ejecutar.mouseOverButton(this) && gui.Ubicacions3.getSelectedValue().equals("Salón")) {
+                gui.Salón.addSensor(gui.SensorMapa3);
+            }
         }
         else{
             gui.MenuS.setEnabled(false);
@@ -752,6 +901,19 @@ public class MainPantalles extends PApplet {
             }
             if (gui.MenuS.mouseOverButton(this) && gui.pantallaActual == GUI.PANTALLA.SENSOR4) {
                 gui.pantallaActual = GUI.PANTALLA.MENÚ;
+            }
+            if (gui.Ejecutar.mouseOverButton(this) && gui.Ubicacions4.getSelectedValue().equals("Sin ubicación")) {
+                gui.SensorSinHabitacion.addSensor(gui.SensorMapa4);
+            } else if (gui.Ejecutar.mouseOverButton(this) && gui.Ubicacions4.getSelectedValue().equals("Dormitorio")) {
+                gui.Dormitorio.addSensor(gui.SensorMapa4);
+            } else if (gui.Ejecutar.mouseOverButton(this) && gui.Ubicacions4.getSelectedValue().equals("Cocina")) {
+                gui.Cocina.addSensor(gui.SensorMapa4);
+            } else if (gui.Ejecutar.mouseOverButton(this) && gui.Ubicacions4.getSelectedValue().equals("Baño")) {
+                gui.Baño.addSensor(gui.SensorMapa4);
+            } else if (gui.Ejecutar.mouseOverButton(this) && gui.Ubicacions4.getSelectedValue().equals("Pasillo")) {
+                gui.Pasillo.addSensor(gui.SensorMapa4);
+            } else if (gui.Ejecutar.mouseOverButton(this) && gui.Ubicacions4.getSelectedValue().equals("Salón")) {
+                gui.Salón.addSensor(gui.SensorMapa4);
             }
         }
         else{
@@ -785,6 +947,19 @@ public class MainPantalles extends PApplet {
             if (gui.MenuS.mouseOverButton(this)) {
                 gui.pantallaActual = GUI.PANTALLA.MENÚ;
             }
+            if (gui.Ejecutar.mouseOverButton(this) && gui.Ubicacions5.getSelectedValue().equals("Sin ubicación")) {
+                gui.SensorSinHabitacion.addSensor(gui.SensorMapa5);
+            } else if (gui.Ejecutar.mouseOverButton(this) && gui.Ubicacions5.getSelectedValue().equals("Dormitorio")) {
+                gui.Dormitorio.addSensor(gui.SensorMapa5);
+            } else if (gui.Ejecutar.mouseOverButton(this) && gui.Ubicacions5.getSelectedValue().equals("Cocina")) {
+                gui.Cocina.addSensor(gui.SensorMapa5);
+            } else if (gui.Ejecutar.mouseOverButton(this) && gui.Ubicacions5.getSelectedValue().equals("Baño")) {
+                gui.Baño.addSensor(gui.SensorMapa5);
+            } else if (gui.Ejecutar.mouseOverButton(this) && gui.Ubicacions5.getSelectedValue().equals("Pasillo")) {
+                gui.Pasillo.addSensor(gui.SensorMapa5);
+            } else if (gui.Ejecutar.mouseOverButton(this) && gui.Ubicacions5.getSelectedValue().equals("Salón")) {
+                gui.Salón.addSensor(gui.SensorMapa5);
+            }
         }
         else{
             gui.MenuS.setEnabled(false);
@@ -817,6 +992,19 @@ public class MainPantalles extends PApplet {
             if (gui.MenuS.mouseOverButton(this)) {
                 gui.pantallaActual = GUI.PANTALLA.MENÚ;
             }
+            if (gui.Ejecutar.mouseOverButton(this) && gui.Ubicacions6.getSelectedValue().equals("Sin ubicación")) {
+                gui.SensorSinHabitacion.addSensor(gui.SensorMapa6);
+            } else if (gui.Ejecutar.mouseOverButton(this) && gui.Ubicacions6.getSelectedValue().equals("Dormitorio")) {
+                gui.Dormitorio.addSensor(gui.SensorMapa6);
+            } else if (gui.Ejecutar.mouseOverButton(this) && gui.Ubicacions6.getSelectedValue().equals("Cocina")) {
+                gui.Cocina.addSensor(gui.SensorMapa6);
+            } else if (gui.Ejecutar.mouseOverButton(this) && gui.Ubicacions6.getSelectedValue().equals("Baño")) {
+                gui.Baño.addSensor(gui.SensorMapa6);
+            } else if (gui.Ejecutar.mouseOverButton(this) && gui.Ubicacions6.getSelectedValue().equals("Pasillo")) {
+                gui.Pasillo.addSensor(gui.SensorMapa6);
+            } else if (gui.Ejecutar.mouseOverButton(this) && gui.Ubicacions6.getSelectedValue().equals("Salón")) {
+                gui.Salón.addSensor(gui.SensorMapa6);
+            }
         }
         else{
             gui.MenuS.setEnabled(false);
@@ -848,6 +1036,19 @@ public class MainPantalles extends PApplet {
             }
             if (gui.MenuS.mouseOverButton(this)) {
                 gui.pantallaActual = GUI.PANTALLA.MENÚ;
+            }
+            if (gui.Ejecutar.mouseOverButton(this) && gui.Ubicacions7.getSelectedValue().equals("Sin ubicación")) {
+                gui.SensorSinHabitacion.addSensor(gui.SensorMapa7);
+            } else if (gui.Ejecutar.mouseOverButton(this) && gui.Ubicacions7.getSelectedValue().equals("Dormitorio")) {
+                gui.Dormitorio.addSensor(gui.SensorMapa7);
+            } else if (gui.Ejecutar.mouseOverButton(this) && gui.Ubicacions7.getSelectedValue().equals("Cocina")) {
+                gui.Cocina.addSensor(gui.SensorMapa7);
+            } else if (gui.Ejecutar.mouseOverButton(this) && gui.Ubicacions7.getSelectedValue().equals("Baño")) {
+                gui.Baño.addSensor(gui.SensorMapa7);
+            } else if (gui.Ejecutar.mouseOverButton(this) && gui.Ubicacions7.getSelectedValue().equals("Pasillo")) {
+                gui.Pasillo.addSensor(gui.SensorMapa7);
+            } else if (gui.Ejecutar.mouseOverButton(this) && gui.Ubicacions7.getSelectedValue().equals("Salón")) {
+                gui.Salón.addSensor(gui.SensorMapa7);
             }
         }
         else{

@@ -58,7 +58,7 @@ public class GUI{
 
     //ActuadorX Afegir botó estadística
     Table ta1, ta2, ta3, ta4, ta5, ta6, ta7;
-    Button InhabilitarActuador, GraficaActuador, BloquearA;
+    Button InhabilitarActuador, GraficaActuador, Ejecutar;
     TextField TNameActuador, ValMax1, ValMin1, ValMax2, ValMin2, ValMax3, ValMin3, ValMax4, ValMin4, ValMax5, ValMin5, ValMax6, ValMin6, ValMax7, ValMin7;
     Select Tipoa1, Ubicaciona1, Arduinoa1, Sensora1;
     Select Tipoa2, Ubicaciona2, Arduinoa2, Sensora2;
@@ -126,7 +126,7 @@ public class GUI{
 
         ImatgeInici = new PImage(marginH, 6*marginV + logoHeight);
         ImatgeInici = p5.loadImage("data/ImatgeCasaAIInfo.jpg");
-        ImatgeLogo.resize(widthImatge, heightImatge);
+        ImatgeInici.resize(widthImatge, heightImatge);
 
 
 
@@ -311,13 +311,13 @@ public class GUI{
         MenuS = new Button (p5, "Volver al menú", XinhabilitarSensor, YinhabilitarSensor, WidthInhabilitarSensor, HeightInhabilitarSensor);
       //  InhabilitarSensor = new Button (p5, "Inhabilitar", XGraficaSensor, (YGraficaSensor+YinhabilitarSensor)/2, WidthGraficaSensor, HeightGraficaSensor);
         TNameSensor = new TextField (p5, XGraficaSensor, YGraficaSensor, WidthGraficaSensor, HeightGraficaSensor);
-        EncesS1 =new SwitchButton(p5, "Off", "On", XGraficaSensor, (YGraficaSensor+YinhabilitarSensor)/2, WidthGraficaSensor, HeightGraficaSensor);
-        EncesS2 =new SwitchButton(p5, "Off", "On", XGraficaSensor, (YGraficaSensor+YinhabilitarSensor)/2, WidthGraficaSensor, HeightGraficaSensor);
-        EncesS3 =new SwitchButton(p5, "Off", "On", XGraficaSensor, (YGraficaSensor+YinhabilitarSensor)/2, WidthGraficaSensor, HeightGraficaSensor);
-        EncesS4 =new SwitchButton(p5, "Off", "On", XGraficaSensor, (YGraficaSensor+YinhabilitarSensor)/2, WidthGraficaSensor, HeightGraficaSensor);
-        EncesS5 =new SwitchButton(p5, "Off", "On", XGraficaSensor, (YGraficaSensor+YinhabilitarSensor)/2, WidthGraficaSensor, HeightGraficaSensor);
-        EncesS6 =new SwitchButton(p5, "Off", "On", XGraficaSensor, (YGraficaSensor+YinhabilitarSensor)/2, WidthGraficaSensor, HeightGraficaSensor);
-        EncesS7 =new SwitchButton(p5, "Off", "On", XGraficaSensor, (YGraficaSensor+YinhabilitarSensor)/2, WidthGraficaSensor, HeightGraficaSensor);
+        EncesS1 =new SwitchButton(p5, "Off", "On", XGraficaSensor, YGraficaSensor+2*HeightGraficaSensor+12, WidthGraficaSensor, HeightGraficaSensor);
+        EncesS2 =new SwitchButton(p5, "Off", "On", XGraficaSensor, YGraficaSensor+2*HeightGraficaSensor+12, WidthGraficaSensor, HeightGraficaSensor);
+        EncesS3 =new SwitchButton(p5, "Off", "On", XGraficaSensor, YGraficaSensor+2*HeightGraficaSensor+12, WidthGraficaSensor, HeightGraficaSensor);
+        EncesS4 =new SwitchButton(p5, "Off", "On", XGraficaSensor, YGraficaSensor+2*HeightGraficaSensor+12, WidthGraficaSensor, HeightGraficaSensor);
+        EncesS5 =new SwitchButton(p5, "Off", "On", XGraficaSensor, YGraficaSensor+2*HeightGraficaSensor+12, WidthGraficaSensor, HeightGraficaSensor);
+        EncesS6 =new SwitchButton(p5, "Off", "On", XGraficaSensor, YGraficaSensor+2*HeightGraficaSensor+12, WidthGraficaSensor, HeightGraficaSensor);
+        EncesS7 =new SwitchButton(p5, "Off", "On", XGraficaSensor, YGraficaSensor+2*HeightGraficaSensor+12, WidthGraficaSensor, HeightGraficaSensor);
 
         //  Pantalla actuador X
         int filesA = 2, columnesA = 6;
@@ -488,17 +488,17 @@ public class GUI{
 
         GraficaActuador = new Button (p5, "Gráfica del actuador", XGraficaSensor, YGraficaSensor, WidthGraficaSensor, HeightGraficaSensor);
         MenuAct =new Button (p5, "Volver al menú del actuador", XinhabilitarActuador, YinhabilitarActuador, WidthInhabilitarActuador, HeightInhabilitarActuador);
-       // BloquearA = new Button (p5, "Bloquear ActuadorS1", XinhabilitarActuador, (YinhabilitarActuador+YinhabilitarActuador)/2-40-2*HeightGraficaActuador, WidthInhabilitarActuador, HeightInhabilitarActuador);
+        Ejecutar = new Button (p5, "Ejecutar", XinhabilitarActuador, YGraficaSensor+HeightGraficaSensor+6, WidthInhabilitarActuador, HeightInhabilitarActuador);
        // InhabilitarActuador = new Button (p5, "Inhabilitar", XinhabilitarActuador, (YinhabilitarActuador+YinhabilitarActuador)/2-20-HeightGraficaActuador, WidthInhabilitarActuador, HeightInhabilitarActuador);
         TNameActuador = new TextField (p5, XGraficaActuador, YGraficaActuador, WidthGraficaActuador, HeightGraficaActuador);
 
-        EncesA1 =new SwitchButton(p5, "Off", "On", XGraficaSensor, (YGraficaSensor+YinhabilitarSensor)/2, WidthGraficaSensor, HeightGraficaSensor);
-        EncesA2 =new SwitchButton(p5, "Off", "On", XGraficaSensor, (YGraficaSensor+YinhabilitarSensor)/2, WidthGraficaSensor, HeightGraficaSensor);
-        EncesA3 =new SwitchButton(p5, "Off", "On", XGraficaSensor, (YGraficaSensor+YinhabilitarSensor)/2, WidthGraficaSensor, HeightGraficaSensor);
-        EncesA4 =new SwitchButton(p5, "Off", "On", XGraficaSensor, (YGraficaSensor+YinhabilitarSensor)/2, WidthGraficaSensor, HeightGraficaSensor);
-        EncesA5 =new SwitchButton(p5, "Off", "On", XGraficaSensor, (YGraficaSensor+YinhabilitarSensor)/2, WidthGraficaSensor, HeightGraficaSensor);
-        EncesA6 =new SwitchButton(p5, "Off", "On", XGraficaSensor, (YGraficaSensor+YinhabilitarSensor)/2, WidthGraficaSensor, HeightGraficaSensor);
-        EncesA7 =new SwitchButton(p5, "Off", "On", XGraficaSensor, (YGraficaSensor+YinhabilitarSensor)/2, WidthGraficaSensor, HeightGraficaSensor);
+        EncesA1 =new SwitchButton(p5, "Off", "On", XGraficaSensor, YGraficaSensor+2*HeightGraficaSensor+12, WidthGraficaSensor, HeightGraficaSensor);
+        EncesA2 =new SwitchButton(p5, "Off", "On", XGraficaSensor, YGraficaSensor+2*HeightGraficaSensor+12, WidthGraficaSensor, HeightGraficaSensor);
+        EncesA3 =new SwitchButton(p5, "Off", "On", XGraficaSensor, YGraficaSensor+2*HeightGraficaSensor+12, WidthGraficaSensor, HeightGraficaSensor);
+        EncesA4 =new SwitchButton(p5, "Off", "On", XGraficaSensor, YGraficaSensor+2*HeightGraficaSensor+12, WidthGraficaSensor, HeightGraficaSensor);
+        EncesA5 =new SwitchButton(p5, "Off", "On", XGraficaSensor, YGraficaSensor+2*HeightGraficaSensor+12, WidthGraficaSensor, HeightGraficaSensor);
+        EncesA6 =new SwitchButton(p5, "Off", "On", XGraficaSensor, YGraficaSensor+2*HeightGraficaSensor+12, WidthGraficaSensor, HeightGraficaSensor);
+        EncesA7 =new SwitchButton(p5, "Off", "On", XGraficaSensor, YGraficaSensor+2*HeightGraficaSensor+12, WidthGraficaSensor, HeightGraficaSensor);
 
         //Pantalla estadística Sensor x
 
@@ -856,8 +856,10 @@ public class GUI{
         // Habitació Seleccionada (cap)
         hSelected = null;
         }
-    public void canviUbi(){
-        if (Ubicacions1.getSelectedValue().equals("") || Ubicacions1.getSelectedValue().equals("Sin ubicación")) {
+
+
+    public void mousePressed(){/*
+        if (Ubicacions1.getSelectedValue().equals("Sin ubicación")) {
             SensorSinHabitacion.addSensor(SensorMapa1);
         } else if (Ubicacions1.getSelectedValue().equals("Dormitorio")) {
             Dormitorio.addSensor(SensorMapa1);
@@ -1052,7 +1054,7 @@ public class GUI{
             Pasillo.addSensor(ActuadorMapa7);
         } else if (Ubicaciona7.getSelectedValue().equals("Salón")) {
             Salón.addSensor(ActuadorMapa7);
-        }
+        }*/
     }
 
     // PANTALLES DE LA GUI
@@ -1100,6 +1102,7 @@ public class GUI{
 
         p5.pushStyle();
         //p5.textAlign(p5.LEFT);
+        Ejecutar.display(p5);
         GraficaSensor.display(p5);
         EncesS1.display(p5);
         MenuS.display(p5);
@@ -1107,12 +1110,13 @@ public class GUI{
         Ubicacions1.display(p5);
         Arduino1.display(p5);
         ActuadorS1.display(p5);
+
         p5.popStyle();
 
        // TNameSensor.display(p5);
         p5.textFont(Fonts.getFontAt(2));
        // p5.text("          Nombre sensor:", /*XGraficaSensor*/ 708, /*YGraficaSensor*/ 239);
-        canviUbi();
+        mousePressed();
 
         for(int i=0; i<habitacions.length; i++) {
             habitacions[i].dibuixa(p5);
@@ -1127,7 +1131,7 @@ public class GUI{
 
 
         bbdd.updateCosesSensor(tipoSensorNou, puertoArduino, encendido, ubicacion, actuador, identificadorSensor);
-        p5.image(ImatgeLogo, marginH, marginV , logoWidth, logoHeight);
+        p5.image(ImatgeLogo, marginH, marginV , midaLogo, midaLogo);
     }
 
     public void dibuixaPantallaSensor2(PApplet p5){
@@ -1143,18 +1147,20 @@ public class GUI{
         p5.pushStyle();
         //p5.textAlign(p5.LEFT);
         GraficaSensor.display(p5);
+        Ejecutar.display(p5);
         EncesS2.display(p5);
         MenuS.display(p5);
         Tipos2.display(p5);
         Ubicacions2.display(p5);
         Arduino2.display(p5);
         ActuadorS2.display(p5);
+
         p5.popStyle();
 
         // TNameSensor.display(p5);
         p5.textFont(Fonts.getFontAt(2));
         // p5.text("          Nombre sensor:", /*XGraficaSensor*/ 708, /*YGraficaSensor*/ 239);
-        canviUbi();
+        mousePressed();
 
         for(int i=0; i<habitacions.length; i++) {
             habitacions[i].dibuixa(p5);
@@ -1169,7 +1175,7 @@ public class GUI{
 
 
         bbdd.updateCosesSensor(tipoSensorNou, puertoArduino, encendido, ubicacion, actuador, identificadorSensor);
-        p5.image(ImatgeLogo, marginH, marginV , logoWidth, logoHeight);
+        p5.image(ImatgeLogo, marginH, marginV ,midaLogo, midaLogo);
     }
 
     public void dibuixaPantallaSensor3(PApplet p5){
@@ -1179,6 +1185,7 @@ public class GUI{
         Logo.display(p5);
         p5.textFont(Fonts.getFontAt(1));
         // dibuixaImatgeMapa(p5);
+        Ejecutar.display(p5);
 
         p5.textFont(Fonts.getFontAt(2));
         ts3.display(p5, XTaules, YTaules/*+(heightImatge/2)-heightTaules/2+8*/, widthTaules, heightTaules);
@@ -1190,10 +1197,11 @@ public class GUI{
         Arduino3.display(p5);
         ActuadorS3.display(p5);
 
+
         // TNameSensor.display(p5);
         p5.textFont(Fonts.getFontAt(2));
         // p5.text("          Nombre sensor:", /*XGraficaSensor*/ 708, /*YGraficaSensor*/ 239);
-        canviUbi();
+        mousePressed();
 
         for(int i=0; i<habitacions.length; i++) {
             habitacions[i].dibuixa(p5);
@@ -1207,7 +1215,7 @@ public class GUI{
 
 
         bbdd.updateCosesSensor(tipoSensorNou, puertoArduino, encendido, ubicacion, actuador, identificadorSensor);
-        p5.image(ImatgeLogo, marginH, marginV , logoWidth, logoHeight);
+        p5.image(ImatgeLogo, marginH, marginV , midaLogo, midaLogo);
     }
 
     public void dibuixaPantallaSensor4(PApplet p5){
@@ -1217,7 +1225,7 @@ public class GUI{
         Logo.display(p5);
         p5.textFont(Fonts.getFontAt(1));
         // dibuixaImatgeMapa(p5);
-
+        Ejecutar.display(p5);
         p5.textFont(Fonts.getFontAt(2));
         ts4.display(p5, XTaules, YTaules/*+(heightImatge/2)-heightTaules/2+8*/, widthTaules, heightTaules);
         GraficaSensor.display(p5);
@@ -1228,10 +1236,11 @@ public class GUI{
         Arduino4.display(p5);
         ActuadorS4.display(p5);
 
+
         // TNameSensor.display(p5);
         p5.textFont(Fonts.getFontAt(2));
         // p5.text("          Nombre sensor:", /*XGraficaSensor*/ 708, /*YGraficaSensor*/ 239);
-        canviUbi();
+        mousePressed();
 
         for(int i=0; i<habitacions.length; i++) {
             habitacions[i].dibuixa(p5);
@@ -1246,7 +1255,7 @@ public class GUI{
 
 
         bbdd.updateCosesSensor(tipoSensorNou, puertoArduino, encendido, ubicacion, actuador, identificadorSensor);
-        p5.image(ImatgeLogo, marginH, marginV , logoWidth, logoHeight);
+        p5.image(ImatgeLogo, marginH, marginV , midaLogo, midaLogo);
     }
 
     public void dibuixaPantallaSensor5(PApplet p5){
@@ -1256,7 +1265,7 @@ public class GUI{
         Logo.display(p5);
         p5.textFont(Fonts.getFontAt(1));
         // dibuixaImatgeMapa(p5);
-
+        Ejecutar.display(p5);
         p5.textFont(Fonts.getFontAt(2));
         ts5.display(p5, XTaules, YTaules/*+(heightImatge/2)-heightTaules/2+8*/, widthTaules, heightTaules);
         GraficaSensor.display(p5);
@@ -1267,10 +1276,11 @@ public class GUI{
         Arduino5.display(p5);
         ActuadorS5.display(p5);
 
+
         // TNameSensor.display(p5);
         p5.textFont(Fonts.getFontAt(2));
         // p5.text("          Nombre sensor:", /*XGraficaSensor*/ 708, /*YGraficaSensor*/ 239);
-        canviUbi();
+        mousePressed();
 
         for(int i=0; i<habitacions.length; i++) {
             habitacions[i].dibuixa(p5);
@@ -1284,7 +1294,7 @@ public class GUI{
 
 
         bbdd.updateCosesSensor(tipoSensorNou, puertoArduino, encendido, ubicacion, actuador, identificadorSensor);
-        p5.image(ImatgeLogo, marginH, marginV , logoWidth, logoHeight);
+        p5.image(ImatgeLogo, marginH, marginV , midaLogo, midaLogo);
     }
 
     public void dibuixaPantallaSensor6(PApplet p5){
@@ -1298,6 +1308,7 @@ public class GUI{
         p5.textFont(Fonts.getFontAt(2));
         ts6.display(p5, XTaules, YTaules/*+(heightImatge/2)-heightTaules/2+8*/, widthTaules, heightTaules);
         GraficaSensor.display(p5);
+        Ejecutar.display(p5);
         EncesS6.display(p5);
         MenuS.display(p5);
         Tipos6.display(p5);
@@ -1305,10 +1316,11 @@ public class GUI{
         Arduino6.display(p5);
         ActuadorS6.display(p5);
 
+
         // TNameSensor.display(p5);
         p5.textFont(Fonts.getFontAt(2));
         // p5.text("          Nombre sensor:", /*XGraficaSensor*/ 708, /*YGraficaSensor*/ 239);
-        canviUbi();
+        mousePressed();
 
         for(int i=0; i<habitacions.length; i++) {
             habitacions[i].dibuixa(p5);
@@ -1322,7 +1334,7 @@ public class GUI{
 
 
         bbdd.updateCosesSensor(tipoSensorNou, puertoArduino, encendido, ubicacion, actuador, identificadorSensor);
-        p5.image(ImatgeLogo, marginH, marginV , logoWidth, logoHeight);
+        p5.image(ImatgeLogo, marginH, marginV , midaLogo, midaLogo);
     }
 
     public void dibuixaPantallaSensor7(PApplet p5){
@@ -1336,6 +1348,7 @@ public class GUI{
         p5.textFont(Fonts.getFontAt(2));
         ts7.display(p5, XTaules, YTaules/*+(heightImatge/2)-heightTaules/2+8*/, widthTaules, heightTaules);
         GraficaSensor.display(p5);
+        Ejecutar.display(p5);
         EncesS7.display(p5);
         MenuS.display(p5);
         Tipos7.display(p5);
@@ -1343,10 +1356,11 @@ public class GUI{
         Arduino7.display(p5);
         ActuadorS7.display(p5);
 
+
         // TNameSensor.display(p5);
         p5.textFont(Fonts.getFontAt(2));
         // p5.text("          Nombre sensor:", /*XGraficaSensor*/ 708, /*YGraficaSensor*/ 239);
-        canviUbi();
+        mousePressed();
 
         for(int i=0; i<habitacions.length; i++) {
             habitacions[i].dibuixa(p5);
@@ -1360,7 +1374,7 @@ public class GUI{
 
 
         bbdd.updateCosesSensor(tipoSensorNou, puertoArduino, encendido, ubicacion, actuador, identificadorSensor);
-        p5.image(ImatgeLogo, marginH, marginV , logoWidth, logoHeight);
+        p5.image(ImatgeLogo, marginH, marginV , midaLogo, midaLogo);
     }
 
     public void dibuixaPantallaPlano(PApplet p5){
@@ -1391,12 +1405,12 @@ public class GUI{
 
         Instrucciones.display(p5);
 
-        canviUbi();
+        mousePressed();
 
         for(int i=0; i<habitacions.length; i++) {
             habitacions[i].dibuixa(p5);
         }
-        p5.image(ImatgeLogo, marginH, marginV , logoWidth, logoHeight);
+        p5.image(ImatgeLogo, marginH, marginV , midaLogo, midaLogo);
     }
 
 
@@ -1412,6 +1426,7 @@ public class GUI{
         p5.textFont(Fonts.getFontAt(2));
         ta1.display(p5, XTaules, YTaules/*+(heightImatge/2)-heightTaules/2+8*/, widthTaules, heightTaules);
         GraficaActuador.display(p5);
+        Ejecutar.display(p5);
         EncesA1.display(p5);
         MenuS.display(p5);
         Tipoa1.display(p5);
@@ -1419,13 +1434,14 @@ public class GUI{
         Arduinoa1.display(p5);
         Sensora1.display(p5);
 
+
         ValMin1.display(p5);
         ValMax1.display(p5);
 
         //  TNameActuador.display(p5);
         p5.textFont(Fonts.getFontAt(2));
         // p5.text("               Nombre actuador:", /*XGraficaSensor*/ 708, /*YGraficaSensor*/ 239);
-        canviUbi();
+        mousePressed();
 
         for(int i=0; i<habitacions.length; i++) {
             habitacions[i].dibuixa(p5);
@@ -1440,7 +1456,7 @@ public class GUI{
         String identificadorActuador = ActuadorMapa1.getNom();
 
         bbdd.updateCosesActuador(puertoArduino, valorMinParaActuar, valorMaxParaActuar, encendido, ubicacion, tipoActuador, identificadorActuador);
-        p5.image(ImatgeLogo, marginH, marginV , logoWidth, logoHeight);
+        p5.image(ImatgeLogo, marginH, marginV , midaLogo, midaLogo);
     }
     public void dibuixaPantallaActuador2(PApplet p5){
         p5.background(255);
@@ -1453,6 +1469,7 @@ public class GUI{
         p5.textFont(Fonts.getFontAt(2));
         ta2.display(p5, XTaules, YTaules/*+(heightImatge/2)-heightTaules/2+8*/, widthTaules, heightTaules);
         GraficaActuador.display(p5);
+        Ejecutar.display(p5);
         EncesA2.display(p5);
         MenuS.display(p5);
         Tipoa2.display(p5);
@@ -1460,13 +1477,14 @@ public class GUI{
         Arduinoa2.display(p5);
         Sensora2.display(p5);
 
+
         ValMin2.display(p5);
         ValMax2.display(p5);
 
         //  TNameActuador.display(p5);
         p5.textFont(Fonts.getFontAt(2));
         // p5.text("               Nombre actuador:", /*XGraficaSensor*/ 708, /*YGraficaSensor*/ 239);
-        canviUbi();
+        mousePressed();
 
         for(int i=0; i<habitacions.length; i++) {
             habitacions[i].dibuixa(p5);
@@ -1481,7 +1499,7 @@ public class GUI{
         String identificadorActuador = ActuadorMapa2.getNom();
 
         bbdd.updateCosesActuador(puertoArduino, valorMinParaActuar, valorMaxParaActuar, encendido, ubicacion, tipoActuador, identificadorActuador);
-        p5.image(ImatgeLogo, marginH, marginV , logoWidth, logoHeight);
+        p5.image(ImatgeLogo, marginH, marginV , midaLogo, midaLogo);
     }
     public void dibuixaPantallaActuador3(PApplet p5){
         p5.background(255);
@@ -1494,6 +1512,7 @@ public class GUI{
         p5.textFont(Fonts.getFontAt(2));
         ta3.display(p5, XTaules, YTaules/*+(heightImatge/2)-heightTaules/2+8*/, widthTaules, heightTaules);
         GraficaActuador.display(p5);
+        Ejecutar.display(p5);
         EncesA3.display(p5);
         MenuS.display(p5);
         Tipoa3.display(p5);
@@ -1501,13 +1520,14 @@ public class GUI{
         Arduinoa3.display(p5);
         Sensora3.display(p5);
 
+
         ValMin3.display(p5);
         ValMax3.display(p5);
 
         //  TNameActuador.display(p5);
         p5.textFont(Fonts.getFontAt(2));
         // p5.text("               Nombre actuador:", /*XGraficaSensor*/ 708, /*YGraficaSensor*/ 239);
-        canviUbi();
+        mousePressed();
 
         for(int i=0; i<habitacions.length; i++) {
             habitacions[i].dibuixa(p5);
@@ -1522,7 +1542,7 @@ public class GUI{
         String identificadorActuador = ActuadorMapa3.getNom();
 
         bbdd.updateCosesActuador(puertoArduino, valorMinParaActuar, valorMaxParaActuar, encendido, ubicacion, tipoActuador, identificadorActuador);
-        p5.image(ImatgeLogo, marginH, marginV , logoWidth, logoHeight);
+        p5.image(ImatgeLogo, marginH, marginV , midaLogo, midaLogo);
     }
     public void dibuixaPantallaActuador4(PApplet p5){
         p5.background(255);
@@ -1535,6 +1555,7 @@ public class GUI{
         p5.textFont(Fonts.getFontAt(2));
         ta4.display(p5, XTaules, YTaules/*+(heightImatge/2)-heightTaules/2+8*/, widthTaules, heightTaules);
         GraficaActuador.display(p5);
+        Ejecutar.display(p5);
         EncesA4.display(p5);
         MenuS.display(p5);
         Tipoa4.display(p5);
@@ -1542,13 +1563,14 @@ public class GUI{
         Arduinoa4.display(p5);
         Sensora4.display(p5);
 
+
         ValMin4.display(p5);
         ValMax4.display(p5);
 
         //  TNameActuador.display(p5);
         p5.textFont(Fonts.getFontAt(2));
         // p5.text("               Nombre actuador:", /*XGraficaSensor*/ 708, /*YGraficaSensor*/ 239);
-        canviUbi();
+        mousePressed();
 
         for(int i=0; i<habitacions.length; i++) {
             habitacions[i].dibuixa(p5);
@@ -1563,7 +1585,7 @@ public class GUI{
         String identificadorActuador = ActuadorMapa4.getNom();
 
         bbdd.updateCosesActuador(puertoArduino, valorMinParaActuar, valorMaxParaActuar, encendido, ubicacion, tipoActuador, identificadorActuador);
-        p5.image(ImatgeLogo, marginH, marginV , logoWidth, logoHeight);
+        p5.image(ImatgeLogo, marginH, marginV , midaLogo, midaLogo);
     }
     public void dibuixaPantallaActuador5(PApplet p5){
         p5.background(255);
@@ -1576,6 +1598,7 @@ public class GUI{
         p5.textFont(Fonts.getFontAt(2));
         ta5.display(p5, XTaules, YTaules/*+(heightImatge/2)-heightTaules/2+8*/, widthTaules, heightTaules);
         GraficaActuador.display(p5);
+        Ejecutar.display(p5);
         EncesA5.display(p5);
         MenuS.display(p5);
         Tipoa5.display(p5);
@@ -1583,13 +1606,14 @@ public class GUI{
         Arduinoa5.display(p5);
         Sensora5.display(p5);
 
+
         ValMin5.display(p5);
         ValMax5.display(p5);
 
         //  TNameActuador.display(p5);
         p5.textFont(Fonts.getFontAt(2));
         // p5.text("               Nombre actuador:", /*XGraficaSensor*/ 708, /*YGraficaSensor*/ 239);
-        canviUbi();
+        mousePressed();
 
         for(int i=0; i<habitacions.length; i++) {
             habitacions[i].dibuixa(p5);
@@ -1604,7 +1628,7 @@ public class GUI{
         String identificadorActuador = ActuadorMapa5.getNom();
 
         bbdd.updateCosesActuador(puertoArduino, valorMinParaActuar, valorMaxParaActuar, encendido, ubicacion, tipoActuador, identificadorActuador);
-        p5.image(ImatgeLogo, marginH, marginV , logoWidth, logoHeight);
+        p5.image(ImatgeLogo, marginH, marginV , midaLogo, midaLogo);
     }
     public void dibuixaPantallaActuador6(PApplet p5){
         p5.background(255);
@@ -1617,6 +1641,7 @@ public class GUI{
         p5.textFont(Fonts.getFontAt(2));
         ta6.display(p5, XTaules, YTaules/*+(heightImatge/2)-heightTaules/2+8*/, widthTaules, heightTaules);
         GraficaActuador.display(p5);
+        Ejecutar.display(p5);
         EncesA6.display(p5);
         MenuS.display(p5);
         Tipoa6.display(p5);
@@ -1624,17 +1649,18 @@ public class GUI{
         Arduinoa6.display(p5);
         Sensora6.display(p5);
 
+
         ValMin6.display(p5);
         ValMax6.display(p5);
 
         //  TNameActuador.display(p5);
         p5.textFont(Fonts.getFontAt(2));
         // p5.text("               Nombre actuador:", /*XGraficaSensor*/ 708, /*YGraficaSensor*/ 239);
-        canviUbi();
+        mousePressed();
 
         for(int i=0; i<habitacions.length; i++) {
             habitacions[i].dibuixa(p5);
-            p5.image(ImatgeLogo, marginH, marginV , logoWidth, logoHeight);
+            p5.image(ImatgeLogo, marginH, marginV , midaLogo, midaLogo);
         }
 
         String puertoArduino = Arduinoa6.getSelectedValue();
@@ -1659,6 +1685,7 @@ public class GUI{
         p5.textFont(Fonts.getFontAt(2));
         ta7.display(p5, XTaules, YTaules/*+(heightImatge/2)-heightTaules/2+8*/, widthTaules, heightTaules);
         GraficaActuador.display(p5);
+        Ejecutar.display(p5);
         EncesA7.display(p5);
         MenuS.display(p5);
         Tipoa7.display(p5);
@@ -1666,13 +1693,14 @@ public class GUI{
         Arduinoa7.display(p5);
         Sensora7.display(p5);
 
+
         ValMin7.display(p5);
         ValMax7.display(p5);
 
         //  TNameActuador.display(p5);
         p5.textFont(Fonts.getFontAt(2));
         // p5.text("               Nombre actuador:", /*XGraficaSensor*/ 708, /*YGraficaSensor*/ 239);
-        canviUbi();
+        mousePressed();
 
         for(int i=0; i<habitacions.length; i++) {
             habitacions[i].dibuixa(p5);
@@ -1687,7 +1715,7 @@ public class GUI{
         String identificadorActuador = ActuadorMapa7.getNom();
 
         bbdd.updateCosesActuador(puertoArduino, valorMinParaActuar, valorMaxParaActuar, encendido, ubicacion, tipoActuador, identificadorActuador);
-        p5.image(ImatgeLogo, marginH, marginV , logoWidth, logoHeight);
+        p5.image(ImatgeLogo, marginH, marginV , midaLogo, midaLogo);
     }
 
     public void dibuixaPantallaEstadisticaSensor1(PApplet p5){
@@ -1716,7 +1744,7 @@ public class GUI{
         p5.text("Rango(t):", XUsuari+2*marginH, (YActuadors+YinhabilitarActuador)/2, WidthInhabilitarActuador, HeightInhabilitarSensor/2);
         Rangot.display(p5);
         Unidadest.display(p5);
-        p5.image(ImatgeLogo, marginH, marginV , logoWidth, logoHeight);
+        p5.image(ImatgeLogo, marginH, marginV , midaLogo, midaLogo);
     }
 
     public void dibuixaPantallaEstadisticaSensor2(PApplet p5){
@@ -1745,7 +1773,7 @@ public class GUI{
         p5.text("Rango(t):", XUsuari+2*marginH, (YActuadors+YinhabilitarActuador)/2, WidthInhabilitarActuador, HeightInhabilitarSensor/2);
         Rangot.display(p5);
         Unidadest.display(p5);
-        p5.image(ImatgeLogo, marginH, marginV , logoWidth, logoHeight);
+        p5.image(ImatgeLogo, marginH, marginV , midaLogo, midaLogo);
     }
 
     public void dibuixaPantallaEstadisticaSensor3(PApplet p5){
@@ -1774,7 +1802,7 @@ public class GUI{
         p5.text("Rango(t):", XUsuari+2*marginH, (YActuadors+YinhabilitarActuador)/2, WidthInhabilitarActuador, HeightInhabilitarSensor/2);
         Rangot.display(p5);
         Unidadest.display(p5);
-        p5.image(ImatgeLogo, marginH, marginV , logoWidth, logoHeight);
+        p5.image(ImatgeLogo, marginH, marginV , midaLogo, midaLogo);
     }
 
     public void dibuixaPantallaEstadisticaSensor4(PApplet p5){
@@ -1803,7 +1831,7 @@ public class GUI{
         p5.text("Rango(t):", XUsuari+2*marginH, (YActuadors+YinhabilitarActuador)/2, WidthInhabilitarActuador, HeightInhabilitarSensor/2);
         Rangot.display(p5);
         Unidadest.display(p5);
-        p5.image(ImatgeLogo, marginH, marginV , logoWidth, logoHeight);
+        p5.image(ImatgeLogo, marginH, marginV , midaLogo, midaLogo);
     }
 
     public void dibuixaPantallaEstadisticaSensor5(PApplet p5){
@@ -1832,7 +1860,7 @@ public class GUI{
         p5.text("Rango(t):", XUsuari+2*marginH, (YActuadors+YinhabilitarActuador)/2, WidthInhabilitarActuador, HeightInhabilitarSensor/2);
         Rangot.display(p5);
         Unidadest.display(p5);
-        p5.image(ImatgeLogo, marginH, marginV , logoWidth, logoHeight);
+        p5.image(ImatgeLogo, marginH, marginV , midaLogo, midaLogo);
     }
 
     public void dibuixaPantallaEstadisticaSensor6(PApplet p5){
@@ -1861,7 +1889,7 @@ public class GUI{
         p5.text("Rango(t):", XUsuari+2*marginH, (YActuadors+YinhabilitarActuador)/2, WidthInhabilitarActuador, HeightInhabilitarSensor/2);
         Rangot.display(p5);
         Unidadest.display(p5);
-        p5.image(ImatgeLogo, marginH, marginV , logoWidth, logoHeight);
+        p5.image(ImatgeLogo, marginH, marginV , midaLogo, midaLogo);
     }
 
     public void dibuixaPantallaEstadisticaSensor7(PApplet p5){
@@ -1890,7 +1918,7 @@ public class GUI{
         p5.text("Rango(t):", XUsuari+2*marginH, (YActuadors+YinhabilitarActuador)/2, WidthInhabilitarActuador, HeightInhabilitarSensor/2);
         Rangot.display(p5);
         Unidadest.display(p5);
-        p5.image(ImatgeLogo, marginH, marginV , logoWidth, logoHeight);
+        p5.image(ImatgeLogo, marginH, marginV , midaLogo, midaLogo);
     }
 
     public void dibuixaPantallaEstadisticaActuador1(PApplet p5){
@@ -1917,7 +1945,7 @@ public class GUI{
         p5.text("Rango(t):", XUsuari+2*marginH, (YActuadors+YinhabilitarActuador)/2, WidthInhabilitarActuador, HeightInhabilitarSensor/2);
         Rangot.display(p5);
         Unidadest.display(p5);
-        p5.image(ImatgeLogo, marginH, marginV , logoWidth, logoHeight);
+        p5.image(ImatgeLogo, marginH, marginV , midaLogo, midaLogo);
     }
 
     public void dibuixaPantallaEstadisticaActuador2(PApplet p5){
@@ -1944,7 +1972,7 @@ public class GUI{
         p5.text("Rango(t):", XUsuari+2*marginH, (YActuadors+YinhabilitarActuador)/2, WidthInhabilitarActuador, HeightInhabilitarSensor/2);
         Rangot.display(p5);
         Unidadest.display(p5);
-        p5.image(ImatgeLogo, marginH, marginV , logoWidth, logoHeight);
+        p5.image(ImatgeLogo, marginH, marginV , midaLogo, midaLogo);
     }
 
     public void dibuixaPantallaEstadisticaActuador3(PApplet p5){
@@ -1971,7 +1999,7 @@ public class GUI{
         p5.text("Rango(t):", XUsuari+2*marginH, (YActuadors+YinhabilitarActuador)/2, WidthInhabilitarActuador, HeightInhabilitarSensor/2);
         Rangot.display(p5);
         Unidadest.display(p5);
-        p5.image(ImatgeLogo, marginH, marginV , logoWidth, logoHeight);
+        p5.image(ImatgeLogo, marginH, marginV , midaLogo, midaLogo);
     }
 
     public void dibuixaPantallaEstadisticaActuador4(PApplet p5){
@@ -1998,7 +2026,7 @@ public class GUI{
         p5.text("Rango(t):", XUsuari+2*marginH, (YActuadors+YinhabilitarActuador)/2, WidthInhabilitarActuador, HeightInhabilitarSensor/2);
         Rangot.display(p5);
         Unidadest.display(p5);
-        p5.image(ImatgeLogo, marginH, marginV , logoWidth, logoHeight);
+        p5.image(ImatgeLogo, marginH, marginV , midaLogo, midaLogo);
     }
 
     public void dibuixaPantallaEstadisticaActuador5(PApplet p5){
@@ -2025,7 +2053,7 @@ public class GUI{
         p5.text("Rango(t):", XUsuari+2*marginH, (YActuadors+YinhabilitarActuador)/2, WidthInhabilitarActuador, HeightInhabilitarSensor/2);
         Rangot.display(p5);
         Unidadest.display(p5);
-        p5.image(ImatgeLogo, marginH, marginV , logoWidth, logoHeight);
+        p5.image(ImatgeLogo, marginH, marginV , midaLogo, midaLogo);
     }
 
     public void dibuixaPantallaEstadisticaActuador6(PApplet p5){
@@ -2052,7 +2080,7 @@ public class GUI{
         p5.text("Rango(t):", XUsuari+2*marginH, (YActuadors+YinhabilitarActuador)/2, WidthInhabilitarActuador, HeightInhabilitarSensor/2);
         Rangot.display(p5);
         Unidadest.display(p5);
-        p5.image(ImatgeLogo, marginH, marginV , logoWidth, logoHeight);
+        p5.image(ImatgeLogo, marginH, marginV , midaLogo, midaLogo);
     }
 
     public void dibuixaPantallaEstadisticaActuador7(PApplet p5){
@@ -2079,7 +2107,7 @@ public class GUI{
         p5.text("Rango(t):", XUsuari+2*marginH, (YActuadors+YinhabilitarActuador)/2, WidthInhabilitarActuador, HeightInhabilitarSensor/2);
         Rangot.display(p5);
         Unidadest.display(p5);
-        p5.image(ImatgeLogo, marginH, marginV , logoWidth, logoHeight);
+        p5.image(ImatgeLogo, marginH, marginV , midaLogo, midaLogo);
     }
 
     public void dibuixaPantallaInstrucciones(PApplet p5){
@@ -2094,7 +2122,7 @@ public class GUI{
             habitacions[i].dibuixa(p5);
         }
 */
-        p5.image(ImatgeLogo, marginH, marginV , logoWidth, logoHeight);
+        p5.image(ImatgeLogo, marginH, marginV , midaLogo, midaLogo);
     }
     // ZONES DE LA GUI
 

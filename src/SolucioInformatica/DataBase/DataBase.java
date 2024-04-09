@@ -316,14 +316,14 @@ public class DataBase {
     }
 
     public String getUbicacionActuador(String idActuador)  {
-        String Ubicacion = new String();
+        String UbicacionA = new String();
         try {
             ResultSet rs = query.executeQuery( "SELECT ubicacion FROM actuador WHERE idActuador = '"+idActuador+"'");
             rs.next();
-            Ubicacion = rs.getString("ubicacion");
+            UbicacionA = rs.getString("ubicacion");
 
             //return new String[]{String.valueOf(rs.getInt("nombre"))};
-            return Ubicacion;
+            return UbicacionA;
         }
         catch(Exception e) {
             System.out.println(e);
@@ -332,14 +332,14 @@ public class DataBase {
     }
 
     public String getSensorActuador(String idActuador)  {
-        String Sensor = new String();
+        String SensorA = new String();
         try {
             ResultSet rs = query.executeQuery( "SELECT sensor FROM actuador WHERE idActuador = '"+idActuador+"'");
             rs.next();
-            Sensor = rs.getString("actuador");
+            SensorA = rs.getString("actuador");
 
             //return new String[]{String.valueOf(rs.getInt("nombre"))};
-            return Sensor;
+            return SensorA;
         }
         catch(Exception e) {
             System.out.println(e);
@@ -383,14 +383,14 @@ public class DataBase {
 
 
     public String getTiposSensor(String idSensor)  {
-        String Sensor = new String();
+        String SensorT = new String();
         try {
             ResultSet rs = query.executeQuery( "SELECT tipoSensor FROM sensor WHERE idSensor = '"+idSensor+"'");
             rs.next();
-            Sensor = rs.getString("tipoSensor");
+            SensorT = rs.getString("tipoSensor");
 
             //return new String[]{String.valueOf(rs.getInt("nombre"))};
-            return Sensor;
+            return SensorT;
         }
         catch(Exception e) {
             System.out.println(e);
@@ -431,14 +431,14 @@ public class DataBase {
     }
 
     public String getActuadorSensor(String idSensor)  {
-        String Sensor = new String();
+        String ASensor = new String();
         try {
             ResultSet rs = query.executeQuery( "SELECT actuador FROM sensor WHERE idSensor = '"+idSensor+"'");
             rs.next();
-            Sensor = rs.getString("actuador");
+            ASensor = rs.getString("actuador");
 
             //return new String[]{String.valueOf(rs.getInt("nombre"))};
-            return Sensor;
+            return ASensor;
         }
         catch(Exception e) {
             System.out.println(e);
