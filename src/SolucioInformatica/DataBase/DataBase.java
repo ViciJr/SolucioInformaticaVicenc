@@ -490,6 +490,19 @@ public class DataBase {
         }
     }
 
+    void insertInfoRegistroSensor1(String num, String nom){
+        try {
+            String sNom = nom.replace("\'", "\\'");
+            String q = "INSERT INTO unitat (numero, nom) VALUES ('" + num + "','" + sNom + "')";
+            System.out.println(q);
+            query.execute(q);
+            //INSERT INTO `registrosensor` (`idRegistroSensor`, `instante`, `valor`, `sensor`) VALUES ('9', '2024-04-10 01:01:19.000000', '1', 'Sensor 1');
+        }
+        catch(Exception e) {
+            System.out.println(e);
+        }
+    }
+
 
     // UPDATES
 
