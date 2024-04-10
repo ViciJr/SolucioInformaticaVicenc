@@ -12,6 +12,8 @@ import processing.core.PImage;
 //import SolucioInformatica.DataBase.DataBase;
 
 
+import java.time.LocalTime;
+
 import static SolucioInformatica.Pantalles.LayoutNMides.*;
 import static SolucioInformatica.Pantalles.LayoutNMides.YMapaInteractivo;
 
@@ -1129,7 +1131,7 @@ public class GUI{
         String actuador= ActuadorS1.getSelectedValue();
         String identificadorSensor = SensorMapa1.getNom();
 
-
+        //bbdd.insertInfoRegistroSensor(String.valueOf(LocalTime.now()), LocalTime.now(), 5f,"Sensor 1");
         bbdd.updateCosesSensor(tipoSensorNou, puertoArduino, encendido, ubicacion, actuador, identificadorSensor);
         p5.image(ImatgeLogo, marginH, marginV , midaLogo, midaLogo);
     }

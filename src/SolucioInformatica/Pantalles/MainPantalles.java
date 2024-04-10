@@ -241,6 +241,7 @@ public class MainPantalles extends PApplet {
 
             if (gui.Logo.mouseOverButton(this)) {
                 gui.pantallaActual = GUI.PANTALLA.MENÚ;
+
             }
 /*
             if (gui.BlogIn.mouseOverButton(this)) {

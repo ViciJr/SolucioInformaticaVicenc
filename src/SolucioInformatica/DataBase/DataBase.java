@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.time.LocalTime;
 
 public class DataBase {
 
@@ -490,14 +491,28 @@ public class DataBase {
         }
     }
 
-    void insertInfoRegistroSensor1(String num, String nom){
+   public void insertInfoRegistroSensor(String idRegistroSensor, LocalTime instante, float valor, String sensor){
         try {
-            String sNom = nom.replace("\'", "\\'");
-            String q = "INSERT INTO unitat (numero, nom) VALUES ('" + num + "','" + sNom + "')";
+           // String sNom = nom.replace("\'", "\\'");
+            String q = " INSERT INTO `registrosensor` (`idRegistroSensor`, `instante`, `valor`, `sensor`) VALUES ('"+idRegistroSensor+"', '"+instante+"', '"+valor+"', '"+sensor+"')";
+
             System.out.println(q);
             query.execute(q);
-            //INSERT INTO `registrosensor` (`idRegistroSensor`, `instante`, `valor`, `sensor`) VALUES ('9', '2024-04-10 01:01:19.000000', '1', 'Sensor 1');
+
         }
+        catch(Exception e) {
+            System.out.println(e);
+        }
+    }
+
+    public void insertInfoRegistroActuador(String idRegistroActuador, LocalTime instante, float valor, String actuador){
+        try {
+            // String sNom = nom.replace("\'", "\\'");
+            String q = " INSERT INTO `registroactuador` (`idRegistroActuador`, `instante`, `valor`, `actuador`) VALUES ('"+idRegistroActuador+"', '"+instante+"', '"+valor+"', '"+actuador+"')";
+
+            System.out.println(q);
+            query.execute(q);
+           }
         catch(Exception e) {
             System.out.println(e);
         }
