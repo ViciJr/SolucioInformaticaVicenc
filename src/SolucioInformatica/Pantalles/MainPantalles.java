@@ -2,6 +2,7 @@ package SolucioInformatica.Pantalles;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.time.LocalTime;
 
 import SolucioInformatica.DataBase.DataBase;
 import processing.core.PApplet;
@@ -382,7 +383,7 @@ public class MainPantalles extends PApplet {
                 if (gui.GraficaActuador.mouseOverButton(this) && gui.pantallaActual == GUI.PANTALLA.ACTUADOR1) {
                     gui.pantallaActual = GUI.PANTALLA.GRÁFICA_ACTUADOR1;
                 }
-                if (gui.EncesA1.isEnabled()) {
+                if (db.getActuadorOnOf("Actuador 1").equals("N")) {
                     gui.ActuadorMapa1.setEnces(true);
                 } else{
                     gui.ActuadorMapa1.setEnces(false);
@@ -391,7 +392,7 @@ public class MainPantalles extends PApplet {
                     gui.pantallaActual = GUI.PANTALLA.MENÚ;
                 }
                 if (gui.Ejecutar.mouseOverButton(this) && gui.Ubicaciona1.getSelectedValue().equals("Sin ubicación")) {
-                    gui.SensorSinHabitacion.addSensor(gui.ActuadorMapa1);
+                    gui.ActuadorSinHabitacion.addSensor(gui.ActuadorMapa1);
                 } else if (gui.Ejecutar.mouseOverButton(this) && gui.Ubicaciona1.getSelectedValue().equals("Dormitorio")) {
                     gui.Dormitorio.addSensor(gui.ActuadorMapa1);
                 } else if (gui.Ejecutar.mouseOverButton(this) && gui.Ubicaciona1.getSelectedValue().equals("Cocina")) {
@@ -445,7 +446,7 @@ public class MainPantalles extends PApplet {
                 gui.pantallaActual = GUI.PANTALLA.MENÚ;
             }
             if (gui.Ejecutar.mouseOverButton(this) && gui.Ubicaciona2.getSelectedValue().equals("Sin ubicación")) {
-                gui.SensorSinHabitacion.addSensor(gui.ActuadorMapa2);
+                gui.ActuadorSinHabitacion.addSensor(gui.ActuadorMapa2);
             } else if (gui.Ejecutar.mouseOverButton(this) && gui.Ubicaciona2.getSelectedValue().equals("Dormitorio")) {
                 gui.Dormitorio.addSensor(gui.ActuadorMapa2);
             } else if (gui.Ejecutar.mouseOverButton(this) && gui.Ubicaciona2.getSelectedValue().equals("Cocina")) {
@@ -499,7 +500,7 @@ public class MainPantalles extends PApplet {
                 gui.pantallaActual = GUI.PANTALLA.MENÚ;
             }
             if (gui.Ejecutar.mouseOverButton(this) && gui.Ubicaciona3.getSelectedValue().equals("Sin ubicación")) {
-                gui.SensorSinHabitacion.addSensor(gui.ActuadorMapa3);
+                gui.ActuadorSinHabitacion.addSensor(gui.ActuadorMapa3);
             } else if (gui.Ejecutar.mouseOverButton(this) && gui.Ubicaciona3.getSelectedValue().equals("Dormitorio")) {
                 gui.Dormitorio.addSensor(gui.ActuadorMapa3);
             } else if (gui.Ejecutar.mouseOverButton(this) && gui.Ubicaciona3.getSelectedValue().equals("Cocina")) {
@@ -554,7 +555,7 @@ public class MainPantalles extends PApplet {
                 gui.pantallaActual = GUI.PANTALLA.MENÚ;
             }
             if (gui.Ejecutar.mouseOverButton(this) && gui.Ubicaciona4.getSelectedValue().equals("Sin ubicación")) {
-                gui.SensorSinHabitacion.addSensor(gui.ActuadorMapa4);
+                gui.ActuadorSinHabitacion.addSensor(gui.ActuadorMapa4);
             } else if (gui.Ejecutar.mouseOverButton(this) && gui.Ubicaciona4.getSelectedValue().equals("Dormitorio")) {
                 gui.Dormitorio.addSensor(gui.ActuadorMapa4);
             } else if (gui.Ejecutar.mouseOverButton(this) && gui.Ubicaciona4.getSelectedValue().equals("Cocina")) {
@@ -608,7 +609,7 @@ public class MainPantalles extends PApplet {
                 gui.pantallaActual = GUI.PANTALLA.MENÚ;
             }
             if (gui.Ejecutar.mouseOverButton(this) && gui.Ubicaciona5.getSelectedValue().equals("Sin ubicación")) {
-                gui.SensorSinHabitacion.addSensor(gui.ActuadorMapa5);
+                gui.ActuadorSinHabitacion.addSensor(gui.ActuadorMapa5);
             } else if (gui.Ejecutar.mouseOverButton(this) && gui.Ubicaciona5.getSelectedValue().equals("Dormitorio")) {
                 gui.Dormitorio.addSensor(gui.ActuadorMapa5);
             } else if (gui.Ejecutar.mouseOverButton(this) && gui.Ubicaciona5.getSelectedValue().equals("Cocina")) {
@@ -662,7 +663,7 @@ public class MainPantalles extends PApplet {
                 gui.pantallaActual = GUI.PANTALLA.MENÚ;
             }
             if (gui.Ejecutar.mouseOverButton(this) && gui.Ubicaciona6.getSelectedValue().equals("Sin ubicación")) {
-                gui.SensorSinHabitacion.addSensor(gui.ActuadorMapa6);
+                gui.ActuadorSinHabitacion.addSensor(gui.ActuadorMapa6);
             } else if (gui.Ejecutar.mouseOverButton(this) && gui.Ubicaciona6.getSelectedValue().equals("Dormitorio")) {
                 gui.Dormitorio.addSensor(gui.ActuadorMapa6);
             } else if (gui.Ejecutar.mouseOverButton(this) && gui.Ubicaciona6.getSelectedValue().equals("Cocina")) {
@@ -716,7 +717,7 @@ public class MainPantalles extends PApplet {
                 gui.pantallaActual = GUI.PANTALLA.MENÚ;
             }
             if (gui.Ejecutar.mouseOverButton(this) && gui.Ubicaciona7.getSelectedValue().equals("Sin ubicación")) {
-                gui.SensorSinHabitacion.addSensor(gui.ActuadorMapa7);
+                gui.ActuadorSinHabitacion.addSensor(gui.ActuadorMapa7);
             } else if (gui.Ejecutar.mouseOverButton(this) && gui.Ubicaciona7.getSelectedValue().equals("Dormitorio")) {
                 gui.Dormitorio.addSensor(gui.ActuadorMapa7);
             } else if (gui.Ejecutar.mouseOverButton(this) && gui.Ubicaciona7.getSelectedValue().equals("Cocina")) {
@@ -757,7 +758,8 @@ public class MainPantalles extends PApplet {
             if (gui.GraficaSensor.mouseOverButton(this) && gui.pantallaActual == GUI.PANTALLA.SENSOR1) {
                 gui.pantallaActual = GUI.PANTALLA.GRÁFICA_SENSOR1;
             }
-            if (gui.EncesS1.isEnabled()) {
+           if (gui.EncesS1.isEnabled()) {
+              // db.insertInfoRegistroSensor(LocalTime.now(), 5f, "Sensor 1");
                 gui.SensorMapa1.setEnces(true);
             } else {
                 gui.SensorMapa1.setEnces(false);

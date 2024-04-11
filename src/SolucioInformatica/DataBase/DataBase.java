@@ -284,6 +284,28 @@ public class DataBase {
         }
     }
 
+    public boolean getSensorOnOf(String idSensor)  {
+        String SensorOnOf = new String();
+
+        try {
+            ResultSet rs = query.executeQuery( "SELECT encendido FROM sensor WHERE idActuador = '"+idSensor+"'");
+            rs.next();
+            SensorOnOf = rs.getString("encendido");
+
+            //return new String[]{String.valueOf(rs.getInt("nombre"))};
+            if (SensorOnOf.equals("N")){
+                return false;
+            }
+            else{
+               return true;
+            }
+        }
+        catch(Exception e) {
+            System.out.println(e);
+            return false;
+        }
+    }
+
     public String getTiposActuador(String idActuador)  {
         String Actuador = new String();
         try {
@@ -293,6 +315,22 @@ public class DataBase {
 
             //return new String[]{String.valueOf(rs.getInt("nombre"))};
             return Actuador;
+        }
+        catch(Exception e) {
+            System.out.println(e);
+            return null;
+        }
+    }
+
+    public String getActuadorOnOf(String idActuador)  {
+        String ActuadorOnOf = new String();
+        try {
+            ResultSet rs = query.executeQuery( "SELECT encendido FROM actuador WHERE idActuador = '"+idActuador+"'");
+            rs.next();
+            ActuadorOnOf = rs.getString("encendido");
+
+            //return new String[]{String.valueOf(rs.getInt("nombre"))};
+            return ActuadorOnOf;
         }
         catch(Exception e) {
             System.out.println(e);

@@ -794,21 +794,21 @@ public class GUI{
 
 
 
-        SensorMapa1 = new Sensor("Sensor 1", false, (Llum) ActuadorMapa1, SensorSinHabitacion, Tipos1.getSelectedValue(), Arduino1.getSelectedValue(), 26f);
-        SensorMapa2 = new Sensor("Sensor 2", false, (Llum) ActuadorMapa2, SensorSinHabitacion, Tipos2.getSelectedValue(), Arduino2.getSelectedValue(), 26f);
-        SensorMapa3 = new Sensor("Sensor 3", false, (Llum) ActuadorMapa3, SensorSinHabitacion, Tipos3.getSelectedValue(), Arduino3.getSelectedValue(), 26f);
-        SensorMapa4 = new Sensor("Sensor 4",false, (Llum) ActuadorMapa4, SensorSinHabitacion, Tipos4.getSelectedValue(), Arduino4.getSelectedValue(), 26f);
-        SensorMapa5 = new Sensor("Sensor 5",false, (Llum) ActuadorMapa5, SensorSinHabitacion, Tipos5.getSelectedValue(), Arduino5.getSelectedValue(), 26f);
-        SensorMapa6 = new Sensor("Sensor 6",false, (Llum) ActuadorMapa6, SensorSinHabitacion, Tipos6.getSelectedValue(), Arduino6.getSelectedValue(), 26f);
-        SensorMapa7 = new Sensor("Sensor 7", false, (Llum) ActuadorMapa7, SensorSinHabitacion, Tipos7.getSelectedValue(), Arduino7.getSelectedValue(), 26f);
+        SensorMapa1 = new Sensor("Sensor 1",false, (Llum) ActuadorMapa1, SensorSinHabitacion, Tipos1.getSelectedValue(), Arduino1.getSelectedValue(), 26f);
+        SensorMapa2 = new Sensor("Sensor 2",bbdd.getSensorOnOf("Sensor 2"), (Llum) ActuadorMapa2, SensorSinHabitacion, Tipos2.getSelectedValue(), Arduino2.getSelectedValue(), 26f);
+        SensorMapa3 = new Sensor("Sensor 3",bbdd.getSensorOnOf("Sensor 3"), (Llum) ActuadorMapa3, SensorSinHabitacion, Tipos3.getSelectedValue(), Arduino3.getSelectedValue(), 26f);
+        SensorMapa4 = new Sensor("Sensor 4",bbdd.getSensorOnOf("Sensor 4"), (Llum) ActuadorMapa4, SensorSinHabitacion, Tipos4.getSelectedValue(), Arduino4.getSelectedValue(), 26f);
+        SensorMapa5 = new Sensor("Sensor 5",bbdd.getSensorOnOf("Sensor 5"), (Llum) ActuadorMapa5, SensorSinHabitacion, Tipos5.getSelectedValue(), Arduino5.getSelectedValue(), 26f);
+        SensorMapa6 = new Sensor("Sensor 6",bbdd.getSensorOnOf("Sensor 6"), (Llum) ActuadorMapa6, SensorSinHabitacion, Tipos6.getSelectedValue(), Arduino6.getSelectedValue(), 26f);
+        SensorMapa7 = new Sensor("Sensor 7",bbdd.getSensorOnOf("Sensor 7"), (Llum) ActuadorMapa7, SensorSinHabitacion, Tipos7.getSelectedValue(), Arduino7.getSelectedValue(), 26f);
 
-        ActuadorMapa1 = new Llum("Actuador 1", false , SensorMapa1, ActuadorSinHabitacion, Tipoa1.getSelectedValue(), Arduinoa1.getSelectedValue(), /*Float.valueOf(ValMax1.getText()), Float.valueOf(ValMin1.getText())*/ 2f, 3f);
-        ActuadorMapa2 = new Llum("Actuador 2", false , SensorMapa2, ActuadorSinHabitacion, Tipoa2.getSelectedValue(), Arduinoa1.getSelectedValue(), /*Float.valueOf(ValMax2.getText()), Float.valueOf(ValMin2.getText())*/ 2f, 3f);
-        ActuadorMapa3 = new Llum("Actuador 3", false , SensorMapa3, ActuadorSinHabitacion, Tipoa3.getSelectedValue(), Arduinoa1.getSelectedValue(), /*Float.valueOf(ValMax3.getText()), Float.valueOf(ValMin3.getText())*/ 2f, 3f);
-        ActuadorMapa4 = new Llum("Actuador 4", false , SensorMapa4, ActuadorSinHabitacion, Tipoa4.getSelectedValue(), Arduinoa1.getSelectedValue(), /*Float.valueOf(ValMax4.getText()), Float.valueOf(ValMin4.getText())*/ 2f, 3f);
-        ActuadorMapa5 = new Llum("Actuador 5",  false , SensorMapa5, ActuadorSinHabitacion,Tipoa5.getSelectedValue(), Arduinoa1.getSelectedValue(), /*Float.valueOf(ValMax5.getText()), Float.valueOf(ValMin5.getText())*/ 2f, 3f);
-        ActuadorMapa6 = new Llum("Actuador 6", false , SensorMapa6, ActuadorSinHabitacion, Tipoa6.getSelectedValue(), Arduinoa1.getSelectedValue(), /*Float.valueOf(ValMax6.getText()), Float.valueOf(ValMin6.getText())*/ 2f, 3f);
-        ActuadorMapa7 = new Llum("Actuador 7", false , SensorMapa7, ActuadorSinHabitacion, Tipoa7.getSelectedValue(), Arduinoa1.getSelectedValue(), /*Float.valueOf(ValMax7.getText()), Float.valueOf(ValMin7.getText())*/ 2f, 3f);
+        ActuadorMapa1 = new Llum("Actuador 1", false, SensorMapa1, ActuadorSinHabitacion, Tipoa1.getSelectedValue(), Arduinoa1.getSelectedValue(), /*Float.valueOf(ValMax1.getText()), Float.valueOf(ValMin1.getText())*/ 2f, 3f);
+        ActuadorMapa2 = new Llum("Actuador 2", false, SensorMapa2, ActuadorSinHabitacion, Tipoa2.getSelectedValue(), Arduinoa1.getSelectedValue(), /*Float.valueOf(ValMax2.getText()), Float.valueOf(ValMin2.getText())*/ 2f, 3f);
+        ActuadorMapa3 = new Llum("Actuador 3", false, SensorMapa3, ActuadorSinHabitacion, Tipoa3.getSelectedValue(), Arduinoa1.getSelectedValue(), /*Float.valueOf(ValMax3.getText()), Float.valueOf(ValMin3.getText())*/ 2f, 3f);
+        ActuadorMapa4 = new Llum("Actuador 4", false, SensorMapa4, ActuadorSinHabitacion, Tipoa4.getSelectedValue(), Arduinoa1.getSelectedValue(), /*Float.valueOf(ValMax4.getText()), Float.valueOf(ValMin4.getText())*/ 2f, 3f);
+        ActuadorMapa5 = new Llum("Actuador 5", false, SensorMapa5, ActuadorSinHabitacion,Tipoa5.getSelectedValue(), Arduinoa1.getSelectedValue(), /*Float.valueOf(ValMax5.getText()), Float.valueOf(ValMin5.getText())*/ 2f, 3f);
+        ActuadorMapa6 = new Llum("Actuador 6", false, SensorMapa6, ActuadorSinHabitacion, Tipoa6.getSelectedValue(), Arduinoa1.getSelectedValue(), /*Float.valueOf(ValMax6.getText()), Float.valueOf(ValMin6.getText())*/ 2f, 3f);
+        ActuadorMapa7 = new Llum("Actuador 7", false, SensorMapa7, ActuadorSinHabitacion, Tipoa7.getSelectedValue(), Arduinoa1.getSelectedValue(), /*Float.valueOf(ValMax7.getText()), Float.valueOf(ValMin7.getText())*/ 2f, 3f);
 
 
 
@@ -1131,7 +1131,7 @@ public class GUI{
         String actuador= ActuadorS1.getSelectedValue();
         String identificadorSensor = SensorMapa1.getNom();
 
-        //bbdd.insertInfoRegistroSensor(String.valueOf(LocalTime.now()), LocalTime.now(), 5f,"Sensor 1");
+     //  bbdd.insertInfoRegistroSensor(LocalTime.now(), Float.valueOf("5"),"Sensor 1");
         bbdd.updateCosesSensor(tipoSensorNou, puertoArduino, encendido, ubicacion, actuador, identificadorSensor);
         p5.image(ImatgeLogo, marginH, marginV , midaLogo, midaLogo);
     }
