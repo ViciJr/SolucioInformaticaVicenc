@@ -54,6 +54,10 @@ public class SwitchButton {
         }
     }
 
+    public boolean setMouseOverButtonFalse(PApplet p5){
+        return mouseOverButton(p5)==false;
+    }
+
     // Dibuixa el botó
     public void display(PApplet p5){
 
@@ -87,6 +91,7 @@ public class SwitchButton {
 
     }
 
+
     // Indica si el cursor està sobre el botó
     public boolean mouseOverButton(PApplet p5){
         return (p5.mouseX >= this.x) &&
@@ -94,4 +99,6 @@ public class SwitchButton {
                 (p5.mouseY>= this.y) &&
                 (p5.mouseY<= this.y + this.h);
     }
+
+
 }

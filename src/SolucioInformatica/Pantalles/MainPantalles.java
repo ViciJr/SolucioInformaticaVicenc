@@ -153,110 +153,156 @@ public class MainPantalles extends PApplet {
                 break;
 
         }
+
+    /*   if(gui.EncesS1.isEnabled()==true){
+            db.updateSensorOnOf("S", "Sensor 1");
+        }
+       else if(gui.EncesS1.isEnabled()==false){
+           db.updateSensorOnOf("N", "Sensor 1");
+       }
+
+        if(gui.EncesS2.isEnabled()==true){
+            db.updateSensorOnOf("S", "Sensor 2");
+        }
+        else if(gui.EncesS2.isEnabled()==false){
+            db.updateSensorOnOf("N", "Sensor 2");
+        }
+
+        if(gui.EncesS3.isEnabled()==true){
+            db.updateSensorOnOf("S", "Sensor 3");
+        }
+        else if(gui.EncesS3.isEnabled()==false){
+            db.updateSensorOnOf("N", "Sensor 3");
+        }
+
+        if(gui.EncesS4.isEnabled()==true){
+            db.updateSensorOnOf("S", "Sensor 4");
+        }
+        else if(gui.EncesS4.isEnabled()==false){
+            db.updateSensorOnOf("N", "Sensor 4");
+        }
+
+        if(gui.EncesS5.isEnabled()==true){
+            db.updateSensorOnOf("S", "Sensor 5");
+        }
+        else if(gui.EncesS5.isEnabled()==false){
+            db.updateSensorOnOf("N", "Sensor 5");
+        }
+
+        if(gui.EncesS6.isEnabled()==true){
+            db.updateSensorOnOf("S", "Sensor 6");
+        }
+        else if(gui.EncesS6.isEnabled()==false){
+            db.updateSensorOnOf("N", "Sensor 6");
+        }
+
+        if(gui.EncesS7.isEnabled()==true){
+            db.updateSensorOnOf("S", "Sensor 7");
+        }
+        else if(gui.EncesS7.isEnabled()==false){
+            db.updateSensorOnOf("N", "Sensor 7");
+        }
+
+       */
+
+
+        if (db.getSensorOnOf("Sensor 1").equals("S")) {
+
+            gui.SensorMapa1.setEnces(true);
+
+        } else if(db.getSensorOnOf("Sensor 1").equals("N")){
+            gui.SensorMapa1.setEnces(false);
+        }
+
+        if (db.getSensorOnOf("Sensor 2").equals("S")) {
+            gui.SensorMapa2.setEnces(true);
+
+        } else if (db.getSensorOnOf("Sensor 2").equals("N")){
+            gui.SensorMapa2.setEnces(false);
+
+        }
+
+        if (db.getSensorOnOf("Sensor 3").equals("S")) {
+            gui.SensorMapa3.setEnces(true);
+        } else if (db.getSensorOnOf("Sensor 3").equals("N")){
+            gui.SensorMapa3.setEnces(false);
+        }
+
+        if (db.getSensorOnOf("Sensor 4").equals("S")) {
+            gui.SensorMapa4.setEnces(true);
+        } else if (db.getSensorOnOf("Sensor 4").equals("N")){
+            gui.SensorMapa4.setEnces(false);
+        }
+
+        if (db.getSensorOnOf("Sensor 5").equals("S")) {
+            gui.SensorMapa5.setEnces(true);
+        } else if (db.getSensorOnOf("Sensor 5").equals("N")){
+            gui.SensorMapa5.setEnces(false);
+        }
+
+        if (db.getSensorOnOf("Sensor 6").equals("S")) {
+            gui.SensorMapa6.setEnces(true);
+        } else if (db.getSensorOnOf("Sensor 6").equals("N")){
+            gui.SensorMapa6.setEnces(false);
+        }
+
+        if (db.getSensorOnOf("Sensor 7").equals("S")) {
+            gui.SensorMapa7.setEnces(true);
+        } else if (db.getSensorOnOf("Sensor 7").equals("N")){
+            gui.SensorMapa7.setEnces(false);
+        }
+
+
+        if (db.getActuadorOnOf("Actuador 1")==2 && gui.valorActuals1<=Float.valueOf(db.getValMaxActuador("Actuador 1")) && Float.valueOf(db.getValMaxActuador("Actuador 1"))<= gui.valorActuals1) {
+            gui.ActuadorMapa1.setEnces(true);
+        } else{
+            gui.ActuadorMapa1.setEnces(false);
+        }
+
+        if (db.getActuadorOnOf("Actuador 2")==2 && gui.valorActuals2<=Float.valueOf(db.getValMaxActuador("Actuador 2")) && Float.valueOf(db.getValMaxActuador("Actuador 2"))<= gui.valorActuals2) {
+            gui.ActuadorMapa2.setEnces(true);
+        } else{
+            gui.ActuadorMapa2.setEnces(false);
+        }
+
+        if (db.getActuadorOnOf("Actuador 3")==2 && gui.valorActuals3<=Float.valueOf(db.getValMaxActuador("Actuador 3")) && Float.valueOf(db.getValMaxActuador("Actuador 3"))<= gui.valorActuals3) {
+            gui.ActuadorMapa3.setEnces(true);
+        } else{
+            gui.ActuadorMapa3.setEnces(false);
+        }
+
+        if (db.getActuadorOnOf("Actuador 4")==2 && gui.valorActuals4<=Float.valueOf(db.getValMaxActuador("Actuador 4")) && Float.valueOf(db.getValMaxActuador("Actuador 4"))<= gui.valorActuals4) {
+            gui.ActuadorMapa4.setEnces(true);
+        } else{
+            gui.ActuadorMapa4.setEnces(false);
+        }
+
+        if (db.getActuadorOnOf("Actuador 5")==2 && gui.valorActuals5<=Float.valueOf(db.getValMaxActuador("Actuador 5")) && Float.valueOf(db.getValMaxActuador("Actuador 5"))<= gui.valorActuals5) {
+            gui.ActuadorMapa5.setEnces(true);
+        } else{
+            gui.ActuadorMapa5.setEnces(false);
+        }
+
+        if (db.getActuadorOnOf("Actuador 6")==2 && gui.valorActuals6<=Float.valueOf(db.getValMaxActuador("Actuador 6")) && Float.valueOf(db.getValMaxActuador("Actuador 6"))<= gui.valorActuals6) {
+            gui.ActuadorMapa6.setEnces(true);
+        } else{
+            gui.ActuadorMapa6.setEnces(false);
+        }
+
+        if (db.getActuadorOnOf("Actuador 7")==2 && gui.valorActuals7<=Float.valueOf(db.getValMaxActuador("Actuador 7")) && Float.valueOf(db.getValMaxActuador("Actuador 7"))<= gui.valorActuals7) {
+            gui.ActuadorMapa7.setEnces(true);
+        } else{
+            gui.ActuadorMapa7.setEnces(false);
+        }
+
       /*  String info = connectat ? "OK" : "ERROR";
         fill(0); textSize(48);
         text("Connexió a la BBDD : "+ info, 100, 100); */
 
         println(gui.pantallaActual);
         if(gui.pantallaActual!=GUI.PANTALLA.INICIO){
-for(float i=this.random(0, 15); i==this.random(0, 15); i=this.random(0, 15)){
-    gui.valorActuals1 = this.random(0, 15);
-    gui.valorActuals2 = this.random(0, 15);
-    gui.valorActuals3 = this.random(0, 15);
-    gui.valorActuals4 = this.random(0, 15);
-    gui.valorActuals5 = this.random(0, 15);
-    gui.valorActuals6 = this.random(0, 15);
-    gui.valorActuals7 = this.random(0, 15);
 
-
-       }
 }
-
-        if (db.getSensorOnOf("Sensor 1").equals("S")) {
-            gui.SensorMapa1.setEnces(true);
-        } else{
-            gui.SensorMapa1.setEnces(false);
-        }
-
-        if (db.getSensorOnOf("Sensor 2").equals("S")) {
-            gui.SensorMapa2.setEnces(true);
-        } else{
-            gui.SensorMapa2.setEnces(false);
-        }
-
-        if (db.getSensorOnOf("Sensor 3").equals("S")) {
-            gui.SensorMapa3.setEnces(true);
-        } else{
-            gui.SensorMapa3.setEnces(false);
-        }
-
-        if (db.getSensorOnOf("Sensor 4").equals("S")) {
-            gui.SensorMapa4.setEnces(true);
-        } else{
-            gui.SensorMapa4.setEnces(false);
-        }
-
-        if (db.getSensorOnOf("Sensor 5").equals("S")) {
-            gui.SensorMapa5.setEnces(true);
-        } else{
-            gui.SensorMapa5.setEnces(false);
-        }
-
-        if (db.getSensorOnOf("Sensor 6").equals("S")) {
-            gui.SensorMapa6.setEnces(true);
-        } else{
-            gui.SensorMapa6.setEnces(false);
-        }
-
-        if (db.getSensorOnOf("Sensor 7").equals("S")) {
-            gui.SensorMapa7.setEnces(true);
-        } else{
-            gui.SensorMapa7.setEnces(false);
-        }
-
-
-        if (db.getActuadorOnOf("Actuador 1").equals("S") && gui.valorActuals1<=Float.valueOf(db.getValMaxActuador("Actuador 1")) && Float.valueOf(db.getValMaxActuador("Actuador 1"))<= gui.valorActuals1) {
-            gui.ActuadorMapa1.setEnces(true);
-        } else{
-            gui.ActuadorMapa1.setEnces(false);
-        }
-
-        if (db.getActuadorOnOf("Actuador 2").equals("S") && gui.valorActuals2<=Float.valueOf(db.getValMaxActuador("Actuador 2")) && Float.valueOf(db.getValMaxActuador("Actuador 2"))<= gui.valorActuals2) {
-            gui.ActuadorMapa2.setEnces(true);
-        } else{
-            gui.ActuadorMapa2.setEnces(false);
-        }
-
-        if (db.getActuadorOnOf("Actuador 3").equals("S") && gui.valorActuals3<=Float.valueOf(db.getValMaxActuador("Actuador 3")) && Float.valueOf(db.getValMaxActuador("Actuador 3"))<= gui.valorActuals3) {
-            gui.ActuadorMapa3.setEnces(true);
-        } else{
-            gui.ActuadorMapa3.setEnces(false);
-        }
-
-        if (db.getActuadorOnOf("Actuador 4").equals("S") && gui.valorActuals4<=Float.valueOf(db.getValMaxActuador("Actuador 4")) && Float.valueOf(db.getValMaxActuador("Actuador 4"))<= gui.valorActuals4) {
-            gui.ActuadorMapa4.setEnces(true);
-        } else{
-            gui.ActuadorMapa4.setEnces(false);
-        }
-
-        if (db.getActuadorOnOf("Actuador 5").equals("S") && gui.valorActuals5<=Float.valueOf(db.getValMaxActuador("Actuador 5")) && Float.valueOf(db.getValMaxActuador("Actuador 5"))<= gui.valorActuals5) {
-            gui.ActuadorMapa5.setEnces(true);
-        } else{
-            gui.ActuadorMapa5.setEnces(false);
-        }
-
-        if (db.getActuadorOnOf("Actuador 6").equals("S") && gui.valorActuals6<=Float.valueOf(db.getValMaxActuador("Actuador 6")) && Float.valueOf(db.getValMaxActuador("Actuador 6"))<= gui.valorActuals6) {
-            gui.ActuadorMapa6.setEnces(true);
-        } else{
-            gui.ActuadorMapa6.setEnces(false);
-        }
-
-        if (db.getActuadorOnOf("Actuador 7").equals("S") && gui.valorActuals7<=Float.valueOf(db.getValMaxActuador("Actuador 7")) && Float.valueOf(db.getValMaxActuador("Actuador 7"))<= gui.valorActuals7) {
-            gui.ActuadorMapa7.setEnces(true);
-        } else{
-            gui.ActuadorMapa7.setEnces(false);
-        }
-
     }
 
    /* public void connectBBDD(){
@@ -329,6 +375,32 @@ for(float i=this.random(0, 15); i==this.random(0, 15); i=this.random(0, 15)){
             }
         }
 
+        if (key=='r'||key=='R'){
+            gui.valorActuals1 = this.random(2, 15);
+            gui.valorActuals2 = this.random(3, 15);
+            gui.valorActuals3 = this.random(1, 15);
+            gui.valorActuals4 = this.random(4, 15);
+            gui.valorActuals5 = this.random(6, 15);
+            gui.valorActuals6 = this.random(7, 15);
+            gui.valorActuals7 = this.random(8, 15);
+
+            db.insertInfoRegistroSensor("Sensor 1"+String.valueOf(LocalDateTime.now()), LocalDateTime.now(), gui.valorActuals1, "Sensor 1");
+            db.insertInfoRegistroSensor("Sensor 2"+String.valueOf(LocalDateTime.now()), LocalDateTime.now(), gui.valorActuals2, "Sensor 2");
+            db.insertInfoRegistroSensor("Sensor 3"+String.valueOf(LocalDateTime.now()), LocalDateTime.now(), gui.valorActuals6, "Sensor 3");
+            db.insertInfoRegistroSensor("Sensor 4"+String.valueOf(LocalDateTime.now()), LocalDateTime.now(), gui.valorActuals4, "Sensor 4");
+            db.insertInfoRegistroSensor("Sensor 5"+String.valueOf(LocalDateTime.now()), LocalDateTime.now(), gui.valorActuals5, "Sensor 5");
+            db.insertInfoRegistroSensor("Sensor 6"+String.valueOf(LocalDateTime.now()), LocalDateTime.now(), gui.valorActuals6, "Sensor 6");
+            db.insertInfoRegistroSensor("Sensor 7"+String.valueOf(LocalDateTime.now()), LocalDateTime.now(), gui.valorActuals7, "Sensor 7");
+
+            db.insertInfoRegistroActuador("Actuador 1"+String.valueOf(LocalDateTime.now()), LocalDateTime.now(), db.getActuadorOnOf("Actuador 1"), "Actuador 1");
+            db.insertInfoRegistroActuador("Actuador 2"+String.valueOf(LocalDateTime.now()), LocalDateTime.now(), db.getActuadorOnOf("Actuador 2"), "Actuador 2");
+            db.insertInfoRegistroActuador("Actuador 3"+String.valueOf(LocalDateTime.now()), LocalDateTime.now(), db.getActuadorOnOf("Actuador 3"), "Actuador 3");
+            db.insertInfoRegistroActuador("Actuador 4"+String.valueOf(LocalDateTime.now()), LocalDateTime.now(), db.getActuadorOnOf("Actuador 4"), "Actuador 4");
+            db.insertInfoRegistroActuador("Actuador 5"+String.valueOf(LocalDateTime.now()), LocalDateTime.now(), db.getActuadorOnOf("Actuador 5"), "Actuador 5");
+            db.insertInfoRegistroActuador("Actuador 6"+String.valueOf(LocalDateTime.now()), LocalDateTime.now(), db.getActuadorOnOf("Actuador 6"), "Actuador 6");
+            db.insertInfoRegistroActuador("Actuador 7"+String.valueOf(LocalDateTime.now()), LocalDateTime.now(), db.getActuadorOnOf("Actuador 7"), "Actuador 7");
+
+        }
 
         }
 
@@ -379,31 +451,34 @@ for(float i=this.random(0, 15); i==this.random(0, 15); i=this.random(0, 15)){
         } else{
             gui.ActuadorMapa7.setEnces(false);
         }*/
+        if (gui.Logo.mouseOverButton(this)) {
+            gui.pantallaActual = GUI.PANTALLA.MENÚ;
 
-        if(gui.pantallaActual == GUI.PANTALLA.INICIO || gui.pantallaActual == GUI.PANTALLA.MENÚ || gui.pantallaActual == GUI.PANTALLA.SENSOR1 || gui.pantallaActual == GUI.PANTALLA.ACTUADOR1 || gui.pantallaActual == GUI.PANTALLA.GRÁFICA_SENSOR1 || gui.pantallaActual == GUI.PANTALLA.GRÁFICA_ACTUADOR1) {
+        }
 
-            if (gui.Logo.mouseOverButton(this)) {
-                gui.pantallaActual = GUI.PANTALLA.MENÚ;
-
-            }
-/*
-            if (gui.BlogIn.mouseOverButton(this)) {
-                gui.pantallaActual = GUI.PANTALLA.MENÚ;
-            }
-            if (gui.Sensor1.mouseOverButton(this)) {
-                gui.pantallaActual = GUI.PANTALLA.SENSOR1;
-            }
-            if (gui.Actuador1.mouseOverButton(this)) {
-                gui.pantallaActual = GUI.PANTALLA.ACTUADOR1;
-            }
-
-*/
-            }
 
             if (gui.pantallaActual == GUI.PANTALLA.INICIO && gui.pantallaActual != GUI.PANTALLA.MENÚ && gui.pantallaActual != GUI.PANTALLA.SENSOR1 && gui.pantallaActual != GUI.PANTALLA.ACTUADOR1 && gui.pantallaActual != GUI.PANTALLA.GRÁFICA_SENSOR1 && gui.pantallaActual != GUI.PANTALLA.GRÁFICA_ACTUADOR1) {
                 gui.Logo.setEnabled(false);
                 gui.TUsuario.isPressed(this);
                 gui.TContraseña.isPressed(this);
+
+                gui.EncesA1.setMouseOverButtonFalse(this);
+                gui.EncesA2.setMouseOverButtonFalse(this);
+                gui.EncesA3.setMouseOverButtonFalse(this);
+                gui.EncesA4.setMouseOverButtonFalse(this);
+                gui.EncesA5.setMouseOverButtonFalse(this);
+                gui.EncesA6.setMouseOverButtonFalse(this);
+                gui.EncesA7.setMouseOverButtonFalse(this);
+
+                gui.EncesS1.setMouseOverButtonFalse(this);
+                gui.EncesS2.setMouseOverButtonFalse(this);
+                gui.EncesS3.setMouseOverButtonFalse(this);
+                gui.EncesS4.setMouseOverButtonFalse(this);
+                gui.EncesS5.setMouseOverButtonFalse(this);
+                gui.EncesS6.setMouseOverButtonFalse(this);
+                gui.EncesS7.setMouseOverButtonFalse(this);
+
+
 
                 String userName = gui.TUsuario.getText();
                 String password = gui.TContraseña.getText();
@@ -443,7 +518,25 @@ for(float i=this.random(0, 15); i==this.random(0, 15); i=this.random(0, 15)){
                 gui.Actuador6.setEnabled(true);
                 gui.Actuador7.setEnabled(true);
 
+                gui.EncesA1.setMouseOverButtonFalse(this);
+                gui.EncesA2.setMouseOverButtonFalse(this);
+                gui.EncesA3.setMouseOverButtonFalse(this);
+                gui.EncesA4.setMouseOverButtonFalse(this);
+                gui.EncesA5.setMouseOverButtonFalse(this);
+                gui.EncesA6.setMouseOverButtonFalse(this);
+                gui.EncesA7.setMouseOverButtonFalse(this);
 
+                gui.EncesS1.setMouseOverButtonFalse(this);
+                gui.EncesS2.setMouseOverButtonFalse(this);
+                gui.EncesS3.setMouseOverButtonFalse(this);
+                gui.EncesS4.setMouseOverButtonFalse(this);
+                gui.EncesS5.setMouseOverButtonFalse(this);
+                gui.EncesS6.setMouseOverButtonFalse(this);
+                gui.EncesS7.setMouseOverButtonFalse(this);
+
+                if (gui.VolverAlInicio.mouseOverButton(this)){
+                    gui.pantallaActual = GUI.PANTALLA.INICIO;
+                }
                 if (gui.Actuador1.mouseOverButton(this)) {
                     gui.pantallaActual = GUI.PANTALLA.ACTUADOR1;
                 }
@@ -468,7 +561,7 @@ for(float i=this.random(0, 15); i==this.random(0, 15); i=this.random(0, 15)){
 
                 if (gui.Sensor1.mouseOverButton(this)) {
                     gui.pantallaActual = GUI.PANTALLA.SENSOR1;
-               //     db.insertInfoRegistroSensor("Sensor 1"+String.valueOf(LocalDateTime.now()), LocalDateTime.now(), gui.valorActuals1, "Sensor 1");
+               //    db.insert InfoRegistroSensor("Sensor 1"+String.valueOf(LocalDateTime.now()), LocalDateTime.now(), gui.valorActuals1, "Sensor 1");
                  //   db.insertInfoRegistroActuador("Actuador 1"+String.valueOf(LocalDateTime.now()), LocalDateTime.now(), 1, "Actuador 1");
 
                 }
@@ -510,6 +603,21 @@ for(float i=this.random(0, 15); i==this.random(0, 15); i=this.random(0, 15)){
             }
 
             if (gui.pantallaActual == GUI.PANTALLA.ACTUADOR1 && gui.pantallaActual != GUI.PANTALLA.MENÚ && gui.pantallaActual != GUI.PANTALLA.SENSOR1 && gui.pantallaActual != GUI.PANTALLA.INICIO && gui.pantallaActual != GUI.PANTALLA.GRÁFICA_SENSOR1 && gui.pantallaActual != GUI.PANTALLA.GRÁFICA_ACTUADOR1) {
+
+                gui.EncesA2.setMouseOverButtonFalse(this);
+                gui.EncesA3.setMouseOverButtonFalse(this);
+                gui.EncesA4.setMouseOverButtonFalse(this);
+                gui.EncesA5.setMouseOverButtonFalse(this);
+                gui.EncesA6.setMouseOverButtonFalse(this);
+                gui.EncesA7.setMouseOverButtonFalse(this);
+
+                gui.EncesS1.setMouseOverButtonFalse(this);
+                gui.EncesS2.setMouseOverButtonFalse(this);
+                gui.EncesS3.setMouseOverButtonFalse(this);
+                gui.EncesS4.setMouseOverButtonFalse(this);
+                gui.EncesS5.setMouseOverButtonFalse(this);
+                gui.EncesS6.setMouseOverButtonFalse(this);
+                gui.EncesS7.setMouseOverButtonFalse(this);
 
                 gui.MenuS.setEnabled(true);
                 gui.Ejecutar.setEnabled(true);
@@ -557,6 +665,20 @@ for(float i=this.random(0, 15); i==this.random(0, 15); i=this.random(0, 15)){
             }
 
         if (gui.pantallaActual == GUI.PANTALLA.ACTUADOR2 && gui.pantallaActual != GUI.PANTALLA.MENÚ && gui.pantallaActual != GUI.PANTALLA.SENSOR1 && gui.pantallaActual != GUI.PANTALLA.INICIO && gui.pantallaActual != GUI.PANTALLA.GRÁFICA_SENSOR1 && gui.pantallaActual != GUI.PANTALLA.GRÁFICA_ACTUADOR1) {
+            gui.EncesA1.setMouseOverButtonFalse(this);
+            gui.EncesA3.setMouseOverButtonFalse(this);
+            gui.EncesA4.setMouseOverButtonFalse(this);
+            gui.EncesA5.setMouseOverButtonFalse(this);
+            gui.EncesA6.setMouseOverButtonFalse(this);
+            gui.EncesA7.setMouseOverButtonFalse(this);
+
+            gui.EncesS1.setMouseOverButtonFalse(this);
+            gui.EncesS2.setMouseOverButtonFalse(this);
+            gui.EncesS3.setMouseOverButtonFalse(this);
+            gui.EncesS4.setMouseOverButtonFalse(this);
+            gui.EncesS5.setMouseOverButtonFalse(this);
+            gui.EncesS6.setMouseOverButtonFalse(this);
+            gui.EncesS7.setMouseOverButtonFalse(this);
 
             gui.MenuS.setEnabled(true);
             gui.Ejecutar.setEnabled(true);
@@ -612,6 +734,21 @@ for(float i=this.random(0, 15); i==this.random(0, 15); i=this.random(0, 15)){
 
         if (gui.pantallaActual == GUI.PANTALLA.ACTUADOR3 && gui.pantallaActual != GUI.PANTALLA.MENÚ && gui.pantallaActual != GUI.PANTALLA.SENSOR1 && gui.pantallaActual != GUI.PANTALLA.INICIO && gui.pantallaActual != GUI.PANTALLA.GRÁFICA_SENSOR1 && gui.pantallaActual != GUI.PANTALLA.GRÁFICA_ACTUADOR1) {
 
+            gui.EncesA1.setMouseOverButtonFalse(this);
+            gui.EncesA2.setMouseOverButtonFalse(this);
+            gui.EncesA4.setMouseOverButtonFalse(this);
+            gui.EncesA5.setMouseOverButtonFalse(this);
+            gui.EncesA6.setMouseOverButtonFalse(this);
+            gui.EncesA7.setMouseOverButtonFalse(this);
+
+            gui.EncesS1.setMouseOverButtonFalse(this);
+            gui.EncesS2.setMouseOverButtonFalse(this);
+            gui.EncesS3.setMouseOverButtonFalse(this);
+            gui.EncesS4.setMouseOverButtonFalse(this);
+            gui.EncesS5.setMouseOverButtonFalse(this);
+            gui.EncesS6.setMouseOverButtonFalse(this);
+            gui.EncesS7.setMouseOverButtonFalse(this);
+
             gui.MenuS.setEnabled(true);
             gui.Ejecutar.setEnabled(true);
 
@@ -665,6 +802,21 @@ for(float i=this.random(0, 15); i==this.random(0, 15); i=this.random(0, 15)){
         }
 
         if (gui.pantallaActual == GUI.PANTALLA.ACTUADOR4 && gui.pantallaActual != GUI.PANTALLA.MENÚ && gui.pantallaActual != GUI.PANTALLA.SENSOR1 && gui.pantallaActual != GUI.PANTALLA.INICIO && gui.pantallaActual != GUI.PANTALLA.GRÁFICA_SENSOR1 && gui.pantallaActual != GUI.PANTALLA.GRÁFICA_ACTUADOR1) {
+
+            gui.EncesA1.setMouseOverButtonFalse(this);
+            gui.EncesA2.setMouseOverButtonFalse(this);
+            gui.EncesA3.setMouseOverButtonFalse(this);
+            gui.EncesA5.setMouseOverButtonFalse(this);
+            gui.EncesA6.setMouseOverButtonFalse(this);
+            gui.EncesA7.setMouseOverButtonFalse(this);
+
+            gui.EncesS1.setMouseOverButtonFalse(this);
+            gui.EncesS2.setMouseOverButtonFalse(this);
+            gui.EncesS3.setMouseOverButtonFalse(this);
+            gui.EncesS4.setMouseOverButtonFalse(this);
+            gui.EncesS5.setMouseOverButtonFalse(this);
+            gui.EncesS6.setMouseOverButtonFalse(this);
+            gui.EncesS7.setMouseOverButtonFalse(this);
 
             gui.MenuS.setEnabled(true);
 
@@ -721,6 +873,21 @@ for(float i=this.random(0, 15); i==this.random(0, 15); i=this.random(0, 15)){
 
         if (gui.pantallaActual == GUI.PANTALLA.ACTUADOR5 && gui.pantallaActual != GUI.PANTALLA.MENÚ && gui.pantallaActual != GUI.PANTALLA.SENSOR1 && gui.pantallaActual != GUI.PANTALLA.INICIO && gui.pantallaActual != GUI.PANTALLA.GRÁFICA_SENSOR1 && gui.pantallaActual != GUI.PANTALLA.GRÁFICA_ACTUADOR1) {
 
+            gui.EncesA1.setMouseOverButtonFalse(this);
+            gui.EncesA2.setMouseOverButtonFalse(this);
+            gui.EncesA3.setMouseOverButtonFalse(this);
+            gui.EncesA4.setMouseOverButtonFalse(this);
+            gui.EncesA6.setMouseOverButtonFalse(this);
+            gui.EncesA7.setMouseOverButtonFalse(this);
+
+            gui.EncesS1.setMouseOverButtonFalse(this);
+            gui.EncesS2.setMouseOverButtonFalse(this);
+            gui.EncesS3.setMouseOverButtonFalse(this);
+            gui.EncesS4.setMouseOverButtonFalse(this);
+            gui.EncesS5.setMouseOverButtonFalse(this);
+            gui.EncesS6.setMouseOverButtonFalse(this);
+            gui.EncesS7.setMouseOverButtonFalse(this);
+
             gui.MenuS.setEnabled(true);
             gui.Ejecutar.setEnabled(true);
 
@@ -775,6 +942,21 @@ for(float i=this.random(0, 15); i==this.random(0, 15); i=this.random(0, 15)){
 
         if (gui.pantallaActual == GUI.PANTALLA.ACTUADOR6 && gui.pantallaActual != GUI.PANTALLA.MENÚ && gui.pantallaActual != GUI.PANTALLA.SENSOR1 && gui.pantallaActual != GUI.PANTALLA.INICIO && gui.pantallaActual != GUI.PANTALLA.GRÁFICA_SENSOR1 && gui.pantallaActual != GUI.PANTALLA.GRÁFICA_ACTUADOR1) {
 
+            gui.EncesA1.setMouseOverButtonFalse(this);
+            gui.EncesA2.setMouseOverButtonFalse(this);
+            gui.EncesA3.setMouseOverButtonFalse(this);
+            gui.EncesA4.setMouseOverButtonFalse(this);
+            gui.EncesA5.setMouseOverButtonFalse(this);
+            gui.EncesA7.setMouseOverButtonFalse(this);
+
+            gui.EncesS1.setMouseOverButtonFalse(this);
+            gui.EncesS2.setMouseOverButtonFalse(this);
+            gui.EncesS3.setMouseOverButtonFalse(this);
+            gui.EncesS4.setMouseOverButtonFalse(this);
+            gui.EncesS5.setMouseOverButtonFalse(this);
+            gui.EncesS6.setMouseOverButtonFalse(this);
+            gui.EncesS7.setMouseOverButtonFalse(this);
+
             gui.MenuS.setEnabled(true);
             gui.Ejecutar.setEnabled(true);
 
@@ -828,6 +1010,21 @@ for(float i=this.random(0, 15); i==this.random(0, 15); i=this.random(0, 15)){
         }
 
         if (gui.pantallaActual == GUI.PANTALLA.ACTUADOR7 && gui.pantallaActual != GUI.PANTALLA.MENÚ && gui.pantallaActual != GUI.PANTALLA.SENSOR1 && gui.pantallaActual != GUI.PANTALLA.INICIO && gui.pantallaActual != GUI.PANTALLA.GRÁFICA_SENSOR1 && gui.pantallaActual != GUI.PANTALLA.GRÁFICA_ACTUADOR1) {
+
+            gui.EncesA1.setMouseOverButtonFalse(this);
+            gui.EncesA2.setMouseOverButtonFalse(this);
+            gui.EncesA3.setMouseOverButtonFalse(this);
+            gui.EncesA4.setMouseOverButtonFalse(this);
+            gui.EncesA5.setMouseOverButtonFalse(this);
+            gui.EncesA6.setMouseOverButtonFalse(this);
+
+            gui.EncesS1.setMouseOverButtonFalse(this);
+            gui.EncesS2.setMouseOverButtonFalse(this);
+            gui.EncesS3.setMouseOverButtonFalse(this);
+            gui.EncesS4.setMouseOverButtonFalse(this);
+            gui.EncesS5.setMouseOverButtonFalse(this);
+            gui.EncesS6.setMouseOverButtonFalse(this);
+            gui.EncesS7.setMouseOverButtonFalse(this);
 
             gui.MenuS.setEnabled(true);
             gui.Ejecutar.setEnabled(true);
@@ -884,6 +1081,21 @@ for(float i=this.random(0, 15); i==this.random(0, 15); i=this.random(0, 15)){
 
 
         if (gui.pantallaActual == GUI.PANTALLA.SENSOR1 && gui.pantallaActual != GUI.PANTALLA.MENÚ && gui.pantallaActual != GUI.PANTALLA.INICIO && gui.pantallaActual != GUI.PANTALLA.ACTUADOR1 && gui.pantallaActual != GUI.PANTALLA.GRÁFICA_SENSOR1 && gui.pantallaActual != GUI.PANTALLA.GRÁFICA_ACTUADOR1) {
+            gui.EncesA1.setMouseOverButtonFalse(this);
+            gui.EncesA2.setMouseOverButtonFalse(this);
+            gui.EncesA3.setMouseOverButtonFalse(this);
+            gui.EncesA4.setMouseOverButtonFalse(this);
+            gui.EncesA5.setMouseOverButtonFalse(this);
+            gui.EncesA6.setMouseOverButtonFalse(this);
+            gui.EncesA7.setMouseOverButtonFalse(this);
+
+            gui.EncesS2.setMouseOverButtonFalse(this);
+            gui.EncesS3.setMouseOverButtonFalse(this);
+            gui.EncesS4.setMouseOverButtonFalse(this);
+            gui.EncesS5.setMouseOverButtonFalse(this);
+            gui.EncesS6.setMouseOverButtonFalse(this);
+            gui.EncesS7.setMouseOverButtonFalse(this);
+
             gui.MenuS.setEnabled(true);
             gui.GraficaSensor.setEnabled(true);
             // gui.EncesS1.setEnabled(true);
@@ -929,6 +1141,22 @@ for(float i=this.random(0, 15); i==this.random(0, 15); i=this.random(0, 15)){
         }
 
         if (gui.pantallaActual == GUI.PANTALLA.SENSOR2 && gui.pantallaActual != GUI.PANTALLA.MENÚ && gui.pantallaActual != GUI.PANTALLA.INICIO && gui.pantallaActual != GUI.PANTALLA.ACTUADOR1 && gui.pantallaActual != GUI.PANTALLA.GRÁFICA_SENSOR1 && gui.pantallaActual != GUI.PANTALLA.GRÁFICA_ACTUADOR1) {
+
+            gui.EncesA1.setMouseOverButtonFalse(this);
+            gui.EncesA2.setMouseOverButtonFalse(this);
+            gui.EncesA3.setMouseOverButtonFalse(this);
+            gui.EncesA4.setMouseOverButtonFalse(this);
+            gui.EncesA5.setMouseOverButtonFalse(this);
+            gui.EncesA6.setMouseOverButtonFalse(this);
+            gui.EncesA7.setMouseOverButtonFalse(this);
+
+            gui.EncesS1.setMouseOverButtonFalse(this);
+            gui.EncesS3.setMouseOverButtonFalse(this);
+            gui.EncesS4.setMouseOverButtonFalse(this);
+            gui.EncesS5.setMouseOverButtonFalse(this);
+            gui.EncesS6.setMouseOverButtonFalse(this);
+            gui.EncesS7.setMouseOverButtonFalse(this);
+
             gui.MenuS.setEnabled(true);
             gui.GraficaSensor.setEnabled(true);
             // gui.EncesS1.setEnabled(true);
@@ -970,6 +1198,22 @@ for(float i=this.random(0, 15); i==this.random(0, 15); i=this.random(0, 15)){
         }
 
         if (gui.pantallaActual == GUI.PANTALLA.SENSOR3 && gui.pantallaActual != GUI.PANTALLA.MENÚ && gui.pantallaActual != GUI.PANTALLA.INICIO && gui.pantallaActual != GUI.PANTALLA.ACTUADOR1 && gui.pantallaActual != GUI.PANTALLA.GRÁFICA_SENSOR1 && gui.pantallaActual != GUI.PANTALLA.GRÁFICA_ACTUADOR1) {
+
+            gui.EncesA1.setMouseOverButtonFalse(this);
+            gui.EncesA2.setMouseOverButtonFalse(this);
+            gui.EncesA3.setMouseOverButtonFalse(this);
+            gui.EncesA4.setMouseOverButtonFalse(this);
+            gui.EncesA5.setMouseOverButtonFalse(this);
+            gui.EncesA6.setMouseOverButtonFalse(this);
+            gui.EncesA7.setMouseOverButtonFalse(this);
+
+            gui.EncesS1.setMouseOverButtonFalse(this);
+            gui.EncesS2.setMouseOverButtonFalse(this);
+            gui.EncesS4.setMouseOverButtonFalse(this);
+            gui.EncesS5.setMouseOverButtonFalse(this);
+            gui.EncesS6.setMouseOverButtonFalse(this);
+            gui.EncesS7.setMouseOverButtonFalse(this);
+
             gui.MenuS.setEnabled(true);
             gui.GraficaSensor.setEnabled(true);
             // gui.EncesS1.setEnabled(true);
@@ -1011,6 +1255,22 @@ for(float i=this.random(0, 15); i==this.random(0, 15); i=this.random(0, 15)){
         }
 
         if (gui.pantallaActual == GUI.PANTALLA.SENSOR4 && gui.pantallaActual != GUI.PANTALLA.MENÚ && gui.pantallaActual != GUI.PANTALLA.INICIO && gui.pantallaActual != GUI.PANTALLA.ACTUADOR1 && gui.pantallaActual != GUI.PANTALLA.GRÁFICA_SENSOR1 && gui.pantallaActual != GUI.PANTALLA.GRÁFICA_ACTUADOR1) {
+
+            gui.EncesA1.setMouseOverButtonFalse(this);
+            gui.EncesA2.setMouseOverButtonFalse(this);
+            gui.EncesA3.setMouseOverButtonFalse(this);
+            gui.EncesA4.setMouseOverButtonFalse(this);
+            gui.EncesA5.setMouseOverButtonFalse(this);
+            gui.EncesA6.setMouseOverButtonFalse(this);
+            gui.EncesA7.setMouseOverButtonFalse(this);
+
+            gui.EncesS1.setMouseOverButtonFalse(this);
+            gui.EncesS2.setMouseOverButtonFalse(this);
+            gui.EncesS3.setMouseOverButtonFalse(this);
+            gui.EncesS5.setMouseOverButtonFalse(this);
+            gui.EncesS6.setMouseOverButtonFalse(this);
+            gui.EncesS7.setMouseOverButtonFalse(this);
+
             gui.MenuS.setEnabled(true);
             gui.GraficaSensor.setEnabled(true);
             // gui.EncesS1.setEnabled(true);
@@ -1052,6 +1312,22 @@ for(float i=this.random(0, 15); i==this.random(0, 15); i=this.random(0, 15)){
         }
 
         if (gui.pantallaActual == GUI.PANTALLA.SENSOR5 && gui.pantallaActual != GUI.PANTALLA.MENÚ && gui.pantallaActual != GUI.PANTALLA.INICIO && gui.pantallaActual != GUI.PANTALLA.ACTUADOR1 && gui.pantallaActual != GUI.PANTALLA.GRÁFICA_SENSOR1 && gui.pantallaActual != GUI.PANTALLA.GRÁFICA_ACTUADOR1) {
+
+            gui.EncesA1.setMouseOverButtonFalse(this);
+            gui.EncesA2.setMouseOverButtonFalse(this);
+            gui.EncesA3.setMouseOverButtonFalse(this);
+            gui.EncesA4.setMouseOverButtonFalse(this);
+            gui.EncesA5.setMouseOverButtonFalse(this);
+            gui.EncesA6.setMouseOverButtonFalse(this);
+            gui.EncesA7.setMouseOverButtonFalse(this);
+
+            gui.EncesS1.setMouseOverButtonFalse(this);
+            gui.EncesS2.setMouseOverButtonFalse(this);
+            gui.EncesS3.setMouseOverButtonFalse(this);
+            gui.EncesS4.setMouseOverButtonFalse(this);
+            gui.EncesS6.setMouseOverButtonFalse(this);
+            gui.EncesS7.setMouseOverButtonFalse(this);
+
             gui.MenuS.setEnabled(true);
             gui.GraficaSensor.setEnabled(true);
             // gui.EncesS1.setEnabled(true);
@@ -1093,6 +1369,22 @@ for(float i=this.random(0, 15); i==this.random(0, 15); i=this.random(0, 15)){
         }
 
         if (gui.pantallaActual == GUI.PANTALLA.SENSOR6 && gui.pantallaActual != GUI.PANTALLA.MENÚ && gui.pantallaActual != GUI.PANTALLA.INICIO && gui.pantallaActual != GUI.PANTALLA.ACTUADOR1 && gui.pantallaActual != GUI.PANTALLA.GRÁFICA_SENSOR1 && gui.pantallaActual != GUI.PANTALLA.GRÁFICA_ACTUADOR1) {
+
+            gui.EncesA1.setMouseOverButtonFalse(this);
+            gui.EncesA2.setMouseOverButtonFalse(this);
+            gui.EncesA3.setMouseOverButtonFalse(this);
+            gui.EncesA4.setMouseOverButtonFalse(this);
+            gui.EncesA5.setMouseOverButtonFalse(this);
+            gui.EncesA6.setMouseOverButtonFalse(this);
+            gui.EncesA7.setMouseOverButtonFalse(this);
+
+            gui.EncesS1.setMouseOverButtonFalse(this);
+            gui.EncesS2.setMouseOverButtonFalse(this);
+            gui.EncesS3.setMouseOverButtonFalse(this);
+            gui.EncesS4.setMouseOverButtonFalse(this);
+            gui.EncesS5.setMouseOverButtonFalse(this);
+            gui.EncesS7.setMouseOverButtonFalse(this);
+
             gui.MenuS.setEnabled(true);
             gui.GraficaSensor.setEnabled(true);
             // gui.EncesS1.setEnabled(true);
@@ -1133,6 +1425,22 @@ for(float i=this.random(0, 15); i==this.random(0, 15); i=this.random(0, 15)){
         }
 
         if (gui.pantallaActual == GUI.PANTALLA.SENSOR7 && gui.pantallaActual != GUI.PANTALLA.MENÚ && gui.pantallaActual != GUI.PANTALLA.INICIO && gui.pantallaActual != GUI.PANTALLA.ACTUADOR1 && gui.pantallaActual != GUI.PANTALLA.GRÁFICA_SENSOR1 && gui.pantallaActual != GUI.PANTALLA.GRÁFICA_ACTUADOR1) {
+
+            gui.EncesA1.setMouseOverButtonFalse(this);
+            gui.EncesA2.setMouseOverButtonFalse(this);
+            gui.EncesA3.setMouseOverButtonFalse(this);
+            gui.EncesA4.setMouseOverButtonFalse(this);
+            gui.EncesA5.setMouseOverButtonFalse(this);
+            gui.EncesA6.setMouseOverButtonFalse(this);
+            gui.EncesA7.setMouseOverButtonFalse(this);
+
+            gui.EncesS1.setMouseOverButtonFalse(this);
+            gui.EncesS2.setMouseOverButtonFalse(this);
+            gui.EncesS3.setMouseOverButtonFalse(this);
+            gui.EncesS4.setMouseOverButtonFalse(this);
+            gui.EncesS5.setMouseOverButtonFalse(this);
+            gui.EncesS6.setMouseOverButtonFalse(this);
+
             gui.MenuS.setEnabled(true);
             gui.GraficaSensor.setEnabled(true);
             // gui.EncesS1.setEnabled(true);

@@ -327,6 +327,37 @@ public class DataBase {
         }
     }*/
 
+   public float getStatSensor(LocalDateTime Fecha1, LocalDateTime Fecha2, String idSensor)  {
+       String StatSensor = new String();
+       try {
+           ResultSet rs = query.executeQuery( "SELECT valor FROM registros WHERE idSensor = '"+idSensor+"' AND instante BETWEEN '"+Fecha1+"'AND'"+Fecha2+"' ");
+           rs.next();
+        StatSensor = rs.getString(String.valueOf("valor"));
+
+           //return new String[]{String.valueOf(rs.getInt("nombre"))};
+           return Float.valueOf(StatSensor);
+       }
+       catch(Exception e) {
+           System.out.println(e);
+           return 0;
+       }
+   }
+
+    public float getStatActuador(LocalDateTime Fecha1, LocalDateTime Fecha2, String idActuador)  {
+        String StatActuador = new String();
+        try {
+            ResultSet rs = query.executeQuery( "SELECT valor FROM registroa WHERE idActuador = '"+idActuador+"' AND instante BETWEEN '"+Fecha1+"'AND'"+Fecha2+"' ");
+            rs.next();
+            StatActuador = rs.getString(String.valueOf("valor"));
+
+            //return new String[]{String.valueOf(rs.getInt("nombre"))};
+            return Float.valueOf(StatActuador);
+        }
+        catch(Exception e) {
+            System.out.println(e);
+            return 0;
+        }
+    }
 
     public String getTiposActuador(String idActuador)  {
         String Actuador = new String();
@@ -344,7 +375,7 @@ public class DataBase {
         }
     }
 
-    public String getActuadorOnOf(String idActuador)  {
+  /*  public String getActuadorOnOf(String idActuador)  {
         String ActuadorOnOf = new String();
         try {
             ResultSet rs = query.executeQuery( "SELECT encendido FROM actuador WHERE idActuador = '"+idActuador+"'");
@@ -357,6 +388,24 @@ public class DataBase {
         catch(Exception e) {
             System.out.println(e);
             return null;
+        }
+    }*/
+    public int getActuadorOnOf(String idActuador)  {
+        String ActuadorOnOf = new String();
+        try {
+            ResultSet rs = query.executeQuery( "SELECT encendido FROM actuador WHERE idActuador = '"+idActuador+"'");
+            rs.next();
+            ActuadorOnOf = rs.getString("encendido");
+
+            //return new String[]{String.valueOf(rs.getInt("nombre"))};
+            if (ActuadorOnOf.equals("S")) {
+                return 2;
+            }
+            else{return 1;}
+        }
+        catch(Exception e) {
+            System.out.println(e);
+            return 1;
         }
     }
 
@@ -582,7 +631,7 @@ public class DataBase {
         }
     }
 
-    public void insertInfoRegistroActuador(String idRegistroActuadorA, LocalDateTime instanteA, float valorA, String nomActuador){
+    public void insertInfoRegistroActuador(String idRegistroActuadorA, LocalDateTime instanteA, int valorA, String nomActuador){
         try {
             // String sNom = nom.replace("\'", "\\'");
             String q = "INSERT INTO registroactuador (idRegistroActuador, instante, valor, actuador) VALUES ('"+idRegistroActuadorA+"', '"+instanteA+"', '"+valorA+"', '"+nomActuador+"')";
@@ -631,6 +680,17 @@ public class DataBase {
         catch(Exception e) {
             System.out.println(e);
         }
+    }
+
+    public void updateSensorOnOf(String b, String nomDSensor) {
+        try{
+            String q = "UPDATE `sensor` SET  `encendido` = '"+b+"' WHERE `sensor`.`idSensor` = '"+nomDSensor+"'";
+        System.out.println(q);
+        query.execute(q);
+    }
+        catch(Exception e) {
+        System.out.println(e);
+    }
     }
 
 
