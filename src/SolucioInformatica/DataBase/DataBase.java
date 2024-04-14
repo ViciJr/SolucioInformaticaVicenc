@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.time.LocalDateTime;
 import java.time.LocalTime;
 
 public class DataBase {
@@ -284,27 +285,48 @@ public class DataBase {
         }
     }
 
-    public boolean getSensorOnOf(String idSensor)  {
+    public String getSensorOnOf(String idSensor)  {
         String SensorOnOf = new String();
 
         try {
-            ResultSet rs = query.executeQuery( "SELECT encendido FROM sensor WHERE idActuador = '"+idSensor+"'");
+            ResultSet rs = query.executeQuery( "SELECT encendido FROM sensor WHERE idSensor = '"+idSensor+"'");
             rs.next();
             SensorOnOf = rs.getString("encendido");
 
             //return new String[]{String.valueOf(rs.getInt("nombre"))};
-            if (SensorOnOf.equals("N")){
-                return false;
+            return SensorOnOf;
+        }
+        catch(Exception e) {
+            System.out.println(e);
+            return null;
+        }
+    }
+
+   /* public boolean getSensorOnOf(String idSensor)  {
+        String SensorOnOf = new String();
+
+        try {
+            String q = "SELECT encendido FROM sensor WHERE actuador = '"+idSensor+"'";
+            System.out.println(q);
+            ResultSet rs = query.executeQuery( q);
+            if(rs.next()) {
+                SensorOnOf = rs.getString("encendido");
+
+                //return new String[]{String.valueOf(rs.getInt("nombre"))};
+                if (SensorOnOf.equals("N")) {
+                    return false;
+                } else {
+                    return true;
+                }
             }
-            else{
-               return true;
-            }
+            return false;
         }
         catch(Exception e) {
             System.out.println(e);
             return false;
         }
-    }
+    }*/
+
 
     public String getTiposActuador(String idActuador)  {
         String Actuador = new String();
@@ -373,6 +395,23 @@ public class DataBase {
     public String getSensorActuador(String idActuador)  {
         String SensorA = new String();
         try {
+            String q = "SELECT idSensor FROM sensor WHERE actuador = '"+idActuador+"'";
+            System.out.println(q);
+            ResultSet rs = query.executeQuery(q);
+            rs.next();
+            SensorA = rs.getString("idSensor");
+
+            //return new String[]{String.valueOf(rs.getInt("nombre"))};
+            return SensorA;
+        }
+        catch(Exception e) {
+            System.out.println(e);
+            return null;
+        }
+    }
+   /* public String getSensorActuador(String idActuador)  {
+        String SensorA = new String();
+        try {
             ResultSet rs = query.executeQuery( "SELECT sensor FROM actuador WHERE idActuador = '"+idActuador+"'");
             rs.next();
             SensorA = rs.getString("actuador");
@@ -384,7 +423,7 @@ public class DataBase {
             System.out.println(e);
             return null;
         }
-    }
+    }*/
 
     public String getValMinActuador(String idActuador)  {
         String valMin = new String();
@@ -529,10 +568,10 @@ public class DataBase {
         }
     }
 
-   public void insertInfoRegistroSensor(String idRegistroSensor, LocalTime instante, float valor, String sensor){
+   public void insertInfoRegistroSensor(String idRegistroSensorS, LocalDateTime instanteS, float valorS, String sensor){
+       String nomSensor = sensor.replace("\'", "\\'");
         try {
-           // String sNom = nom.replace("\'", "\\'");
-            String q = " INSERT INTO `registrosensor` (`idRegistroSensor`, `instante`, `valor`, `sensor`) VALUES ('"+idRegistroSensor+"', '"+instante+"', '"+valor+"', '"+sensor+"')";
+            String q = "INSERT INTO registrosensor (idRegistroSensor, instante, valor, sensor) VALUES ('"+idRegistroSensorS+"', '"+instanteS+"', '"+valorS+"', '"+nomSensor+"')";
 
             System.out.println(q);
             query.execute(q);
@@ -543,10 +582,10 @@ public class DataBase {
         }
     }
 
-    public void insertInfoRegistroActuador(String idRegistroActuador, LocalTime instante, float valor, String actuador){
+    public void insertInfoRegistroActuador(String idRegistroActuadorA, LocalDateTime instanteA, float valorA, String nomActuador){
         try {
             // String sNom = nom.replace("\'", "\\'");
-            String q = " INSERT INTO `registroactuador` (`idRegistroActuador`, `instante`, `valor`, `actuador`) VALUES ('"+idRegistroActuador+"', '"+instante+"', '"+valor+"', '"+actuador+"')";
+            String q = "INSERT INTO registroactuador (idRegistroActuador, instante, valor, actuador) VALUES ('"+idRegistroActuadorA+"', '"+instanteA+"', '"+valorA+"', '"+nomActuador+"')";
 
             System.out.println(q);
             query.execute(q);

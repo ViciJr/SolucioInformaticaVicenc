@@ -2,6 +2,7 @@ package SolucioInformatica.Pantalles;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.time.LocalDateTime;
 import java.time.LocalTime;
 
 import SolucioInformatica.DataBase.DataBase;
@@ -157,6 +158,104 @@ public class MainPantalles extends PApplet {
         text("Connexió a la BBDD : "+ info, 100, 100); */
 
         println(gui.pantallaActual);
+        if(gui.pantallaActual!=GUI.PANTALLA.INICIO){
+for(float i=this.random(0, 15); i==this.random(0, 15); i=this.random(0, 15)){
+    gui.valorActuals1 = this.random(0, 15);
+    gui.valorActuals2 = this.random(0, 15);
+    gui.valorActuals3 = this.random(0, 15);
+    gui.valorActuals4 = this.random(0, 15);
+    gui.valorActuals5 = this.random(0, 15);
+    gui.valorActuals6 = this.random(0, 15);
+    gui.valorActuals7 = this.random(0, 15);
+
+
+       }
+}
+
+        if (db.getSensorOnOf("Sensor 1").equals("S")) {
+            gui.SensorMapa1.setEnces(true);
+        } else{
+            gui.SensorMapa1.setEnces(false);
+        }
+
+        if (db.getSensorOnOf("Sensor 2").equals("S")) {
+            gui.SensorMapa2.setEnces(true);
+        } else{
+            gui.SensorMapa2.setEnces(false);
+        }
+
+        if (db.getSensorOnOf("Sensor 3").equals("S")) {
+            gui.SensorMapa3.setEnces(true);
+        } else{
+            gui.SensorMapa3.setEnces(false);
+        }
+
+        if (db.getSensorOnOf("Sensor 4").equals("S")) {
+            gui.SensorMapa4.setEnces(true);
+        } else{
+            gui.SensorMapa4.setEnces(false);
+        }
+
+        if (db.getSensorOnOf("Sensor 5").equals("S")) {
+            gui.SensorMapa5.setEnces(true);
+        } else{
+            gui.SensorMapa5.setEnces(false);
+        }
+
+        if (db.getSensorOnOf("Sensor 6").equals("S")) {
+            gui.SensorMapa6.setEnces(true);
+        } else{
+            gui.SensorMapa6.setEnces(false);
+        }
+
+        if (db.getSensorOnOf("Sensor 7").equals("S")) {
+            gui.SensorMapa7.setEnces(true);
+        } else{
+            gui.SensorMapa7.setEnces(false);
+        }
+
+
+        if (db.getActuadorOnOf("Actuador 1").equals("S") && gui.valorActuals1<=Float.valueOf(db.getValMaxActuador("Actuador 1")) && Float.valueOf(db.getValMaxActuador("Actuador 1"))<= gui.valorActuals1) {
+            gui.ActuadorMapa1.setEnces(true);
+        } else{
+            gui.ActuadorMapa1.setEnces(false);
+        }
+
+        if (db.getActuadorOnOf("Actuador 2").equals("S") && gui.valorActuals2<=Float.valueOf(db.getValMaxActuador("Actuador 2")) && Float.valueOf(db.getValMaxActuador("Actuador 2"))<= gui.valorActuals2) {
+            gui.ActuadorMapa2.setEnces(true);
+        } else{
+            gui.ActuadorMapa2.setEnces(false);
+        }
+
+        if (db.getActuadorOnOf("Actuador 3").equals("S") && gui.valorActuals3<=Float.valueOf(db.getValMaxActuador("Actuador 3")) && Float.valueOf(db.getValMaxActuador("Actuador 3"))<= gui.valorActuals3) {
+            gui.ActuadorMapa3.setEnces(true);
+        } else{
+            gui.ActuadorMapa3.setEnces(false);
+        }
+
+        if (db.getActuadorOnOf("Actuador 4").equals("S") && gui.valorActuals4<=Float.valueOf(db.getValMaxActuador("Actuador 4")) && Float.valueOf(db.getValMaxActuador("Actuador 4"))<= gui.valorActuals4) {
+            gui.ActuadorMapa4.setEnces(true);
+        } else{
+            gui.ActuadorMapa4.setEnces(false);
+        }
+
+        if (db.getActuadorOnOf("Actuador 5").equals("S") && gui.valorActuals5<=Float.valueOf(db.getValMaxActuador("Actuador 5")) && Float.valueOf(db.getValMaxActuador("Actuador 5"))<= gui.valorActuals5) {
+            gui.ActuadorMapa5.setEnces(true);
+        } else{
+            gui.ActuadorMapa5.setEnces(false);
+        }
+
+        if (db.getActuadorOnOf("Actuador 6").equals("S") && gui.valorActuals6<=Float.valueOf(db.getValMaxActuador("Actuador 6")) && Float.valueOf(db.getValMaxActuador("Actuador 6"))<= gui.valorActuals6) {
+            gui.ActuadorMapa6.setEnces(true);
+        } else{
+            gui.ActuadorMapa6.setEnces(false);
+        }
+
+        if (db.getActuadorOnOf("Actuador 7").equals("S") && gui.valorActuals7<=Float.valueOf(db.getValMaxActuador("Actuador 7")) && Float.valueOf(db.getValMaxActuador("Actuador 7"))<= gui.valorActuals7) {
+            gui.ActuadorMapa7.setEnces(true);
+        } else{
+            gui.ActuadorMapa7.setEnces(false);
+        }
 
     }
 
@@ -238,6 +337,49 @@ public class MainPantalles extends PApplet {
     // ******************* MOUSE interaction ***************************** //
 
     public void mousePressed(){
+
+      /*  if (db.getActuadorOnOf("Actuador 1").equals("N")) {
+            gui.ActuadorMapa1.setEnces(true);
+        } else{
+            gui.ActuadorMapa1.setEnces(false);
+        }
+
+        if (db.getActuadorOnOf("Actuador 2").equals("N")) {
+            gui.ActuadorMapa2.setEnces(true);
+        } else{
+            gui.ActuadorMapa2.setEnces(false);
+        }
+
+        if (db.getActuadorOnOf("Actuador 3").equals("N")) {
+            gui.ActuadorMapa1.setEnces(true);
+        } else{
+            gui.ActuadorMapa1.setEnces(false);
+        }
+
+        if (db.getActuadorOnOf("Actuador 4").equals("N")) {
+            gui.ActuadorMapa4.setEnces(true);
+        } else{
+            gui.ActuadorMapa4.setEnces(false);
+        }
+
+        if (db.getActuadorOnOf("Actuador 5").equals("N")) {
+            gui.ActuadorMapa5.setEnces(true);
+        } else{
+            gui.ActuadorMapa5.setEnces(false);
+        }
+
+        if (db.getActuadorOnOf("Actuador 6").equals("N")) {
+            gui.ActuadorMapa6.setEnces(true);
+        } else{
+            gui.ActuadorMapa6.setEnces(false);
+        }
+
+        if (db.getActuadorOnOf("Actuador 7").equals("N")) {
+            gui.ActuadorMapa7.setEnces(true);
+        } else{
+            gui.ActuadorMapa7.setEnces(false);
+        }*/
+
         if(gui.pantallaActual == GUI.PANTALLA.INICIO || gui.pantallaActual == GUI.PANTALLA.MENÚ || gui.pantallaActual == GUI.PANTALLA.SENSOR1 || gui.pantallaActual == GUI.PANTALLA.ACTUADOR1 || gui.pantallaActual == GUI.PANTALLA.GRÁFICA_SENSOR1 || gui.pantallaActual == GUI.PANTALLA.GRÁFICA_ACTUADOR1) {
 
             if (gui.Logo.mouseOverButton(this)) {
@@ -326,6 +468,9 @@ public class MainPantalles extends PApplet {
 
                 if (gui.Sensor1.mouseOverButton(this)) {
                     gui.pantallaActual = GUI.PANTALLA.SENSOR1;
+               //     db.insertInfoRegistroSensor("Sensor 1"+String.valueOf(LocalDateTime.now()), LocalDateTime.now(), gui.valorActuals1, "Sensor 1");
+                 //   db.insertInfoRegistroActuador("Actuador 1"+String.valueOf(LocalDateTime.now()), LocalDateTime.now(), 1, "Actuador 1");
+
                 }
                 if (gui.Sensor2.mouseOverButton(this)) {
                     gui.pantallaActual = GUI.PANTALLA.SENSOR2;
@@ -383,14 +528,7 @@ public class MainPantalles extends PApplet {
                 if (gui.GraficaActuador.mouseOverButton(this) && gui.pantallaActual == GUI.PANTALLA.ACTUADOR1) {
                     gui.pantallaActual = GUI.PANTALLA.GRÁFICA_ACTUADOR1;
                 }
-                if (db.getActuadorOnOf("Actuador 1").equals("N")) {
-                    gui.ActuadorMapa1.setEnces(true);
-                } else{
-                    gui.ActuadorMapa1.setEnces(false);
-                }
-                if (gui.MenuS.mouseOverButton(this)) {
-                    gui.pantallaActual = GUI.PANTALLA.MENÚ;
-                }
+
                 if (gui.Ejecutar.mouseOverButton(this) && gui.Ubicaciona1.getSelectedValue().equals("Sin ubicación")) {
                     gui.ActuadorSinHabitacion.addSensor(gui.ActuadorMapa1);
                 } else if (gui.Ejecutar.mouseOverButton(this) && gui.Ubicaciona1.getSelectedValue().equals("Dormitorio")) {
@@ -437,11 +575,11 @@ public class MainPantalles extends PApplet {
             if (gui.GraficaActuador.mouseOverButton(this) && gui.pantallaActual == GUI.PANTALLA.ACTUADOR2) {
                 gui.pantallaActual = GUI.PANTALLA.GRÁFICA_ACTUADOR2;
             }
-            if (gui.EncesA2.isEnabled()) {
+          /*  if (gui.EncesA2.isEnabled()) {
                 gui.ActuadorMapa2.setEnces(true);
             } else{
                 gui.ActuadorMapa2.setEnces(false);
-            }
+            }*/
             if (gui.MenuS.mouseOverButton(this)) {
                 gui.pantallaActual = GUI.PANTALLA.MENÚ;
             }
@@ -491,11 +629,11 @@ public class MainPantalles extends PApplet {
             if (gui.GraficaActuador.mouseOverButton(this) && gui.pantallaActual == GUI.PANTALLA.ACTUADOR3) {
                 gui.pantallaActual = GUI.PANTALLA.GRÁFICA_ACTUADOR3;
             }
-            if (gui.EncesA3.isEnabled()) {
+           /* if (gui.EncesA3.isEnabled()) {
                 gui.ActuadorMapa3.setEnces(true);
             } else{
                 gui.ActuadorMapa3.setEnces(false);
-            }
+            }*/
             if (gui.MenuS.mouseOverButton(this)) {
                 gui.pantallaActual = GUI.PANTALLA.MENÚ;
             }
@@ -546,11 +684,11 @@ public class MainPantalles extends PApplet {
             if (gui.GraficaActuador.mouseOverButton(this) && gui.pantallaActual == GUI.PANTALLA.ACTUADOR4) {
                 gui.pantallaActual = GUI.PANTALLA.GRÁFICA_ACTUADOR4;
             }
-            if (gui.EncesA4.isEnabled()) {
+           /* if (gui.EncesA4.isEnabled()) {
                 gui.ActuadorMapa4.setEnces(true);
             } else {
                 gui.ActuadorMapa4.setEnces(false);
-            }
+            }*/
             if (gui.MenuS.mouseOverButton(this)) {
                 gui.pantallaActual = GUI.PANTALLA.MENÚ;
             }
@@ -600,11 +738,11 @@ public class MainPantalles extends PApplet {
             if (gui.GraficaActuador.mouseOverButton(this) && gui.pantallaActual == GUI.PANTALLA.ACTUADOR5) {
                 gui.pantallaActual = GUI.PANTALLA.GRÁFICA_ACTUADOR5;
             }
-            if (gui.EncesA5.isEnabled()) {
+         /*   if (gui.EncesA5.isEnabled()) {
                 gui.ActuadorMapa5.setEnces(true);
             } else {
                 gui.ActuadorMapa5.setEnces(false);
-            }
+            }*/
             if (gui.MenuS.mouseOverButton(this)) {
                 gui.pantallaActual = GUI.PANTALLA.MENÚ;
             }
@@ -654,11 +792,11 @@ public class MainPantalles extends PApplet {
             if (gui.GraficaActuador.mouseOverButton(this) && gui.pantallaActual == GUI.PANTALLA.ACTUADOR6) {
                 gui.pantallaActual = GUI.PANTALLA.GRÁFICA_ACTUADOR6;
             }
-            if (gui.EncesA6.isEnabled()) {
+         /*   if (gui.EncesA6.isEnabled()) {
                 gui.ActuadorMapa6.setEnces(true);
             } else {
                 gui.ActuadorMapa6.setEnces(false);
-            }
+            }*/
             if (gui.MenuS.mouseOverButton(this)) {
                 gui.pantallaActual = GUI.PANTALLA.MENÚ;
             }
@@ -708,11 +846,11 @@ public class MainPantalles extends PApplet {
             if (gui.GraficaActuador.mouseOverButton(this) && gui.pantallaActual == GUI.PANTALLA.ACTUADOR7) {
                 gui.pantallaActual = GUI.PANTALLA.GRÁFICA_ACTUADOR7;
             }
-            if (gui.EncesA7.isEnabled()) {
+         /*   if (gui.EncesA7.isEnabled()) {
                 gui.ActuadorMapa7.setEnces(true);
             } else{
                 gui.ActuadorMapa7.setEnces(false);
-            }
+            }*/
             if (gui.MenuS.mouseOverButton(this)) {
                 gui.pantallaActual = GUI.PANTALLA.MENÚ;
             }
@@ -758,12 +896,7 @@ public class MainPantalles extends PApplet {
             if (gui.GraficaSensor.mouseOverButton(this) && gui.pantallaActual == GUI.PANTALLA.SENSOR1) {
                 gui.pantallaActual = GUI.PANTALLA.GRÁFICA_SENSOR1;
             }
-           if (gui.EncesS1.isEnabled()) {
-              // db.insertInfoRegistroSensor(LocalTime.now(), 5f, "Sensor 1");
-                gui.SensorMapa1.setEnces(true);
-            } else {
-                gui.SensorMapa1.setEnces(false);
-            }
+
             if (gui.MenuS.mouseOverButton(this)) {
                 gui.pantallaActual = GUI.PANTALLA.MENÚ;
             }
@@ -807,11 +940,7 @@ public class MainPantalles extends PApplet {
             if (gui.GraficaSensor.mouseOverButton(this) && gui.pantallaActual == GUI.PANTALLA.SENSOR2) {
                 gui.pantallaActual = GUI.PANTALLA.GRÁFICA_SENSOR2;
             }
-            if (gui.EncesS2.isEnabled()) {
-                gui.SensorMapa2.setEnces(true);
-            } else{
-                gui.SensorMapa2.setEnces(false);
-            }
+
             if (gui.MenuS.mouseOverButton(this) && gui.pantallaActual == GUI.PANTALLA.SENSOR2) {
                 gui.pantallaActual = GUI.PANTALLA.MENÚ;
             }
@@ -852,11 +981,7 @@ public class MainPantalles extends PApplet {
             if (gui.GraficaSensor.mouseOverButton(this) && gui.pantallaActual == GUI.PANTALLA.SENSOR3) {
                 gui.pantallaActual = GUI.PANTALLA.GRÁFICA_SENSOR3;
             }
-            if (gui.EncesS3.isEnabled()) {
-                gui.SensorMapa3.setEnces(true);
-            } else{
-                gui.SensorMapa3.setEnces(false);
-            }
+
             if (gui.MenuS.mouseOverButton(this)) {
                 gui.pantallaActual = GUI.PANTALLA.MENÚ;
             }
@@ -897,11 +1022,7 @@ public class MainPantalles extends PApplet {
             if (gui.GraficaSensor.mouseOverButton(this) && gui.pantallaActual == GUI.PANTALLA.SENSOR4) {
                 gui.pantallaActual = GUI.PANTALLA.GRÁFICA_SENSOR4;
             }
-            if (gui.EncesS4.isEnabled()) {
-                gui.SensorMapa4.setEnces(true);
-            } else{
-                gui.SensorMapa4.setEnces(false);
-            }
+
             if (gui.MenuS.mouseOverButton(this) && gui.pantallaActual == GUI.PANTALLA.SENSOR4) {
                 gui.pantallaActual = GUI.PANTALLA.MENÚ;
             }
@@ -942,11 +1063,7 @@ public class MainPantalles extends PApplet {
             if (gui.GraficaSensor.mouseOverButton(this) && gui.pantallaActual == GUI.PANTALLA.SENSOR5) {
                 gui.pantallaActual = GUI.PANTALLA.GRÁFICA_SENSOR5;
             }
-            if (gui.EncesS5.isEnabled()) {
-                gui.SensorMapa5.setEnces(true);
-            } else{
-                gui.SensorMapa5.setEnces(false);
-            }
+
             if (gui.MenuS.mouseOverButton(this)) {
                 gui.pantallaActual = GUI.PANTALLA.MENÚ;
             }
@@ -987,11 +1104,6 @@ public class MainPantalles extends PApplet {
             if (gui.GraficaSensor.mouseOverButton(this) && gui.pantallaActual == GUI.PANTALLA.SENSOR6) {
                 gui.pantallaActual = GUI.PANTALLA.GRÁFICA_SENSOR6;
             }
-            if (gui.EncesS6.isEnabled()) {
-                gui.SensorMapa6.setEnces(true);
-            } else {
-                gui.SensorMapa6.setEnces(false);
-            }
             if (gui.MenuS.mouseOverButton(this)) {
                 gui.pantallaActual = GUI.PANTALLA.MENÚ;
             }
@@ -1031,11 +1143,6 @@ public class MainPantalles extends PApplet {
 
             if (gui.GraficaSensor.mouseOverButton(this) && gui.pantallaActual == GUI.PANTALLA.SENSOR7) {
                 gui.pantallaActual = GUI.PANTALLA.GRÁFICA_SENSOR7;
-            }
-            if (gui.EncesS7.isEnabled()) {
-                gui.SensorMapa7.setEnces(true);
-            } else {
-                gui.SensorMapa7.setEnces(false);
             }
             if (gui.MenuS.mouseOverButton(this)) {
                 gui.pantallaActual = GUI.PANTALLA.MENÚ;
