@@ -1,6 +1,7 @@
 package SolucioInformatica.gui.mapa;
 
 import processing.core.PApplet;
+/**Clase usada para crear los sensores del mapa*/
 
 public class Sensor {
 
@@ -26,6 +27,7 @@ public class Sensor {
     float x, y;
     float radi = 25;
 
+    /**Constructores del objeto Sensor*/
     public Sensor(String n){
         this.nom = n;
         this.ences = false;

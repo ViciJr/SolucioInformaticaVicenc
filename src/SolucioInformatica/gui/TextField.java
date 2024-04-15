@@ -3,7 +3,7 @@ package SolucioInformatica.gui;
 import processing.core.PApplet;
 
 import static processing.core.PConstants.BACKSPACE;
-
+/**Clase con la que se crean los campos de texto usados en la pantalla de inicio, de los sensores y de los actuadores*/
 public class TextField {
 
     // Propietats del camp de text

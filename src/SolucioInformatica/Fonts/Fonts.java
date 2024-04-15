@@ -4,7 +4,7 @@ package SolucioInformatica.Fonts;
 import processing.core.PApplet;
 import processing.core.PFont;
 
-
+/**Clase Fonts para la prueba de las tipografías*/
 public class Fonts {
 
 

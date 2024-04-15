@@ -1,14 +1,13 @@
-package SolucioInformatica.Pantalles;
+package SolucioInformatica.gui.Pantalles;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.time.LocalDateTime;
-import java.time.LocalTime;
 
-import SolucioInformatica.DataBase.DataBase;
+import SolucioInformatica.gui.DataBase.DataBase;
 import SolucioInformatica.gui.Timer.Timer;
 import processing.core.PApplet;
 
+/**Clase principal del programa*/
 public class MainPantalles extends PApplet {
     GUI gui;
     Connection con;
@@ -24,7 +23,7 @@ public class MainPantalles extends PApplet {
     Timer t;
     int n;
     public static void main(String[] args) {
-        PApplet.main("SolucioInformatica.Pantalles.MainPantalles", args);
+        PApplet.main("SolucioInformatica.gui.Pantalles.MainPantalles", args);
     }
 
     public void settings(){
@@ -59,12 +58,12 @@ public class MainPantalles extends PApplet {
 
     public void draw(){
 
-        // Dibuixa la pantalla corresponent
+        /**Cambio de pantalla para dibujar la que toca*/
         switch(gui.pantallaActual){
             case INICIO:         gui.dibuixaPantallaInicio(this);
                 break;
 
-            case MENÚ:          gui.dibuixaPantallaPlano(this);
+            case MENÚ:          gui.dibuixaPantallaMenu(this);
                 break;
 
             case SENSOR1:        gui.dibuixaPantallaSensor1(this);
@@ -152,14 +151,14 @@ public class MainPantalles extends PApplet {
             case GRÁFICA_ACTUADOR7:    gui.dibuixaPantallaEstadisticaActuador7(this);
                 break;
 
-            case INSTRUCCIONES:    gui.dibuixaPantallaInstrucciones(this);
-                break;
-
         }
 
         if(gui.pantallaActual==GUI.PANTALLA.MENÚ){
             t.start(this);
         }
+
+        /**Método para obtener valores de los sensores y actuadores y llevarlos a la base de datos.
+         * */
         if(t.timeOver()){
             gui.valorActuals1 = this.random(2, 15);
             gui.valorActuals2 = this.random(3, 15);
@@ -236,7 +235,7 @@ public class MainPantalles extends PApplet {
         }
 
        */
-
+/**Con estos if's se encienden o se apagan los sensores*/
 
         if (db.getSensorOnOf("Sensor 1").equals("S")) {
 
@@ -284,7 +283,7 @@ public class MainPantalles extends PApplet {
             gui.SensorMapa7.setEnces(false);
         }
 
-
+/**Con estos if's se encienden y se apagan los actuadores*/
         if (db.getActuadorOnOf("Actuador 1")==2 && db.getSensorOnOf("Sensor 1").equals("S") && gui.valorActuals1<=Float.valueOf(db.getValMaxActuador("Actuador 1")) && Float.valueOf(db.getValMinActuador("Actuador 1"))<= gui.valorActuals1) {
             gui.ActuadorMapa1.setEnces(true);
         } else{
@@ -349,7 +348,7 @@ public class MainPantalles extends PApplet {
     }*/
 
     // ******************* KEYBOARD interaction ***************************** //
-
+/**Con el método keyPressed se puede actuar con teclado del ordenador en la aplicación*/
     public void keyPressed(){
         /*
         if(key=='0'){
@@ -374,6 +373,7 @@ public class MainPantalles extends PApplet {
             gui.pantallaActual = GUI.PANTALLA.INSTRUCCIONES;
         }
 */
+        /**Se da funcionalidad a los textfields*/
         gui.TUsuario.keyPressed(key, keyCode);
         gui.TContraseña.keyPressed(key, keyCode);
         gui.TNameSensor.keyPressed(key, keyCode);
@@ -394,7 +394,7 @@ public class MainPantalles extends PApplet {
         gui.ValMax7.keyPressed(key, keyCode);
 
 
-
+/*
         if(key=='n' || key=='N'){
             if(gui.hSelected != null) {
                 gui.hSelected.encenLlums();
@@ -406,15 +406,15 @@ public class MainPantalles extends PApplet {
                 gui.hSelected.apagaLlums();
             }
         }
-
+*/
         if (key=='r'||key=='R'){
-          /*gui.valorActuals1 = this.random(2, 15);
-            gui.valorActuals2 = this.random(3, 15);
-            gui.valorActuals3 = this.random(1, 15);
-            gui.valorActuals4 = this.random(4, 15);
-            gui.valorActuals5 = this.random(6, 15);
-            gui.valorActuals6 = this.random(7, 15);
-            gui.valorActuals7 = this.random(8, 15);
+            gui.valorActuals1 = this.random(0, 15);
+            gui.valorActuals2 = this.random(0, 15);
+            gui.valorActuals3 = this.random(0, 15);
+            gui.valorActuals4 = this.random(0, 15);
+            gui.valorActuals5 = this.random(0, 15);
+            gui.valorActuals6 = this.random(0, 15);
+            gui.valorActuals7 = this.random(0, 15);
 
             db.insertInfoRegistroSensor("Sensor 1"+String.valueOf(LocalDateTime.now()), LocalDateTime.now(), gui.valorActuals1, "Sensor 1");
             db.insertInfoRegistroSensor("Sensor 2"+String.valueOf(LocalDateTime.now()), LocalDateTime.now(), gui.valorActuals2, "Sensor 2");
@@ -431,7 +431,7 @@ public class MainPantalles extends PApplet {
             db.insertInfoRegistroActuador("Actuador 5"+String.valueOf(LocalDateTime.now()), LocalDateTime.now(), db.getActuadorOnOf("Actuador 5"), "Actuador 5");
             db.insertInfoRegistroActuador("Actuador 6"+String.valueOf(LocalDateTime.now()), LocalDateTime.now(), db.getActuadorOnOf("Actuador 6"), "Actuador 6");
             db.insertInfoRegistroActuador("Actuador 7"+String.valueOf(LocalDateTime.now()), LocalDateTime.now(), db.getActuadorOnOf("Actuador 7"), "Actuador 7");
-            */
+
 
         }
 
@@ -440,7 +440,7 @@ public class MainPantalles extends PApplet {
 
 
     // ******************* MOUSE interaction ***************************** //
-
+/**Gracias al método mousePressed se puede interactuar con el ratón en la aplicación*/
     public void mousePressed(){
 
       /*  if (db.getActuadorOnOf("Actuador 1").equals("N")) {
@@ -484,11 +484,13 @@ public class MainPantalles extends PApplet {
         } else{
             gui.ActuadorMapa7.setEnces(false);
         }*/
+        /**Metodos con los que se puede cambiar de pantalla e interactuar con los botones, selects y textfields de cada pantalla.
+         * Si la pantalla no se corresponde con la que está el botón, select o textfield, estos están desactivados.*/
         if (gui.Logo.mouseOverButton(this)) {
             gui.pantallaActual = GUI.PANTALLA.MENÚ;
 
         }
-
+/**Pantalla de inicio*/
 
             if (gui.pantallaActual == GUI.PANTALLA.INICIO && gui.pantallaActual != GUI.PANTALLA.MENÚ && gui.pantallaActual != GUI.PANTALLA.SENSOR1 && gui.pantallaActual != GUI.PANTALLA.ACTUADOR1 && gui.pantallaActual != GUI.PANTALLA.GRÁFICA_SENSOR1 && gui.pantallaActual != GUI.PANTALLA.GRÁFICA_ACTUADOR1) {
                 gui.Logo.setEnabled(false);
@@ -533,7 +535,7 @@ public class MainPantalles extends PApplet {
             else{
                 gui.Logo.setEnabled(true);
             }
-
+/**Pantalla menú*/
             if (gui.pantallaActual == GUI.PANTALLA.MENÚ && gui.pantallaActual != GUI.PANTALLA.INICIO && gui.pantallaActual != GUI.PANTALLA.SENSOR1 && gui.pantallaActual != GUI.PANTALLA.ACTUADOR1 && gui.pantallaActual != GUI.PANTALLA.GRÁFICA_SENSOR1 && gui.pantallaActual != GUI.PANTALLA.GRÁFICA_ACTUADOR1) {
                 gui.Sensor1.setEnabled(true);
                 gui.Sensor2.setEnabled(true);
@@ -634,7 +636,7 @@ public class MainPantalles extends PApplet {
                 gui.Actuador6.setEnabled(false);
                 gui.Actuador7.setEnabled(false);
             }
-
+/**Pantalla actuador 1*/
             if (gui.pantallaActual == GUI.PANTALLA.ACTUADOR1 && gui.pantallaActual != GUI.PANTALLA.MENÚ && gui.pantallaActual != GUI.PANTALLA.SENSOR1 && gui.pantallaActual != GUI.PANTALLA.INICIO && gui.pantallaActual != GUI.PANTALLA.GRÁFICA_SENSOR1 && gui.pantallaActual != GUI.PANTALLA.GRÁFICA_ACTUADOR1) {
 
                 gui.EncesA2.setMouseOverButtonFalse(this);
@@ -696,7 +698,7 @@ public class MainPantalles extends PApplet {
                 gui.Sensora1.setEnabled(false);
                 gui.Ejecutar.setEnabled(false);
             }
-
+/**Pantalla actuador 2*/
         if (gui.pantallaActual == GUI.PANTALLA.ACTUADOR2 && gui.pantallaActual != GUI.PANTALLA.MENÚ && gui.pantallaActual != GUI.PANTALLA.SENSOR1 && gui.pantallaActual != GUI.PANTALLA.INICIO && gui.pantallaActual != GUI.PANTALLA.GRÁFICA_SENSOR1 && gui.pantallaActual != GUI.PANTALLA.GRÁFICA_ACTUADOR1) {
             gui.EncesA1.setMouseOverButtonFalse(this);
             gui.EncesA3.setMouseOverButtonFalse(this);
@@ -764,7 +766,7 @@ public class MainPantalles extends PApplet {
             gui.Sensora2.setEnabled(false);
             gui.Ejecutar.setEnabled(false);
         }
-
+/**Pantalla actuador 3*/
         if (gui.pantallaActual == GUI.PANTALLA.ACTUADOR3 && gui.pantallaActual != GUI.PANTALLA.MENÚ && gui.pantallaActual != GUI.PANTALLA.SENSOR1 && gui.pantallaActual != GUI.PANTALLA.INICIO && gui.pantallaActual != GUI.PANTALLA.GRÁFICA_SENSOR1 && gui.pantallaActual != GUI.PANTALLA.GRÁFICA_ACTUADOR1) {
 
             gui.EncesA1.setMouseOverButtonFalse(this);
@@ -833,7 +835,7 @@ public class MainPantalles extends PApplet {
             gui.Sensora3.setEnabled(false);
             gui.Ejecutar.setEnabled(false);
         }
-
+/**Pantalla actuador 4*/
         if (gui.pantallaActual == GUI.PANTALLA.ACTUADOR4 && gui.pantallaActual != GUI.PANTALLA.MENÚ && gui.pantallaActual != GUI.PANTALLA.SENSOR1 && gui.pantallaActual != GUI.PANTALLA.INICIO && gui.pantallaActual != GUI.PANTALLA.GRÁFICA_SENSOR1 && gui.pantallaActual != GUI.PANTALLA.GRÁFICA_ACTUADOR1) {
 
             gui.EncesA1.setMouseOverButtonFalse(this);
@@ -903,7 +905,7 @@ public class MainPantalles extends PApplet {
             gui.Sensora4.setEnabled(false);
             gui.Ejecutar.setEnabled(false);
         }
-
+/**Pantalla actuador 5*/
         if (gui.pantallaActual == GUI.PANTALLA.ACTUADOR5 && gui.pantallaActual != GUI.PANTALLA.MENÚ && gui.pantallaActual != GUI.PANTALLA.SENSOR1 && gui.pantallaActual != GUI.PANTALLA.INICIO && gui.pantallaActual != GUI.PANTALLA.GRÁFICA_SENSOR1 && gui.pantallaActual != GUI.PANTALLA.GRÁFICA_ACTUADOR1) {
 
             gui.EncesA1.setMouseOverButtonFalse(this);
@@ -972,7 +974,7 @@ public class MainPantalles extends PApplet {
             gui.Sensora5.setEnabled(false);
             gui.Ejecutar.setEnabled(false);
         }
-
+/**Pantalla actuador 6*/
         if (gui.pantallaActual == GUI.PANTALLA.ACTUADOR6 && gui.pantallaActual != GUI.PANTALLA.MENÚ && gui.pantallaActual != GUI.PANTALLA.SENSOR1 && gui.pantallaActual != GUI.PANTALLA.INICIO && gui.pantallaActual != GUI.PANTALLA.GRÁFICA_SENSOR1 && gui.pantallaActual != GUI.PANTALLA.GRÁFICA_ACTUADOR1) {
 
             gui.EncesA1.setMouseOverButtonFalse(this);
@@ -1041,7 +1043,7 @@ public class MainPantalles extends PApplet {
             gui.Sensora6.setEnabled(false);
             gui.Ejecutar.setEnabled(false);
         }
-
+/**Pantalla actuador 7*/
         if (gui.pantallaActual == GUI.PANTALLA.ACTUADOR7 && gui.pantallaActual != GUI.PANTALLA.MENÚ && gui.pantallaActual != GUI.PANTALLA.SENSOR1 && gui.pantallaActual != GUI.PANTALLA.INICIO && gui.pantallaActual != GUI.PANTALLA.GRÁFICA_SENSOR1 && gui.pantallaActual != GUI.PANTALLA.GRÁFICA_ACTUADOR1) {
 
             gui.EncesA1.setMouseOverButtonFalse(this);
@@ -1112,7 +1114,7 @@ public class MainPantalles extends PApplet {
         }
 
 
-
+/**Pantalla sensor 1*/
         if (gui.pantallaActual == GUI.PANTALLA.SENSOR1 && gui.pantallaActual != GUI.PANTALLA.MENÚ && gui.pantallaActual != GUI.PANTALLA.INICIO && gui.pantallaActual != GUI.PANTALLA.ACTUADOR1 && gui.pantallaActual != GUI.PANTALLA.GRÁFICA_SENSOR1 && gui.pantallaActual != GUI.PANTALLA.GRÁFICA_ACTUADOR1) {
             gui.EncesA1.setMouseOverButtonFalse(this);
             gui.EncesA2.setMouseOverButtonFalse(this);
@@ -1172,7 +1174,7 @@ public class MainPantalles extends PApplet {
             gui.ActuadorS1.setEnabled(false);
             gui.Ejecutar.setEnabled(true);
         }
-
+/**Pantalla sensor 2*/
         if (gui.pantallaActual == GUI.PANTALLA.SENSOR2 && gui.pantallaActual != GUI.PANTALLA.MENÚ && gui.pantallaActual != GUI.PANTALLA.INICIO && gui.pantallaActual != GUI.PANTALLA.ACTUADOR1 && gui.pantallaActual != GUI.PANTALLA.GRÁFICA_SENSOR1 && gui.pantallaActual != GUI.PANTALLA.GRÁFICA_ACTUADOR1) {
 
             gui.EncesA1.setMouseOverButtonFalse(this);
@@ -1229,7 +1231,7 @@ public class MainPantalles extends PApplet {
             gui.Arduino2.setEnabled(false);
             gui.ActuadorS2.setEnabled(false);
         }
-
+/**Pantalla sensor 3*/
         if (gui.pantallaActual == GUI.PANTALLA.SENSOR3 && gui.pantallaActual != GUI.PANTALLA.MENÚ && gui.pantallaActual != GUI.PANTALLA.INICIO && gui.pantallaActual != GUI.PANTALLA.ACTUADOR1 && gui.pantallaActual != GUI.PANTALLA.GRÁFICA_SENSOR1 && gui.pantallaActual != GUI.PANTALLA.GRÁFICA_ACTUADOR1) {
 
             gui.EncesA1.setMouseOverButtonFalse(this);
@@ -1286,7 +1288,7 @@ public class MainPantalles extends PApplet {
             gui.Arduino3.setEnabled(false);
             gui.ActuadorS3.setEnabled(false);
         }
-
+/**Pantalla sensor 4*/
         if (gui.pantallaActual == GUI.PANTALLA.SENSOR4 && gui.pantallaActual != GUI.PANTALLA.MENÚ && gui.pantallaActual != GUI.PANTALLA.INICIO && gui.pantallaActual != GUI.PANTALLA.ACTUADOR1 && gui.pantallaActual != GUI.PANTALLA.GRÁFICA_SENSOR1 && gui.pantallaActual != GUI.PANTALLA.GRÁFICA_ACTUADOR1) {
 
             gui.EncesA1.setMouseOverButtonFalse(this);
@@ -1343,7 +1345,7 @@ public class MainPantalles extends PApplet {
             gui.Arduino4.setEnabled(false);
             gui.ActuadorS4.setEnabled(false);
         }
-
+/**Pantalla sensor 5*/
         if (gui.pantallaActual == GUI.PANTALLA.SENSOR5 && gui.pantallaActual != GUI.PANTALLA.MENÚ && gui.pantallaActual != GUI.PANTALLA.INICIO && gui.pantallaActual != GUI.PANTALLA.ACTUADOR1 && gui.pantallaActual != GUI.PANTALLA.GRÁFICA_SENSOR1 && gui.pantallaActual != GUI.PANTALLA.GRÁFICA_ACTUADOR1) {
 
             gui.EncesA1.setMouseOverButtonFalse(this);
@@ -1400,7 +1402,7 @@ public class MainPantalles extends PApplet {
             gui.Arduino5.setEnabled(false);
             gui.ActuadorS5.setEnabled(false);
         }
-
+/**Pantalla sensor 6*/
         if (gui.pantallaActual == GUI.PANTALLA.SENSOR6 && gui.pantallaActual != GUI.PANTALLA.MENÚ && gui.pantallaActual != GUI.PANTALLA.INICIO && gui.pantallaActual != GUI.PANTALLA.ACTUADOR1 && gui.pantallaActual != GUI.PANTALLA.GRÁFICA_SENSOR1 && gui.pantallaActual != GUI.PANTALLA.GRÁFICA_ACTUADOR1) {
 
             gui.EncesA1.setMouseOverButtonFalse(this);
@@ -1456,7 +1458,7 @@ public class MainPantalles extends PApplet {
             gui.Arduino6.setEnabled(false);
             gui.ActuadorS6.setEnabled(false);
         }
-
+/**Pantalla sensor 7*/
         if (gui.pantallaActual == GUI.PANTALLA.SENSOR7 && gui.pantallaActual != GUI.PANTALLA.MENÚ && gui.pantallaActual != GUI.PANTALLA.INICIO && gui.pantallaActual != GUI.PANTALLA.ACTUADOR1 && gui.pantallaActual != GUI.PANTALLA.GRÁFICA_SENSOR1 && gui.pantallaActual != GUI.PANTALLA.GRÁFICA_ACTUADOR1) {
 
             gui.EncesA1.setMouseOverButtonFalse(this);
@@ -1512,7 +1514,7 @@ public class MainPantalles extends PApplet {
             gui.Arduino7.setEnabled(false);
             gui.ActuadorS7.setEnabled(false);
         }
-
+/**Pantalla gráfica sensor 1*/
             if (gui.pantallaActual == GUI.PANTALLA.GRÁFICA_SENSOR1 && gui.pantallaActual != GUI.PANTALLA.MENÚ && gui.pantallaActual != GUI.PANTALLA.INICIO && gui.pantallaActual != GUI.PANTALLA.ACTUADOR1 && gui.pantallaActual != GUI.PANTALLA.SENSOR1 && gui.pantallaActual != GUI.PANTALLA.GRÁFICA_ACTUADOR1) {
                 gui.MenuSns.setEnabled(true);
                 if (gui.MenuSns.mouseOverButton(this) && gui.pantallaActual == GUI.PANTALLA.GRÁFICA_SENSOR1) {
@@ -1523,7 +1525,7 @@ public class MainPantalles extends PApplet {
             else{
                 gui.MenuSns.setEnabled(false);
             }
-
+/**Pantalla gráfica sensor 2*/
         if (gui.pantallaActual == GUI.PANTALLA.GRÁFICA_SENSOR2 && gui.pantallaActual != GUI.PANTALLA.MENÚ && gui.pantallaActual != GUI.PANTALLA.INICIO && gui.pantallaActual != GUI.PANTALLA.ACTUADOR1 && gui.pantallaActual != GUI.PANTALLA.SENSOR1 && gui.pantallaActual != GUI.PANTALLA.GRÁFICA_ACTUADOR1) {
             gui.MenuSns.setEnabled(true);
             if (gui.MenuSns.mouseOverButton(this) && gui.pantallaActual == GUI.PANTALLA.GRÁFICA_SENSOR2) {
@@ -1534,7 +1536,7 @@ public class MainPantalles extends PApplet {
         else{
             gui.MenuSns.setEnabled(false);
         }
-
+/**Pantalla gráfica sensor 3*/
         if (gui.pantallaActual == GUI.PANTALLA.GRÁFICA_SENSOR3 && gui.pantallaActual != GUI.PANTALLA.MENÚ && gui.pantallaActual != GUI.PANTALLA.INICIO && gui.pantallaActual != GUI.PANTALLA.ACTUADOR1 && gui.pantallaActual != GUI.PANTALLA.SENSOR1 && gui.pantallaActual != GUI.PANTALLA.GRÁFICA_ACTUADOR1) {
             gui.MenuSns.setEnabled(true);
             if (gui.MenuSns.mouseOverButton(this) && gui.pantallaActual == GUI.PANTALLA.GRÁFICA_SENSOR3) {
@@ -1545,7 +1547,7 @@ public class MainPantalles extends PApplet {
         else{
             gui.MenuSns.setEnabled(false);
         }
-
+/**Pantalla gráfica sensor 4*/
         if (gui.pantallaActual == GUI.PANTALLA.GRÁFICA_SENSOR4 && gui.pantallaActual != GUI.PANTALLA.MENÚ && gui.pantallaActual != GUI.PANTALLA.INICIO && gui.pantallaActual != GUI.PANTALLA.ACTUADOR1 && gui.pantallaActual != GUI.PANTALLA.SENSOR1 && gui.pantallaActual != GUI.PANTALLA.GRÁFICA_ACTUADOR1) {
             gui.MenuSns.setEnabled(true);
             if (gui.MenuSns.mouseOverButton(this) && gui.pantallaActual == GUI.PANTALLA.GRÁFICA_SENSOR4) {
@@ -1556,7 +1558,7 @@ public class MainPantalles extends PApplet {
         else{
             gui.MenuSns.setEnabled(false);
         }
-
+/**Pantalla gráfica sensor 5*/
         if (gui.pantallaActual == GUI.PANTALLA.GRÁFICA_SENSOR5 && gui.pantallaActual != GUI.PANTALLA.MENÚ && gui.pantallaActual != GUI.PANTALLA.INICIO && gui.pantallaActual != GUI.PANTALLA.ACTUADOR1 && gui.pantallaActual != GUI.PANTALLA.SENSOR1 && gui.pantallaActual != GUI.PANTALLA.GRÁFICA_ACTUADOR1) {
             gui.MenuSns.setEnabled(true);
             if (gui.MenuSns.mouseOverButton(this) && gui.pantallaActual == GUI.PANTALLA.GRÁFICA_SENSOR5) {
@@ -1567,7 +1569,7 @@ public class MainPantalles extends PApplet {
         else{
             gui.MenuSns.setEnabled(false);
         }
-
+/**Pantalla gráfica sensor 6*/
         if (gui.pantallaActual == GUI.PANTALLA.GRÁFICA_SENSOR6 && gui.pantallaActual != GUI.PANTALLA.MENÚ && gui.pantallaActual != GUI.PANTALLA.INICIO && gui.pantallaActual != GUI.PANTALLA.ACTUADOR1 && gui.pantallaActual != GUI.PANTALLA.SENSOR1 && gui.pantallaActual != GUI.PANTALLA.GRÁFICA_ACTUADOR1) {
             gui.MenuSns.setEnabled(true);
             if (gui.MenuSns.mouseOverButton(this) && gui.pantallaActual == GUI.PANTALLA.GRÁFICA_SENSOR6) {
@@ -1578,7 +1580,7 @@ public class MainPantalles extends PApplet {
         else{
             gui.MenuSns.setEnabled(false);
         }
-
+/**Pantalla gráfica sensor 7*/
         if (gui.pantallaActual == GUI.PANTALLA.GRÁFICA_SENSOR7 && gui.pantallaActual != GUI.PANTALLA.MENÚ && gui.pantallaActual != GUI.PANTALLA.INICIO && gui.pantallaActual != GUI.PANTALLA.ACTUADOR1 && gui.pantallaActual != GUI.PANTALLA.SENSOR1 && gui.pantallaActual != GUI.PANTALLA.GRÁFICA_ACTUADOR1) {
             gui.MenuSns.setEnabled(true);
             if (gui.MenuSns.mouseOverButton(this) && gui.pantallaActual == GUI.PANTALLA.GRÁFICA_SENSOR7) {
@@ -1589,7 +1591,7 @@ public class MainPantalles extends PApplet {
         else{
             gui.MenuSns.setEnabled(false);
         }
-
+/**Pantalla gráfica actuador 1*/
             if (gui.pantallaActual == GUI.PANTALLA.GRÁFICA_ACTUADOR1 && gui.pantallaActual != GUI.PANTALLA.MENÚ && gui.pantallaActual != GUI.PANTALLA.INICIO && gui.pantallaActual != GUI.PANTALLA.ACTUADOR1 && gui.pantallaActual != GUI.PANTALLA.SENSOR1 && gui.pantallaActual != GUI.PANTALLA.GRÁFICA_SENSOR1) {
                 gui.MenuAct.setEnabled(true);
                 if (gui.MenuSns.mouseOverButton(this) && gui.pantallaActual == GUI.PANTALLA.GRÁFICA_ACTUADOR1) {
@@ -1599,7 +1601,7 @@ public class MainPantalles extends PApplet {
             else{
                 gui.MenuAct.setEnabled(false);
             }
-
+/**Pantalla gráfica actuador 2*/
         if (gui.pantallaActual == GUI.PANTALLA.GRÁFICA_ACTUADOR2 && gui.pantallaActual != GUI.PANTALLA.MENÚ && gui.pantallaActual != GUI.PANTALLA.INICIO && gui.pantallaActual != GUI.PANTALLA.ACTUADOR1 && gui.pantallaActual != GUI.PANTALLA.SENSOR1 && gui.pantallaActual != GUI.PANTALLA.GRÁFICA_SENSOR1) {
             gui.MenuAct.setEnabled(true);
             if (gui.MenuSns.mouseOverButton(this) && gui.pantallaActual == GUI.PANTALLA.GRÁFICA_ACTUADOR2) {
@@ -1609,7 +1611,7 @@ public class MainPantalles extends PApplet {
         else{
             gui.MenuAct.setEnabled(false);
         }
-
+/**Pantalla gráfica actuador 3*/
         if (gui.pantallaActual == GUI.PANTALLA.GRÁFICA_ACTUADOR3 && gui.pantallaActual != GUI.PANTALLA.MENÚ && gui.pantallaActual != GUI.PANTALLA.INICIO && gui.pantallaActual != GUI.PANTALLA.ACTUADOR1 && gui.pantallaActual != GUI.PANTALLA.SENSOR1 && gui.pantallaActual != GUI.PANTALLA.GRÁFICA_SENSOR1) {
             gui.MenuAct.setEnabled(true);
             if (gui.MenuSns.mouseOverButton(this) && gui.pantallaActual == GUI.PANTALLA.GRÁFICA_ACTUADOR3) {
@@ -1619,7 +1621,7 @@ public class MainPantalles extends PApplet {
         else{
             gui.MenuAct.setEnabled(false);
         }
-
+/**Pantalla gráfica actuador 4*/
         if (gui.pantallaActual == GUI.PANTALLA.GRÁFICA_ACTUADOR4 && gui.pantallaActual != GUI.PANTALLA.MENÚ && gui.pantallaActual != GUI.PANTALLA.INICIO && gui.pantallaActual != GUI.PANTALLA.ACTUADOR1 && gui.pantallaActual != GUI.PANTALLA.SENSOR1 && gui.pantallaActual != GUI.PANTALLA.GRÁFICA_SENSOR1) {
             gui.MenuAct.setEnabled(true);
             if (gui.MenuSns.mouseOverButton(this) && gui.pantallaActual == GUI.PANTALLA.GRÁFICA_ACTUADOR4) {
@@ -1629,7 +1631,7 @@ public class MainPantalles extends PApplet {
         else{
             gui.MenuAct.setEnabled(false);
         }
-
+/**Pantalla gráfica actuador 5*/
         if (gui.pantallaActual == GUI.PANTALLA.GRÁFICA_ACTUADOR5 && gui.pantallaActual != GUI.PANTALLA.MENÚ && gui.pantallaActual != GUI.PANTALLA.INICIO && gui.pantallaActual != GUI.PANTALLA.ACTUADOR1 && gui.pantallaActual != GUI.PANTALLA.SENSOR1 && gui.pantallaActual != GUI.PANTALLA.GRÁFICA_SENSOR1) {
             gui.MenuAct.setEnabled(true);
             if (gui.MenuSns.mouseOverButton(this) && gui.pantallaActual == GUI.PANTALLA.GRÁFICA_ACTUADOR5) {
@@ -1639,7 +1641,7 @@ public class MainPantalles extends PApplet {
         else{
             gui.MenuAct.setEnabled(false);
         }
-
+/**Pantalla gráfica actuador 6*/
         if (gui.pantallaActual == GUI.PANTALLA.GRÁFICA_ACTUADOR6 && gui.pantallaActual != GUI.PANTALLA.MENÚ && gui.pantallaActual != GUI.PANTALLA.INICIO && gui.pantallaActual != GUI.PANTALLA.ACTUADOR1 && gui.pantallaActual != GUI.PANTALLA.SENSOR1 && gui.pantallaActual != GUI.PANTALLA.GRÁFICA_SENSOR1) {
             gui.MenuAct.setEnabled(true);
             if (gui.MenuSns.mouseOverButton(this) && gui.pantallaActual == GUI.PANTALLA.GRÁFICA_ACTUADOR6) {
@@ -1649,7 +1651,7 @@ public class MainPantalles extends PApplet {
         else{
             gui.MenuAct.setEnabled(false);
         }
-
+/**Pantalla gráfica actuador 7*/
         if (gui.pantallaActual == GUI.PANTALLA.GRÁFICA_ACTUADOR7 && gui.pantallaActual != GUI.PANTALLA.MENÚ && gui.pantallaActual != GUI.PANTALLA.INICIO && gui.pantallaActual != GUI.PANTALLA.ACTUADOR1 && gui.pantallaActual != GUI.PANTALLA.SENSOR1 && gui.pantallaActual != GUI.PANTALLA.GRÁFICA_SENSOR1) {
             gui.MenuAct.setEnabled(true);
             if (gui.MenuSns.mouseOverButton(this) && gui.pantallaActual == GUI.PANTALLA.GRÁFICA_ACTUADOR7) {
@@ -1689,7 +1691,7 @@ public class MainPantalles extends PApplet {
                 gui.habitacions[i].setSelected(false);
             }
         }*/
-
+/**Cambios de pantalla*/
         if(gui.SensorMapa1.mouseOnSensor(this)==true){
             gui.pantallaActual= GUI.PANTALLA.SENSOR1;
         }
@@ -1734,7 +1736,7 @@ public class MainPantalles extends PApplet {
         if(gui.ActuadorMapa7.mouseOnSensor(this)==true){
             gui.pantallaActual= GUI.PANTALLA.ACTUADOR7;
         }
-
+/**Funcionalidad de los selects*/
         if(gui.Tipos1.mouseOverSelect(this) && gui.Tipos1.isEnabled()){
             if(!gui.Tipos1.isCollapsed()){
                 gui.Tipos1.update(this);      // Actualitzar valor
@@ -2151,7 +2153,7 @@ public class MainPantalles extends PApplet {
             }
             gui.Unidadest.toggle();        // Plegar o desplegar
         }
-
+/**Funcionalidad de los switchButton*/
         if(gui.EncesS1.mouseOverButton(this)){
             gui.EncesS1.toggle();
             if(gui.EncesS1.isEnabled()){
@@ -2296,13 +2298,13 @@ public class MainPantalles extends PApplet {
 
 
 
-    public void mouseDragged(){
+   /* public void mouseDragged(){
         println("MOUSE DRAGGED");
     }
 
     public void mouseReleased() {
         println("MOUSE RELEASED");
-    }
+    }*/
 
 }
 

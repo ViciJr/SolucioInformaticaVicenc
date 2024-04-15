@@ -1,7 +1,7 @@
 package SolucioInformatica.gui;
 
 import processing.core.PApplet;
-
+/**Clase del diagrama con el que se ven los datos de los sensores*/
 public class LinesDiagram {
     // Dimensions del diagrama de Barres
     float x, y, w, h;

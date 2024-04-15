@@ -7,7 +7,7 @@ import processing.core.PApplet;
 import java.io.Serial;
 //import processing.serial.*;
 
-
+/**Prueba del arduino*/
 public class ArduinoProcessing extends PApplet {
 
     // Variable de classe Habitació i Sensor

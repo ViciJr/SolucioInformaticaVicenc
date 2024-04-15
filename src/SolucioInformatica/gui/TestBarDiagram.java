@@ -2,7 +2,7 @@ package SolucioInformatica.gui;
 
 //import gui.BarsDiagram;
 import processing.core.PApplet;
-
+/**Prueba del diagrama de barras*/
 public class TestBarDiagram extends PApplet {
 
     // Elements de la Interfície Gràfica (BarsDiagram)

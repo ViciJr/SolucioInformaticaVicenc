@@ -1,7 +1,7 @@
 package SolucioInformatica.Fonts;
 
 import processing.core.PApplet;
-
+/**Clase principal para la prueba de la tipografía*/
 public class Main extends PApplet {
 
 

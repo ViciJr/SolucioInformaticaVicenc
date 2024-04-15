@@ -1,14 +1,14 @@
 package SolucioInformatica.gui.Timer;
 
 import processing.core.PApplet;
-
+/**Clase Timer usada para contabilizar segundos y que funciona a modo de cronómetro*/
 public class Timer {
 
     int numSecondsToChange;
     int numSeconds;
     int lastTime;
     boolean started;
-
+/**Constructor*/
     public Timer(PApplet p5, int ns){
         this.numSecondsToChange = ns;
         this.numSeconds = 0;

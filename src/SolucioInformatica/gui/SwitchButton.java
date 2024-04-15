@@ -1,7 +1,7 @@
 package SolucioInformatica.gui;
 
 import processing.core.PApplet;
-
+/**Los SwitchButton son botones que simulan interruptores y que en la app se usan para controlar los sensores y actuadores*/
 public class SwitchButton {
 
     // Propietats d'un botó:

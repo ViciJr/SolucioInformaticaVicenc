@@ -1,9 +1,9 @@
 package SolucioInformatica.gui.mapa;
 
 import processing.core.PApplet;
-
+/**La clase Llum hereda de Sensor y es la que se usa para crear los actuadores.*/
 public class Llum extends Sensor{
-
+/**Constructores de Llum*/
     public Llum (String n){
         super(n);
     }

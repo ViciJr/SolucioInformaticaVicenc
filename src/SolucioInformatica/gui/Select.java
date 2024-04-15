@@ -1,7 +1,7 @@
 package SolucioInformatica.gui;
 
 import processing.core.PApplet;
-
+/**Con la clase Select se crean los selects de la interfaz gráfica, que permiten elegir un valor de entre varios y en la app se usan para fijar las características de sensores y actuadores y sus registros.*/
 public
 class Select {
 

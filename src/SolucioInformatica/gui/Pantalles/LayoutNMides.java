@@ -1,5 +1,6 @@
-package SolucioInformatica.Pantalles;
+package SolucioInformatica.gui.Pantalles;
 
+/**Clase con las medidas usadas para la interfaz gráfica*/
 public class LayoutNMides {
     // Marges Horitzontal i Vertical
     public static int marginH = 20, marginV = 20;

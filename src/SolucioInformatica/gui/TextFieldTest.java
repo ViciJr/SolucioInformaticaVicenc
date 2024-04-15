@@ -1,7 +1,7 @@
 package SolucioInformatica.gui;
 
 import processing.core.PApplet;
-
+/**Pruebas de los campos de texto*/
 public class TextFieldTest extends PApplet {
 
     // Elements de la Interfície Gràfica (TextFields)

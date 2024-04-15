@@ -1,7 +1,7 @@
 package SolucioInformatica.gui;
 
 import processing.core.PApplet;
-
+/**Clase del diagrama de barras con el que se pueden ver las estadísticas de los actuadores*/
 public class BarsDiagram {
 
     // Dimensions del diagrama de Barres

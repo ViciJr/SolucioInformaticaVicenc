@@ -3,7 +3,7 @@ package SolucioInformatica.Colors;
 import processing.core.PApplet;
 
 import static SolucioInformatica.Colors.Mides.midaCercle;
-
+/**Prueba de la paleta de colores*/
 public class Main extends PApplet {
 
 

@@ -3,7 +3,7 @@ package SolucioInformatica.ColorsFont;
 import SolucioInformatica.Fonts.Mides;
 import processing.core.PApplet;
 import processing.core.PFont;
-
+/**Clase Fonts para probar las tipografías, colores y maquetación*/
 public class Fonts {
 
 

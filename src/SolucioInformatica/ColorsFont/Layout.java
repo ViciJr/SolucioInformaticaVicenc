@@ -1,5 +1,5 @@
 package SolucioInformatica.ColorsFont;
-
+/**Clase con las medidas de la prueba de maquetación*/
 public class Layout {
     // Marges Horitzontal i Vertical
     public static float marginH = 20, marginV = 20;

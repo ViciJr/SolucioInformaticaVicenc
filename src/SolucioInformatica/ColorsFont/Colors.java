@@ -1,7 +1,7 @@
 package SolucioInformatica.ColorsFont;
 
 import processing.core.PApplet;
-
+/**Clase Colors para probarla con las tipografías, colores y maquetación*/
 public class Colors{
 
     int[] colors;

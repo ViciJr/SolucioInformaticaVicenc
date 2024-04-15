@@ -1,9 +1,9 @@
 package SolucioInformatica.gui.PopUp;
 
-import SolucioInformatica.Pantalles.Colors;
 import SolucioInformatica.gui.Button;
 import processing.core.PApplet;
 
+/**Clase PopUp con la que salta una alerta en caso de error del programa*/
 public class PopUp {
 
     // Dimensions
@@ -17,7 +17,7 @@ public class PopUp {
     boolean visible = true;
 
 
-    // Constructor
+    /** Constructor*/
 
     public PopUp(PApplet p5, String title, String message, float x, float y, float w, float h){
         this.title = title;

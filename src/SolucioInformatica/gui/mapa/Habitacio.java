@@ -1,7 +1,7 @@
 package SolucioInformatica.gui.mapa;
 
 import processing.core.PApplet;
-
+ /**La clase Habitacio es la que se usa para crear el mapa*/
 public class Habitacio {
 
     float x, y, w, h;
@@ -12,6 +12,7 @@ public class Habitacio {
     Sensor[] sensors;
     int numSensors =  0;
 
+    /**Constructor del objeto Habitacio*/
     public Habitacio(String n, float x, float y, float w, float h, int c){
         this.nom = n;
         this.x = x; this.y = y;

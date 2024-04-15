@@ -1,15 +1,15 @@
-package SolucioInformatica.Pantalles;
+package SolucioInformatica.gui.Pantalles;
 
 import processing.core.PApplet;
-
+/**Con la clase Colors se pueden obtener los colores de la paleta de forma sencilla y eficiente*/
 public class Colors{
 
     int[] colors;
-
+/**Constructor de Colors*/
     public Colors(PApplet p5){
         this.setColors(p5);
     }
-
+/**Array con los colores de la paleta*/
     void setColors(PApplet p5){
         this.colors = new int[11];
         this.colors[0] = p5.color(0xFF272932);

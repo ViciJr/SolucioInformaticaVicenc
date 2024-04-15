@@ -1,7 +1,7 @@
 package SolucioInformatica.gui;
 
 import processing.core.PApplet;
-
+/**Prueba del diagrama de líneas*/
 public class TestLinesDiagram  extends PApplet {
 
     // Elements de la Interfície Gràfica (LinesDiagram)

@@ -1,7 +1,6 @@
-package SolucioInformatica.Pantalles;
+package SolucioInformatica.gui.Pantalles;
 
-;
-import SolucioInformatica.DataBase.DataBase;
+import SolucioInformatica.gui.DataBase.DataBase;
 import SolucioInformatica.gui.*;
 import SolucioInformatica.gui.PopUp.PopUp;
 import SolucioInformatica.gui.mapa.Habitacio;
@@ -9,13 +8,13 @@ import SolucioInformatica.gui.mapa.Llum;
 import SolucioInformatica.gui.mapa.Sensor;
 import processing.core.PApplet;
 import processing.core.PImage;
-//import SolucioInformatica.DataBase.DataBase;
+//import SolucioInformatica.gui.DataBase.DataBase;
 
 
-import static SolucioInformatica.Pantalles.LayoutNMides.*;
-import static SolucioInformatica.Pantalles.LayoutNMides.YMapaInteractivo;
+import static SolucioInformatica.gui.Pantalles.LayoutNMides.*;
+import static SolucioInformatica.gui.Pantalles.LayoutNMides.YMapaInteractivo;
 
-
+/**La clase GUI es con la que se crea la interfaz gráfica*/
 
 public class GUI{
 
@@ -100,7 +99,7 @@ public class GUI{
     Sensor ActuadorMapa1, ActuadorMapa2, SensorMapa1, ActuadorMapa3, ActuadorMapa4, ActuadorMapa5, ActuadorMapa6, ActuadorMapa7, SensorMapa2, SensorMapa3, SensorMapa4, SensorMapa5, SensorMapa6, SensorMapa7;
     DataBase bbdd;
 
-    // Constructor de la GUI
+    /**Constructor de la GUI*/
     public GUI(PApplet p5, DataBase bbdd){
 
         pantallaActual = PANTALLA.INICIO;
@@ -110,7 +109,7 @@ public class GUI{
         Colors = new Colors(p5);   // Constructor dels colors de l'App
         Fonts = new Fonts(p5);     // Constructor de les fonts de l'App
 
-        //Pantalla inicial
+        /**Pantalla inicial*/
         TUsuario = new TextField (p5, XUsuari+marginH, heightPrimeraPantalla+YUsuari, widthPrimeraPantalla, heightPrimeraPantalla); /*, "Usuario"*/
         TContraseña = new TextField (p5, XContra+marginH, YContra, widthPrimeraPantalla, heightPrimeraPantalla); /*, "Contraseña"*/
         p5.textFont(Fonts.getFontAt(2));
@@ -132,7 +131,7 @@ public class GUI{
 
 
 
-        //Pantalla Menú i Plànol
+        /**Pantalla Menú*/
         p5.stroke(0, 2);
         p5.textFont(Fonts.getFontAt(2));
         Sensor1 = new Button (p5, "Sensor 1", XSensors, YSensors, widthSensors, heightSensors);
@@ -168,7 +167,7 @@ public class GUI{
         VolverAlInicio = new Button (p5, "Volver a la pantalla de inicio", XMapaInteractivo, YMapaInteractivo, WidthMapaInteractivo, HeightMapaInteractivo);
 
 
-        //Pantalla SensorX
+        /**Pantallas de los Sensores*/
         int filesS = 2, columnesS = 5;
 
         ts1=new Table(filesS,columnesS);
@@ -331,7 +330,7 @@ public class GUI{
         EncesS6 =new SwitchButton(p5, "Off", "On", XGraficaSensor, YGraficaSensor+2*HeightGraficaSensor+12, WidthGraficaSensor, HeightGraficaSensor);
         EncesS7 =new SwitchButton(p5, "Off", "On", XGraficaSensor, YGraficaSensor+2*HeightGraficaSensor+12, WidthGraficaSensor, HeightGraficaSensor);
 
-        //  Pantalla actuador X
+        /**Pantallas de los actuadores*/
         int filesA = 2, columnesA = 6;
 
         ta1 =new Table(filesA,columnesA);
@@ -512,7 +511,7 @@ public class GUI{
         EncesA6 =new SwitchButton(p5, "Off", "On", XGraficaSensor, YGraficaSensor+2*HeightGraficaSensor+12, WidthGraficaSensor, HeightGraficaSensor);
         EncesA7 =new SwitchButton(p5, "Off", "On", XGraficaSensor, YGraficaSensor+2*HeightGraficaSensor+12, WidthGraficaSensor, HeightGraficaSensor);
 
-        //Pantalla estadística Sensor x
+        /**Pantalla estadística Sensores */
 
         p5.textFont(Fonts.getFontAt(2));
         // Dades del Diagrama (etiquetes)
@@ -651,7 +650,7 @@ public class GUI{
         ssl75.setColors(colorLineLS);
         ssl73.setColors(colorLineLS);
 
-        //Pantalla estadística ActuadorS1 x
+        /**Pantalla estadísticas Actuadores*/
 
         sab17 = new BarsDiagram(XDiagram, YDiagram, WidthDiagram, HeightDiagram);
         sab15 = new BarsDiagram(XDiagram, YDiagram, WidthDiagram, HeightDiagram);
@@ -799,10 +798,7 @@ public class GUI{
         IntervaloA = new Button(p5, "Intervalo", XSensors, (YActuadors+YinhabilitarActuador)/2, WidthInhabilitarSensor, HeightInhabilitarSensor);
         IntervaloA.setColors(Colors.getColorAt(4), Colors.getColorAt(1), Colors.getColorAt(3),  Colors.getColorAt(3)); */
 
-        //Mapa
-
-
-
+        /**Mapa*/
 
         SensorMapa1 = new Sensor("Sensor 1",false, (Llum) ActuadorMapa1, SensorSinHabitacion, Tipos1.getSelectedValue(), Arduino1.getSelectedValue(), 26f);
         SensorMapa2 = new Sensor("Sensor 2",false, (Llum) ActuadorMapa2, SensorSinHabitacion, Tipos2.getSelectedValue(), Arduino2.getSelectedValue(), 26f);
@@ -821,9 +817,7 @@ public class GUI{
         ActuadorMapa7 = new Llum("Actuador 7", false, SensorMapa7, ActuadorSinHabitacion, Tipoa7.getSelectedValue(), Arduinoa1.getSelectedValue(), /*Float.valueOf(ValMax7.getText()), Float.valueOf(ValMin7.getText())*/ 2f, 3f);
 
 
-
-
-        // Constructor d'Habitacions
+        /**Constructor de las habitaciones*/
         p5.strokeWeight(1);
         Dormitorio = new Habitacio("Dormitorio", XDormitorio, YDormitorio, WidthDormitorio, HeightDormitorio, Colors.getColorAt(7));
         Cocina = new Habitacio("Cocina", XCocina, YCocina, WidthCocina, HeightCocina, Colors.getColorAt(8));
@@ -834,8 +828,6 @@ public class GUI{
         ActuadorSinHabitacion = new Habitacio(" ", XSalón-60, YPasillo-(WidthPasillo/2+15), WidthBaño+WidthPasillo+WidthSalón+140, WidthPasillo/2+13, Colors.getColorAt(10));
 
         // Agregam Sensors a les Habitacions
-
-
 
         ActuadorSinHabitacion.addSensor(ActuadorMapa1);
         ActuadorSinHabitacion.addSensor(ActuadorMapa2);
@@ -1069,8 +1061,8 @@ public class GUI{
         }*/
     }
 
-    // PANTALLES DE LA GUI
-
+    /** PANTALLES DE LA GUI*/
+/**Pantalla de inicio*/
     public void dibuixaPantallaInicio(PApplet p5){
 
         p5.background(255);
@@ -1101,7 +1093,7 @@ public class GUI{
 
 
     }
-
+/**Pantallas de los sensores*/
     public void dibuixaPantallaSensor1(PApplet p5){
         p5.background(255);
         p5.textFont(Fonts.getFontAt(0));
@@ -1396,8 +1388,8 @@ public class GUI{
         bbdd.updateCosesSensor(tipoSensorNou, puertoArduino, encendido, ubicacion, actuador, identificadorSensor);
         p5.image(ImatgeLogo, marginH, marginV , midaLogo, midaLogo);
     }
-
-    public void dibuixaPantallaPlano(PApplet p5){
+/**Pantalla del Menú*/
+    public void dibuixaPantallaMenu(PApplet p5){
         p5.background(255);
         p5.textFont(Fonts.getFontAt(0));
         dibuixaBanner(p5);
@@ -1434,7 +1426,7 @@ public class GUI{
     }
 
 
-
+/**Pantallas de los actuadores*/
     public void dibuixaPantallaActuador1(PApplet p5){
         p5.background(255);
         p5.textFont(Fonts.getFontAt(0));
@@ -1741,7 +1733,7 @@ public class GUI{
         bbdd.updateCosesActuador(puertoArduino, valorMinParaActuar, valorMaxParaActuar, encendido, ubicacion, tipoActuador, identificadorActuador);
         p5.image(ImatgeLogo, marginH, marginV , midaLogo, midaLogo);
     }
-
+/**Pantallas de las estadíastcas de los sensores*/
     public void dibuixaPantallaEstadisticaSensor1(PApplet p5){
         p5.background(255);
         p5.textFont(Fonts.getFontAt(0));
@@ -1944,7 +1936,7 @@ public class GUI{
         Unidadest.display(p5);
         p5.image(ImatgeLogo, marginH, marginV , midaLogo, midaLogo);
     }
-
+/**Pantallas de las estadísticas de los actuadores*/
     public void dibuixaPantallaEstadisticaActuador1(PApplet p5){
         p5.background(255);
         p5.textFont(Fonts.getFontAt(0));
@@ -2134,7 +2126,7 @@ public class GUI{
         p5.image(ImatgeLogo, marginH, marginV , midaLogo, midaLogo);
     }
 
-    public void dibuixaPantallaInstrucciones(PApplet p5){
+    /*public void dibuixaPantallaInstrucciones(PApplet p5){
         p5.background(255);
         p5.textFont(Fonts.getFontAt(0));
         dibuixaBanner(p5);
@@ -2145,10 +2137,10 @@ public class GUI{
       /*  for(int i=0; i<habitacions.length; i++) {
             habitacions[i].dibuixa(p5);
         }
-*/
+
         p5.image(ImatgeLogo, marginH, marginV , midaLogo, midaLogo);
-    }
-    // ZONES DE LA GUI
+    }*/
+    /**Métodos de las zonas de la GUI usadas para la maquetación*/
 
     public void dibuixaLogo(PApplet p5){
         p5.fill(Colors.getColorAt(0));

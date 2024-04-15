@@ -1,12 +1,13 @@
-package SolucioInformatica.DataBase;
+package SolucioInformatica.gui.DataBase;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.time.LocalDateTime;
-import java.time.LocalTime;
 
+/**
+ * La clase DataBase es en la que se encuentran los Selects, Inserts y Updates que se usan para comunicar la aplicación con la base de datos*/
 public class DataBase {
 
     // Variable de connexió a la BBDD
@@ -21,7 +22,8 @@ public class DataBase {
 
     // Estat de la connexió
     boolean connectat = false;
-
+/**
+ * Constructor de la base del objeto DataBase*/
 
     public DataBase(String user, String password, String databaseName){
         this.user = user;
@@ -41,7 +43,8 @@ public class DataBase {
             System.out.println(e);
         }
     }
-
+/**
+ * Métodos SELECT con los que se obtienen valores de la base de datos*/
     // Retorna el número de files d'una taula
     public int getNumRowsTaula(String nomTaula){
         try {
@@ -189,7 +192,7 @@ public class DataBase {
         int numFiles = getNumRowsTaula("ubicacion");
         String[] habitaciones = new String[numFiles];
         try {
-            ResultSet rs = query.executeQuery( "SELECT nombre FROM ubicacion" /*WHERE idUsuario = '"+userName+"'"*/);
+            ResultSet rs = query.executeQuery( "SELECT nombre FROM ubicacion");
             int nr = 0;
             while (rs.next()) {
 
@@ -209,7 +212,7 @@ public class DataBase {
         int numFiles = getNumRowsTaula("tipos");
         String[] tiposSensor = new String[numFiles];
         try {
-            ResultSet rs = query.executeQuery( "SELECT tipoSensor FROM tipos" /*WHERE idUsuario = '"+userName+"'"*/);
+            ResultSet rs = query.executeQuery( "SELECT tipoSensor FROM tipos");
             int nr = 0;
             while (rs.next()) {
 
@@ -229,7 +232,7 @@ public class DataBase {
         int numFiles = getNumRowsTaula("tipoa");
         String[] tiposActuador = new String[numFiles];
         try {
-            ResultSet rs = query.executeQuery( "SELECT tipoActuador FROM tipoa" /*WHERE idUsuario = '"+userName+"'"*/);
+            ResultSet rs = query.executeQuery( "SELECT tipoActuador FROM tipoa");
             int nr = 0;
             while (rs.next()) {
 
@@ -249,7 +252,7 @@ public class DataBase {
         int numFiles = getNumRowsTaula("actuador");
         String[] Actuadores = new String[numFiles];
         try {
-            ResultSet rs = query.executeQuery( "SELECT idActuador FROM actuador" /*WHERE idUsuario = '"+userName+"'"*/);
+            ResultSet rs = query.executeQuery( "SELECT idActuador FROM actuador");
             int nr = 0;
             while (rs.next()) {
 
@@ -269,7 +272,7 @@ public class DataBase {
         int numFiles = getNumRowsTaula("sensor");
         String[] Sensores = new String[numFiles];
         try {
-            ResultSet rs = query.executeQuery( "SELECT idSensor FROM sensor" /*WHERE idUsuario = '"+userName+"'"*/);
+            ResultSet rs = query.executeQuery( "SELECT idSensor FROM sensor");
             int nr = 0;
             while (rs.next()) {
 
@@ -600,7 +603,7 @@ public class DataBase {
         }
     }
 
-
+/**Métodos INSERT para añadir datos a la base de datos*/
     // INSERTS
 
     // Inserta les dades a la taula Unitat
@@ -644,7 +647,8 @@ public class DataBase {
         }
     }
 
-
+/**
+ * Métodos update para actualizar los valores de la base de datos*/
     // UPDATES
 
     // Actualitza les dades a la taula Unitat

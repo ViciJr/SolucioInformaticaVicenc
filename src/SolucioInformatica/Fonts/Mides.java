@@ -1,5 +1,5 @@
 package SolucioInformatica.Fonts;
-
+/**Medidas de la tipografía para la prueba de las fuentes*/
 public class Mides {
 
     public static float midaTitol = 60;

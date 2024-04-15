@@ -1,7 +1,7 @@
 package SolucioInformatica.gui;
 
 import processing.core.PApplet;
-
+/**Pruebas de los SwitchButtons*/
 public class SwitchButtonTest extends PApplet {
 
     // Elements de la Interfície Gràfica (TextFields)

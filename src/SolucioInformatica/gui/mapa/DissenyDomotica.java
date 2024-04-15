@@ -1,6 +1,7 @@
 package SolucioInformatica.gui.mapa;
 import processing.core.PApplet;
 
+/**Prueba del mapa*/
 public class DissenyDomotica extends PApplet {
 
     // Variable de classe Habitació i Sensor

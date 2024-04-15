@@ -1,8 +1,7 @@
 package SolucioInformatica.gui;
 
-import SolucioInformatica.Pantalles.Colors;
 import processing.core.PApplet;
-
+/**Clase de los botones de la interficie gráfica*/
 public class Button {
 
     // Propietats d'un botó:

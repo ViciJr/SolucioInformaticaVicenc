@@ -5,6 +5,7 @@ import static SolucioInformatica.ColorsFont.Mides.*;
 
 import processing.core.PApplet;
 
+/**Clase para probar colores, tipografías y maquetación*/
 public class Main003 extends PApplet{
     Colors appColors;
     Fonts fontsApp;

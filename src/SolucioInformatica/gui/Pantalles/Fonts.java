@@ -1,22 +1,23 @@
-package SolucioInformatica.Pantalles;
+package SolucioInformatica.gui.Pantalles;
 
 
 import SolucioInformatica.Fonts.Mides;
 import processing.core.PApplet;
 import processing.core.PFont;
 
+/**Con la clase Fonts se pueden obtener las diferentes tipografías seleccionadas y de diferentes tamaños*/
 public class Fonts {
 
 
 
     PFont[] fonts;
 
-
+/**Constructor de Fonts*/
     public Fonts(PApplet p5){
         this.setFonts(p5);
     }
 
-
+/**Array de tipografías*/
     void setFonts(PApplet p5){
         this.fonts = new PFont[6];
         this.fonts[0] = p5.createFont("data/TTInterphasesProMonoTrialRegular.ttf", SolucioInformatica.Fonts.Mides.midaTitol);

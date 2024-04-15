@@ -1,6 +1,6 @@
 package SolucioInformatica.Colors;
 import processing.core.PApplet;
-
+/**Clase creada para probar la paleta de colores*/
 public class Cercle{
 
     float x, y, r;

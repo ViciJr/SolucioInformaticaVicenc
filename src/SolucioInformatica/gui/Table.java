@@ -1,7 +1,8 @@
 package SolucioInformatica.gui;
 
 import processing.core.PApplet;
-
+/**Clase con la que se crean tablas con información en la interfaz gráfica. En la app se usan en las pantallas de los sensores y actuadores.
+ */
 public class Table {
 
     String[] tableHeaders;   // Títols de les columnes

@@ -1,7 +1,7 @@
 package SolucioInformatica.gui;
 
 import processing.core.PApplet;
-
+/**Prueba de los Selects*/
 public class SelectTest extends PApplet {
 
     // Elements de la Interfície Gràfica (Select)
