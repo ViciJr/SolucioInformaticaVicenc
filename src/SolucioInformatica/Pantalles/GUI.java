@@ -714,7 +714,7 @@ public class GUI{
         float[] values7BA5 = {2, 2, 1, 1, 1};
         float[] values7BA3 = {1, 1, 1};
 
-        int [] colorsBA = {Colors.getColorAt(2), Colors.getColorAt(4), Colors.getColorAt(4), Colors.getColorAt(4), Colors.getColorAt(2), Colors.getColorAt(2), Colors.getColorAt(4), Colors.getColorAt(2)};
+        int [] colorsBA = {Colors.getColorAt(2), Colors.getColorAt(2), Colors.getColorAt(2), Colors.getColorAt(2), Colors.getColorAt(2), Colors.getColorAt(2), Colors.getColorAt(2), Colors.getColorAt(2)};
 
         String[] selectValuesUni = {"Días", "Horas", "Minutos"};
         String[] selectValuesRangt = {String.valueOf(3), String.valueOf(5), String.valueOf(7)};

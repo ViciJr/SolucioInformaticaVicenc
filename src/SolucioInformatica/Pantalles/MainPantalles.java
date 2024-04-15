@@ -6,6 +6,7 @@ import java.time.LocalDateTime;
 import java.time.LocalTime;
 
 import SolucioInformatica.DataBase.DataBase;
+import SolucioInformatica.gui.Timer.Timer;
 import processing.core.PApplet;
 
 public class MainPantalles extends PApplet {
@@ -20,6 +21,7 @@ public class MainPantalles extends PApplet {
     String password = "12345";
     boolean connectat = false;
     DataBase db;
+    Timer t;
     int n;
     public static void main(String[] args) {
         PApplet.main("SolucioInformatica.Pantalles.MainPantalles", args);
@@ -36,6 +38,7 @@ public class MainPantalles extends PApplet {
        /// connectBBDD();
         noStroke();                         // Sense bordes
         textAlign(CENTER); textSize(18);   // Alineació i mida del text
+         t = new Timer(this, 2);
 
 
         db = new DataBase("admin", "12345", "domotico");
@@ -154,6 +157,35 @@ public class MainPantalles extends PApplet {
 
         }
 
+        if(gui.pantallaActual==GUI.PANTALLA.MENÚ){
+            t.start(this);
+        }
+        if(t.timeOver()){
+            gui.valorActuals1 = this.random(2, 15);
+            gui.valorActuals2 = this.random(3, 15);
+            gui.valorActuals3 = this.random(1, 15);
+            gui.valorActuals4 = this.random(4, 15);
+            gui.valorActuals5 = this.random(6, 15);
+            gui.valorActuals6 = this.random(7, 15);
+            gui.valorActuals7 = this.random(8, 15);
+
+            db.insertInfoRegistroSensor("Sensor 1"+String.valueOf(LocalDateTime.now()), LocalDateTime.now(), gui.valorActuals1, "Sensor 1");
+            db.insertInfoRegistroSensor("Sensor 2"+String.valueOf(LocalDateTime.now()), LocalDateTime.now(), gui.valorActuals2, "Sensor 2");
+            db.insertInfoRegistroSensor("Sensor 3"+String.valueOf(LocalDateTime.now()), LocalDateTime.now(), gui.valorActuals6, "Sensor 3");
+            db.insertInfoRegistroSensor("Sensor 4"+String.valueOf(LocalDateTime.now()), LocalDateTime.now(), gui.valorActuals4, "Sensor 4");
+            db.insertInfoRegistroSensor("Sensor 5"+String.valueOf(LocalDateTime.now()), LocalDateTime.now(), gui.valorActuals5, "Sensor 5");
+            db.insertInfoRegistroSensor("Sensor 6"+String.valueOf(LocalDateTime.now()), LocalDateTime.now(), gui.valorActuals6, "Sensor 6");
+            db.insertInfoRegistroSensor("Sensor 7"+String.valueOf(LocalDateTime.now()), LocalDateTime.now(), gui.valorActuals7, "Sensor 7");
+
+            db.insertInfoRegistroActuador("Actuador 1"+String.valueOf(LocalDateTime.now()), LocalDateTime.now(), db.getActuadorOnOf("Actuador 1"), "Actuador 1");
+            db.insertInfoRegistroActuador("Actuador 2"+String.valueOf(LocalDateTime.now()), LocalDateTime.now(), db.getActuadorOnOf("Actuador 2"), "Actuador 2");
+            db.insertInfoRegistroActuador("Actuador 3"+String.valueOf(LocalDateTime.now()), LocalDateTime.now(), db.getActuadorOnOf("Actuador 3"), "Actuador 3");
+            db.insertInfoRegistroActuador("Actuador 4"+String.valueOf(LocalDateTime.now()), LocalDateTime.now(), db.getActuadorOnOf("Actuador 4"), "Actuador 4");
+            db.insertInfoRegistroActuador("Actuador 5"+String.valueOf(LocalDateTime.now()), LocalDateTime.now(), db.getActuadorOnOf("Actuador 5"), "Actuador 5");
+            db.insertInfoRegistroActuador("Actuador 6"+String.valueOf(LocalDateTime.now()), LocalDateTime.now(), db.getActuadorOnOf("Actuador 6"), "Actuador 6");
+            db.insertInfoRegistroActuador("Actuador 7"+String.valueOf(LocalDateTime.now()), LocalDateTime.now(), db.getActuadorOnOf("Actuador 7"), "Actuador 7");
+        }
+
     /*   if(gui.EncesS1.isEnabled()==true){
             db.updateSensorOnOf("S", "Sensor 1");
         }
@@ -253,43 +285,43 @@ public class MainPantalles extends PApplet {
         }
 
 
-        if (db.getActuadorOnOf("Actuador 1")==2 && gui.valorActuals1<=Float.valueOf(db.getValMaxActuador("Actuador 1")) && Float.valueOf(db.getValMaxActuador("Actuador 1"))<= gui.valorActuals1) {
+        if (db.getActuadorOnOf("Actuador 1")==2 && db.getSensorOnOf("Sensor 1").equals("S") && gui.valorActuals1<=Float.valueOf(db.getValMaxActuador("Actuador 1")) && Float.valueOf(db.getValMinActuador("Actuador 1"))<= gui.valorActuals1) {
             gui.ActuadorMapa1.setEnces(true);
         } else{
             gui.ActuadorMapa1.setEnces(false);
         }
 
-        if (db.getActuadorOnOf("Actuador 2")==2 && gui.valorActuals2<=Float.valueOf(db.getValMaxActuador("Actuador 2")) && Float.valueOf(db.getValMaxActuador("Actuador 2"))<= gui.valorActuals2) {
+        if (db.getActuadorOnOf("Actuador 2")==2 && db.getSensorOnOf("Sensor 2").equals("S") && gui.valorActuals2<=Float.valueOf(db.getValMaxActuador("Actuador 2")) && Float.valueOf(db.getValMinActuador("Actuador 2"))<= gui.valorActuals2) {
             gui.ActuadorMapa2.setEnces(true);
         } else{
             gui.ActuadorMapa2.setEnces(false);
         }
 
-        if (db.getActuadorOnOf("Actuador 3")==2 && gui.valorActuals3<=Float.valueOf(db.getValMaxActuador("Actuador 3")) && Float.valueOf(db.getValMaxActuador("Actuador 3"))<= gui.valorActuals3) {
+        if (db.getActuadorOnOf("Actuador 3")==2 && db.getSensorOnOf("Sensor 3").equals("S") && gui.valorActuals3<=Float.valueOf(db.getValMaxActuador("Actuador 3")) && Float.valueOf(db.getValMinActuador("Actuador 3"))<= gui.valorActuals3) {
             gui.ActuadorMapa3.setEnces(true);
         } else{
             gui.ActuadorMapa3.setEnces(false);
         }
 
-        if (db.getActuadorOnOf("Actuador 4")==2 && gui.valorActuals4<=Float.valueOf(db.getValMaxActuador("Actuador 4")) && Float.valueOf(db.getValMaxActuador("Actuador 4"))<= gui.valorActuals4) {
+        if (db.getActuadorOnOf("Actuador 4")==2 && db.getSensorOnOf("Sensor 4").equals("S") && gui.valorActuals4<=Float.valueOf(db.getValMaxActuador("Actuador 4")) && Float.valueOf(db.getValMinActuador("Actuador 4"))<= gui.valorActuals4) {
             gui.ActuadorMapa4.setEnces(true);
         } else{
             gui.ActuadorMapa4.setEnces(false);
         }
 
-        if (db.getActuadorOnOf("Actuador 5")==2 && gui.valorActuals5<=Float.valueOf(db.getValMaxActuador("Actuador 5")) && Float.valueOf(db.getValMaxActuador("Actuador 5"))<= gui.valorActuals5) {
+        if (db.getActuadorOnOf("Actuador 5")==2 && db.getSensorOnOf("Sensor 5").equals("S") && gui.valorActuals5<=Float.valueOf(db.getValMaxActuador("Actuador 5")) && Float.valueOf(db.getValMinActuador("Actuador 5"))<= gui.valorActuals5) {
             gui.ActuadorMapa5.setEnces(true);
         } else{
             gui.ActuadorMapa5.setEnces(false);
         }
 
-        if (db.getActuadorOnOf("Actuador 6")==2 && gui.valorActuals6<=Float.valueOf(db.getValMaxActuador("Actuador 6")) && Float.valueOf(db.getValMaxActuador("Actuador 6"))<= gui.valorActuals6) {
+        if (db.getActuadorOnOf("Actuador 6")==2 && db.getSensorOnOf("Sensor 6").equals("S") && gui.valorActuals6<=Float.valueOf(db.getValMaxActuador("Actuador 6")) && Float.valueOf(db.getValMinActuador("Actuador 6"))<= gui.valorActuals6) {
             gui.ActuadorMapa6.setEnces(true);
         } else{
             gui.ActuadorMapa6.setEnces(false);
         }
 
-        if (db.getActuadorOnOf("Actuador 7")==2 && gui.valorActuals7<=Float.valueOf(db.getValMaxActuador("Actuador 7")) && Float.valueOf(db.getValMaxActuador("Actuador 7"))<= gui.valorActuals7) {
+        if (db.getActuadorOnOf("Actuador 7")==2 && db.getSensorOnOf("Sensor 7").equals("S") && gui.valorActuals7<=Float.valueOf(db.getValMaxActuador("Actuador 7")) && Float.valueOf(db.getValMinActuador("Actuador 7"))<= gui.valorActuals7) {
             gui.ActuadorMapa7.setEnces(true);
         } else{
             gui.ActuadorMapa7.setEnces(false);
@@ -376,7 +408,7 @@ public class MainPantalles extends PApplet {
         }
 
         if (key=='r'||key=='R'){
-            gui.valorActuals1 = this.random(2, 15);
+          /*gui.valorActuals1 = this.random(2, 15);
             gui.valorActuals2 = this.random(3, 15);
             gui.valorActuals3 = this.random(1, 15);
             gui.valorActuals4 = this.random(4, 15);
@@ -399,6 +431,7 @@ public class MainPantalles extends PApplet {
             db.insertInfoRegistroActuador("Actuador 5"+String.valueOf(LocalDateTime.now()), LocalDateTime.now(), db.getActuadorOnOf("Actuador 5"), "Actuador 5");
             db.insertInfoRegistroActuador("Actuador 6"+String.valueOf(LocalDateTime.now()), LocalDateTime.now(), db.getActuadorOnOf("Actuador 6"), "Actuador 6");
             db.insertInfoRegistroActuador("Actuador 7"+String.valueOf(LocalDateTime.now()), LocalDateTime.now(), db.getActuadorOnOf("Actuador 7"), "Actuador 7");
+            */
 
         }
 

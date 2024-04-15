@@ -70,7 +70,8 @@ public class BarsDiagram {
             if(this.values[i]>1){
                 p5.fill(0); p5.textAlign(p5.CENTER); p5.textSize(24);
                 p5.text("ON", percX, percY);
-            } else{ p5.fill(0); p5.textAlign(p5.CENTER); p5.textSize(24);
+            }
+            else{ p5.fill(0); p5.textAlign(p5.CENTER); p5.textSize(24);
                 p5.text("OFF", percX, percY);
             }
             p5.text(this.texts[i], textX, textY);
